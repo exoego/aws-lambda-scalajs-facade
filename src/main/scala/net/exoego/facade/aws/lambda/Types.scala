@@ -7,7 +7,7 @@ import scala.scalajs.js.|
 trait APIGatewayEventRequestContext extends js.Object {
   var accountId: String = js.native
   var apiId: String = js.native
-  var authorizer: js.UndefOr[AuthResponseContext | Null] = js.native
+  var authorizer: js.UndefOr[AuthResponseContext] = js.native
   var connectedAt: js.UndefOr[Double] = js.native
   var connectionId: js.UndefOr[String] = js.native
   var domainName: js.UndefOr[String] = js.native
@@ -168,11 +168,10 @@ trait CustomAuthorizerEvent extends js.Object {
   var httpMethod: js.UndefOr[String] = js.native
   var headers: js.UndefOr[js.Dictionary[String]] = js.native
   var multiValueHeaders: js.UndefOr[js.Dictionary[js.Array[String]]] = js.native
-  var pathParameters: js.UndefOr[js.Dictionary[String] | Null] = js.native
-  var queryStringParameters: js.UndefOr[js.Dictionary[String] | Null] =
-    js.native
+  var pathParameters: js.UndefOr[js.Dictionary[String]] = js.native
+  var queryStringParameters: js.UndefOr[js.Dictionary[String]] = js.native
   var multiValueQueryStringParameters
-      : js.UndefOr[js.Dictionary[js.Array[String]] | Null] = js.native
+      : js.UndefOr[js.Dictionary[js.Array[String]]] = js.native
   var stageVariables: js.UndefOr[js.Dictionary[String]] = js.native
   var requestContext: js.UndefOr[APIGatewayEventRequestContext] = js.native
   var domainName: js.UndefOr[String] = js.native
