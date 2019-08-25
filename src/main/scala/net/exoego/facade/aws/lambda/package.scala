@@ -20,6 +20,7 @@ package object lambda {
     Handler[CloudFormationCustomResourceEvent, Unit]
   type CloudFormationCustomResourceResponse =
     CloudFormationCustomResourceSuccessResponse | CloudFormationCustomResourceFailedResponse
+  type CloudFrontHeaders = js.Dictionary[js.Array[js.Any]]
   type CloudFrontOrigin = js.Any
   type CloudFrontRequestCallback = Callback[CloudFrontRequestResult]
   type CloudFrontRequestHandler =
@@ -49,6 +50,8 @@ package object lambda {
   type CognitoUserPoolEvent = CognitoUserPoolTriggerEvent
   type CognitoUserPoolTriggerHandler =
     Handler[CognitoUserPoolTriggerEvent, js.Any]
+  type ConditionBlock = js.Dictionary[Condition | js.Array[Condition]]
+  type Condition = js.Dictionary[String | js.Array[String]]
   type CustomAuthorizerCallback = Callback[CustomAuthorizerResult]
   type CustomAuthorizerHandler =
     Handler[CustomAuthorizerEvent, CustomAuthorizerResult]
@@ -60,12 +63,14 @@ package object lambda {
   type Handler[TEvent, TResult] =
     js.Function3[TEvent, Context, Callback[TResult], Unit | js.Promise[TResult]]
   type Headers = js.Dictionary[String]
+  type HeadersBDS = js.Dictionary[Boolean | Double | String]
   type KinesisStreamHandler = Handler[KinesisStreamEvent, Unit]
   type LexCallback = Callback[LexResult]
   type LexDialogAction =
     LexDialogActionClose | LexDialogActionElicitIntent | LexDialogActionElicitSlot | LexDialogActionConfirmIntent | LexDialogActionDelegate
   type LexHandler = Handler[LexEvent, LexResult]
   type MultiValueHeaders = js.Dictionary[js.Array[String]]
+  type MultiValueHeadersBDS = js.Dictionary[js.Array[Boolean | Double | String]]
   type PrincipalValue =
     js.Dictionary[String | js.Array[String]] | String | js.Array[String]
   type ProxyCallback = APIGatewayProxyCallback
@@ -75,8 +80,10 @@ package object lambda {
   type S3Handler = Handler[S3Event, Unit]
   type ScheduledHandler = Handler[ScheduledEvent, Unit]
   type SNSHandler = Handler[SNSEvent, Unit]
+  type SNSMessageAttributes = js.Dictionary[SNSMessageAttribute]
   type SQSHandler = Handler[SQSEvent, Unit]
   type SQSMessageAttributeDataType = String
+  type SQSMessageAttributes = js.Dictionary[SQSMessageAttribute]
   type Statement =
     BaseStatement with StatementAction with StatementResource | StatementPrincipal
   type StatementAction = js.Any
