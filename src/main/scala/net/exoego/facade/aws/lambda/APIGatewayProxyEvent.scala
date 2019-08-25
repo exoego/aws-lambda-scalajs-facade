@@ -1354,18 +1354,14 @@ object LexDialogActionBase {
 
 @js.native
 trait LexDialogActionClose extends LexDialogActionBase {
-  override var `type`: String = js.native
   var fulfillmentState: String = js.native
 }
 
 @js.native
-trait LexDialogActionElicitIntent extends LexDialogActionBase {
-  override var `type`: String = js.native
-}
+trait LexDialogActionElicitIntent extends LexDialogActionBase {}
 
 @js.native
 trait LexDialogActionElicitSlot extends LexDialogActionBase {
-  override var `type`: String = js.native
   var intentName: String = js.native
   var slots: LexDialogActionElicitSlot.Slots = js.native
   var slotToElicit: String = js.native
@@ -1386,7 +1382,6 @@ object LexDialogActionElicitSlot {
 
 @js.native
 trait LexDialogActionConfirmIntent extends LexDialogActionBase {
-  override var `type`: String = js.native
   var intentName: String = js.native
   var slots: LexDialogActionConfirmIntent.Slots = js.native
 }
