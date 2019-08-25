@@ -1,6 +1,5 @@
 package net.exoego.facade.aws.lambda
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSBracketAccess
 import scala.scalajs.js.|
 
 @js.native
@@ -66,26 +65,8 @@ trait APIGatewayProxyEvent extends js.Object {
 }
 
 object APIGatewayProxyEvent {
-
-  @js.native
-  trait Headers extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueHeaders extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): js.Array[String] = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: js.Array[String]): Unit = js.native
-  }
+  type Headers = js.Dictionary[String]
+  type MultiValueHeaders = js.Dictionary[js.Array[String]]
 }
 
 @js.native
@@ -116,46 +97,10 @@ trait ALBEvent extends js.Object {
 }
 
 object ALBEvent {
-
-  @js.native
-  trait QueryStringParameters extends js.Object {
-
-    @JSBracketAccess
-    def apply(parameter: String): String = js.native
-
-    @JSBracketAccess
-    def update(parameter: String, v: String): Unit = js.native
-  }
-
-  @js.native
-  trait Headers extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): String = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: String): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueQueryStringParameters extends js.Object {
-
-    @JSBracketAccess
-    def apply(parameter: String): js.Array[String] = js.native
-
-    @JSBracketAccess
-    def update(parameter: String, v: js.Array[String]): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueHeaders extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): js.Array[String] = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: js.Array[String]): Unit = js.native
-  }
+  type QueryStringParameters = js.Dictionary[String]
+  type Headers = js.Dictionary[String]
+  type MultiValueQueryStringParameters = js.Dictionary[js.Array[String]]
+  type MultiValueHeaders = js.Dictionary[js.Array[String]]
 }
 
 @js.native
@@ -179,36 +124,9 @@ trait CustomAuthorizerEvent extends js.Object {
 }
 
 object CustomAuthorizerEvent {
-
-  @js.native
-  trait Headers extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueHeaders extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): js.Array[String] = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: js.Array[String]): Unit = js.native
-  }
-
-  @js.native
-  trait StageVariables extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String): Unit = js.native
-  }
+  type Headers = js.Dictionary[String]
+  type MultiValueHeaders = js.Dictionary[String]
+  type StageVariables = js.Dictionary[String]
 }
 
 @js.native
@@ -226,16 +144,7 @@ trait AttributeValue extends js.Object {
 }
 
 object AttributeValue {
-
-  @js.native
-  trait M extends js.Object {
-
-    @JSBracketAccess
-    def apply(id: String): AttributeValue = js.native
-
-    @JSBracketAccess
-    def update(id: String, v: AttributeValue): Unit = js.native
-  }
+  type M = js.Dictionary[AttributeValue]
 }
 
 @js.native
@@ -250,36 +159,9 @@ trait StreamRecord extends js.Object {
 }
 
 object StreamRecord {
-
-  @js.native
-  trait Keys extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): AttributeValue = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: AttributeValue): Unit = js.native
-  }
-
-  @js.native
-  trait NewImage extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): AttributeValue = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: AttributeValue): Unit = js.native
-  }
-
-  @js.native
-  trait OldImage extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): AttributeValue = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: AttributeValue): Unit = js.native
-  }
+  type Keys = js.Dictionary[AttributeValue]
+  type NewImage = js.Dictionary[AttributeValue]
+  type OldImage = js.Dictionary[AttributeValue]
 }
 
 @js.native
@@ -303,16 +185,6 @@ trait DynamoDBStreamEvent extends js.Object {
 trait SNSMessageAttribute extends js.Object {
   var Type: String = js.native
   var Value: String = js.native
-}
-
-@js.native
-trait SNSMessageAttributes extends js.Object {
-
-  @JSBracketAccess
-  def apply(name: String): SNSMessageAttribute = js.native
-
-  @JSBracketAccess
-  def update(name: String, v: SNSMessageAttribute): Unit = js.native
 }
 
 @js.native
@@ -452,36 +324,9 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Request {
-
-    @js.native
-    trait UserAttributes extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
-
-    @js.native
-    trait ValidationData extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
-
-    @js.native
-    trait PrivateChallengeParameters extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
+    type UserAttributes = js.Dictionary[String]
+    type ValidationData = js.Dictionary[String]
+    type PrivateChallengeParameters = js.Dictionary[String]
   }
 
   @js.native
@@ -509,36 +354,9 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Response {
-
-    @js.native
-    trait PublicChallengeParameters extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
-
-    @js.native
-    trait PrivateChallengeParameters extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
-
-    @js.native
-    trait UserAttributes extends js.Object {
-
-      @JSBracketAccess
-      def apply(key: String): String = js.native
-
-      @JSBracketAccess
-      def update(key: String, v: String): Unit = js.native
-    }
+    type PublicChallengeParameters = js.Dictionary[String]
+    type PrivateChallengeParameters = js.Dictionary[String]
+    type UserAttributes = js.Dictionary[String]
 
     @js.native
     trait ClaimsOverrideDetails extends js.Object {
@@ -550,16 +368,7 @@ object CognitoUserPoolTriggerEvent {
     }
 
     object ClaimsOverrideDetails {
-
-      @js.native
-      trait ClaimsToAddOrOverride extends js.Object {
-
-        @JSBracketAccess
-        def apply(key: String): String = js.native
-
-        @JSBracketAccess
-        def update(key: String, v: String): Unit = js.native
-      }
+      type ClaimsToAddOrOverride = js.Dictionary[String]
     }
   }
 }
@@ -578,17 +387,7 @@ trait CloudFormationCustomResourceEventCommon extends js.Object {
 }
 
 object CloudFormationCustomResourceEventCommon {
-
-  @js.native
-  trait ResourceProperties extends js.Object {
-    var ServiceToken: String = js.native
-
-    @JSBracketAccess
-    def apply(Key: String): js.Any = js.native
-
-    @JSBracketAccess
-    def update(Key: String, v: js.Any): Unit = js.native
-  }
+  type ResourceProperties = js.Dictionary[js.Any]
 }
 
 @js.native
@@ -609,16 +408,7 @@ trait CloudFormationCustomResourceUpdateEvent
 }
 
 object CloudFormationCustomResourceUpdateEvent {
-
-  @js.native
-  trait OldResourceProperties extends js.Object {
-
-    @JSBracketAccess
-    def apply(Key: String): js.Any = js.native
-
-    @JSBracketAccess
-    def update(Key: String, v: js.Any): Unit = js.native
-  }
+  type OldResourceProperties = js.Dictionary[js.Any]
 }
 
 @js.native
@@ -638,16 +428,7 @@ trait CloudFormationCustomResourceResponseCommon extends js.Object {
 }
 
 object CloudFormationCustomResourceResponseCommon {
-
-  @js.native
-  trait Data extends js.Object {
-
-    @JSBracketAccess
-    def apply(Key: String): js.Any = js.native
-
-    @JSBracketAccess
-    def update(Key: String, v: js.Any): Unit = js.native
-  }
+  type Data = js.Dictionary[js.Any]
 }
 
 @js.native
@@ -705,16 +486,7 @@ trait CloudWatchLogsLogEvent extends js.Object {
 }
 
 object CloudWatchLogsLogEvent {
-
-  @js.native
-  trait ExtractedFields extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): String = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: String): Unit = js.native
-  }
+  type ExtractedFields = js.Dictionary[String]
 }
 
 @js.native
@@ -771,36 +543,16 @@ trait ClientContextEnv extends js.Object {
 @js.native
 trait APIGatewayProxyResult extends js.Object {
   var statusCode: Double = js.native
-  var headers: js.UndefOr[js.Dictionary[Boolean | Double | String]] = js.native
-  var multiValueHeaders
-      : js.UndefOr[js.Dictionary[js.Array[Boolean | Double | String]]] =
+  var headers: js.UndefOr[APIGatewayProxyResult.Headers] = js.native
+  var multiValueHeaders: js.UndefOr[APIGatewayProxyResult.MultiValueHeaders] =
     js.native
   var body: String = js.native
   var isBase64Encoded: js.UndefOr[Boolean] = js.native
 }
 
 object APIGatewayProxyResult {
-
-  @js.native
-  trait Headers extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): Boolean | Double | String = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: Boolean | Double | String): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueHeaders extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): js.Array[Boolean | Double | String] = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: js.Array[Boolean | Double | String]): Unit =
-      js.native
-  }
+  type Headers = HeadersBDS
+  type MultiValueHeaders = MultiValueHeadersBDS
 }
 
 @js.native
@@ -816,27 +568,8 @@ trait ALBResult extends js.Object {
 }
 
 object ALBResult {
-
-  @js.native
-  trait Headers extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): Boolean | Double | String = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: Boolean | Double | String): Unit = js.native
-  }
-
-  @js.native
-  trait MultiValueHeaders extends js.Object {
-
-    @JSBracketAccess
-    def apply(header: String): js.Array[Boolean | Double | String] = js.native
-
-    @JSBracketAccess
-    def update(header: String, v: js.Array[Boolean | Double | String]): Unit =
-      js.native
-  }
+  type Headers = HeadersBDS
+  type MultiValueHeaders = MultiValueHeadersBDS
 }
 
 @js.native
@@ -852,27 +585,6 @@ trait PolicyDocument extends js.Object {
   var Version: String = js.native
   var Id: js.UndefOr[String] = js.native
   var Statement: js.Array[Statement] = js.native
-}
-
-@js.native
-trait ConditionBlock extends js.Object {
-
-  @JSBracketAccess
-  def apply(condition: String): Condition | js.Array[Condition] = js.native
-
-  @JSBracketAccess
-  def update(condition: String, v: Condition | js.Array[Condition]): Unit =
-    js.native
-}
-
-@js.native
-trait Condition extends js.Object {
-
-  @JSBracketAccess
-  def apply(key: String): String | js.Array[String] = js.native
-
-  @JSBracketAccess
-  def update(key: String, v: String | js.Array[String]): Unit = js.native
 }
 
 @js.native
@@ -1059,16 +771,6 @@ object CodePipelineCloudWatchActionEvent {
 }
 
 @js.native
-trait CloudFrontHeaders extends js.Object {
-
-  @JSBracketAccess
-  def apply(name: String): js.Array[js.Any] = js.native
-
-  @JSBracketAccess
-  def update(name: String, v: js.Array[js.Any]): Unit = js.native
-}
-
-@js.native
 trait CloudFrontCustomOrigin extends js.Object {
   var customHeaders: CloudFrontHeaders = js.native
   var domainName: String = js.native
@@ -1240,16 +942,6 @@ trait SQSMessageAttribute extends js.Object {
 }
 
 @js.native
-trait SQSMessageAttributes extends js.Object {
-
-  @JSBracketAccess
-  def apply(name: String): SQSMessageAttribute = js.native
-
-  @JSBracketAccess
-  def update(name: String, v: SQSMessageAttribute): Unit = js.native
-}
-
-@js.native
 trait LexEvent extends js.Object {
   var currentIntent: LexEvent.CurrentIntent = js.native
   var bot: LexEvent.Bot = js.native
@@ -1273,16 +965,7 @@ object LexEvent {
   }
 
   object CurrentIntent {
-
-    @js.native
-    trait Slots extends js.Object {
-
-      @JSBracketAccess
-      def apply(name: String): String | Null = js.native
-
-      @JSBracketAccess
-      def update(name: String, v: String | Null): Unit = js.native
-    }
+    type Slots = js.Dictionary[String]
   }
 
   @js.native
@@ -1292,30 +975,13 @@ object LexEvent {
     var version: String = js.native
   }
 
-  @js.native
-  trait SessionAttributes extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): String = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: String): Unit = js.native
-  }
+  type SessionAttributes = js.Dictionary[String]
+  type LexSlotDetails = js.Dictionary[js.Any]
 }
 
 @js.native
 trait LexSlotResolution extends js.Object {
   var value: String = js.native
-}
-
-@js.native
-trait LexSlotDetails extends js.Object {
-
-  @JSBracketAccess
-  def apply(name: String): js.Any = js.native
-
-  @JSBracketAccess
-  def update(name: String, v: js.Any): Unit = js.native
 }
 
 @js.native
@@ -1366,16 +1032,7 @@ trait LexDialogActionElicitSlot extends LexDialogActionBase {
 }
 
 object LexDialogActionElicitSlot {
-
-  @js.native
-  trait Slots extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String | Null = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String | Null): Unit = js.native
-  }
+  type Slots = js.Dictionary[String]
 }
 
 @js.native
@@ -1385,16 +1042,7 @@ trait LexDialogActionConfirmIntent extends LexDialogActionBase {
 }
 
 object LexDialogActionConfirmIntent {
-
-  @js.native
-  trait Slots extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String | Null = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String | Null): Unit = js.native
-  }
+  type Slots = js.Dictionary[String]
 }
 
 @js.native
@@ -1404,33 +1052,15 @@ trait LexDialogActionDelegate extends js.Object {
 }
 
 object LexDialogActionDelegate {
-
-  @js.native
-  trait Slots extends js.Object {
-
-    @JSBracketAccess
-    def apply(name: String): String | Null = js.native
-
-    @JSBracketAccess
-    def update(name: String, v: String | Null): Unit = js.native
-  }
+  type Slots = js.Dictionary[String]
 }
 
 @js.native
 trait LexResult extends js.Object {
-  var sessionAttributes: js.UndefOr[js.Dictionary[String]] = js.native
+  var sessionAttributes: js.UndefOr[LexResult.SessionAttributes] = js.native
   var dialogAction: LexDialogAction = js.native
 }
 
 object LexResult {
-
-  @js.native
-  trait SessionAttributes extends js.Object {
-
-    @JSBracketAccess
-    def apply(key: String): String = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: String): Unit = js.native
-  }
+  type SessionAttributes = js.Dictionary[String]
 }
