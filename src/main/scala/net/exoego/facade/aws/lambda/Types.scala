@@ -660,7 +660,7 @@ object CodePipelineEvent {
       var inputArtifacts: js.Array[Artifact] = js.native
       var outputArtifacts: js.Array[Artifact] = js.native
       var artifactCredentials: Credentials = js.native
-      var encryptionKey: js.UndefOr[EncryptionKey with js.Any] = js.native
+      var encryptionKey: js.UndefOr[EncryptionKey] = js.native
       var continuationToken: js.UndefOr[String] = js.native
     }
 
