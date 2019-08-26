@@ -1277,7 +1277,7 @@ object CloudFormationCustomResourceFailedResponse {
 trait ScheduledEvent extends js.Object {
   var account: String = js.native
   var region: String = js.native
-  var detail: js.Any = js.native
+  var detail: js.Dictionary[js.Any] = js.native
   var `detail-type`: String = js.native
   var source: String = js.native
   var time: String = js.native
@@ -1290,7 +1290,7 @@ object ScheduledEvent {
   def apply(
       account: String,
       region: String,
-      detail: js.Any,
+      detail: js.Dictionary[js.Any],
       `detail-type`: String,
       source: String,
       time: String,
