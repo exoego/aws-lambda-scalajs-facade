@@ -1,9 +1,9 @@
-package net.exoego.facade.aws
+package net.exoego.facade
 
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-package object lambda {
+package object aws_lambda {
   type ALBCallback = Callback[ALBResult]
   type ALBHandler = Handler[ALBEvent, ALBResult]
   type APIGatewayEvent = APIGatewayProxyEvent
