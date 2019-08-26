@@ -391,51 +391,6 @@ object CustomAuthorizerEvent {
 }
 
 @js.native
-trait AttributeValue extends js.Object {
-  var B: js.UndefOr[String] = js.native
-  var BS: js.UndefOr[js.Array[String]] = js.native
-  var BOOL: js.UndefOr[Boolean] = js.native
-  var L: js.UndefOr[js.Array[AttributeValue]] = js.native
-  var M: js.UndefOr[AttributeValue.M] = js.native
-  var N: js.UndefOr[String] = js.native
-  var NS: js.UndefOr[js.Array[String]] = js.native
-  var NULL: js.UndefOr[Boolean] = js.native
-  var S: js.UndefOr[String] = js.native
-  var SS: js.UndefOr[js.Array[String]] = js.native
-}
-
-object AttributeValue {
-
-  def apply(
-      B: js.UndefOr[String] = js.undefined,
-      BS: js.UndefOr[js.Array[String]] = js.undefined,
-      BOOL: js.UndefOr[Boolean] = js.undefined,
-      L: js.UndefOr[js.Array[AttributeValue]] = js.undefined,
-      M: js.UndefOr[AttributeValue.M] = js.undefined,
-      N: js.UndefOr[String] = js.undefined,
-      NS: js.UndefOr[js.Array[String]] = js.undefined,
-      NULL: js.UndefOr[Boolean] = js.undefined,
-      S: js.UndefOr[String] = js.undefined,
-      SS: js.UndefOr[js.Array[String]] = js.undefined
-  ): AttributeValue = {
-    val _obj$ = js.Dictionary[js.Any](
-      )
-    B.foreach(_v => _obj$.update("B", _v.asInstanceOf[js.Any]))
-    BS.foreach(_v => _obj$.update("BS", _v.asInstanceOf[js.Any]))
-    BOOL.foreach(_v => _obj$.update("BOOL", _v.asInstanceOf[js.Any]))
-    L.foreach(_v => _obj$.update("L", _v.asInstanceOf[js.Any]))
-    M.foreach(_v => _obj$.update("M", _v.asInstanceOf[js.Any]))
-    N.foreach(_v => _obj$.update("N", _v.asInstanceOf[js.Any]))
-    NS.foreach(_v => _obj$.update("NS", _v.asInstanceOf[js.Any]))
-    NULL.foreach(_v => _obj$.update("NULL", _v.asInstanceOf[js.Any]))
-    S.foreach(_v => _obj$.update("S", _v.asInstanceOf[js.Any]))
-    SS.foreach(_v => _obj$.update("SS", _v.asInstanceOf[js.Any]))
-    _obj$.asInstanceOf[AttributeValue]
-  }
-  type M = js.Dictionary[AttributeValue]
-}
-
-@js.native
 trait StreamRecord extends js.Object {
   var ApproximateCreationDateTime: js.UndefOr[Double] = js.native
   var Keys: js.UndefOr[StreamRecord.Keys] = js.native

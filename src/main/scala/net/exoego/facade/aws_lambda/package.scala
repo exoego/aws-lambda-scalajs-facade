@@ -11,6 +11,7 @@ package object aws_lambda {
   type APIGatewayProxyHandler =
     Handler[APIGatewayProxyEvent, APIGatewayProxyResult]
   type ArtifactLocation = S3ArtifactStore
+  type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
   type AuthResponse = CustomAuthorizerResult
   type Callback[TResult] =
     js.Function2[js.UndefOr[Error | String], TResult, Unit]
