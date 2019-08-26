@@ -330,11 +330,13 @@ object CustomAuthorizerEvent {
       headers: js.UndefOr[CustomAuthorizerEvent.Headers] = js.undefined,
       multiValueHeaders: js.UndefOr[CustomAuthorizerEvent.MultiValueHeaders] =
         js.undefined,
-      pathParameters: js.UndefOr[js.Dictionary[String] | Null] = js.undefined,
-      queryStringParameters: js.UndefOr[js.Dictionary[String] | Null] =
+      pathParameters: js.UndefOr[CustomAuthorizerEvent.PathParameters] =
         js.undefined,
+      queryStringParameters: js.UndefOr[
+        CustomAuthorizerEvent.QueryStringParameters
+      ] = js.undefined,
       multiValueQueryStringParameters: js.UndefOr[
-        js.Dictionary[js.Array[String]] | Null
+        CustomAuthorizerEvent.MultiValueQueryStringParameters
       ] = js.undefined,
       stageVariables: js.UndefOr[CustomAuthorizerEvent.StageVariables] =
         js.undefined,
@@ -383,6 +385,9 @@ object CustomAuthorizerEvent {
   type Headers = js.Dictionary[String]
   type MultiValueHeaders = js.Dictionary[String]
   type StageVariables = js.Dictionary[String]
+  type PathParameters = js.Dictionary[String]
+  type QueryStringParameters = js.Dictionary[String]
+  type MultiValueQueryStringParameters = js.Dictionary[js.Array[String]]
 }
 
 @js.native
