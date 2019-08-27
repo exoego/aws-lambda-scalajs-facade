@@ -1,9 +1,9 @@
-package net.exoego.facade.aws
+package net.exoego.facade
 
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-package object lambda {
+package object aws_lambda {
   type ALBCallback = Callback[ALBResult]
   type ALBHandler = Handler[ALBEvent, ALBResult]
   type APIGatewayEvent = APIGatewayProxyEvent
@@ -11,6 +11,7 @@ package object lambda {
   type APIGatewayProxyHandler =
     Handler[APIGatewayProxyEvent, APIGatewayProxyResult]
   type ArtifactLocation = S3ArtifactStore
+  type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
   type AuthResponse = CustomAuthorizerResult
   type Callback[TResult] =
     js.Function2[js.UndefOr[Error | String], TResult, Unit]

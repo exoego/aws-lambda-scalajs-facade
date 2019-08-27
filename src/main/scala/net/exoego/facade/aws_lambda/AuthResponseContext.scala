@@ -1,4 +1,4 @@
-package net.exoego.facade.aws.lambda
+package net.exoego.facade.aws_lambda
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
