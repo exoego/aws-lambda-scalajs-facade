@@ -30,7 +30,7 @@ publishTo in ThisBuild := Some(
 )
 publishMavenStyle := true
 publishArtifact in Test := false
-publishArtifact in (Compile, packageDoc) := false
+publishArtifact in (Compile, packageDoc) := true
 publishArtifact in (Compile, packageSrc) := true
 pomIncludeRepository := { _ =>
   false
@@ -42,11 +42,11 @@ releasePublishArtifactsAction := PgpKeys.publishSigned.value
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
+  runClean,
   runTest,
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  runClean,
   releaseStepCommandAndRemaining("+publishSigned"),
   releaseStepCommand("sonatypeReleaseAll"),
   setNextVersion,
