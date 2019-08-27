@@ -7,7 +7,23 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 
 ## How to use
 
-TODO
+Add dependency in `build.sbt`.
+
+```sbt
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.2.0"
+```
+
+Import and code.
+
+```scala
+
+import net.exoego.facade.aws_lambda._
+
+object MyFirstLambda extends APIGatewayProxyHandler {
+  override def apply(arg1: APIGatewayEvent, arg2: Context, arg3: Callback[ProxyResult]): Unit | Promise[APIGatewayProxyResult]
+    = ???
+}
+```
 
 
 ## License
