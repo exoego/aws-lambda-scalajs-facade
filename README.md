@@ -19,7 +19,7 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 -   :construction: Not supported but planned
 
 
-## How to use\
+## How to use
 
 Add dependency in `build.sbt`.
 
