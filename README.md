@@ -10,7 +10,7 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 
 |            |   ScalaJS 0.6.28+              |   ScalaJS 1.x  |
 | ---------- | :----------------------------: | :------------: |
-| Scala 2.13 | :heavy_check_mark: from 0.22.0 | :construction: |
+| Scala 2.13 | :heavy_check_mark: | :construction: |
 | Scala 2.12 | :heavy_check_mark:             | :construction: |
 | Scala 2.11 |         N/A                    |       N/A      |
 | Scala 2.10 |         N/A                    |       N/A      |
