@@ -6,7 +6,7 @@ import scala.scalajs.js.|
 trait APIGatewayEventRequestContext extends js.Object {
   var accountId: String = js.native
   var apiId: String = js.native
-  var authorizer: js.UndefOr[AuthResponseContext] = js.native
+  var authorizer: js.UndefOr[AuthResponseContext | Null] = js.native
   var connectedAt: js.UndefOr[Double] = js.native
   var connectionId: js.UndefOr[String] = js.native
   var domainName: js.UndefOr[String] = js.native
@@ -16,7 +16,7 @@ trait APIGatewayEventRequestContext extends js.Object {
   var httpMethod: String = js.native
   var identity: APIGatewayEventRequestContext.Identity = js.native
   var messageDirection: js.UndefOr[String] = js.native
-  var messageId: js.UndefOr[String] = js.native
+  var messageId: js.UndefOr[String | Null] = js.native
   var path: String = js.native
   var stage: String = js.native
   var requestId: String = js.native
@@ -1420,8 +1420,7 @@ trait Context extends js.Object {
   var identity: js.UndefOr[CognitoIdentity] = js.native
   var clientContext: js.UndefOr[ClientContext] = js.native
   def getRemainingTimeInMillis(): Double = js.native
-  def done(error: js.UndefOr[Error], result: js.UndefOr[js.Any]): Unit =
-    js.native
+  def done(error: Error = ???, result: js.Any = ???): Unit = js.native
   def fail(error: Error | String): Unit = js.native
   def succeed(messageOrObject: js.Any): Unit = js.native
   def succeed(message: String, `object`: js.Any): Unit = js.native
