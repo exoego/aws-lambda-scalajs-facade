@@ -1426,39 +1426,6 @@ trait Context extends js.Object {
   def succeed(message: String, `object`: js.Any): Unit = js.native
 }
 
-object Context {
-
-  def apply(
-      callbackWaitsForEmptyEventLoop: Boolean,
-      functionName: String,
-      functionVersion: String,
-      invokedFunctionArn: String,
-      memoryLimitInMB: Double,
-      awsRequestId: String,
-      logGroupName: String,
-      logStreamName: String,
-      identity: js.UndefOr[CognitoIdentity] = js.undefined,
-      clientContext: js.UndefOr[ClientContext] = js.undefined
-  ): Context = {
-    val _obj$ = js.Dictionary[js.Any](
-      "callbackWaitsForEmptyEventLoop" -> callbackWaitsForEmptyEventLoop
-        .asInstanceOf[js.Any],
-      "functionName" -> functionName.asInstanceOf[js.Any],
-      "functionVersion" -> functionVersion.asInstanceOf[js.Any],
-      "invokedFunctionArn" -> invokedFunctionArn.asInstanceOf[js.Any],
-      "memoryLimitInMB" -> memoryLimitInMB.asInstanceOf[js.Any],
-      "awsRequestId" -> awsRequestId.asInstanceOf[js.Any],
-      "logGroupName" -> logGroupName.asInstanceOf[js.Any],
-      "logStreamName" -> logStreamName.asInstanceOf[js.Any]
-    )
-    identity.foreach(_v => _obj$.update("identity", _v.asInstanceOf[js.Any]))
-    clientContext.foreach(
-      _v => _obj$.update("clientContext", _v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[Context]
-  }
-}
-
 @js.native
 trait CognitoIdentity extends js.Object {
   var cognitoIdentityId: String = js.native
