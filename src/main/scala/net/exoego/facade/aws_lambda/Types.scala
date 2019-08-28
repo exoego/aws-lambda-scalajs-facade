@@ -6,7 +6,7 @@ import scala.scalajs.js.|
 trait APIGatewayEventRequestContext extends js.Object {
   var accountId: String = js.native
   var apiId: String = js.native
-  var authorizer: js.UndefOr[AuthResponseContext] = js.native
+  var authorizer: js.UndefOr[AuthResponseContext | Null] = js.native
   var connectedAt: js.UndefOr[Double] = js.native
   var connectionId: js.UndefOr[String] = js.native
   var domainName: js.UndefOr[String] = js.native
@@ -16,7 +16,7 @@ trait APIGatewayEventRequestContext extends js.Object {
   var httpMethod: String = js.native
   var identity: APIGatewayEventRequestContext.Identity = js.native
   var messageDirection: js.UndefOr[String] = js.native
-  var messageId: js.UndefOr[String] = js.native
+  var messageId: js.UndefOr[String | Null] = js.native
   var path: String = js.native
   var stage: String = js.native
   var requestId: String = js.native
@@ -114,19 +114,19 @@ object APIGatewayEventRequestContext {
   object Identity {
 
     def apply(
-        accessKey: String | Null,
-        accountId: String | Null,
-        apiKey: String | Null,
-        apiKeyId: String | Null,
-        caller: String | Null,
-        cognitoAuthenticationProvider: String | Null,
-        cognitoAuthenticationType: String | Null,
-        cognitoIdentityId: String | Null,
-        cognitoIdentityPoolId: String | Null,
         sourceIp: String,
-        user: String | Null,
-        userAgent: String | Null,
-        userArn: String | Null
+        accessKey: String | Null = null,
+        accountId: String | Null = null,
+        apiKey: String | Null = null,
+        apiKeyId: String | Null = null,
+        caller: String | Null = null,
+        cognitoAuthenticationProvider: String | Null = null,
+        cognitoAuthenticationType: String | Null = null,
+        cognitoIdentityId: String | Null = null,
+        cognitoIdentityPoolId: String | Null = null,
+        user: String | Null = null,
+        userAgent: String | Null = null,
+        userArn: String | Null = null
     ): Identity = {
       val _obj$ = js.Dictionary[js.Any](
         "accessKey" -> accessKey.asInstanceOf[js.Any],
@@ -170,18 +170,19 @@ trait APIGatewayProxyEvent extends js.Object {
 object APIGatewayProxyEvent {
 
   def apply(
-      body: String | Null,
       headers: APIGatewayProxyEvent.Headers,
       multiValueHeaders: APIGatewayProxyEvent.MultiValueHeaders,
       httpMethod: String,
       isBase64Encoded: Boolean,
       path: String,
-      pathParameters: js.Dictionary[String] | Null,
-      queryStringParameters: js.Dictionary[String] | Null,
-      multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null,
-      stageVariables: js.Dictionary[String] | Null,
       requestContext: APIGatewayEventRequestContext,
-      resource: String
+      resource: String,
+      body: String | Null = null,
+      pathParameters: js.Dictionary[String] | Null = null,
+      queryStringParameters: js.Dictionary[String] | Null = null,
+      multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null =
+        null,
+      stageVariables: js.Dictionary[String] | Null = null
   ): APIGatewayProxyEvent = {
     val _obj$ = js.Dictionary[js.Any](
       "body" -> body.asInstanceOf[js.Any],
@@ -259,8 +260,8 @@ object ALBEvent {
       requestContext: ALBEventRequestContext,
       httpMethod: String,
       path: String,
-      body: String | Null,
       isBase64Encoded: Boolean,
+      body: String | Null = null,
       queryStringParameters: js.UndefOr[ALBEvent.QueryStringParameters] =
         js.undefined,
       headers: js.UndefOr[ALBEvent.Headers] = js.undefined,
@@ -330,13 +331,11 @@ object CustomAuthorizerEvent {
       headers: js.UndefOr[CustomAuthorizerEvent.Headers] = js.undefined,
       multiValueHeaders: js.UndefOr[CustomAuthorizerEvent.MultiValueHeaders] =
         js.undefined,
-      pathParameters: js.UndefOr[CustomAuthorizerEvent.PathParameters] =
+      pathParameters: js.UndefOr[js.Dictionary[String] | Null] = js.undefined,
+      queryStringParameters: js.UndefOr[js.Dictionary[String] | Null] =
         js.undefined,
-      queryStringParameters: js.UndefOr[
-        CustomAuthorizerEvent.QueryStringParameters
-      ] = js.undefined,
       multiValueQueryStringParameters: js.UndefOr[
-        CustomAuthorizerEvent.MultiValueQueryStringParameters
+        js.Dictionary[js.Array[String]] | Null
       ] = js.undefined,
       stageVariables: js.UndefOr[CustomAuthorizerEvent.StageVariables] =
         js.undefined,
@@ -1421,44 +1420,10 @@ trait Context extends js.Object {
   var identity: js.UndefOr[CognitoIdentity] = js.native
   var clientContext: js.UndefOr[ClientContext] = js.native
   def getRemainingTimeInMillis(): Double = js.native
-  def done(error: js.UndefOr[Error], result: js.UndefOr[js.Any]): Unit =
-    js.native
+  def done(error: Error = ???, result: js.Any = ???): Unit = js.native
   def fail(error: Error | String): Unit = js.native
   def succeed(messageOrObject: js.Any): Unit = js.native
   def succeed(message: String, `object`: js.Any): Unit = js.native
-}
-
-object Context {
-
-  def apply(
-      callbackWaitsForEmptyEventLoop: Boolean,
-      functionName: String,
-      functionVersion: String,
-      invokedFunctionArn: String,
-      memoryLimitInMB: Double,
-      awsRequestId: String,
-      logGroupName: String,
-      logStreamName: String,
-      identity: js.UndefOr[CognitoIdentity] = js.undefined,
-      clientContext: js.UndefOr[ClientContext] = js.undefined
-  ): Context = {
-    val _obj$ = js.Dictionary[js.Any](
-      "callbackWaitsForEmptyEventLoop" -> callbackWaitsForEmptyEventLoop
-        .asInstanceOf[js.Any],
-      "functionName" -> functionName.asInstanceOf[js.Any],
-      "functionVersion" -> functionVersion.asInstanceOf[js.Any],
-      "invokedFunctionArn" -> invokedFunctionArn.asInstanceOf[js.Any],
-      "memoryLimitInMB" -> memoryLimitInMB.asInstanceOf[js.Any],
-      "awsRequestId" -> awsRequestId.asInstanceOf[js.Any],
-      "logGroupName" -> logGroupName.asInstanceOf[js.Any],
-      "logStreamName" -> logStreamName.asInstanceOf[js.Any]
-    )
-    identity.foreach(_v => _obj$.update("identity", _v.asInstanceOf[js.Any]))
-    clientContext.foreach(
-      _v => _obj$.update("clientContext", _v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[Context]
-  }
 }
 
 @js.native
@@ -1805,8 +1770,8 @@ object Artifact {
 
   def apply(
       name: String,
-      revision: String | Null,
-      location: ArtifactLocation
+      location: ArtifactLocation,
+      revision: String | Null = null
   ): Artifact = {
     val _obj$ = js.Dictionary[js.Any](
       "name" -> name.asInstanceOf[js.Any],
@@ -2798,7 +2763,7 @@ object LexEvent {
       outputDialogMode: String,
       messageVersion: String,
       sessionAttributes: LexEvent.SessionAttributes,
-      requestAttributes: js.Dictionary[String] | Null
+      requestAttributes: js.Dictionary[String] | Null = null
   ): LexEvent = {
     val _obj$ = js.Dictionary[js.Any](
       "currentIntent" -> currentIntent.asInstanceOf[js.Any],
