@@ -52,7 +52,7 @@ object APIGatewayEventRequestContext {
       requestTime: js.UndefOr[String] = js.undefined,
       routeKey: js.UndefOr[String] = js.undefined
   ): APIGatewayEventRequestContext = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "accountId" -> accountId.asInstanceOf[js.Any],
       "apiId" -> apiId.asInstanceOf[js.Any],
       "httpMethod" -> httpMethod.asInstanceOf[js.Any],
@@ -65,32 +65,38 @@ object APIGatewayEventRequestContext {
       "resourcePath" -> resourcePath.asInstanceOf[js.Any]
     )
     authorizer.foreach(
-      _v => _obj$.update("authorizer", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("authorizer")(_v.asInstanceOf[js.Any])
     )
     connectedAt.foreach(
-      _v => _obj$.update("connectedAt", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("connectedAt")(_v.asInstanceOf[js.Any])
     )
     connectionId.foreach(
-      _v => _obj$.update("connectionId", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("connectionId")(_v.asInstanceOf[js.Any])
     )
     domainName.foreach(
-      _v => _obj$.update("domainName", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
     )
     domainPrefix.foreach(
-      _v => _obj$.update("domainPrefix", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("domainPrefix")(_v.asInstanceOf[js.Any])
     )
-    eventType.foreach(_v => _obj$.update("eventType", _v.asInstanceOf[js.Any]))
+    eventType.foreach(
+      _v => _obj$.updateDynamic("eventType")(_v.asInstanceOf[js.Any])
+    )
     extendedRequestId.foreach(
-      _v => _obj$.update("extendedRequestId", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("extendedRequestId")(_v.asInstanceOf[js.Any])
     )
     messageDirection.foreach(
-      _v => _obj$.update("messageDirection", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("messageDirection")(_v.asInstanceOf[js.Any])
     )
-    messageId.foreach(_v => _obj$.update("messageId", _v.asInstanceOf[js.Any]))
+    messageId.foreach(
+      _v => _obj$.updateDynamic("messageId")(_v.asInstanceOf[js.Any])
+    )
     requestTime.foreach(
-      _v => _obj$.update("requestTime", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("requestTime")(_v.asInstanceOf[js.Any])
     )
-    routeKey.foreach(_v => _obj$.update("routeKey", _v.asInstanceOf[js.Any]))
+    routeKey.foreach(
+      _v => _obj$.updateDynamic("routeKey")(_v.asInstanceOf[js.Any])
+    )
     _obj$.asInstanceOf[APIGatewayEventRequestContext]
   }
 
@@ -128,7 +134,7 @@ object APIGatewayEventRequestContext {
         userAgent: String | Null = null,
         userArn: String | Null = null
     ): Identity = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "accessKey" -> accessKey.asInstanceOf[js.Any],
         "accountId" -> accountId.asInstanceOf[js.Any],
         "apiKey" -> apiKey.asInstanceOf[js.Any],
@@ -184,7 +190,7 @@ object APIGatewayProxyEvent {
         null,
       stageVariables: js.Dictionary[String] | Null = null
   ): APIGatewayProxyEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "body" -> body.asInstanceOf[js.Any],
       "headers" -> headers.asInstanceOf[js.Any],
       "multiValueHeaders" -> multiValueHeaders.asInstanceOf[js.Any],
@@ -215,7 +221,7 @@ object ALBEventRequestContext {
   def apply(
       elb: ALBEventRequestContext.Elb
   ): ALBEventRequestContext = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "elb" -> elb.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[ALBEventRequestContext]
@@ -231,7 +237,7 @@ object ALBEventRequestContext {
     def apply(
         targetGroupArn: String
     ): Elb = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "targetGroupArn" -> targetGroupArn.asInstanceOf[js.Any]
       )
       _obj$.asInstanceOf[Elb]
@@ -270,7 +276,7 @@ object ALBEvent {
       ] = js.undefined,
       multiValueHeaders: js.UndefOr[ALBEvent.MultiValueHeaders] = js.undefined
   ): ALBEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "requestContext" -> requestContext.asInstanceOf[js.Any],
       "httpMethod" -> httpMethod.asInstanceOf[js.Any],
       "path" -> path.asInstanceOf[js.Any],
@@ -278,15 +284,20 @@ object ALBEvent {
       "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
     )
     queryStringParameters.foreach(
-      _v => _obj$.update("queryStringParameters", _v.asInstanceOf[js.Any])
+      _v =>
+        _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(_v => _obj$.update("headers", _v.asInstanceOf[js.Any]))
+    headers.foreach(
+      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    )
     multiValueQueryStringParameters.foreach(
       _v =>
-        _obj$.update("multiValueQueryStringParameters", _v.asInstanceOf[js.Any])
+        _obj$.updateDynamic("multiValueQueryStringParameters")(
+          _v.asInstanceOf[js.Any]
+        )
     )
     multiValueHeaders.foreach(
-      _v => _obj$.update("multiValueHeaders", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[ALBEvent]
   }
@@ -343,42 +354,49 @@ object CustomAuthorizerEvent {
       domainName: js.UndefOr[String] = js.undefined,
       apiId: js.UndefOr[String] = js.undefined
   ): CustomAuthorizerEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "methodArn" -> methodArn.asInstanceOf[js.Any]
     )
     authorizationToken.foreach(
-      _v => _obj$.update("authorizationToken", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("authorizationToken")(_v.asInstanceOf[js.Any])
     )
-    resource.foreach(_v => _obj$.update("resource", _v.asInstanceOf[js.Any]))
-    path.foreach(_v => _obj$.update("path", _v.asInstanceOf[js.Any]))
+    resource.foreach(
+      _v => _obj$.updateDynamic("resource")(_v.asInstanceOf[js.Any])
+    )
+    path.foreach(_v => _obj$.updateDynamic("path")(_v.asInstanceOf[js.Any]))
     httpMethod.foreach(
-      _v => _obj$.update("httpMethod", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("httpMethod")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(_v => _obj$.update("headers", _v.asInstanceOf[js.Any]))
+    headers.foreach(
+      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    )
     multiValueHeaders.foreach(
-      _v => _obj$.update("multiValueHeaders", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     pathParameters.foreach(
-      _v => _obj$.update("pathParameters", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("pathParameters")(_v.asInstanceOf[js.Any])
     )
     queryStringParameters.foreach(
-      _v => _obj$.update("queryStringParameters", _v.asInstanceOf[js.Any])
+      _v =>
+        _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
     )
     multiValueQueryStringParameters.foreach(
       _v =>
-        _obj$.update("multiValueQueryStringParameters", _v.asInstanceOf[js.Any])
+        _obj$.updateDynamic("multiValueQueryStringParameters")(
+          _v.asInstanceOf[js.Any]
+        )
     )
     stageVariables.foreach(
-      _v => _obj$.update("stageVariables", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("stageVariables")(_v.asInstanceOf[js.Any])
     )
     requestContext.foreach(
-      _v => _obj$.update("requestContext", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("requestContext")(_v.asInstanceOf[js.Any])
     )
     domainName.foreach(
-      _v => _obj$.update("domainName", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
     )
-    apiId.foreach(_v => _obj$.update("apiId", _v.asInstanceOf[js.Any]))
+    apiId.foreach(_v => _obj$.updateDynamic("apiId")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CustomAuthorizerEvent]
   }
   type Headers = js.Dictionary[String]
@@ -411,20 +429,28 @@ object StreamRecord {
       SizeBytes: js.UndefOr[Double] = js.undefined,
       StreamViewType: js.UndefOr[String] = js.undefined
   ): StreamRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       )
     ApproximateCreationDateTime.foreach(
-      _v => _obj$.update("ApproximateCreationDateTime", _v.asInstanceOf[js.Any])
+      _v =>
+        _obj$
+          .updateDynamic("ApproximateCreationDateTime")(_v.asInstanceOf[js.Any])
     )
-    Keys.foreach(_v => _obj$.update("Keys", _v.asInstanceOf[js.Any]))
-    NewImage.foreach(_v => _obj$.update("NewImage", _v.asInstanceOf[js.Any]))
-    OldImage.foreach(_v => _obj$.update("OldImage", _v.asInstanceOf[js.Any]))
+    Keys.foreach(_v => _obj$.updateDynamic("Keys")(_v.asInstanceOf[js.Any]))
+    NewImage.foreach(
+      _v => _obj$.updateDynamic("NewImage")(_v.asInstanceOf[js.Any])
+    )
+    OldImage.foreach(
+      _v => _obj$.updateDynamic("OldImage")(_v.asInstanceOf[js.Any])
+    )
     SequenceNumber.foreach(
-      _v => _obj$.update("SequenceNumber", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("SequenceNumber")(_v.asInstanceOf[js.Any])
     )
-    SizeBytes.foreach(_v => _obj$.update("SizeBytes", _v.asInstanceOf[js.Any]))
+    SizeBytes.foreach(
+      _v => _obj$.updateDynamic("SizeBytes")(_v.asInstanceOf[js.Any])
+    )
     StreamViewType.foreach(
-      _v => _obj$.update("StreamViewType", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("StreamViewType")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[StreamRecord]
   }
@@ -457,23 +483,31 @@ object DynamoDBRecord {
       eventVersion: js.UndefOr[String] = js.undefined,
       userIdentity: js.UndefOr[js.Any] = js.undefined
   ): DynamoDBRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       )
-    awsRegion.foreach(_v => _obj$.update("awsRegion", _v.asInstanceOf[js.Any]))
-    dynamodb.foreach(_v => _obj$.update("dynamodb", _v.asInstanceOf[js.Any]))
-    eventID.foreach(_v => _obj$.update("eventID", _v.asInstanceOf[js.Any]))
-    eventName.foreach(_v => _obj$.update("eventName", _v.asInstanceOf[js.Any]))
+    awsRegion.foreach(
+      _v => _obj$.updateDynamic("awsRegion")(_v.asInstanceOf[js.Any])
+    )
+    dynamodb.foreach(
+      _v => _obj$.updateDynamic("dynamodb")(_v.asInstanceOf[js.Any])
+    )
+    eventID.foreach(
+      _v => _obj$.updateDynamic("eventID")(_v.asInstanceOf[js.Any])
+    )
+    eventName.foreach(
+      _v => _obj$.updateDynamic("eventName")(_v.asInstanceOf[js.Any])
+    )
     eventSource.foreach(
-      _v => _obj$.update("eventSource", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("eventSource")(_v.asInstanceOf[js.Any])
     )
     eventSourceARN.foreach(
-      _v => _obj$.update("eventSourceARN", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("eventSourceARN")(_v.asInstanceOf[js.Any])
     )
     eventVersion.foreach(
-      _v => _obj$.update("eventVersion", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("eventVersion")(_v.asInstanceOf[js.Any])
     )
     userIdentity.foreach(
-      _v => _obj$.update("userIdentity", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("userIdentity")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[DynamoDBRecord]
   }
@@ -489,7 +523,7 @@ object DynamoDBStreamEvent {
   def apply(
       Records: js.Array[DynamoDBRecord]
   ): DynamoDBStreamEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[DynamoDBStreamEvent]
@@ -508,7 +542,7 @@ object SNSMessageAttribute {
       Type: String,
       Value: String
   ): SNSMessageAttribute = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Type" -> Type.asInstanceOf[js.Any],
       "Value" -> Value.asInstanceOf[js.Any]
     )
@@ -545,7 +579,7 @@ object SNSMessage {
       TopicArn: String,
       Subject: String
   ): SNSMessage = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "SignatureVersion" -> SignatureVersion.asInstanceOf[js.Any],
       "Timestamp" -> Timestamp.asInstanceOf[js.Any],
       "Signature" -> Signature.asInstanceOf[js.Any],
@@ -578,7 +612,7 @@ object SNSEventRecord {
       EventSource: String,
       Sns: SNSMessage
   ): SNSEventRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "EventVersion" -> EventVersion.asInstanceOf[js.Any],
       "EventSubscriptionArn" -> EventSubscriptionArn.asInstanceOf[js.Any],
       "EventSource" -> EventSource.asInstanceOf[js.Any],
@@ -598,7 +632,7 @@ object SNSEvent {
   def apply(
       Records: js.Array[SNSEventRecord]
   ): SNSEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[SNSEvent]
@@ -631,7 +665,7 @@ object S3EventRecord {
       responseElements: S3EventRecord.ResponseElements,
       s3: S3EventRecord.S3
   ): S3EventRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "eventVersion" -> eventVersion.asInstanceOf[js.Any],
       "eventSource" -> eventSource.asInstanceOf[js.Any],
       "awsRegion" -> awsRegion.asInstanceOf[js.Any],
@@ -655,7 +689,7 @@ object S3EventRecord {
     def apply(
         principalId: String
     ): UserIdentity = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "principalId" -> principalId.asInstanceOf[js.Any]
       )
       _obj$.asInstanceOf[UserIdentity]
@@ -672,7 +706,7 @@ object S3EventRecord {
     def apply(
         sourceIPAddress: String
     ): RequestParameters = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "sourceIPAddress" -> sourceIPAddress.asInstanceOf[js.Any]
       )
       _obj$.asInstanceOf[RequestParameters]
@@ -691,7 +725,7 @@ object S3EventRecord {
         `x-amz-request-id`: String,
         `x-amz-id-2`: String
     ): ResponseElements = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "x-amz-request-id" -> `x-amz-request-id`.asInstanceOf[js.Any],
         "x-amz-id-2" -> `x-amz-id-2`.asInstanceOf[js.Any]
       )
@@ -715,7 +749,7 @@ object S3EventRecord {
         bucket: S3.Bucket,
         `object`: S3.Object
     ): S3 = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "s3SchemaVersion" -> s3SchemaVersion.asInstanceOf[js.Any],
         "configurationId" -> configurationId.asInstanceOf[js.Any],
         "bucket" -> bucket.asInstanceOf[js.Any],
@@ -738,7 +772,7 @@ object S3EventRecord {
           ownerIdentity: Bucket.OwnerIdentity,
           arn: String
       ): Bucket = {
-        val _obj$ = js.Dictionary[js.Any](
+        val _obj$ = js.Dynamic.literal(
           "name" -> name.asInstanceOf[js.Any],
           "ownerIdentity" -> ownerIdentity.asInstanceOf[js.Any],
           "arn" -> arn.asInstanceOf[js.Any]
@@ -756,7 +790,7 @@ object S3EventRecord {
         def apply(
             principalId: String
         ): OwnerIdentity = {
-          val _obj$ = js.Dictionary[js.Any](
+          val _obj$ = js.Dynamic.literal(
             "principalId" -> principalId.asInstanceOf[js.Any]
           )
           _obj$.asInstanceOf[OwnerIdentity]
@@ -782,7 +816,7 @@ object S3EventRecord {
           versionId: String,
           sequencer: String
       ): Object = {
-        val _obj$ = js.Dictionary[js.Any](
+        val _obj$ = js.Dynamic.literal(
           "key" -> key.asInstanceOf[js.Any],
           "size" -> size.asInstanceOf[js.Any],
           "eTag" -> eTag.asInstanceOf[js.Any],
@@ -805,7 +839,7 @@ object S3Event {
   def apply(
       Records: js.Array[S3EventRecord]
   ): S3Event = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[S3Event]
@@ -836,7 +870,7 @@ object CognitoUserPoolTriggerEvent {
       response: CognitoUserPoolTriggerEvent.Response,
       userName: js.UndefOr[String] = js.undefined
   ): CognitoUserPoolTriggerEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "version" -> version.asInstanceOf[js.Any],
       "triggerSource" -> triggerSource.asInstanceOf[js.Any],
       "region" -> region.asInstanceOf[js.Any],
@@ -845,7 +879,9 @@ object CognitoUserPoolTriggerEvent {
       "request" -> request.asInstanceOf[js.Any],
       "response" -> response.asInstanceOf[js.Any]
     )
-    userName.foreach(_v => _obj$.update("userName", _v.asInstanceOf[js.Any]))
+    userName.foreach(
+      _v => _obj$.updateDynamic("userName")(_v.asInstanceOf[js.Any])
+    )
     _obj$.asInstanceOf[CognitoUserPoolTriggerEvent]
   }
 
@@ -861,7 +897,7 @@ object CognitoUserPoolTriggerEvent {
         awsSdkVersion: String,
         clientId: String
     ): CallerContext = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "awsSdkVersion" -> awsSdkVersion.asInstanceOf[js.Any],
         "clientId" -> clientId.asInstanceOf[js.Any]
       )
@@ -902,36 +938,42 @@ object CognitoUserPoolTriggerEvent {
         challengeAnswer: js.UndefOr[String] = js.undefined,
         password: js.UndefOr[String] = js.undefined
     ): Request = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "userAttributes" -> userAttributes.asInstanceOf[js.Any]
       )
       validationData.foreach(
-        _v => _obj$.update("validationData", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("validationData")(_v.asInstanceOf[js.Any])
       )
       codeParameter.foreach(
-        _v => _obj$.update("codeParameter", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("codeParameter")(_v.asInstanceOf[js.Any])
       )
       linkParameter.foreach(
-        _v => _obj$.update("linkParameter", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("linkParameter")(_v.asInstanceOf[js.Any])
       )
       usernameParameter.foreach(
-        _v => _obj$.update("usernameParameter", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("usernameParameter")(_v.asInstanceOf[js.Any])
       )
       newDeviceUsed.foreach(
-        _v => _obj$.update("newDeviceUsed", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("newDeviceUsed")(_v.asInstanceOf[js.Any])
       )
-      session.foreach(_v => _obj$.update("session", _v.asInstanceOf[js.Any]))
+      session.foreach(
+        _v => _obj$.updateDynamic("session")(_v.asInstanceOf[js.Any])
+      )
       challengeName.foreach(
-        _v => _obj$.update("challengeName", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
       )
       privateChallengeParameters.foreach(
         _v =>
-          _obj$.update("privateChallengeParameters", _v.asInstanceOf[js.Any])
+          _obj$.updateDynamic("privateChallengeParameters")(
+            _v.asInstanceOf[js.Any]
+          )
       )
       challengeAnswer.foreach(
-        _v => _obj$.update("challengeAnswer", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("challengeAnswer")(_v.asInstanceOf[js.Any])
       )
-      password.foreach(_v => _obj$.update("password", _v.asInstanceOf[js.Any]))
+      password.foreach(
+        _v => _obj$.updateDynamic("password")(_v.asInstanceOf[js.Any])
+      )
       _obj$.asInstanceOf[Request]
     }
     type UserAttributes = js.Dictionary[String]
@@ -993,65 +1035,71 @@ object CognitoUserPoolTriggerEvent {
         claimsOverrideDetails: js.UndefOr[Response.ClaimsOverrideDetails] =
           js.undefined
     ): Response = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         )
       autoConfirmUser.foreach(
-        _v => _obj$.update("autoConfirmUser", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("autoConfirmUser")(_v.asInstanceOf[js.Any])
       )
       autoVerifyPhone.foreach(
-        _v => _obj$.update("autoVerifyPhone", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("autoVerifyPhone")(_v.asInstanceOf[js.Any])
       )
       autoVerifyEmail.foreach(
-        _v => _obj$.update("autoVerifyEmail", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("autoVerifyEmail")(_v.asInstanceOf[js.Any])
       )
       smsMessage.foreach(
-        _v => _obj$.update("smsMessage", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("smsMessage")(_v.asInstanceOf[js.Any])
       )
       emailMessage.foreach(
-        _v => _obj$.update("emailMessage", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("emailMessage")(_v.asInstanceOf[js.Any])
       )
       emailSubject.foreach(
-        _v => _obj$.update("emailSubject", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("emailSubject")(_v.asInstanceOf[js.Any])
       )
       challengeName.foreach(
-        _v => _obj$.update("challengeName", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
       )
       issueTokens.foreach(
-        _v => _obj$.update("issueTokens", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("issueTokens")(_v.asInstanceOf[js.Any])
       )
       failAuthentication.foreach(
-        _v => _obj$.update("failAuthentication", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("failAuthentication")(_v.asInstanceOf[js.Any])
       )
       publicChallengeParameters.foreach(
-        _v => _obj$.update("publicChallengeParameters", _v.asInstanceOf[js.Any])
+        _v =>
+          _obj$
+            .updateDynamic("publicChallengeParameters")(_v.asInstanceOf[js.Any])
       )
       privateChallengeParameters.foreach(
         _v =>
-          _obj$.update("privateChallengeParameters", _v.asInstanceOf[js.Any])
+          _obj$.updateDynamic("privateChallengeParameters")(
+            _v.asInstanceOf[js.Any]
+          )
       )
       challengeMetadata.foreach(
-        _v => _obj$.update("challengeMetadata", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("challengeMetadata")(_v.asInstanceOf[js.Any])
       )
       answerCorrect.foreach(
-        _v => _obj$.update("answerCorrect", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("answerCorrect")(_v.asInstanceOf[js.Any])
       )
       userAttributes.foreach(
-        _v => _obj$.update("userAttributes", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("userAttributes")(_v.asInstanceOf[js.Any])
       )
       finalUserStatus.foreach(
-        _v => _obj$.update("finalUserStatus", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("finalUserStatus")(_v.asInstanceOf[js.Any])
       )
       messageAction.foreach(
-        _v => _obj$.update("messageAction", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("messageAction")(_v.asInstanceOf[js.Any])
       )
       desiredDeliveryMediums.foreach(
-        _v => _obj$.update("desiredDeliveryMediums", _v.asInstanceOf[js.Any])
+        _v =>
+          _obj$.updateDynamic("desiredDeliveryMediums")(_v.asInstanceOf[js.Any])
       )
       forceAliasCreation.foreach(
-        _v => _obj$.update("forceAliasCreation", _v.asInstanceOf[js.Any])
+        _v => _obj$.updateDynamic("forceAliasCreation")(_v.asInstanceOf[js.Any])
       )
       claimsOverrideDetails.foreach(
-        _v => _obj$.update("claimsOverrideDetails", _v.asInstanceOf[js.Any])
+        _v =>
+          _obj$.updateDynamic("claimsOverrideDetails")(_v.asInstanceOf[js.Any])
       )
       _obj$.asInstanceOf[Response]
     }
@@ -1076,16 +1124,19 @@ object CognitoUserPoolTriggerEvent {
           claimsToSuppress: js.UndefOr[js.Array[String]] = js.undefined,
           groupOverrideDetails: js.UndefOr[Null | js.Any] = js.undefined
       ): ClaimsOverrideDetails = {
-        val _obj$ = js.Dictionary[js.Any](
+        val _obj$ = js.Dynamic.literal(
           )
         claimsToAddOrOverride.foreach(
-          _v => _obj$.update("claimsToAddOrOverride", _v.asInstanceOf[js.Any])
+          _v =>
+            _obj$
+              .updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
         )
         claimsToSuppress.foreach(
-          _v => _obj$.update("claimsToSuppress", _v.asInstanceOf[js.Any])
+          _v => _obj$.updateDynamic("claimsToSuppress")(_v.asInstanceOf[js.Any])
         )
         groupOverrideDetails.foreach(
-          _v => _obj$.update("groupOverrideDetails", _v.asInstanceOf[js.Any])
+          _v =>
+            _obj$.updateDynamic("groupOverrideDetails")(_v.asInstanceOf[js.Any])
         )
         _obj$.asInstanceOf[ClaimsOverrideDetails]
       }
@@ -1118,7 +1169,7 @@ object CloudFormationCustomResourceEventCommon {
       ResourceType: String,
       ResourceProperties: CloudFormationCustomResourceEventCommon.ResourceProperties
   ): CloudFormationCustomResourceEventCommon = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "ServiceToken" -> ServiceToken.asInstanceOf[js.Any],
       "ResponseURL" -> ResponseURL.asInstanceOf[js.Any],
       "StackId" -> StackId.asInstanceOf[js.Any],
@@ -1143,7 +1194,7 @@ object CloudFormationCustomResourceCreateEvent {
   def apply(
       RequestType: String
   ): CloudFormationCustomResourceCreateEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "RequestType" -> RequestType.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudFormationCustomResourceCreateEvent]
@@ -1167,7 +1218,7 @@ object CloudFormationCustomResourceUpdateEvent {
       PhysicalResourceId: String,
       OldResourceProperties: CloudFormationCustomResourceUpdateEvent.OldResourceProperties
   ): CloudFormationCustomResourceUpdateEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "RequestType" -> RequestType.asInstanceOf[js.Any],
       "PhysicalResourceId" -> PhysicalResourceId.asInstanceOf[js.Any],
       "OldResourceProperties" -> OldResourceProperties.asInstanceOf[js.Any]
@@ -1190,7 +1241,7 @@ object CloudFormationCustomResourceDeleteEvent {
       RequestType: String,
       PhysicalResourceId: String
   ): CloudFormationCustomResourceDeleteEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "RequestType" -> RequestType.asInstanceOf[js.Any],
       "PhysicalResourceId" -> PhysicalResourceId.asInstanceOf[js.Any]
     )
@@ -1218,13 +1269,13 @@ object CloudFormationCustomResourceResponseCommon {
       Data: js.UndefOr[CloudFormationCustomResourceResponseCommon.Data] =
         js.undefined
   ): CloudFormationCustomResourceResponseCommon = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "PhysicalResourceId" -> PhysicalResourceId.asInstanceOf[js.Any],
       "StackId" -> StackId.asInstanceOf[js.Any],
       "RequestId" -> RequestId.asInstanceOf[js.Any],
       "LogicalResourceId" -> LogicalResourceId.asInstanceOf[js.Any]
     )
-    Data.foreach(_v => _obj$.update("Data", _v.asInstanceOf[js.Any]))
+    Data.foreach(_v => _obj$.updateDynamic("Data")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFormationCustomResourceResponseCommon]
   }
   type Data = js.Dictionary[js.Any]
@@ -1243,10 +1294,10 @@ object CloudFormationCustomResourceSuccessResponse {
       Status: String,
       Reason: js.UndefOr[String] = js.undefined
   ): CloudFormationCustomResourceSuccessResponse = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Status" -> Status.asInstanceOf[js.Any]
     )
-    Reason.foreach(_v => _obj$.update("Reason", _v.asInstanceOf[js.Any]))
+    Reason.foreach(_v => _obj$.updateDynamic("Reason")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFormationCustomResourceSuccessResponse]
   }
 }
@@ -1264,7 +1315,7 @@ object CloudFormationCustomResourceFailedResponse {
       Status: String,
       Reason: String
   ): CloudFormationCustomResourceFailedResponse = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Status" -> Status.asInstanceOf[js.Any],
       "Reason" -> Reason.asInstanceOf[js.Any]
     )
@@ -1276,7 +1327,7 @@ object CloudFormationCustomResourceFailedResponse {
 trait ScheduledEvent extends js.Object {
   var account: String = js.native
   var region: String = js.native
-  var detail: js.Dictionary[js.Any] = js.native
+  var detail: js.Any = js.native
   var `detail-type`: String = js.native
   var source: String = js.native
   var time: String = js.native
@@ -1289,14 +1340,14 @@ object ScheduledEvent {
   def apply(
       account: String,
       region: String,
-      detail: js.Dictionary[js.Any],
+      detail: js.Any,
       `detail-type`: String,
       source: String,
       time: String,
       id: String,
       resources: js.Array[String]
   ): ScheduledEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "account" -> account.asInstanceOf[js.Any],
       "region" -> region.asInstanceOf[js.Any],
       "detail" -> detail.asInstanceOf[js.Any],
@@ -1320,7 +1371,7 @@ object CloudWatchLogsEvent {
   def apply(
       awslogs: CloudWatchLogsEventData
   ): CloudWatchLogsEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "awslogs" -> awslogs.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudWatchLogsEvent]
@@ -1337,7 +1388,7 @@ object CloudWatchLogsEventData {
   def apply(
       data: String
   ): CloudWatchLogsEventData = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "data" -> data.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudWatchLogsEventData]
@@ -1364,7 +1415,7 @@ object CloudWatchLogsDecodedData {
       messageType: String,
       logEvents: js.Array[CloudWatchLogsLogEvent]
   ): CloudWatchLogsDecodedData = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "owner" -> owner.asInstanceOf[js.Any],
       "logGroup" -> logGroup.asInstanceOf[js.Any],
       "logStream" -> logStream.asInstanceOf[js.Any],
@@ -1394,13 +1445,13 @@ object CloudWatchLogsLogEvent {
       extractedFields: js.UndefOr[CloudWatchLogsLogEvent.ExtractedFields] =
         js.undefined
   ): CloudWatchLogsLogEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "id" -> id.asInstanceOf[js.Any],
       "timestamp" -> timestamp.asInstanceOf[js.Any],
       "message" -> message.asInstanceOf[js.Any]
     )
     extractedFields.foreach(
-      _v => _obj$.update("extractedFields", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("extractedFields")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[CloudWatchLogsLogEvent]
   }
@@ -1438,7 +1489,7 @@ object CognitoIdentity {
       cognitoIdentityId: String,
       cognitoIdentityPoolId: String
   ): CognitoIdentity = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "cognitoIdentityId" -> cognitoIdentityId.asInstanceOf[js.Any],
       "cognitoIdentityPoolId" -> cognitoIdentityPoolId.asInstanceOf[js.Any]
     )
@@ -1460,11 +1511,11 @@ object ClientContext {
       env: ClientContextEnv,
       Custom: js.UndefOr[js.Any] = js.undefined
   ): ClientContext = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "client" -> client.asInstanceOf[js.Any],
       "env" -> env.asInstanceOf[js.Any]
     )
-    Custom.foreach(_v => _obj$.update("Custom", _v.asInstanceOf[js.Any]))
+    Custom.foreach(_v => _obj$.updateDynamic("Custom")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[ClientContext]
   }
 }
@@ -1487,7 +1538,7 @@ object ClientContextClient {
       appVersionCode: String,
       appPackageName: String
   ): ClientContextClient = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "installationId" -> installationId.asInstanceOf[js.Any],
       "appTitle" -> appTitle.asInstanceOf[js.Any],
       "appVersionName" -> appVersionName.asInstanceOf[js.Any],
@@ -1516,7 +1567,7 @@ object ClientContextEnv {
       model: String,
       locale: String
   ): ClientContextEnv = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "platformVersion" -> platformVersion.asInstanceOf[js.Any],
       "platform" -> platform.asInstanceOf[js.Any],
       "make" -> make.asInstanceOf[js.Any],
@@ -1547,16 +1598,18 @@ object APIGatewayProxyResult {
         js.undefined,
       isBase64Encoded: js.UndefOr[Boolean] = js.undefined
   ): APIGatewayProxyResult = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "statusCode" -> statusCode.asInstanceOf[js.Any],
       "body" -> body.asInstanceOf[js.Any]
     )
-    headers.foreach(_v => _obj$.update("headers", _v.asInstanceOf[js.Any]))
+    headers.foreach(
+      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    )
     multiValueHeaders.foreach(
-      _v => _obj$.update("multiValueHeaders", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     isBase64Encoded.foreach(
-      _v => _obj$.update("isBase64Encoded", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("isBase64Encoded")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[APIGatewayProxyResult]
   }
@@ -1584,15 +1637,17 @@ object ALBResult {
       headers: js.UndefOr[ALBResult.Headers] = js.undefined,
       multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.undefined
   ): ALBResult = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "statusCode" -> statusCode.asInstanceOf[js.Any],
       "statusDescription" -> statusDescription.asInstanceOf[js.Any],
       "body" -> body.asInstanceOf[js.Any],
       "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
     )
-    headers.foreach(_v => _obj$.update("headers", _v.asInstanceOf[js.Any]))
+    headers.foreach(
+      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    )
     multiValueHeaders.foreach(
-      _v => _obj$.update("multiValueHeaders", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[ALBResult]
   }
@@ -1617,13 +1672,15 @@ object CustomAuthorizerResult {
       context: js.UndefOr[AuthResponseContext] = js.undefined,
       usageIdentifierKey: js.UndefOr[String] = js.undefined
   ): CustomAuthorizerResult = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "principalId" -> principalId.asInstanceOf[js.Any],
       "policyDocument" -> policyDocument.asInstanceOf[js.Any]
     )
-    context.foreach(_v => _obj$.update("context", _v.asInstanceOf[js.Any]))
+    context.foreach(
+      _v => _obj$.updateDynamic("context")(_v.asInstanceOf[js.Any])
+    )
     usageIdentifierKey.foreach(
-      _v => _obj$.update("usageIdentifierKey", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("usageIdentifierKey")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[CustomAuthorizerResult]
   }
@@ -1643,11 +1700,11 @@ object PolicyDocument {
       Statement: js.Array[Statement],
       Id: js.UndefOr[String] = js.undefined
   ): PolicyDocument = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Version" -> Version.asInstanceOf[js.Any],
       "Statement" -> Statement.asInstanceOf[js.Any]
     )
-    Id.foreach(_v => _obj$.update("Id", _v.asInstanceOf[js.Any]))
+    Id.foreach(_v => _obj$.updateDynamic("Id")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[PolicyDocument]
   }
 }
@@ -1666,11 +1723,13 @@ object BaseStatement {
       Sid: js.UndefOr[String] = js.undefined,
       Condition: js.UndefOr[ConditionBlock] = js.undefined
   ): BaseStatement = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Effect" -> Effect.asInstanceOf[js.Any]
     )
-    Sid.foreach(_v => _obj$.update("Sid", _v.asInstanceOf[js.Any]))
-    Condition.foreach(_v => _obj$.update("Condition", _v.asInstanceOf[js.Any]))
+    Sid.foreach(_v => _obj$.updateDynamic("Sid")(_v.asInstanceOf[js.Any]))
+    Condition.foreach(
+      _v => _obj$.updateDynamic("Condition")(_v.asInstanceOf[js.Any])
+    )
     _obj$.asInstanceOf[BaseStatement]
   }
 }
@@ -1687,11 +1746,13 @@ object MaybeStatementPrincipal {
       Principal: js.UndefOr[PrincipalValue] = js.undefined,
       NotPrincipal: js.UndefOr[PrincipalValue] = js.undefined
   ): MaybeStatementPrincipal = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       )
-    Principal.foreach(_v => _obj$.update("Principal", _v.asInstanceOf[js.Any]))
+    Principal.foreach(
+      _v => _obj$.updateDynamic("Principal")(_v.asInstanceOf[js.Any])
+    )
     NotPrincipal.foreach(
-      _v => _obj$.update("NotPrincipal", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("NotPrincipal")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[MaybeStatementPrincipal]
   }
@@ -1709,11 +1770,13 @@ object MaybeStatementResource {
       Resource: js.UndefOr[String | js.Array[String]] = js.undefined,
       NotResource: js.UndefOr[String | js.Array[String]] = js.undefined
   ): MaybeStatementResource = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       )
-    Resource.foreach(_v => _obj$.update("Resource", _v.asInstanceOf[js.Any]))
+    Resource.foreach(
+      _v => _obj$.updateDynamic("Resource")(_v.asInstanceOf[js.Any])
+    )
     NotResource.foreach(
-      _v => _obj$.update("NotResource", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("NotResource")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[MaybeStatementResource]
   }
@@ -1731,7 +1794,7 @@ object S3ArtifactLocation {
       bucketName: String,
       objectKey: String
   ): S3ArtifactLocation = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "bucketName" -> bucketName.asInstanceOf[js.Any],
       "objectKey" -> objectKey.asInstanceOf[js.Any]
     )
@@ -1751,7 +1814,7 @@ object S3ArtifactStore {
       `type`: String,
       s3Location: S3ArtifactLocation
   ): S3ArtifactStore = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "s3Location" -> s3Location.asInstanceOf[js.Any]
     )
@@ -1773,7 +1836,7 @@ object Artifact {
       location: ArtifactLocation,
       revision: String | Null = null
   ): Artifact = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "name" -> name.asInstanceOf[js.Any],
       "revision" -> revision.asInstanceOf[js.Any],
       "location" -> location.asInstanceOf[js.Any]
@@ -1796,12 +1859,12 @@ object Credentials {
       secretAccessKey: String,
       sessionToken: js.UndefOr[String] = js.undefined
   ): Credentials = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "accessKeyId" -> accessKeyId.asInstanceOf[js.Any],
       "secretAccessKey" -> secretAccessKey.asInstanceOf[js.Any]
     )
     sessionToken.foreach(
-      _v => _obj$.update("sessionToken", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("sessionToken")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[Credentials]
   }
@@ -1819,7 +1882,7 @@ object EncryptionKey {
       `type`: String,
       id: String
   ): EncryptionKey = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "id" -> id.asInstanceOf[js.Any]
     )
@@ -1837,7 +1900,7 @@ object CodePipelineEvent {
   def apply(
       `CodePipeline.job`: CodePipelineEvent.`CodePipeline.job`
   ): CodePipelineEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "CodePipeline.job" -> `CodePipeline.job`.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CodePipelineEvent]
@@ -1857,7 +1920,7 @@ object CodePipelineEvent {
         accountId: String,
         data: `CodePipeline.job`.Data
     ): `CodePipeline.job` = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "id" -> id.asInstanceOf[js.Any],
         "accountId" -> accountId.asInstanceOf[js.Any],
         "data" -> data.asInstanceOf[js.Any]
@@ -1885,17 +1948,18 @@ object CodePipelineEvent {
           encryptionKey: js.UndefOr[EncryptionKey with js.Any] = js.undefined,
           continuationToken: js.UndefOr[String] = js.undefined
       ): Data = {
-        val _obj$ = js.Dictionary[js.Any](
+        val _obj$ = js.Dynamic.literal(
           "actionConfiguration" -> actionConfiguration.asInstanceOf[js.Any],
           "inputArtifacts" -> inputArtifacts.asInstanceOf[js.Any],
           "outputArtifacts" -> outputArtifacts.asInstanceOf[js.Any],
           "artifactCredentials" -> artifactCredentials.asInstanceOf[js.Any]
         )
         encryptionKey.foreach(
-          _v => _obj$.update("encryptionKey", _v.asInstanceOf[js.Any])
+          _v => _obj$.updateDynamic("encryptionKey")(_v.asInstanceOf[js.Any])
         )
         continuationToken.foreach(
-          _v => _obj$.update("continuationToken", _v.asInstanceOf[js.Any])
+          _v =>
+            _obj$.updateDynamic("continuationToken")(_v.asInstanceOf[js.Any])
         )
         _obj$.asInstanceOf[Data]
       }
@@ -1910,7 +1974,7 @@ object CodePipelineEvent {
         def apply(
             configuration: ActionConfiguration.Configuration
         ): ActionConfiguration = {
-          val _obj$ = js.Dictionary[js.Any](
+          val _obj$ = js.Dynamic.literal(
             "configuration" -> configuration.asInstanceOf[js.Any]
           )
           _obj$.asInstanceOf[ActionConfiguration]
@@ -1928,7 +1992,7 @@ object CodePipelineEvent {
               FunctionName: String,
               UserParameters: String
           ): Configuration = {
-            val _obj$ = js.Dictionary[js.Any](
+            val _obj$ = js.Dynamic.literal(
               "FunctionName" -> FunctionName.asInstanceOf[js.Any],
               "UserParameters" -> UserParameters.asInstanceOf[js.Any]
             )
@@ -1966,7 +2030,7 @@ object CodePipelineCloudWatchPipelineEvent {
       resources: js.Array[String],
       detail: CodePipelineCloudWatchPipelineEvent.Detail
   ): CodePipelineCloudWatchPipelineEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "version" -> version.asInstanceOf[js.Any],
       "id" -> id.asInstanceOf[js.Any],
       "detail-type" -> `detail-type`.asInstanceOf[js.Any],
@@ -1996,7 +2060,7 @@ object CodePipelineCloudWatchPipelineEvent {
         state: CodePipelineState,
         `execution-id`: String
     ): Detail = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "pipeline" -> pipeline.asInstanceOf[js.Any],
         "version" -> version.asInstanceOf[js.Any],
         "state" -> state.asInstanceOf[js.Any],
@@ -2033,7 +2097,7 @@ object CodePipelineCloudWatchStageEvent {
       resources: js.Array[String],
       detail: CodePipelineCloudWatchStageEvent.Detail
   ): CodePipelineCloudWatchStageEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "version" -> version.asInstanceOf[js.Any],
       "id" -> id.asInstanceOf[js.Any],
       "detail-type" -> `detail-type`.asInstanceOf[js.Any],
@@ -2065,7 +2129,7 @@ object CodePipelineCloudWatchStageEvent {
         stage: String,
         state: CodePipelineStageState
     ): Detail = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "pipeline" -> pipeline.asInstanceOf[js.Any],
         "version" -> version.asInstanceOf[js.Any],
         "execution-id" -> `execution-id`.asInstanceOf[js.Any],
@@ -2103,7 +2167,7 @@ object CodePipelineCloudWatchActionEvent {
       resources: js.Array[String],
       detail: CodePipelineCloudWatchActionEvent.Detail
   ): CodePipelineCloudWatchActionEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "version" -> version.asInstanceOf[js.Any],
       "id" -> id.asInstanceOf[js.Any],
       "detail-type" -> `detail-type`.asInstanceOf[js.Any],
@@ -2139,7 +2203,7 @@ object CodePipelineCloudWatchActionEvent {
         state: CodePipelineActionState,
         `type`: Detail.Type
     ): Detail = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "pipeline" -> pipeline.asInstanceOf[js.Any],
         "version" -> version.asInstanceOf[js.Any],
         "execution-id" -> `execution-id`.asInstanceOf[js.Any],
@@ -2167,7 +2231,7 @@ object CodePipelineCloudWatchActionEvent {
           provider: String,
           version: Double
       ): Type = {
-        val _obj$ = js.Dictionary[js.Any](
+        val _obj$ = js.Dynamic.literal(
           "owner" -> owner.asInstanceOf[js.Any],
           "category" -> category.asInstanceOf[js.Any],
           "provider" -> provider.asInstanceOf[js.Any],
@@ -2203,7 +2267,7 @@ object CloudFrontCustomOrigin {
       readTimeout: Double,
       sslProtocols: js.Array[String]
   ): CloudFrontCustomOrigin = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "customHeaders" -> customHeaders.asInstanceOf[js.Any],
       "domainName" -> domainName.asInstanceOf[js.Any],
       "keepaliveTimeout" -> keepaliveTimeout.asInstanceOf[js.Any],
@@ -2235,7 +2299,7 @@ object CloudFrontS3Origin {
       path: String,
       region: String
   ): CloudFrontS3Origin = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "authMethod" -> authMethod.asInstanceOf[js.Any],
       "customHeaders" -> customHeaders.asInstanceOf[js.Any],
       "domainName" -> domainName.asInstanceOf[js.Any],
@@ -2260,7 +2324,7 @@ object CloudFrontResponse {
       statusDescription: String,
       headers: CloudFrontHeaders
   ): CloudFrontResponse = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "status" -> status.asInstanceOf[js.Any],
       "statusDescription" -> statusDescription.asInstanceOf[js.Any],
       "headers" -> headers.asInstanceOf[js.Any]
@@ -2289,14 +2353,14 @@ object CloudFrontRequest {
       headers: CloudFrontHeaders,
       origin: js.UndefOr[CloudFrontOrigin] = js.undefined
   ): CloudFrontRequest = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "clientIp" -> clientIp.asInstanceOf[js.Any],
       "method" -> method.asInstanceOf[js.Any],
       "uri" -> uri.asInstanceOf[js.Any],
       "querystring" -> querystring.asInstanceOf[js.Any],
       "headers" -> headers.asInstanceOf[js.Any]
     )
-    origin.foreach(_v => _obj$.update("origin", _v.asInstanceOf[js.Any]))
+    origin.foreach(_v => _obj$.updateDynamic("origin")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFrontRequest]
   }
 }
@@ -2311,7 +2375,7 @@ object CloudFrontEvent {
   def apply(
       config: CloudFrontEvent.Config
   ): CloudFrontEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "config" -> config.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudFrontEvent]
@@ -2333,7 +2397,7 @@ object CloudFrontEvent {
         eventType: String,
         requestId: String
     ): Config = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "distributionDomainName" -> distributionDomainName.asInstanceOf[js.Any],
         "distributionId" -> distributionId.asInstanceOf[js.Any],
         "eventType" -> eventType.asInstanceOf[js.Any],
@@ -2362,17 +2426,19 @@ object CloudFrontResultResponse {
       bodyEncoding: js.UndefOr[String] = js.undefined,
       body: js.UndefOr[String] = js.undefined
   ): CloudFrontResultResponse = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "status" -> status.asInstanceOf[js.Any]
     )
     statusDescription.foreach(
-      _v => _obj$.update("statusDescription", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("statusDescription")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(_v => _obj$.update("headers", _v.asInstanceOf[js.Any]))
+    headers.foreach(
+      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    )
     bodyEncoding.foreach(
-      _v => _obj$.update("bodyEncoding", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("bodyEncoding")(_v.asInstanceOf[js.Any])
     )
-    body.foreach(_v => _obj$.update("body", _v.asInstanceOf[js.Any]))
+    body.foreach(_v => _obj$.updateDynamic("body")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFrontResultResponse]
   }
 }
@@ -2387,7 +2453,7 @@ object CloudFrontResponseEvent {
   def apply(
       Records: js.Array[js.Any]
   ): CloudFrontResponseEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudFrontResponseEvent]
@@ -2404,7 +2470,7 @@ object CloudFrontRequestEvent {
   def apply(
       Records: js.Array[js.Any]
   ): CloudFrontRequestEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[CloudFrontRequestEvent]
@@ -2429,7 +2495,7 @@ object KinesisStreamRecordPayload {
       partitionKey: String,
       sequenceNumber: String
   ): KinesisStreamRecordPayload = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "approximateArrivalTimestamp" -> approximateArrivalTimestamp
         .asInstanceOf[js.Any],
       "data" -> data.asInstanceOf[js.Any],
@@ -2465,7 +2531,7 @@ object KinesisStreamRecord {
       invokeIdentityArn: String,
       kinesis: KinesisStreamRecordPayload
   ): KinesisStreamRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "awsRegion" -> awsRegion.asInstanceOf[js.Any],
       "eventID" -> eventID.asInstanceOf[js.Any],
       "eventName" -> eventName.asInstanceOf[js.Any],
@@ -2489,7 +2555,7 @@ object KinesisStreamEvent {
   def apply(
       Records: js.Array[KinesisStreamRecord]
   ): KinesisStreamEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[KinesisStreamEvent]
@@ -2512,7 +2578,7 @@ object FirehoseTransformationEvent {
       region: String,
       records: js.Array[FirehoseTransformationEventRecord]
   ): FirehoseTransformationEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "invocationId" -> invocationId.asInstanceOf[js.Any],
       "deliveryStreamArn" -> deliveryStreamArn.asInstanceOf[js.Any],
       "region" -> region.asInstanceOf[js.Any],
@@ -2538,14 +2604,15 @@ object FirehoseTransformationEventRecord {
       data: String,
       kinesisRecordMetadata: js.UndefOr[FirehoseRecordMetadata] = js.undefined
   ): FirehoseTransformationEventRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "recordId" -> recordId.asInstanceOf[js.Any],
       "approximateArrivalTimestamp" -> approximateArrivalTimestamp
         .asInstanceOf[js.Any],
       "data" -> data.asInstanceOf[js.Any]
     )
     kinesisRecordMetadata.foreach(
-      _v => _obj$.update("kinesisRecordMetadata", _v.asInstanceOf[js.Any])
+      _v =>
+        _obj$.updateDynamic("kinesisRecordMetadata")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[FirehoseTransformationEventRecord]
   }
@@ -2569,7 +2636,7 @@ object FirehoseRecordMetadata {
       sequenceNumber: String,
       subsequenceNumber: String
   ): FirehoseRecordMetadata = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "shardId" -> shardId.asInstanceOf[js.Any],
       "partitionKey" -> partitionKey.asInstanceOf[js.Any],
       "approximateArrivalTimestamp" -> approximateArrivalTimestamp
@@ -2595,7 +2662,7 @@ object FirehoseTransformationResultRecord {
       result: FirehoseRecordTransformationStatus,
       data: String
   ): FirehoseTransformationResultRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "recordId" -> recordId.asInstanceOf[js.Any],
       "result" -> result.asInstanceOf[js.Any],
       "data" -> data.asInstanceOf[js.Any]
@@ -2614,7 +2681,7 @@ object FirehoseTransformationResult {
   def apply(
       records: js.Array[FirehoseTransformationResultRecord]
   ): FirehoseTransformationResult = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "records" -> records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[FirehoseTransformationResult]
@@ -2647,7 +2714,7 @@ object SQSRecord {
       eventSourceARN: String,
       awsRegion: String
   ): SQSRecord = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "messageId" -> messageId.asInstanceOf[js.Any],
       "receiptHandle" -> receiptHandle.asInstanceOf[js.Any],
       "body" -> body.asInstanceOf[js.Any],
@@ -2672,7 +2739,7 @@ object SQSEvent {
   def apply(
       Records: js.Array[SQSRecord]
   ): SQSEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[SQSEvent]
@@ -2695,7 +2762,7 @@ object SQSRecordAttributes {
       SenderId: String,
       ApproximateFirstReceiveTimestamp: String
   ): SQSRecordAttributes = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "ApproximateReceiveCount" -> ApproximateReceiveCount.asInstanceOf[js.Any],
       "SentTimestamp" -> SentTimestamp.asInstanceOf[js.Any],
       "SenderId" -> SenderId.asInstanceOf[js.Any],
@@ -2724,16 +2791,16 @@ object SQSMessageAttribute {
       stringValue: js.UndefOr[String] = js.undefined,
       binaryValue: js.UndefOr[String] = js.undefined
   ): SQSMessageAttribute = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "stringListValues" -> stringListValues.asInstanceOf[js.Any],
       "binaryListValues" -> binaryListValues.asInstanceOf[js.Any],
       "dataType" -> dataType.asInstanceOf[js.Any]
     )
     stringValue.foreach(
-      _v => _obj$.update("stringValue", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("stringValue")(_v.asInstanceOf[js.Any])
     )
     binaryValue.foreach(
-      _v => _obj$.update("binaryValue", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("binaryValue")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[SQSMessageAttribute]
   }
@@ -2765,7 +2832,7 @@ object LexEvent {
       sessionAttributes: LexEvent.SessionAttributes,
       requestAttributes: js.Dictionary[String] | Null = null
   ): LexEvent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "currentIntent" -> currentIntent.asInstanceOf[js.Any],
       "bot" -> bot.asInstanceOf[js.Any],
       "userId" -> userId.asInstanceOf[js.Any],
@@ -2795,7 +2862,7 @@ object LexEvent {
         slotDetails: LexSlotDetails,
         confirmationStatus: String
     ): CurrentIntent = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "name" -> name.asInstanceOf[js.Any],
         "slots" -> slots.asInstanceOf[js.Any],
         "slotDetails" -> slotDetails.asInstanceOf[js.Any],
@@ -2820,7 +2887,7 @@ object LexEvent {
         alias: String,
         version: String
     ): Bot = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "name" -> name.asInstanceOf[js.Any],
         "alias" -> alias.asInstanceOf[js.Any],
         "version" -> version.asInstanceOf[js.Any]
@@ -2843,7 +2910,7 @@ object LexSlotResolution {
   def apply(
       value: String
   ): LexSlotResolution = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "value" -> value.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[LexSlotResolution]
@@ -2868,7 +2935,7 @@ object LexGenericAttachment {
       attachmentLinkUrl: String,
       buttons: js.Array[js.Any]
   ): LexGenericAttachment = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "title" -> title.asInstanceOf[js.Any],
       "subTitle" -> subTitle.asInstanceOf[js.Any],
       "imageUrl" -> imageUrl.asInstanceOf[js.Any],
@@ -2893,12 +2960,14 @@ object LexDialogActionBase {
       message: js.UndefOr[LexDialogActionBase.Message] = js.undefined,
       responseCard: js.UndefOr[LexDialogActionBase.ResponseCard] = js.undefined
   ): LexDialogActionBase = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any]
     )
-    message.foreach(_v => _obj$.update("message", _v.asInstanceOf[js.Any]))
+    message.foreach(
+      _v => _obj$.updateDynamic("message")(_v.asInstanceOf[js.Any])
+    )
     responseCard.foreach(
-      _v => _obj$.update("responseCard", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("responseCard")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[LexDialogActionBase]
   }
@@ -2915,7 +2984,7 @@ object LexDialogActionBase {
         contentType: String,
         content: String
     ): Message = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "contentType" -> contentType.asInstanceOf[js.Any],
         "content" -> content.asInstanceOf[js.Any]
       )
@@ -2937,7 +3006,7 @@ object LexDialogActionBase {
         contentType: String,
         genericAttachments: js.Array[LexGenericAttachment]
     ): ResponseCard = {
-      val _obj$ = js.Dictionary[js.Any](
+      val _obj$ = js.Dynamic.literal(
         "version" -> version.asInstanceOf[js.Any],
         "contentType" -> contentType.asInstanceOf[js.Any],
         "genericAttachments" -> genericAttachments.asInstanceOf[js.Any]
@@ -2958,7 +3027,7 @@ object LexDialogActionClose {
       `type`: String,
       fulfillmentState: String
   ): LexDialogActionClose = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "fulfillmentState" -> fulfillmentState.asInstanceOf[js.Any]
     )
@@ -2974,7 +3043,7 @@ object LexDialogActionElicitIntent {
   def apply(
       `type`: String
   ): LexDialogActionElicitIntent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[LexDialogActionElicitIntent]
@@ -2996,7 +3065,7 @@ object LexDialogActionElicitSlot {
       slots: LexDialogActionElicitSlot.Slots,
       slotToElicit: String
   ): LexDialogActionElicitSlot = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "intentName" -> intentName.asInstanceOf[js.Any],
       "slots" -> slots.asInstanceOf[js.Any],
@@ -3020,7 +3089,7 @@ object LexDialogActionConfirmIntent {
       intentName: String,
       slots: LexDialogActionConfirmIntent.Slots
   ): LexDialogActionConfirmIntent = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "intentName" -> intentName.asInstanceOf[js.Any],
       "slots" -> slots.asInstanceOf[js.Any]
@@ -3042,7 +3111,7 @@ object LexDialogActionDelegate {
       `type`: String,
       slots: LexDialogActionDelegate.Slots
   ): LexDialogActionDelegate = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
       "slots" -> slots.asInstanceOf[js.Any]
     )
@@ -3063,11 +3132,11 @@ object LexResult {
       dialogAction: LexDialogAction,
       sessionAttributes: js.UndefOr[LexResult.SessionAttributes] = js.undefined
   ): LexResult = {
-    val _obj$ = js.Dictionary[js.Any](
+    val _obj$ = js.Dynamic.literal(
       "dialogAction" -> dialogAction.asInstanceOf[js.Any]
     )
     sessionAttributes.foreach(
-      _v => _obj$.update("sessionAttributes", _v.asInstanceOf[js.Any])
+      _v => _obj$.updateDynamic("sessionAttributes")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[LexResult]
   }
