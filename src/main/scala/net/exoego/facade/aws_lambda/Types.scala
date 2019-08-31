@@ -1327,7 +1327,7 @@ object CloudFormationCustomResourceFailedResponse {
 trait ScheduledEvent extends js.Object {
   var account: String = js.native
   var region: String = js.native
-  var detail: js.Any = js.native
+  var detail: js.Dictionary[js.Any] = js.native
   var `detail-type`: String = js.native
   var source: String = js.native
   var time: String = js.native
