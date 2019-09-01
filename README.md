@@ -5,6 +5,8 @@ A set of type definition and utility to implement AWS Lambda functions.
 This is NOT a type definition for AWS Lambda API in aws-sdk-js.
 It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-scalajs-facade/tree/master/services/lambda/src/main/scala/facade/amazonaws/services).
 
+[exoego/scala-js-nodejs](https://github.com/exoego/scala-js-nodejs) offers type definition and utilities for Node.js API.
+
 
 ## Support matrix
 
