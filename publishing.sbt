@@ -4,7 +4,6 @@ import org.scalajs.sbtplugin.ScalaJSPlugin._
 import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
 import autoImport._
-import com.typesafe.sbt.pgp.PgpKeys
 
 licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 scmInfo := Some(
