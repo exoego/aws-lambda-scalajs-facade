@@ -26,7 +26,10 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 Add dependency in `build.sbt`.
 
 ```sbt
-libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.3.2"
+// For Node.js v10
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.3.3"
+// For Node.js v8
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade-nodejs-v8" % "0.3.3"
 ```
 
 Import and code.
