@@ -1,6 +1,6 @@
 enablePlugins(ScalaJSPlugin)
 
-name := "aws-lambda-scalajs-facade"
+name := "aws-lambda-scalajs-facade-nodejs-v8"
 organization := "net.exoego"
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
 // false positive on js.native
@@ -11,7 +11,7 @@ scalacOptions --= Seq(
   "-Ywarn-unused:params"
 )
 
-val awsSdkScalajsFacadeVersion = "0.26.0-v2.524.0"
+val awsSdkScalajsFacadeVersion = "0.26.1-v2.524.0"
 libraryDependencies ++= Seq(
-  "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb" % awsSdkScalajsFacadeVersion
+  "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb-nodejs-v8" % awsSdkScalajsFacadeVersion
 )
