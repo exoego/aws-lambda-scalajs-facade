@@ -11,7 +11,7 @@ scalacOptions --= Seq(
   "-Ywarn-unused:params"
 )
 
-val awsSdkScalajsFacadeVersion = "0.26.1-v2-524.0"
+val awsSdkScalajsFacadeVersion = "0.26.1-v2.524.0"
 libraryDependencies ++= Seq(
   "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb" % awsSdkScalajsFacadeVersion
 )
