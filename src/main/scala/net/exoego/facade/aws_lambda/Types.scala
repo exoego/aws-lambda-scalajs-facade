@@ -28,7 +28,6 @@ trait APIGatewayEventRequestContext extends js.Object {
 }
 
 object APIGatewayEventRequestContext {
-
   def apply(
       accountId: String,
       apiId: String,
@@ -118,7 +117,6 @@ object APIGatewayEventRequestContext {
   }
 
   object Identity {
-
     def apply(
         sourceIp: String,
         accessKey: String | Null = null,
@@ -174,7 +172,6 @@ trait APIGatewayProxyEvent extends js.Object {
 }
 
 object APIGatewayProxyEvent {
-
   def apply(
       headers: APIGatewayProxyEvent.Headers,
       multiValueHeaders: APIGatewayProxyEvent.MultiValueHeaders,
@@ -217,7 +214,6 @@ trait ALBEventRequestContext extends js.Object {
 }
 
 object ALBEventRequestContext {
-
   def apply(
       elb: ALBEventRequestContext.Elb
   ): ALBEventRequestContext = {
@@ -233,7 +229,6 @@ object ALBEventRequestContext {
   }
 
   object Elb {
-
     def apply(
         targetGroupArn: String
     ): Elb = {
@@ -261,7 +256,6 @@ trait ALBEvent extends js.Object {
 }
 
 object ALBEvent {
-
   def apply(
       requestContext: ALBEventRequestContext,
       httpMethod: String,
@@ -331,7 +325,6 @@ trait CustomAuthorizerEvent extends js.Object {
 }
 
 object CustomAuthorizerEvent {
-
   def apply(
       `type`: String,
       methodArn: String,
@@ -419,7 +412,6 @@ trait StreamRecord extends js.Object {
 }
 
 object StreamRecord {
-
   def apply(
       ApproximateCreationDateTime: js.UndefOr[Double] = js.undefined,
       Keys: js.UndefOr[StreamRecord.Keys] = js.undefined,
@@ -472,7 +464,6 @@ trait DynamoDBRecord extends js.Object {
 }
 
 object DynamoDBRecord {
-
   def apply(
       awsRegion: js.UndefOr[String] = js.undefined,
       dynamodb: js.UndefOr[StreamRecord] = js.undefined,
@@ -519,7 +510,6 @@ trait DynamoDBStreamEvent extends js.Object {
 }
 
 object DynamoDBStreamEvent {
-
   def apply(
       Records: js.Array[DynamoDBRecord]
   ): DynamoDBStreamEvent = {
@@ -537,7 +527,6 @@ trait SNSMessageAttribute extends js.Object {
 }
 
 object SNSMessageAttribute {
-
   def apply(
       Type: String,
       Value: String
@@ -565,7 +554,6 @@ trait SNSMessage extends js.Object {
 }
 
 object SNSMessage {
-
   def apply(
       SignatureVersion: String,
       Timestamp: String,
@@ -605,7 +593,6 @@ trait SNSEventRecord extends js.Object {
 }
 
 object SNSEventRecord {
-
   def apply(
       EventVersion: String,
       EventSubscriptionArn: String,
@@ -628,7 +615,6 @@ trait SNSEvent extends js.Object {
 }
 
 object SNSEvent {
-
   def apply(
       Records: js.Array[SNSEventRecord]
   ): SNSEvent = {
@@ -653,7 +639,6 @@ trait S3EventRecord extends js.Object {
 }
 
 object S3EventRecord {
-
   def apply(
       eventVersion: String,
       eventSource: String,
@@ -685,7 +670,6 @@ object S3EventRecord {
   }
 
   object UserIdentity {
-
     def apply(
         principalId: String
     ): UserIdentity = {
@@ -702,7 +686,6 @@ object S3EventRecord {
   }
 
   object RequestParameters {
-
     def apply(
         sourceIPAddress: String
     ): RequestParameters = {
@@ -720,7 +703,6 @@ object S3EventRecord {
   }
 
   object ResponseElements {
-
     def apply(
         `x-amz-request-id`: String,
         `x-amz-id-2`: String
@@ -742,7 +724,6 @@ object S3EventRecord {
   }
 
   object S3 {
-
     def apply(
         s3SchemaVersion: String,
         configurationId: String,
@@ -766,7 +747,6 @@ object S3EventRecord {
     }
 
     object Bucket {
-
       def apply(
           name: String,
           ownerIdentity: Bucket.OwnerIdentity,
@@ -786,7 +766,6 @@ object S3EventRecord {
       }
 
       object OwnerIdentity {
-
         def apply(
             principalId: String
         ): OwnerIdentity = {
@@ -808,7 +787,6 @@ object S3EventRecord {
     }
 
     object Object {
-
       def apply(
           key: String,
           size: Double,
@@ -835,7 +813,6 @@ trait S3Event extends js.Object {
 }
 
 object S3Event {
-
   def apply(
       Records: js.Array[S3EventRecord]
   ): S3Event = {
@@ -859,7 +836,6 @@ trait CognitoUserPoolTriggerEvent extends js.Object {
 }
 
 object CognitoUserPoolTriggerEvent {
-
   def apply(
       version: Double,
       triggerSource: String,
@@ -892,7 +868,6 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object CallerContext {
-
     def apply(
         awsSdkVersion: String,
         clientId: String
@@ -922,7 +897,6 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Request {
-
     def apply(
         userAttributes: Request.UserAttributes,
         validationData: js.UndefOr[Request.ValidationData] = js.undefined,
@@ -1008,7 +982,6 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Response {
-
     def apply(
         autoConfirmUser: js.UndefOr[Boolean] = js.undefined,
         autoVerifyPhone: js.UndefOr[Boolean] = js.undefined,
@@ -1116,7 +1089,6 @@ object CognitoUserPoolTriggerEvent {
     }
 
     object ClaimsOverrideDetails {
-
       def apply(
           claimsToAddOrOverride: js.UndefOr[
             ClaimsOverrideDetails.ClaimsToAddOrOverride
@@ -1159,7 +1131,6 @@ trait CloudFormationCustomResourceEventCommon extends js.Object {
 }
 
 object CloudFormationCustomResourceEventCommon {
-
   def apply(
       ServiceToken: String,
       ResponseURL: String,
@@ -1190,7 +1161,6 @@ trait CloudFormationCustomResourceCreateEvent
 }
 
 object CloudFormationCustomResourceCreateEvent {
-
   def apply(
       RequestType: String
   ): CloudFormationCustomResourceCreateEvent = {
@@ -1212,7 +1182,6 @@ trait CloudFormationCustomResourceUpdateEvent
 }
 
 object CloudFormationCustomResourceUpdateEvent {
-
   def apply(
       RequestType: String,
       PhysicalResourceId: String,
@@ -1236,7 +1205,6 @@ trait CloudFormationCustomResourceDeleteEvent
 }
 
 object CloudFormationCustomResourceDeleteEvent {
-
   def apply(
       RequestType: String,
       PhysicalResourceId: String
@@ -1260,7 +1228,6 @@ trait CloudFormationCustomResourceResponseCommon extends js.Object {
 }
 
 object CloudFormationCustomResourceResponseCommon {
-
   def apply(
       PhysicalResourceId: String,
       StackId: String,
@@ -1289,7 +1256,6 @@ trait CloudFormationCustomResourceSuccessResponse
 }
 
 object CloudFormationCustomResourceSuccessResponse {
-
   def apply(
       Status: String,
       Reason: js.UndefOr[String] = js.undefined
@@ -1310,7 +1276,6 @@ trait CloudFormationCustomResourceFailedResponse
 }
 
 object CloudFormationCustomResourceFailedResponse {
-
   def apply(
       Status: String,
       Reason: String
@@ -1336,7 +1301,6 @@ trait ScheduledEvent extends js.Object {
 }
 
 object ScheduledEvent {
-
   def apply(
       account: String,
       region: String,
@@ -1367,7 +1331,6 @@ trait CloudWatchLogsEvent extends js.Object {
 }
 
 object CloudWatchLogsEvent {
-
   def apply(
       awslogs: CloudWatchLogsEventData
   ): CloudWatchLogsEvent = {
@@ -1384,7 +1347,6 @@ trait CloudWatchLogsEventData extends js.Object {
 }
 
 object CloudWatchLogsEventData {
-
   def apply(
       data: String
   ): CloudWatchLogsEventData = {
@@ -1406,7 +1368,6 @@ trait CloudWatchLogsDecodedData extends js.Object {
 }
 
 object CloudWatchLogsDecodedData {
-
   def apply(
       owner: String,
       logGroup: String,
@@ -1437,7 +1398,6 @@ trait CloudWatchLogsLogEvent extends js.Object {
 }
 
 object CloudWatchLogsLogEvent {
-
   def apply(
       id: String,
       timestamp: Double,
@@ -1484,7 +1444,6 @@ trait CognitoIdentity extends js.Object {
 }
 
 object CognitoIdentity {
-
   def apply(
       cognitoIdentityId: String,
       cognitoIdentityPoolId: String
@@ -1505,7 +1464,6 @@ trait ClientContext extends js.Object {
 }
 
 object ClientContext {
-
   def apply(
       client: ClientContextClient,
       env: ClientContextEnv,
@@ -1530,7 +1488,6 @@ trait ClientContextClient extends js.Object {
 }
 
 object ClientContextClient {
-
   def apply(
       installationId: String,
       appTitle: String,
@@ -1559,7 +1516,6 @@ trait ClientContextEnv extends js.Object {
 }
 
 object ClientContextEnv {
-
   def apply(
       platformVersion: String,
       platform: String,
@@ -1589,7 +1545,6 @@ trait APIGatewayProxyResult extends js.Object {
 }
 
 object APIGatewayProxyResult {
-
   def apply(
       statusCode: Double,
       body: String,
@@ -1628,7 +1583,6 @@ trait ALBResult extends js.Object {
 }
 
 object ALBResult {
-
   def apply(
       statusCode: Double,
       statusDescription: String,
@@ -1665,7 +1619,6 @@ trait CustomAuthorizerResult extends js.Object {
 }
 
 object CustomAuthorizerResult {
-
   def apply(
       principalId: String,
       policyDocument: PolicyDocument,
@@ -1694,7 +1647,6 @@ trait PolicyDocument extends js.Object {
 }
 
 object PolicyDocument {
-
   def apply(
       Version: String,
       Statement: js.Array[Statement],
@@ -1717,7 +1669,6 @@ trait BaseStatement extends js.Object {
 }
 
 object BaseStatement {
-
   def apply(
       Effect: String,
       Sid: js.UndefOr[String] = js.undefined,
@@ -1741,7 +1692,6 @@ trait MaybeStatementPrincipal extends js.Object {
 }
 
 object MaybeStatementPrincipal {
-
   def apply(
       Principal: js.UndefOr[PrincipalValue] = js.undefined,
       NotPrincipal: js.UndefOr[PrincipalValue] = js.undefined
@@ -1765,7 +1715,6 @@ trait MaybeStatementResource extends js.Object {
 }
 
 object MaybeStatementResource {
-
   def apply(
       Resource: js.UndefOr[String | js.Array[String]] = js.undefined,
       NotResource: js.UndefOr[String | js.Array[String]] = js.undefined
@@ -1789,7 +1738,6 @@ trait S3ArtifactLocation extends js.Object {
 }
 
 object S3ArtifactLocation {
-
   def apply(
       bucketName: String,
       objectKey: String
@@ -1809,7 +1757,6 @@ trait S3ArtifactStore extends js.Object {
 }
 
 object S3ArtifactStore {
-
   def apply(
       `type`: String,
       s3Location: S3ArtifactLocation
@@ -1830,7 +1777,6 @@ trait Artifact extends js.Object {
 }
 
 object Artifact {
-
   def apply(
       name: String,
       location: ArtifactLocation,
@@ -1853,7 +1799,6 @@ trait Credentials extends js.Object {
 }
 
 object Credentials {
-
   def apply(
       accessKeyId: String,
       secretAccessKey: String,
@@ -1877,7 +1822,6 @@ trait EncryptionKey extends js.Object {
 }
 
 object EncryptionKey {
-
   def apply(
       `type`: String,
       id: String
@@ -1896,7 +1840,6 @@ trait CodePipelineEvent extends js.Object {
 }
 
 object CodePipelineEvent {
-
   def apply(
       `CodePipeline.job`: CodePipelineEvent.`CodePipeline.job`
   ): CodePipelineEvent = {
@@ -1914,7 +1857,6 @@ object CodePipelineEvent {
   }
 
   object `CodePipeline.job` {
-
     def apply(
         id: String,
         accountId: String,
@@ -1939,7 +1881,6 @@ object CodePipelineEvent {
     }
 
     object Data {
-
       def apply(
           actionConfiguration: Data.ActionConfiguration,
           inputArtifacts: js.Array[Artifact],
@@ -1970,7 +1911,6 @@ object CodePipelineEvent {
       }
 
       object ActionConfiguration {
-
         def apply(
             configuration: ActionConfiguration.Configuration
         ): ActionConfiguration = {
@@ -1987,7 +1927,6 @@ object CodePipelineEvent {
         }
 
         object Configuration {
-
           def apply(
               FunctionName: String,
               UserParameters: String
@@ -2018,7 +1957,6 @@ trait CodePipelineCloudWatchPipelineEvent extends js.Object {
 }
 
 object CodePipelineCloudWatchPipelineEvent {
-
   def apply(
       version: String,
       id: String,
@@ -2053,7 +1991,6 @@ object CodePipelineCloudWatchPipelineEvent {
   }
 
   object Detail {
-
     def apply(
         pipeline: String,
         version: Double,
@@ -2085,7 +2022,6 @@ trait CodePipelineCloudWatchStageEvent extends js.Object {
 }
 
 object CodePipelineCloudWatchStageEvent {
-
   def apply(
       version: String,
       id: String,
@@ -2121,7 +2057,6 @@ object CodePipelineCloudWatchStageEvent {
   }
 
   object Detail {
-
     def apply(
         pipeline: String,
         version: Double,
@@ -2155,7 +2090,6 @@ trait CodePipelineCloudWatchActionEvent extends js.Object {
 }
 
 object CodePipelineCloudWatchActionEvent {
-
   def apply(
       version: String,
       id: String,
@@ -2193,7 +2127,6 @@ object CodePipelineCloudWatchActionEvent {
   }
 
   object Detail {
-
     def apply(
         pipeline: String,
         version: Double,
@@ -2224,7 +2157,6 @@ object CodePipelineCloudWatchActionEvent {
     }
 
     object Type {
-
       def apply(
           owner: String,
           category: CodePipelineActionCategory,
@@ -2256,7 +2188,6 @@ trait CloudFrontCustomOrigin extends js.Object {
 }
 
 object CloudFrontCustomOrigin {
-
   def apply(
       customHeaders: CloudFrontHeaders,
       domainName: String,
@@ -2291,7 +2222,6 @@ trait CloudFrontS3Origin extends js.Object {
 }
 
 object CloudFrontS3Origin {
-
   def apply(
       authMethod: String,
       customHeaders: CloudFrontHeaders,
@@ -2318,7 +2248,6 @@ trait CloudFrontResponse extends js.Object {
 }
 
 object CloudFrontResponse {
-
   def apply(
       status: String,
       statusDescription: String,
@@ -2344,7 +2273,6 @@ trait CloudFrontRequest extends js.Object {
 }
 
 object CloudFrontRequest {
-
   def apply(
       clientIp: String,
       method: String,
@@ -2371,7 +2299,6 @@ trait CloudFrontEvent extends js.Object {
 }
 
 object CloudFrontEvent {
-
   def apply(
       config: CloudFrontEvent.Config
   ): CloudFrontEvent = {
@@ -2390,7 +2317,6 @@ object CloudFrontEvent {
   }
 
   object Config {
-
     def apply(
         distributionDomainName: String,
         distributionId: String,
@@ -2418,7 +2344,6 @@ trait CloudFrontResultResponse extends js.Object {
 }
 
 object CloudFrontResultResponse {
-
   def apply(
       status: String,
       statusDescription: js.UndefOr[String] = js.undefined,
@@ -2449,7 +2374,6 @@ trait CloudFrontResponseEvent extends js.Object {
 }
 
 object CloudFrontResponseEvent {
-
   def apply(
       Records: js.Array[js.Any]
   ): CloudFrontResponseEvent = {
@@ -2466,7 +2390,6 @@ trait CloudFrontRequestEvent extends js.Object {
 }
 
 object CloudFrontRequestEvent {
-
   def apply(
       Records: js.Array[js.Any]
   ): CloudFrontRequestEvent = {
@@ -2487,7 +2410,6 @@ trait KinesisStreamRecordPayload extends js.Object {
 }
 
 object KinesisStreamRecordPayload {
-
   def apply(
       approximateArrivalTimestamp: Double,
       data: String,
@@ -2520,7 +2442,6 @@ trait KinesisStreamRecord extends js.Object {
 }
 
 object KinesisStreamRecord {
-
   def apply(
       awsRegion: String,
       eventID: String,
@@ -2551,7 +2472,6 @@ trait KinesisStreamEvent extends js.Object {
 }
 
 object KinesisStreamEvent {
-
   def apply(
       Records: js.Array[KinesisStreamRecord]
   ): KinesisStreamEvent = {
@@ -2571,7 +2491,6 @@ trait FirehoseTransformationEvent extends js.Object {
 }
 
 object FirehoseTransformationEvent {
-
   def apply(
       invocationId: String,
       deliveryStreamArn: String,
@@ -2597,7 +2516,6 @@ trait FirehoseTransformationEventRecord extends js.Object {
 }
 
 object FirehoseTransformationEventRecord {
-
   def apply(
       recordId: String,
       approximateArrivalTimestamp: Double,
@@ -2628,7 +2546,6 @@ trait FirehoseRecordMetadata extends js.Object {
 }
 
 object FirehoseRecordMetadata {
-
   def apply(
       shardId: String,
       partitionKey: String,
@@ -2656,7 +2573,6 @@ trait FirehoseTransformationResultRecord extends js.Object {
 }
 
 object FirehoseTransformationResultRecord {
-
   def apply(
       recordId: String,
       result: FirehoseRecordTransformationStatus,
@@ -2677,7 +2593,6 @@ trait FirehoseTransformationResult extends js.Object {
 }
 
 object FirehoseTransformationResult {
-
   def apply(
       records: js.Array[FirehoseTransformationResultRecord]
   ): FirehoseTransformationResult = {
@@ -2702,7 +2617,6 @@ trait SQSRecord extends js.Object {
 }
 
 object SQSRecord {
-
   def apply(
       messageId: String,
       receiptHandle: String,
@@ -2735,7 +2649,6 @@ trait SQSEvent extends js.Object {
 }
 
 object SQSEvent {
-
   def apply(
       Records: js.Array[SQSRecord]
   ): SQSEvent = {
@@ -2755,7 +2668,6 @@ trait SQSRecordAttributes extends js.Object {
 }
 
 object SQSRecordAttributes {
-
   def apply(
       ApproximateReceiveCount: String,
       SentTimestamp: String,
@@ -2783,7 +2695,6 @@ trait SQSMessageAttribute extends js.Object {
 }
 
 object SQSMessageAttribute {
-
   def apply(
       stringListValues: js.Array[Nothing],
       binaryListValues: js.Array[Nothing],
@@ -2820,7 +2731,6 @@ trait LexEvent extends js.Object {
 }
 
 object LexEvent {
-
   def apply(
       currentIntent: LexEvent.CurrentIntent,
       bot: LexEvent.Bot,
@@ -2855,7 +2765,6 @@ object LexEvent {
   }
 
   object CurrentIntent {
-
     def apply(
         name: String,
         slots: CurrentIntent.Slots,
@@ -2881,7 +2790,6 @@ object LexEvent {
   }
 
   object Bot {
-
     def apply(
         name: String,
         alias: String,
@@ -2906,7 +2814,6 @@ trait LexSlotResolution extends js.Object {
 }
 
 object LexSlotResolution {
-
   def apply(
       value: String
   ): LexSlotResolution = {
@@ -2927,7 +2834,6 @@ trait LexGenericAttachment extends js.Object {
 }
 
 object LexGenericAttachment {
-
   def apply(
       title: String,
       subTitle: String,
@@ -2954,7 +2860,6 @@ trait LexDialogActionBase extends js.Object {
 }
 
 object LexDialogActionBase {
-
   def apply(
       `type`: String,
       message: js.UndefOr[LexDialogActionBase.Message] = js.undefined,
@@ -2979,7 +2884,6 @@ object LexDialogActionBase {
   }
 
   object Message {
-
     def apply(
         contentType: String,
         content: String
@@ -3000,7 +2904,6 @@ object LexDialogActionBase {
   }
 
   object ResponseCard {
-
     def apply(
         version: Double,
         contentType: String,
@@ -3022,7 +2925,6 @@ trait LexDialogActionClose extends LexDialogActionBase {
 }
 
 object LexDialogActionClose {
-
   def apply(
       `type`: String,
       fulfillmentState: String
@@ -3039,7 +2941,6 @@ object LexDialogActionClose {
 trait LexDialogActionElicitIntent extends LexDialogActionBase {}
 
 object LexDialogActionElicitIntent {
-
   def apply(
       `type`: String
   ): LexDialogActionElicitIntent = {
@@ -3058,7 +2959,6 @@ trait LexDialogActionElicitSlot extends LexDialogActionBase {
 }
 
 object LexDialogActionElicitSlot {
-
   def apply(
       `type`: String,
       intentName: String,
@@ -3083,7 +2983,6 @@ trait LexDialogActionConfirmIntent extends LexDialogActionBase {
 }
 
 object LexDialogActionConfirmIntent {
-
   def apply(
       `type`: String,
       intentName: String,
@@ -3106,7 +3005,6 @@ trait LexDialogActionDelegate extends js.Object {
 }
 
 object LexDialogActionDelegate {
-
   def apply(
       `type`: String,
       slots: LexDialogActionDelegate.Slots
@@ -3127,7 +3025,6 @@ trait LexResult extends js.Object {
 }
 
 object LexResult {
-
   def apply(
       dialogAction: LexDialogAction,
       sessionAttributes: js.UndefOr[LexResult.SessionAttributes] = js.undefined
