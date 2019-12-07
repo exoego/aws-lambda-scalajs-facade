@@ -63,38 +63,38 @@ object APIGatewayEventRequestContext {
       "resourceId" -> resourceId.asInstanceOf[js.Any],
       "resourcePath" -> resourcePath.asInstanceOf[js.Any]
     )
-    authorizer.foreach(
-      _v => _obj$.updateDynamic("authorizer")(_v.asInstanceOf[js.Any])
+    authorizer.foreach(_v =>
+      _obj$.updateDynamic("authorizer")(_v.asInstanceOf[js.Any])
     )
-    connectedAt.foreach(
-      _v => _obj$.updateDynamic("connectedAt")(_v.asInstanceOf[js.Any])
+    connectedAt.foreach(_v =>
+      _obj$.updateDynamic("connectedAt")(_v.asInstanceOf[js.Any])
     )
-    connectionId.foreach(
-      _v => _obj$.updateDynamic("connectionId")(_v.asInstanceOf[js.Any])
+    connectionId.foreach(_v =>
+      _obj$.updateDynamic("connectionId")(_v.asInstanceOf[js.Any])
     )
-    domainName.foreach(
-      _v => _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
+    domainName.foreach(_v =>
+      _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
     )
-    domainPrefix.foreach(
-      _v => _obj$.updateDynamic("domainPrefix")(_v.asInstanceOf[js.Any])
+    domainPrefix.foreach(_v =>
+      _obj$.updateDynamic("domainPrefix")(_v.asInstanceOf[js.Any])
     )
-    eventType.foreach(
-      _v => _obj$.updateDynamic("eventType")(_v.asInstanceOf[js.Any])
+    eventType.foreach(_v =>
+      _obj$.updateDynamic("eventType")(_v.asInstanceOf[js.Any])
     )
-    extendedRequestId.foreach(
-      _v => _obj$.updateDynamic("extendedRequestId")(_v.asInstanceOf[js.Any])
+    extendedRequestId.foreach(_v =>
+      _obj$.updateDynamic("extendedRequestId")(_v.asInstanceOf[js.Any])
     )
-    messageDirection.foreach(
-      _v => _obj$.updateDynamic("messageDirection")(_v.asInstanceOf[js.Any])
+    messageDirection.foreach(_v =>
+      _obj$.updateDynamic("messageDirection")(_v.asInstanceOf[js.Any])
     )
-    messageId.foreach(
-      _v => _obj$.updateDynamic("messageId")(_v.asInstanceOf[js.Any])
+    messageId.foreach(_v =>
+      _obj$.updateDynamic("messageId")(_v.asInstanceOf[js.Any])
     )
-    requestTime.foreach(
-      _v => _obj$.updateDynamic("requestTime")(_v.asInstanceOf[js.Any])
+    requestTime.foreach(_v =>
+      _obj$.updateDynamic("requestTime")(_v.asInstanceOf[js.Any])
     )
-    routeKey.foreach(
-      _v => _obj$.updateDynamic("routeKey")(_v.asInstanceOf[js.Any])
+    routeKey.foreach(_v =>
+      _obj$.updateDynamic("routeKey")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[APIGatewayEventRequestContext]
   }
@@ -277,21 +277,19 @@ object ALBEvent {
       "body" -> body.asInstanceOf[js.Any],
       "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
     )
-    queryStringParameters.foreach(
-      _v =>
-        _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
+    queryStringParameters.foreach(_v =>
+      _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(
-      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    headers.foreach(_v =>
+      _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
     )
-    multiValueQueryStringParameters.foreach(
-      _v =>
-        _obj$.updateDynamic("multiValueQueryStringParameters")(
-          _v.asInstanceOf[js.Any]
-        )
+    multiValueQueryStringParameters.foreach(_v =>
+      _obj$.updateDynamic("multiValueQueryStringParameters")(
+        _v.asInstanceOf[js.Any]
+      )
     )
-    multiValueHeaders.foreach(
-      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
+    multiValueHeaders.foreach(_v =>
+      _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[ALBEvent]
   }
@@ -351,43 +349,41 @@ object CustomAuthorizerEvent {
       "type" -> `type`.asInstanceOf[js.Any],
       "methodArn" -> methodArn.asInstanceOf[js.Any]
     )
-    authorizationToken.foreach(
-      _v => _obj$.updateDynamic("authorizationToken")(_v.asInstanceOf[js.Any])
+    authorizationToken.foreach(_v =>
+      _obj$.updateDynamic("authorizationToken")(_v.asInstanceOf[js.Any])
     )
-    resource.foreach(
-      _v => _obj$.updateDynamic("resource")(_v.asInstanceOf[js.Any])
+    resource.foreach(_v =>
+      _obj$.updateDynamic("resource")(_v.asInstanceOf[js.Any])
     )
     path.foreach(_v => _obj$.updateDynamic("path")(_v.asInstanceOf[js.Any]))
-    httpMethod.foreach(
-      _v => _obj$.updateDynamic("httpMethod")(_v.asInstanceOf[js.Any])
+    httpMethod.foreach(_v =>
+      _obj$.updateDynamic("httpMethod")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(
-      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    headers.foreach(_v =>
+      _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
     )
-    multiValueHeaders.foreach(
-      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
+    multiValueHeaders.foreach(_v =>
+      _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
-    pathParameters.foreach(
-      _v => _obj$.updateDynamic("pathParameters")(_v.asInstanceOf[js.Any])
+    pathParameters.foreach(_v =>
+      _obj$.updateDynamic("pathParameters")(_v.asInstanceOf[js.Any])
     )
-    queryStringParameters.foreach(
-      _v =>
-        _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
+    queryStringParameters.foreach(_v =>
+      _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
     )
-    multiValueQueryStringParameters.foreach(
-      _v =>
-        _obj$.updateDynamic("multiValueQueryStringParameters")(
-          _v.asInstanceOf[js.Any]
-        )
+    multiValueQueryStringParameters.foreach(_v =>
+      _obj$.updateDynamic("multiValueQueryStringParameters")(
+        _v.asInstanceOf[js.Any]
+      )
     )
-    stageVariables.foreach(
-      _v => _obj$.updateDynamic("stageVariables")(_v.asInstanceOf[js.Any])
+    stageVariables.foreach(_v =>
+      _obj$.updateDynamic("stageVariables")(_v.asInstanceOf[js.Any])
     )
-    requestContext.foreach(
-      _v => _obj$.updateDynamic("requestContext")(_v.asInstanceOf[js.Any])
+    requestContext.foreach(_v =>
+      _obj$.updateDynamic("requestContext")(_v.asInstanceOf[js.Any])
     )
-    domainName.foreach(
-      _v => _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
+    domainName.foreach(_v =>
+      _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
     )
     apiId.foreach(_v => _obj$.updateDynamic("apiId")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CustomAuthorizerEvent]
@@ -423,26 +419,25 @@ object StreamRecord {
   ): StreamRecord = {
     val _obj$ = js.Dynamic.literal(
       )
-    ApproximateCreationDateTime.foreach(
-      _v =>
-        _obj$
-          .updateDynamic("ApproximateCreationDateTime")(_v.asInstanceOf[js.Any])
+    ApproximateCreationDateTime.foreach(_v =>
+      _obj$
+        .updateDynamic("ApproximateCreationDateTime")(_v.asInstanceOf[js.Any])
     )
     Keys.foreach(_v => _obj$.updateDynamic("Keys")(_v.asInstanceOf[js.Any]))
-    NewImage.foreach(
-      _v => _obj$.updateDynamic("NewImage")(_v.asInstanceOf[js.Any])
+    NewImage.foreach(_v =>
+      _obj$.updateDynamic("NewImage")(_v.asInstanceOf[js.Any])
     )
-    OldImage.foreach(
-      _v => _obj$.updateDynamic("OldImage")(_v.asInstanceOf[js.Any])
+    OldImage.foreach(_v =>
+      _obj$.updateDynamic("OldImage")(_v.asInstanceOf[js.Any])
     )
-    SequenceNumber.foreach(
-      _v => _obj$.updateDynamic("SequenceNumber")(_v.asInstanceOf[js.Any])
+    SequenceNumber.foreach(_v =>
+      _obj$.updateDynamic("SequenceNumber")(_v.asInstanceOf[js.Any])
     )
-    SizeBytes.foreach(
-      _v => _obj$.updateDynamic("SizeBytes")(_v.asInstanceOf[js.Any])
+    SizeBytes.foreach(_v =>
+      _obj$.updateDynamic("SizeBytes")(_v.asInstanceOf[js.Any])
     )
-    StreamViewType.foreach(
-      _v => _obj$.updateDynamic("StreamViewType")(_v.asInstanceOf[js.Any])
+    StreamViewType.foreach(_v =>
+      _obj$.updateDynamic("StreamViewType")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[StreamRecord]
   }
@@ -476,29 +471,29 @@ object DynamoDBRecord {
   ): DynamoDBRecord = {
     val _obj$ = js.Dynamic.literal(
       )
-    awsRegion.foreach(
-      _v => _obj$.updateDynamic("awsRegion")(_v.asInstanceOf[js.Any])
+    awsRegion.foreach(_v =>
+      _obj$.updateDynamic("awsRegion")(_v.asInstanceOf[js.Any])
     )
-    dynamodb.foreach(
-      _v => _obj$.updateDynamic("dynamodb")(_v.asInstanceOf[js.Any])
+    dynamodb.foreach(_v =>
+      _obj$.updateDynamic("dynamodb")(_v.asInstanceOf[js.Any])
     )
-    eventID.foreach(
-      _v => _obj$.updateDynamic("eventID")(_v.asInstanceOf[js.Any])
+    eventID.foreach(_v =>
+      _obj$.updateDynamic("eventID")(_v.asInstanceOf[js.Any])
     )
-    eventName.foreach(
-      _v => _obj$.updateDynamic("eventName")(_v.asInstanceOf[js.Any])
+    eventName.foreach(_v =>
+      _obj$.updateDynamic("eventName")(_v.asInstanceOf[js.Any])
     )
-    eventSource.foreach(
-      _v => _obj$.updateDynamic("eventSource")(_v.asInstanceOf[js.Any])
+    eventSource.foreach(_v =>
+      _obj$.updateDynamic("eventSource")(_v.asInstanceOf[js.Any])
     )
-    eventSourceARN.foreach(
-      _v => _obj$.updateDynamic("eventSourceARN")(_v.asInstanceOf[js.Any])
+    eventSourceARN.foreach(_v =>
+      _obj$.updateDynamic("eventSourceARN")(_v.asInstanceOf[js.Any])
     )
-    eventVersion.foreach(
-      _v => _obj$.updateDynamic("eventVersion")(_v.asInstanceOf[js.Any])
+    eventVersion.foreach(_v =>
+      _obj$.updateDynamic("eventVersion")(_v.asInstanceOf[js.Any])
     )
-    userIdentity.foreach(
-      _v => _obj$.updateDynamic("userIdentity")(_v.asInstanceOf[js.Any])
+    userIdentity.foreach(_v =>
+      _obj$.updateDynamic("userIdentity")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[DynamoDBRecord]
   }
@@ -855,8 +850,8 @@ object CognitoUserPoolTriggerEvent {
       "request" -> request.asInstanceOf[js.Any],
       "response" -> response.asInstanceOf[js.Any]
     )
-    userName.foreach(
-      _v => _obj$.updateDynamic("userName")(_v.asInstanceOf[js.Any])
+    userName.foreach(_v =>
+      _obj$.updateDynamic("userName")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[CognitoUserPoolTriggerEvent]
   }
@@ -915,38 +910,37 @@ object CognitoUserPoolTriggerEvent {
       val _obj$ = js.Dynamic.literal(
         "userAttributes" -> userAttributes.asInstanceOf[js.Any]
       )
-      validationData.foreach(
-        _v => _obj$.updateDynamic("validationData")(_v.asInstanceOf[js.Any])
+      validationData.foreach(_v =>
+        _obj$.updateDynamic("validationData")(_v.asInstanceOf[js.Any])
       )
-      codeParameter.foreach(
-        _v => _obj$.updateDynamic("codeParameter")(_v.asInstanceOf[js.Any])
+      codeParameter.foreach(_v =>
+        _obj$.updateDynamic("codeParameter")(_v.asInstanceOf[js.Any])
       )
-      linkParameter.foreach(
-        _v => _obj$.updateDynamic("linkParameter")(_v.asInstanceOf[js.Any])
+      linkParameter.foreach(_v =>
+        _obj$.updateDynamic("linkParameter")(_v.asInstanceOf[js.Any])
       )
-      usernameParameter.foreach(
-        _v => _obj$.updateDynamic("usernameParameter")(_v.asInstanceOf[js.Any])
+      usernameParameter.foreach(_v =>
+        _obj$.updateDynamic("usernameParameter")(_v.asInstanceOf[js.Any])
       )
-      newDeviceUsed.foreach(
-        _v => _obj$.updateDynamic("newDeviceUsed")(_v.asInstanceOf[js.Any])
+      newDeviceUsed.foreach(_v =>
+        _obj$.updateDynamic("newDeviceUsed")(_v.asInstanceOf[js.Any])
       )
-      session.foreach(
-        _v => _obj$.updateDynamic("session")(_v.asInstanceOf[js.Any])
+      session.foreach(_v =>
+        _obj$.updateDynamic("session")(_v.asInstanceOf[js.Any])
       )
-      challengeName.foreach(
-        _v => _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
+      challengeName.foreach(_v =>
+        _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
       )
-      privateChallengeParameters.foreach(
-        _v =>
-          _obj$.updateDynamic("privateChallengeParameters")(
-            _v.asInstanceOf[js.Any]
-          )
+      privateChallengeParameters.foreach(_v =>
+        _obj$.updateDynamic("privateChallengeParameters")(
+          _v.asInstanceOf[js.Any]
+        )
       )
-      challengeAnswer.foreach(
-        _v => _obj$.updateDynamic("challengeAnswer")(_v.asInstanceOf[js.Any])
+      challengeAnswer.foreach(_v =>
+        _obj$.updateDynamic("challengeAnswer")(_v.asInstanceOf[js.Any])
       )
-      password.foreach(
-        _v => _obj$.updateDynamic("password")(_v.asInstanceOf[js.Any])
+      password.foreach(_v =>
+        _obj$.updateDynamic("password")(_v.asInstanceOf[js.Any])
       )
       _obj$.asInstanceOf[Request]
     }
@@ -1010,69 +1004,65 @@ object CognitoUserPoolTriggerEvent {
     ): Response = {
       val _obj$ = js.Dynamic.literal(
         )
-      autoConfirmUser.foreach(
-        _v => _obj$.updateDynamic("autoConfirmUser")(_v.asInstanceOf[js.Any])
+      autoConfirmUser.foreach(_v =>
+        _obj$.updateDynamic("autoConfirmUser")(_v.asInstanceOf[js.Any])
       )
-      autoVerifyPhone.foreach(
-        _v => _obj$.updateDynamic("autoVerifyPhone")(_v.asInstanceOf[js.Any])
+      autoVerifyPhone.foreach(_v =>
+        _obj$.updateDynamic("autoVerifyPhone")(_v.asInstanceOf[js.Any])
       )
-      autoVerifyEmail.foreach(
-        _v => _obj$.updateDynamic("autoVerifyEmail")(_v.asInstanceOf[js.Any])
+      autoVerifyEmail.foreach(_v =>
+        _obj$.updateDynamic("autoVerifyEmail")(_v.asInstanceOf[js.Any])
       )
-      smsMessage.foreach(
-        _v => _obj$.updateDynamic("smsMessage")(_v.asInstanceOf[js.Any])
+      smsMessage.foreach(_v =>
+        _obj$.updateDynamic("smsMessage")(_v.asInstanceOf[js.Any])
       )
-      emailMessage.foreach(
-        _v => _obj$.updateDynamic("emailMessage")(_v.asInstanceOf[js.Any])
+      emailMessage.foreach(_v =>
+        _obj$.updateDynamic("emailMessage")(_v.asInstanceOf[js.Any])
       )
-      emailSubject.foreach(
-        _v => _obj$.updateDynamic("emailSubject")(_v.asInstanceOf[js.Any])
+      emailSubject.foreach(_v =>
+        _obj$.updateDynamic("emailSubject")(_v.asInstanceOf[js.Any])
       )
-      challengeName.foreach(
-        _v => _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
+      challengeName.foreach(_v =>
+        _obj$.updateDynamic("challengeName")(_v.asInstanceOf[js.Any])
       )
-      issueTokens.foreach(
-        _v => _obj$.updateDynamic("issueTokens")(_v.asInstanceOf[js.Any])
+      issueTokens.foreach(_v =>
+        _obj$.updateDynamic("issueTokens")(_v.asInstanceOf[js.Any])
       )
-      failAuthentication.foreach(
-        _v => _obj$.updateDynamic("failAuthentication")(_v.asInstanceOf[js.Any])
+      failAuthentication.foreach(_v =>
+        _obj$.updateDynamic("failAuthentication")(_v.asInstanceOf[js.Any])
       )
-      publicChallengeParameters.foreach(
-        _v =>
-          _obj$
-            .updateDynamic("publicChallengeParameters")(_v.asInstanceOf[js.Any])
+      publicChallengeParameters.foreach(_v =>
+        _obj$
+          .updateDynamic("publicChallengeParameters")(_v.asInstanceOf[js.Any])
       )
-      privateChallengeParameters.foreach(
-        _v =>
-          _obj$.updateDynamic("privateChallengeParameters")(
-            _v.asInstanceOf[js.Any]
-          )
+      privateChallengeParameters.foreach(_v =>
+        _obj$.updateDynamic("privateChallengeParameters")(
+          _v.asInstanceOf[js.Any]
+        )
       )
-      challengeMetadata.foreach(
-        _v => _obj$.updateDynamic("challengeMetadata")(_v.asInstanceOf[js.Any])
+      challengeMetadata.foreach(_v =>
+        _obj$.updateDynamic("challengeMetadata")(_v.asInstanceOf[js.Any])
       )
-      answerCorrect.foreach(
-        _v => _obj$.updateDynamic("answerCorrect")(_v.asInstanceOf[js.Any])
+      answerCorrect.foreach(_v =>
+        _obj$.updateDynamic("answerCorrect")(_v.asInstanceOf[js.Any])
       )
-      userAttributes.foreach(
-        _v => _obj$.updateDynamic("userAttributes")(_v.asInstanceOf[js.Any])
+      userAttributes.foreach(_v =>
+        _obj$.updateDynamic("userAttributes")(_v.asInstanceOf[js.Any])
       )
-      finalUserStatus.foreach(
-        _v => _obj$.updateDynamic("finalUserStatus")(_v.asInstanceOf[js.Any])
+      finalUserStatus.foreach(_v =>
+        _obj$.updateDynamic("finalUserStatus")(_v.asInstanceOf[js.Any])
       )
-      messageAction.foreach(
-        _v => _obj$.updateDynamic("messageAction")(_v.asInstanceOf[js.Any])
+      messageAction.foreach(_v =>
+        _obj$.updateDynamic("messageAction")(_v.asInstanceOf[js.Any])
       )
-      desiredDeliveryMediums.foreach(
-        _v =>
-          _obj$.updateDynamic("desiredDeliveryMediums")(_v.asInstanceOf[js.Any])
+      desiredDeliveryMediums.foreach(_v =>
+        _obj$.updateDynamic("desiredDeliveryMediums")(_v.asInstanceOf[js.Any])
       )
-      forceAliasCreation.foreach(
-        _v => _obj$.updateDynamic("forceAliasCreation")(_v.asInstanceOf[js.Any])
+      forceAliasCreation.foreach(_v =>
+        _obj$.updateDynamic("forceAliasCreation")(_v.asInstanceOf[js.Any])
       )
-      claimsOverrideDetails.foreach(
-        _v =>
-          _obj$.updateDynamic("claimsOverrideDetails")(_v.asInstanceOf[js.Any])
+      claimsOverrideDetails.foreach(_v =>
+        _obj$.updateDynamic("claimsOverrideDetails")(_v.asInstanceOf[js.Any])
       )
       _obj$.asInstanceOf[Response]
     }
@@ -1098,17 +1088,15 @@ object CognitoUserPoolTriggerEvent {
       ): ClaimsOverrideDetails = {
         val _obj$ = js.Dynamic.literal(
           )
-        claimsToAddOrOverride.foreach(
-          _v =>
-            _obj$
-              .updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
+        claimsToAddOrOverride.foreach(_v =>
+          _obj$
+            .updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
         )
-        claimsToSuppress.foreach(
-          _v => _obj$.updateDynamic("claimsToSuppress")(_v.asInstanceOf[js.Any])
+        claimsToSuppress.foreach(_v =>
+          _obj$.updateDynamic("claimsToSuppress")(_v.asInstanceOf[js.Any])
         )
-        groupOverrideDetails.foreach(
-          _v =>
-            _obj$.updateDynamic("groupOverrideDetails")(_v.asInstanceOf[js.Any])
+        groupOverrideDetails.foreach(_v =>
+          _obj$.updateDynamic("groupOverrideDetails")(_v.asInstanceOf[js.Any])
         )
         _obj$.asInstanceOf[ClaimsOverrideDetails]
       }
@@ -1410,8 +1398,8 @@ object CloudWatchLogsLogEvent {
       "timestamp" -> timestamp.asInstanceOf[js.Any],
       "message" -> message.asInstanceOf[js.Any]
     )
-    extractedFields.foreach(
-      _v => _obj$.updateDynamic("extractedFields")(_v.asInstanceOf[js.Any])
+    extractedFields.foreach(_v =>
+      _obj$.updateDynamic("extractedFields")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[CloudWatchLogsLogEvent]
   }
@@ -1557,14 +1545,14 @@ object APIGatewayProxyResult {
       "statusCode" -> statusCode.asInstanceOf[js.Any],
       "body" -> body.asInstanceOf[js.Any]
     )
-    headers.foreach(
-      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    headers.foreach(_v =>
+      _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
     )
-    multiValueHeaders.foreach(
-      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
+    multiValueHeaders.foreach(_v =>
+      _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
-    isBase64Encoded.foreach(
-      _v => _obj$.updateDynamic("isBase64Encoded")(_v.asInstanceOf[js.Any])
+    isBase64Encoded.foreach(_v =>
+      _obj$.updateDynamic("isBase64Encoded")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[APIGatewayProxyResult]
   }
@@ -1597,11 +1585,11 @@ object ALBResult {
       "body" -> body.asInstanceOf[js.Any],
       "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
     )
-    headers.foreach(
-      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    headers.foreach(_v =>
+      _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
     )
-    multiValueHeaders.foreach(
-      _v => _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
+    multiValueHeaders.foreach(_v =>
+      _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[ALBResult]
   }
@@ -1629,11 +1617,11 @@ object CustomAuthorizerResult {
       "principalId" -> principalId.asInstanceOf[js.Any],
       "policyDocument" -> policyDocument.asInstanceOf[js.Any]
     )
-    context.foreach(
-      _v => _obj$.updateDynamic("context")(_v.asInstanceOf[js.Any])
+    context.foreach(_v =>
+      _obj$.updateDynamic("context")(_v.asInstanceOf[js.Any])
     )
-    usageIdentifierKey.foreach(
-      _v => _obj$.updateDynamic("usageIdentifierKey")(_v.asInstanceOf[js.Any])
+    usageIdentifierKey.foreach(_v =>
+      _obj$.updateDynamic("usageIdentifierKey")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[CustomAuthorizerResult]
   }
@@ -1678,8 +1666,8 @@ object BaseStatement {
       "Effect" -> Effect.asInstanceOf[js.Any]
     )
     Sid.foreach(_v => _obj$.updateDynamic("Sid")(_v.asInstanceOf[js.Any]))
-    Condition.foreach(
-      _v => _obj$.updateDynamic("Condition")(_v.asInstanceOf[js.Any])
+    Condition.foreach(_v =>
+      _obj$.updateDynamic("Condition")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[BaseStatement]
   }
@@ -1698,11 +1686,11 @@ object MaybeStatementPrincipal {
   ): MaybeStatementPrincipal = {
     val _obj$ = js.Dynamic.literal(
       )
-    Principal.foreach(
-      _v => _obj$.updateDynamic("Principal")(_v.asInstanceOf[js.Any])
+    Principal.foreach(_v =>
+      _obj$.updateDynamic("Principal")(_v.asInstanceOf[js.Any])
     )
-    NotPrincipal.foreach(
-      _v => _obj$.updateDynamic("NotPrincipal")(_v.asInstanceOf[js.Any])
+    NotPrincipal.foreach(_v =>
+      _obj$.updateDynamic("NotPrincipal")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[MaybeStatementPrincipal]
   }
@@ -1721,11 +1709,11 @@ object MaybeStatementResource {
   ): MaybeStatementResource = {
     val _obj$ = js.Dynamic.literal(
       )
-    Resource.foreach(
-      _v => _obj$.updateDynamic("Resource")(_v.asInstanceOf[js.Any])
+    Resource.foreach(_v =>
+      _obj$.updateDynamic("Resource")(_v.asInstanceOf[js.Any])
     )
-    NotResource.foreach(
-      _v => _obj$.updateDynamic("NotResource")(_v.asInstanceOf[js.Any])
+    NotResource.foreach(_v =>
+      _obj$.updateDynamic("NotResource")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[MaybeStatementResource]
   }
@@ -1808,8 +1796,8 @@ object Credentials {
       "accessKeyId" -> accessKeyId.asInstanceOf[js.Any],
       "secretAccessKey" -> secretAccessKey.asInstanceOf[js.Any]
     )
-    sessionToken.foreach(
-      _v => _obj$.updateDynamic("sessionToken")(_v.asInstanceOf[js.Any])
+    sessionToken.foreach(_v =>
+      _obj$.updateDynamic("sessionToken")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[Credentials]
   }
@@ -1895,12 +1883,11 @@ object CodePipelineEvent {
           "outputArtifacts" -> outputArtifacts.asInstanceOf[js.Any],
           "artifactCredentials" -> artifactCredentials.asInstanceOf[js.Any]
         )
-        encryptionKey.foreach(
-          _v => _obj$.updateDynamic("encryptionKey")(_v.asInstanceOf[js.Any])
+        encryptionKey.foreach(_v =>
+          _obj$.updateDynamic("encryptionKey")(_v.asInstanceOf[js.Any])
         )
-        continuationToken.foreach(
-          _v =>
-            _obj$.updateDynamic("continuationToken")(_v.asInstanceOf[js.Any])
+        continuationToken.foreach(_v =>
+          _obj$.updateDynamic("continuationToken")(_v.asInstanceOf[js.Any])
         )
         _obj$.asInstanceOf[Data]
       }
@@ -2354,14 +2341,14 @@ object CloudFrontResultResponse {
     val _obj$ = js.Dynamic.literal(
       "status" -> status.asInstanceOf[js.Any]
     )
-    statusDescription.foreach(
-      _v => _obj$.updateDynamic("statusDescription")(_v.asInstanceOf[js.Any])
+    statusDescription.foreach(_v =>
+      _obj$.updateDynamic("statusDescription")(_v.asInstanceOf[js.Any])
     )
-    headers.foreach(
-      _v => _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
+    headers.foreach(_v =>
+      _obj$.updateDynamic("headers")(_v.asInstanceOf[js.Any])
     )
-    bodyEncoding.foreach(
-      _v => _obj$.updateDynamic("bodyEncoding")(_v.asInstanceOf[js.Any])
+    bodyEncoding.foreach(_v =>
+      _obj$.updateDynamic("bodyEncoding")(_v.asInstanceOf[js.Any])
     )
     body.foreach(_v => _obj$.updateDynamic("body")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFrontResultResponse]
@@ -2528,9 +2515,8 @@ object FirehoseTransformationEventRecord {
         .asInstanceOf[js.Any],
       "data" -> data.asInstanceOf[js.Any]
     )
-    kinesisRecordMetadata.foreach(
-      _v =>
-        _obj$.updateDynamic("kinesisRecordMetadata")(_v.asInstanceOf[js.Any])
+    kinesisRecordMetadata.foreach(_v =>
+      _obj$.updateDynamic("kinesisRecordMetadata")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[FirehoseTransformationEventRecord]
   }
@@ -2707,11 +2693,11 @@ object SQSMessageAttribute {
       "binaryListValues" -> binaryListValues.asInstanceOf[js.Any],
       "dataType" -> dataType.asInstanceOf[js.Any]
     )
-    stringValue.foreach(
-      _v => _obj$.updateDynamic("stringValue")(_v.asInstanceOf[js.Any])
+    stringValue.foreach(_v =>
+      _obj$.updateDynamic("stringValue")(_v.asInstanceOf[js.Any])
     )
-    binaryValue.foreach(
-      _v => _obj$.updateDynamic("binaryValue")(_v.asInstanceOf[js.Any])
+    binaryValue.foreach(_v =>
+      _obj$.updateDynamic("binaryValue")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[SQSMessageAttribute]
   }
@@ -2868,11 +2854,11 @@ object LexDialogActionBase {
     val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any]
     )
-    message.foreach(
-      _v => _obj$.updateDynamic("message")(_v.asInstanceOf[js.Any])
+    message.foreach(_v =>
+      _obj$.updateDynamic("message")(_v.asInstanceOf[js.Any])
     )
-    responseCard.foreach(
-      _v => _obj$.updateDynamic("responseCard")(_v.asInstanceOf[js.Any])
+    responseCard.foreach(_v =>
+      _obj$.updateDynamic("responseCard")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[LexDialogActionBase]
   }
@@ -3032,8 +3018,8 @@ object LexResult {
     val _obj$ = js.Dynamic.literal(
       "dialogAction" -> dialogAction.asInstanceOf[js.Any]
     )
-    sessionAttributes.foreach(
-      _v => _obj$.updateDynamic("sessionAttributes")(_v.asInstanceOf[js.Any])
+    sessionAttributes.foreach(_v =>
+      _obj$.updateDynamic("sessionAttributes")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[LexResult]
   }
