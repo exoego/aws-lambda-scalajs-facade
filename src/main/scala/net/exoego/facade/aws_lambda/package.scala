@@ -62,7 +62,7 @@ package object aws_lambda {
   type FirehoseTransformationHandler =
     Handler[FirehoseTransformationEvent, FirehoseTransformationResult]
   type Handler[TEvent, TResult] =
-    js.Function3[TEvent, Context, Callback[TResult], Unit | js.Promise[TResult]]
+    js.Function3[TEvent, Context, Callback[TResult], Unit] | js.Promise[TResult]
   type Headers = js.Dictionary[String]
   type HeadersBDS = js.Dictionary[Boolean | Double | String]
   type KinesisStreamHandler = Handler[KinesisStreamEvent, Unit]
@@ -77,6 +77,9 @@ package object aws_lambda {
   type ProxyCallback = APIGatewayProxyCallback
   type ProxyHandler = APIGatewayProxyHandler
   type ProxyResult = APIGatewayProxyResult
+  type S3BatchCallback = Callback[S3BatchResult]
+  type S3BatchHandler = Handler[S3BatchEvent, S3BatchResult]
+  type S3BatchResultResultCode = String
   type S3CreateEvent = S3Event
   type S3Handler = Handler[S3Event, Unit]
   type ScheduledHandler = Handler[ScheduledEvent, Unit]
