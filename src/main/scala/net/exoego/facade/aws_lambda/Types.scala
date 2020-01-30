@@ -110,6 +110,7 @@ object APIGatewayEventRequestContext {
     var cognitoAuthenticationType: String | Null = js.native
     var cognitoIdentityId: String | Null = js.native
     var cognitoIdentityPoolId: String | Null = js.native
+    var principalOrgId: String | Null = js.native
     var sourceIp: String = js.native
     var user: String | Null = js.native
     var userAgent: String | Null = js.native
@@ -128,6 +129,7 @@ object APIGatewayEventRequestContext {
         cognitoAuthenticationType: String | Null = null,
         cognitoIdentityId: String | Null = null,
         cognitoIdentityPoolId: String | Null = null,
+        principalOrgId: String | Null = null,
         user: String | Null = null,
         userAgent: String | Null = null,
         userArn: String | Null = null
@@ -144,6 +146,7 @@ object APIGatewayEventRequestContext {
           .asInstanceOf[js.Any],
         "cognitoIdentityId" -> cognitoIdentityId.asInstanceOf[js.Any],
         "cognitoIdentityPoolId" -> cognitoIdentityPoolId.asInstanceOf[js.Any],
+        "principalOrgId" -> principalOrgId.asInstanceOf[js.Any],
         "sourceIp" -> sourceIp.asInstanceOf[js.Any],
         "user" -> user.asInstanceOf[js.Any],
         "userAgent" -> userAgent.asInstanceOf[js.Any],
@@ -420,8 +423,9 @@ object StreamRecord {
     val _obj$ = js.Dynamic.literal(
       )
     ApproximateCreationDateTime.foreach(_v =>
-      _obj$
-        .updateDynamic("ApproximateCreationDateTime")(_v.asInstanceOf[js.Any])
+      _obj$.updateDynamic("ApproximateCreationDateTime")(
+        _v.asInstanceOf[js.Any]
+      )
     )
     Keys.foreach(_v => _obj$.updateDynamic("Keys")(_v.asInstanceOf[js.Any]))
     NewImage.foreach(_v =>
@@ -533,6 +537,7 @@ object SNSMessageAttribute {
     _obj$.asInstanceOf[SNSMessageAttribute]
   }
 }
+
 @js.native
 trait SNSMessage extends js.Object {
   var SignatureVersion: String = js.native
@@ -621,6 +626,43 @@ object SNSEvent {
 }
 
 @js.native
+trait S3EventRecordGlacierRestoreEventData extends js.Object {
+  var lifecycleRestorationExpiryTime: String = js.native
+  var lifecycleRestoreStorageClass: String = js.native
+}
+
+object S3EventRecordGlacierRestoreEventData {
+  def apply(
+      lifecycleRestorationExpiryTime: String,
+      lifecycleRestoreStorageClass: String
+  ): S3EventRecordGlacierRestoreEventData = {
+    val _obj$ = js.Dynamic.literal(
+      "lifecycleRestorationExpiryTime" -> lifecycleRestorationExpiryTime
+        .asInstanceOf[js.Any],
+      "lifecycleRestoreStorageClass" -> lifecycleRestoreStorageClass
+        .asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3EventRecordGlacierRestoreEventData]
+  }
+}
+
+@js.native
+trait S3EventRecordGlacierEventData extends js.Object {
+  var restoreEventData: S3EventRecordGlacierRestoreEventData = js.native
+}
+
+object S3EventRecordGlacierEventData {
+  def apply(
+      restoreEventData: S3EventRecordGlacierRestoreEventData
+  ): S3EventRecordGlacierEventData = {
+    val _obj$ = js.Dynamic.literal(
+      "restoreEventData" -> restoreEventData.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3EventRecordGlacierEventData]
+  }
+}
+
+@js.native
 trait S3EventRecord extends js.Object {
   var eventVersion: String = js.native
   var eventSource: String = js.native
@@ -631,6 +673,7 @@ trait S3EventRecord extends js.Object {
   var requestParameters: S3EventRecord.RequestParameters = js.native
   var responseElements: S3EventRecord.ResponseElements = js.native
   var s3: S3EventRecord.S3 = js.native
+  var glacierEventData: js.UndefOr[S3EventRecordGlacierEventData] = js.native
 }
 
 object S3EventRecord {
@@ -643,7 +686,8 @@ object S3EventRecord {
       userIdentity: S3EventRecord.UserIdentity,
       requestParameters: S3EventRecord.RequestParameters,
       responseElements: S3EventRecord.ResponseElements,
-      s3: S3EventRecord.S3
+      s3: S3EventRecord.S3,
+      glacierEventData: js.UndefOr[S3EventRecordGlacierEventData] = js.undefined
   ): S3EventRecord = {
     val _obj$ = js.Dynamic.literal(
       "eventVersion" -> eventVersion.asInstanceOf[js.Any],
@@ -655,6 +699,9 @@ object S3EventRecord {
       "requestParameters" -> requestParameters.asInstanceOf[js.Any],
       "responseElements" -> responseElements.asInstanceOf[js.Any],
       "s3" -> s3.asInstanceOf[js.Any]
+    )
+    glacierEventData.foreach(_v =>
+      _obj$.updateDynamic("glacierEventData")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[S3EventRecord]
   }
@@ -777,7 +824,7 @@ object S3EventRecord {
       var key: String = js.native
       var size: Double = js.native
       var eTag: String = js.native
-      var versionId: String = js.native
+      var versionId: js.UndefOr[String] = js.native
       var sequencer: String = js.native
     }
 
@@ -786,15 +833,17 @@ object S3EventRecord {
           key: String,
           size: Double,
           eTag: String,
-          versionId: String,
-          sequencer: String
+          sequencer: String,
+          versionId: js.UndefOr[String] = js.undefined
       ): Object = {
         val _obj$ = js.Dynamic.literal(
           "key" -> key.asInstanceOf[js.Any],
           "size" -> size.asInstanceOf[js.Any],
           "eTag" -> eTag.asInstanceOf[js.Any],
-          "versionId" -> versionId.asInstanceOf[js.Any],
           "sequencer" -> sequencer.asInstanceOf[js.Any]
+        )
+        versionId.foreach(_v =>
+          _obj$.updateDynamic("versionId")(_v.asInstanceOf[js.Any])
         )
         _obj$.asInstanceOf[Object]
       }
@@ -815,6 +864,119 @@ object S3Event {
       "Records" -> Records.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[S3Event]
+  }
+}
+
+@js.native
+trait S3BatchEvent extends js.Object {
+  var invocationSchemaVersion: String = js.native
+  var invocationId: String = js.native
+  var job: S3BatchEventJob = js.native
+  var tasks: js.Array[S3BatchEventTask] = js.native
+}
+
+object S3BatchEvent {
+  def apply(
+      invocationSchemaVersion: String,
+      invocationId: String,
+      job: S3BatchEventJob,
+      tasks: js.Array[S3BatchEventTask]
+  ): S3BatchEvent = {
+    val _obj$ = js.Dynamic.literal(
+      "invocationSchemaVersion" -> invocationSchemaVersion.asInstanceOf[js.Any],
+      "invocationId" -> invocationId.asInstanceOf[js.Any],
+      "job" -> job.asInstanceOf[js.Any],
+      "tasks" -> tasks.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3BatchEvent]
+  }
+}
+
+@js.native
+trait S3BatchEventJob extends js.Object {
+  var id: String = js.native
+}
+
+object S3BatchEventJob {
+  def apply(
+      id: String
+  ): S3BatchEventJob = {
+    val _obj$ = js.Dynamic.literal(
+      "id" -> id.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3BatchEventJob]
+  }
+}
+
+@js.native
+trait S3BatchEventTask extends js.Object {
+  var taskId: String = js.native
+  var s3Key: String = js.native
+  var s3VersionId: String | Null = js.native
+  var s3BucketArn: String = js.native
+}
+
+object S3BatchEventTask {
+  def apply(
+      taskId: String,
+      s3Key: String,
+      s3BucketArn: String,
+      s3VersionId: String | Null = null
+  ): S3BatchEventTask = {
+    val _obj$ = js.Dynamic.literal(
+      "taskId" -> taskId.asInstanceOf[js.Any],
+      "s3Key" -> s3Key.asInstanceOf[js.Any],
+      "s3VersionId" -> s3VersionId.asInstanceOf[js.Any],
+      "s3BucketArn" -> s3BucketArn.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3BatchEventTask]
+  }
+}
+
+@js.native
+trait S3BatchResult extends js.Object {
+  var invocationSchemaVersion: String = js.native
+  var treatMissingKeysAs: S3BatchResultResultCode = js.native
+  var invocationId: String = js.native
+  var results: js.Array[S3BatchResultResult] = js.native
+}
+
+object S3BatchResult {
+  def apply(
+      invocationSchemaVersion: String,
+      treatMissingKeysAs: S3BatchResultResultCode,
+      invocationId: String,
+      results: js.Array[S3BatchResultResult]
+  ): S3BatchResult = {
+    val _obj$ = js.Dynamic.literal(
+      "invocationSchemaVersion" -> invocationSchemaVersion.asInstanceOf[js.Any],
+      "treatMissingKeysAs" -> treatMissingKeysAs.asInstanceOf[js.Any],
+      "invocationId" -> invocationId.asInstanceOf[js.Any],
+      "results" -> results.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3BatchResult]
+  }
+}
+
+@js.native
+trait S3BatchResultResult extends js.Object {
+  var taskId: String = js.native
+  var resultCode: S3BatchResultResultCode = js.native
+  var resultString: String = js.native
+}
+
+object S3BatchResultResult {
+  def apply(
+      taskId: String,
+      resultCode: S3BatchResultResultCode,
+      resultString: String
+  ): S3BatchResultResult = {
+    val _obj$ = js.Dynamic.literal(
+      "taskId" -> taskId.asInstanceOf[js.Any],
+      "resultCode" -> resultCode.asInstanceOf[js.Any],
+      "resultString" -> resultString.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[S3BatchResultResult]
   }
 }
 
@@ -1032,8 +1194,9 @@ object CognitoUserPoolTriggerEvent {
         _obj$.updateDynamic("failAuthentication")(_v.asInstanceOf[js.Any])
       )
       publicChallengeParameters.foreach(_v =>
-        _obj$
-          .updateDynamic("publicChallengeParameters")(_v.asInstanceOf[js.Any])
+        _obj$.updateDynamic("publicChallengeParameters")(
+          _v.asInstanceOf[js.Any]
+        )
       )
       privateChallengeParameters.foreach(_v =>
         _obj$.updateDynamic("privateChallengeParameters")(
@@ -1089,8 +1252,7 @@ object CognitoUserPoolTriggerEvent {
         val _obj$ = js.Dynamic.literal(
           )
         claimsToAddOrOverride.foreach(_v =>
-          _obj$
-            .updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
+          _obj$.updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
         )
         claimsToSuppress.foreach(_v =>
           _obj$.updateDynamic("claimsToSuppress")(_v.asInstanceOf[js.Any])
@@ -1222,7 +1384,8 @@ object CloudFormationCustomResourceResponseCommon {
       RequestId: String,
       LogicalResourceId: String,
       Data: js.UndefOr[CloudFormationCustomResourceResponseCommon.Data] =
-        js.undefined
+        js.undefined,
+      NoEcho: js.UndefOr[Boolean] = js.undefined
   ): CloudFormationCustomResourceResponseCommon = {
     val _obj$ = js.Dynamic.literal(
       "PhysicalResourceId" -> PhysicalResourceId.asInstanceOf[js.Any],
@@ -1231,6 +1394,7 @@ object CloudFormationCustomResourceResponseCommon {
       "LogicalResourceId" -> LogicalResourceId.asInstanceOf[js.Any]
     )
     Data.foreach(_v => _obj$.updateDynamic("Data")(_v.asInstanceOf[js.Any]))
+    NoEcho.foreach(_v => _obj$.updateDynamic("NoEcho")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFormationCustomResourceResponseCommon]
   }
   type Data = js.Dictionary[js.Any]
@@ -1412,7 +1576,7 @@ trait Context extends js.Object {
   var functionName: String = js.native
   var functionVersion: String = js.native
   var invokedFunctionArn: String = js.native
-  var memoryLimitInMB: Double = js.native
+  var memoryLimitInMB: String = js.native
   var awsRequestId: String = js.native
   var logGroupName: String = js.native
   var logStreamName: String = js.native
@@ -1566,7 +1730,7 @@ trait ALBResult extends js.Object {
   var statusDescription: String = js.native
   var headers: js.UndefOr[ALBResult.Headers] = js.native
   var multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.native
-  var body: String = js.native
+  var body: js.UndefOr[String] = js.native
   var isBase64Encoded: Boolean = js.native
 }
 
@@ -1574,15 +1738,14 @@ object ALBResult {
   def apply(
       statusCode: Double,
       statusDescription: String,
-      body: String,
       isBase64Encoded: Boolean,
       headers: js.UndefOr[ALBResult.Headers] = js.undefined,
-      multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.undefined
+      multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.undefined,
+      body: js.UndefOr[String] = js.undefined
   ): ALBResult = {
     val _obj$ = js.Dynamic.literal(
       "statusCode" -> statusCode.asInstanceOf[js.Any],
       "statusDescription" -> statusDescription.asInstanceOf[js.Any],
-      "body" -> body.asInstanceOf[js.Any],
       "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
     )
     headers.foreach(_v =>
@@ -1591,6 +1754,7 @@ object ALBResult {
     multiValueHeaders.foreach(_v =>
       _obj$.updateDynamic("multiValueHeaders")(_v.asInstanceOf[js.Any])
     )
+    body.foreach(_v => _obj$.updateDynamic("body")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[ALBResult]
   }
 
@@ -2251,8 +2415,9 @@ object CloudFrontResponse {
 
 @js.native
 trait CloudFrontRequest extends js.Object {
-  var clientIp: String = js.native
-  var method: String = js.native
+  var body: js.UndefOr[CloudFrontRequest.Body] = js.native
+  def clientIp: String = js.native
+  def method: String = js.native
   var uri: String = js.native
   var querystring: String = js.native
   var headers: CloudFrontHeaders = js.native
@@ -2266,6 +2431,7 @@ object CloudFrontRequest {
       uri: String,
       querystring: String,
       headers: CloudFrontHeaders,
+      body: js.UndefOr[CloudFrontRequest.Body] = js.undefined,
       origin: js.UndefOr[CloudFrontOrigin] = js.undefined
   ): CloudFrontRequest = {
     val _obj$ = js.Dynamic.literal(
@@ -2275,8 +2441,34 @@ object CloudFrontRequest {
       "querystring" -> querystring.asInstanceOf[js.Any],
       "headers" -> headers.asInstanceOf[js.Any]
     )
+    body.foreach(_v => _obj$.updateDynamic("body")(_v.asInstanceOf[js.Any]))
     origin.foreach(_v => _obj$.updateDynamic("origin")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CloudFrontRequest]
+  }
+
+  @js.native
+  trait Body extends js.Object {
+    var action: String = js.native
+    var data: String = js.native
+    var encoding: String = js.native
+    def inputTruncated: Boolean = js.native
+  }
+
+  object Body {
+    def apply(
+        action: String,
+        data: String,
+        encoding: String,
+        inputTruncated: Boolean
+    ): Body = {
+      val _obj$ = js.Dynamic.literal(
+        "action" -> action.asInstanceOf[js.Any],
+        "data" -> data.asInstanceOf[js.Any],
+        "encoding" -> encoding.asInstanceOf[js.Any],
+        "inputTruncated" -> inputTruncated.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[Body]
+    }
   }
 }
 
