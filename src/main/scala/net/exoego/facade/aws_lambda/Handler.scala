@@ -26,6 +26,7 @@ trait AsyncHandler[TEvent, TResult] extends js.Object {
   @JSName("apply")
   def apply(event: TEvent, context: Context): js.Promise[TResult]
 }
+
 @js.native
 trait Context extends js.Object {
   var callbackWaitsForEmptyEventLoop: Boolean = js.native
