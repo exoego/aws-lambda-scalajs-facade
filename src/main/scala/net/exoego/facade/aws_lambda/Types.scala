@@ -2327,6 +2327,28 @@ object CodePipelineCloudWatchActionEvent {
 }
 
 @js.native
+trait CloudFrontOrigin extends js.Object {
+  var s3: js.UndefOr[CloudFrontS3Origin] = js.native
+  var custom: js.UndefOr[CloudFrontCustomOrigin] = js.native
+}
+
+object CloudFrontOrigin {
+  // mutual exclusive
+  def apply(s3: CloudFrontS3Origin): CloudFrontOrigin = {
+    val _obj$ = js.Dynamic.literal(
+      "s3" -> s3
+    )
+    _obj$.asInstanceOf[CloudFrontOrigin]
+  }
+  def apply(custom: CloudFrontCustomOrigin): CloudFrontOrigin = {
+    val _obj$ = js.Dynamic.literal(
+      "custom" -> custom
+    )
+    _obj$.asInstanceOf[CloudFrontOrigin]
+  }
+}
+
+@js.native
 trait CloudFrontHeadersItem extends js.Object {
   var key: js.UndefOr[String] = js.native
   var value: String = js.native
