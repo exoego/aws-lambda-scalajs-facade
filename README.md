@@ -49,6 +49,29 @@ object MyFirstAsyncLambda extends AsyncAPIGatewayProxyHandler {
 }
 ```
 
+Below is available list of pre-defined handler traits:
+
+* ALBHandler
+* APIGatewayProxyHandler
+* CloudFormationCustomResourceHandler
+* CloudFrontRequestHandler
+* CloudFrontResponseHandler
+* CodePipelineCloudWatchActionHandler
+* CodePipelineCloudWatchHandler
+* CodePipelineCloudWatchPipelineHandler
+* CodePipelineHandler
+* CognitoUserPoolTriggerHandler
+* CustomAuthorizerHandler
+* DynamoDBStreamHandler
+* FirehoseTransformationHandler
+* KinesisStreamHandler
+* LexHandler
+* ProxyHandler (alias of APIGatewayProxyHandler)
+* S3BatchHandler
+* S3Handler
+* ScheduledHandler
+* SNSHandler
+* SQSHandler
 
 ## License
 
