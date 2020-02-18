@@ -40,12 +40,12 @@ import net.exoego.facade.aws_lambda._
 
 object MyFirstLambda extends APIGatewayProxyHandler {
   @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayEvent, context: Context, callback: Callback[ProxyResult]): Unit = ???
+  override def apply(event: APIGatewayProxyEvent, context: Context, callback: Callback[APIGatewayProxyResult]): Unit = ???
 }
 
 object MyFirstAsyncLambda extends AsyncAPIGatewayProxyHandler {
   @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
+  override def apply(event: APIGatewayProxyEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
 }
 ```
 
