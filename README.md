@@ -28,8 +28,6 @@ Add dependency in `build.sbt`.
 ```sbt
 // For Node.js v12
 libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.5.0"
-// For Node.js v8
-libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade-nodejs-v8" % "0.3.3"
 ```
 
 Import and code.
