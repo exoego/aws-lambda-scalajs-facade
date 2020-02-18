@@ -4,11 +4,9 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 package object aws_lambda {
-  type ALBCallback = Callback[ALBResult]
   type ALBHandler = Handler[ALBEvent, ALBResult]
   type AsyncALBHandler = AsyncHandler[ALBEvent, ALBResult]
   type APIGatewayEvent = APIGatewayProxyEvent
-  type APIGatewayProxyCallback = Callback[APIGatewayProxyResult]
   type APIGatewayProxyHandler =
     Handler[APIGatewayProxyEvent, APIGatewayProxyResult]
   type AsyncAPIGatewayProxyHandler =
@@ -28,14 +26,12 @@ package object aws_lambda {
     CloudFormationCustomResourceSuccessResponse | CloudFormationCustomResourceFailedResponse
   type CloudFrontHeaders = js.Dictionary[js.Array[js.Any]]
   type CloudFrontOrigin = js.Any
-  type CloudFrontRequestCallback = Callback[CloudFrontRequestResult]
   type CloudFrontRequestHandler =
     Handler[CloudFrontRequestEvent, CloudFrontRequestResult]
   type AsyncCloudFrontRequestHandler =
     AsyncHandler[CloudFrontRequestEvent, CloudFrontRequestResult]
   type CloudFrontRequestResult =
     js.UndefOr[CloudFrontResultResponse | CloudFrontRequest]
-  type CloudFrontResponseCallback = Callback[CloudFrontResponseResult]
   type CloudFrontResponseHandler =
     Handler[CloudFrontResponseEvent, CloudFrontResponseResult]
   type AsyncCloudFrontResponseHandler =
@@ -74,7 +70,6 @@ package object aws_lambda {
     AsyncHandler[CognitoUserPoolTriggerEvent, js.Any]
   type ConditionBlock = js.Dictionary[Condition | js.Array[Condition]]
   type Condition = js.Dictionary[String | js.Array[String]]
-  type CustomAuthorizerCallback = Callback[CustomAuthorizerResult]
   type CustomAuthorizerHandler =
     Handler[CustomAuthorizerEvent, CustomAuthorizerResult]
   type AsyncCustomAuthorizerHandler =
@@ -82,7 +77,6 @@ package object aws_lambda {
   type DynamoDBStreamHandler = Handler[DynamoDBStreamEvent, Unit]
   type AsyncDynamoDBStreamHandler = AsyncHandler[DynamoDBStreamEvent, Unit]
   type FirehoseRecordTransformationStatus = String
-  type FirehoseTransformationCallback = Callback[FirehoseTransformationResult]
   type FirehoseTransformationHandler =
     Handler[FirehoseTransformationEvent, FirehoseTransformationResult]
   type AsyncFirehoseTransformationHandler =
@@ -91,7 +85,6 @@ package object aws_lambda {
   type HeadersBDS = js.Dictionary[Boolean | Double | String]
   type KinesisStreamHandler = Handler[KinesisStreamEvent, Unit]
   type AsyncKinesisStreamHandler = AsyncHandler[KinesisStreamEvent, Unit]
-  type LexCallback = Callback[LexResult]
   type LexDialogAction =
     LexDialogActionClose | LexDialogActionElicitIntent | LexDialogActionElicitSlot | LexDialogActionConfirmIntent | LexDialogActionDelegate
   type LexHandler = Handler[LexEvent, LexResult]
@@ -100,10 +93,8 @@ package object aws_lambda {
   type MultiValueHeadersBDS = js.Dictionary[js.Array[Boolean | Double | String]]
   type PrincipalValue =
     js.Dictionary[String | js.Array[String]] | String | js.Array[String]
-  type ProxyCallback = APIGatewayProxyCallback
   type ProxyHandler = APIGatewayProxyHandler
   type ProxyResult = APIGatewayProxyResult
-  type S3BatchCallback = Callback[S3BatchResult]
   type S3BatchHandler = Handler[S3BatchEvent, S3BatchResult]
   type AsyncS3BatchHandler = AsyncHandler[S3BatchEvent, S3BatchResult]
   type S3BatchResultResultCode = String
