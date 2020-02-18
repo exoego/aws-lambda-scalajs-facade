@@ -2327,6 +2327,47 @@ object CodePipelineCloudWatchActionEvent {
 }
 
 @js.native
+trait CloudFrontOrigin extends js.Object {
+  var s3: js.UndefOr[CloudFrontS3Origin] = js.native
+  var custom: js.UndefOr[CloudFrontCustomOrigin] = js.native
+}
+
+object CloudFrontOrigin {
+  // mutual exclusive
+  def apply(s3: CloudFrontS3Origin): CloudFrontOrigin = {
+    val _obj$ = js.Dynamic.literal(
+      "s3" -> s3
+    )
+    _obj$.asInstanceOf[CloudFrontOrigin]
+  }
+  def apply(custom: CloudFrontCustomOrigin): CloudFrontOrigin = {
+    val _obj$ = js.Dynamic.literal(
+      "custom" -> custom
+    )
+    _obj$.asInstanceOf[CloudFrontOrigin]
+  }
+}
+
+@js.native
+trait CloudFrontHeadersItem extends js.Object {
+  var key: js.UndefOr[String] = js.native
+  var value: String = js.native
+}
+
+object CloudFrontHeadersItem {
+  def apply(
+      value: String,
+      key: js.UndefOr[String] = js.undefined
+  ): CloudFrontHeadersItem = {
+    val _obj$ = js.Dynamic.literal(
+      "value" -> value.asInstanceOf[js.Any]
+    )
+    key.foreach(_v => _obj$.updateDynamic("key")(_v.asInstanceOf[js.Any]))
+    _obj$.asInstanceOf[CloudFrontHeadersItem]
+  }
+}
+
+@js.native
 trait CloudFrontCustomOrigin extends js.Object {
   var customHeaders: CloudFrontHeaders = js.native
   var domainName: String = js.native
@@ -2548,8 +2589,30 @@ object CloudFrontResultResponse {
 }
 
 @js.native
+trait CloudFrontResponseEventRecordItem extends js.Object {
+  var config: CloudFrontEvent.Config = js.native
+  def request: CloudFrontRequest = js.native
+  var response: CloudFrontResponse = js.native
+}
+
+object CloudFrontResponseEventRecordItem {
+  def apply(
+      config: CloudFrontEvent.Config,
+      request: CloudFrontRequest,
+      response: CloudFrontResponse
+  ): CloudFrontResponseEventRecordItem = {
+    val _obj$ = js.Dynamic.literal(
+      "config" -> config.asInstanceOf[js.Any],
+      "request" -> request.asInstanceOf[js.Any],
+      "response" -> response.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CloudFrontResponseEventRecordItem]
+  }
+}
+
+@js.native
 trait CloudFrontResponseEvent extends js.Object {
-  var Records: js.Array[js.Any] = js.native
+  var Records: js.Array[CloudFrontResponseEventRecordItem] = js.native
 }
 
 object CloudFrontResponseEvent {
@@ -2564,13 +2627,31 @@ object CloudFrontResponseEvent {
 }
 
 @js.native
+trait CloudFrontRequestEventRecordItem extends CloudFrontEvent {
+  var request: CloudFrontRequest = js.native
+}
+
+object CloudFrontRequestEventRecordItem {
+  def apply(
+      config: CloudFrontEvent.Config,
+      requrest: CloudFrontRequest
+  ): CloudFrontRequestEventRecordItem = {
+    val _obj$ = js.Dynamic.literal(
+      "config" -> config.asInstanceOf[js.Any],
+      "requrest" -> requrest.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CloudFrontRequestEventRecordItem]
+  }
+}
+
+@js.native
 trait CloudFrontRequestEvent extends js.Object {
-  var Records: js.Array[js.Any] = js.native
+  var Records: js.Array[CloudFrontRequestEventRecordItem] = js.native
 }
 
 object CloudFrontRequestEvent {
   def apply(
-      Records: js.Array[js.Any]
+      Records: js.Array[CloudFrontRequestEventRecordItem]
   ): CloudFrontRequestEvent = {
     val _obj$ = js.Dynamic.literal(
       "Records" -> Records.asInstanceOf[js.Any]

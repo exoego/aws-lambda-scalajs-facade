@@ -24,8 +24,7 @@ package object aws_lambda {
     AsyncHandler[CloudFormationCustomResourceEvent, Unit]
   type CloudFormationCustomResourceResponse =
     CloudFormationCustomResourceSuccessResponse | CloudFormationCustomResourceFailedResponse
-  type CloudFrontHeaders = js.Dictionary[js.Array[js.Any]]
-  type CloudFrontOrigin = js.Any
+  type CloudFrontHeaders = js.Dictionary[js.Array[CloudFrontHeadersItem]]
   type CloudFrontRequestHandler =
     Handler[CloudFrontRequestEvent, CloudFrontRequestResult]
   type AsyncCloudFrontRequestHandler =
