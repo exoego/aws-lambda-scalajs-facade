@@ -1583,8 +1583,8 @@ trait Context extends js.Object {
   var identity: js.UndefOr[CognitoIdentity] = js.native
   var clientContext: js.UndefOr[ClientContext] = js.native
   def getRemainingTimeInMillis(): Double = js.native
-  def done(error: Error = ???, result: js.Any = ???): Unit = js.native
-  def fail(error: Error | String): Unit = js.native
+  def done(error: js.Error = ???, result: js.Any = ???): Unit = js.native
+  def fail(error: js.Error | String): Unit = js.native
   def succeed(messageOrObject: js.Any): Unit = js.native
   def succeed(message: String, `object`: js.Any): Unit = js.native
 }
