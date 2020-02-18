@@ -35,15 +35,43 @@ libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade-nodejs-v8" % 
 Import and code.
 
 ```scala
-
+import scala.scalajs.js
 import net.exoego.facade.aws_lambda._
 
 object MyFirstLambda extends APIGatewayProxyHandler {
-  override def apply(arg1: APIGatewayEvent, arg2: Context, arg3: Callback[ProxyResult]): Unit | Promise[APIGatewayProxyResult]
-    = ???
+  @js.annotation.JSName("apply")
+  override def apply(event: APIGatewayEvent, context: Context, callback: Callback[ProxyResult]): Unit = ???
+}
+
+object MyFirstAsyncLambda extends AsyncAPIGatewayProxyHandler {
+  @js.annotation.JSName("apply")
+  override def apply(event: APIGatewayEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
 }
 ```
 
+Below is available list of pre-defined handler traits:
+
+* ALBHandler
+* APIGatewayProxyHandler
+* CloudFormationCustomResourceHandler
+* CloudFrontRequestHandler
+* CloudFrontResponseHandler
+* CodePipelineCloudWatchActionHandler
+* CodePipelineCloudWatchHandler
+* CodePipelineCloudWatchPipelineHandler
+* CodePipelineHandler
+* CognitoUserPoolTriggerHandler
+* CustomAuthorizerHandler
+* DynamoDBStreamHandler
+* FirehoseTransformationHandler
+* KinesisStreamHandler
+* LexHandler
+* ProxyHandler (alias of APIGatewayProxyHandler)
+* S3BatchHandler
+* S3Handler
+* ScheduledHandler
+* SNSHandler
+* SQSHandler
 
 ## License
 
