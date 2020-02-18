@@ -3063,8 +3063,27 @@ object LexEvent {
     }
   }
 
+  @js.native
+  trait LexSlotDetailsItem extends js.Object {
+    var resolutions: js.Array[LexSlotResolution] = js.native
+    var originalValue: String = js.native
+  }
+
+  object LexSlotDetailsItem {
+    def apply(
+        resolutions: js.Array[LexSlotResolution],
+        originalValue: String
+    ): LexSlotDetailsItem = {
+      val _obj$ = js.Dynamic.literal(
+        "resolutions" -> resolutions.asInstanceOf[js.Any],
+        "originalValue" -> originalValue.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[LexSlotDetailsItem]
+    }
+  }
+
   type SessionAttributes = js.Dictionary[String]
-  type LexSlotDetails = js.Dictionary[js.Any]
+  type LexSlotDetails = js.Dictionary[LexSlotDetailsItem]
 }
 
 @js.native
@@ -3089,7 +3108,7 @@ trait LexGenericAttachment extends js.Object {
   var subTitle: String = js.native
   var imageUrl: String = js.native
   var attachmentLinkUrl: String = js.native
-  var buttons: js.Array[js.Any] = js.native
+  var buttons: js.Array[LexGenericAttachment.ButtonsItem] = js.native
 }
 
 object LexGenericAttachment {
@@ -3098,7 +3117,7 @@ object LexGenericAttachment {
       subTitle: String,
       imageUrl: String,
       attachmentLinkUrl: String,
-      buttons: js.Array[js.Any]
+      buttons: js.Array[ButtonsItem]
   ): LexGenericAttachment = {
     val _obj$ = js.Dynamic.literal(
       "title" -> title.asInstanceOf[js.Any],
@@ -3108,6 +3127,25 @@ object LexGenericAttachment {
       "buttons" -> buttons.asInstanceOf[js.Any]
     )
     _obj$.asInstanceOf[LexGenericAttachment]
+  }
+
+  @js.native
+  trait ButtonsItem extends js.Object {
+    var text: String = js.native
+    var value: String = js.native
+  }
+
+  object ButtonsItem {
+    def apply(
+        text: String,
+        value: String
+    ): ButtonsItem = {
+      val _obj$ = js.Dynamic.literal(
+        "text" -> text.asInstanceOf[js.Any],
+        "value" -> value.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[ButtonsItem]
+    }
   }
 }
 
