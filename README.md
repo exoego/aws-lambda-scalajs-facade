@@ -10,12 +10,12 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 
 ## Support matrix
 
-|            |   ScalaJS 0.6.28+              |   ScalaJS 1.x  |
-| ---------- | :----------------------------: | :------------: |
+|            |   ScalaJS 0.6.28+  |   ScalaJS 1.x  |
+| ---------- | :------------------| :------------: |
 | Scala 2.13 | :heavy_check_mark: | :construction: |
-| Scala 2.12 | :heavy_check_mark:             | :construction: |
-| Scala 2.11 |         N/A                    |       N/A      |
-| Scala 2.10 |         N/A                    |       N/A      |
+| Scala 2.12 | :heavy_check_mark: | :construction: |
+| Scala 2.11 |         N/A        |       N/A      |
+| Scala 2.10 |         N/A        |       N/A      |
 
 -   :heavy_check_mark: Supported
 -   :construction: Not supported but planned
@@ -26,8 +26,8 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 Add dependency in `build.sbt`.
 
 ```sbt
-// For Node.js v10
-libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.3.3"
+// For Node.js v12
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.5.0"
 // For Node.js v8
 libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade-nodejs-v8" % "0.3.3"
 ```
@@ -40,12 +40,12 @@ import net.exoego.facade.aws_lambda._
 
 object MyFirstLambda extends APIGatewayProxyHandler {
   @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayEvent, context: Context, callback: Callback[ProxyResult]): Unit = ???
+  override def apply(event: APIGatewayProxyEvent, context: Context, callback: Callback[APIGatewayProxyResult]): Unit = ???
 }
 
 object MyFirstAsyncLambda extends AsyncAPIGatewayProxyHandler {
   @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
+  override def apply(event: APIGatewayProxyEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
 }
 ```
 
