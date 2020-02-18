@@ -2327,6 +2327,25 @@ object CodePipelineCloudWatchActionEvent {
 }
 
 @js.native
+trait CloudFrontHeadersItem extends js.Object {
+  var key: js.UndefOr[String] = js.native
+  var value: String = js.native
+}
+
+object CloudFrontHeadersItem {
+  def apply(
+      value: String,
+      key: js.UndefOr[String] = js.undefined
+  ): CloudFrontHeadersItem = {
+    val _obj$ = js.Dynamic.literal(
+      "value" -> value.asInstanceOf[js.Any]
+    )
+    key.foreach(_v => _obj$.updateDynamic("key")(_v.asInstanceOf[js.Any]))
+    _obj$.asInstanceOf[CloudFrontHeadersItem]
+  }
+}
+
+@js.native
 trait CloudFrontCustomOrigin extends js.Object {
   var customHeaders: CloudFrontHeaders = js.native
   var domainName: String = js.native
