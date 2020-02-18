@@ -15,7 +15,7 @@ package object aws_lambda {
   type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
   type AuthResponse = CustomAuthorizerResult
   type Callback[TResult] =
-    js.Function2[js.UndefOr[Error | String], TResult, Unit]
+    js.Function2[js.UndefOr[js.Error | String], TResult, Unit]
   type CloudFormationCustomResourceEvent =
     CloudFormationCustomResourceCreateEvent | CloudFormationCustomResourceUpdateEvent | CloudFormationCustomResourceDeleteEvent
   type CloudFormationCustomResourceHandler =
