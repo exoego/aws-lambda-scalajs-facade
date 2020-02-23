@@ -51,4 +51,3 @@ releaseProcess := Seq[ReleaseStep](
   setNextVersion,
   commitNextVersion
 )
-skip in packageJSDependencies := false

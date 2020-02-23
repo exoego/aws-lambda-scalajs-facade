@@ -2,7 +2,9 @@ enablePlugins(ScalaJSPlugin)
 
 name := "aws-lambda-scalajs-facade"
 organization := "net.exoego"
-scalacOptions += "-P:scalajs:sjsDefinedByDefault"
+scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
+  Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.0.0").startsWith("0.6.")
+}
 // false positive on js.native
 scalacOptions --= Seq(
   "-Wdead-code",
