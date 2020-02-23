@@ -10,12 +10,12 @@ It can be found in [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-sc
 
 ## Support matrix
 
-|            |   ScalaJS 0.6.28+  |   ScalaJS 1.x  |
-| ---------- | :------------------| :------------: |
-| Scala 2.13 | :heavy_check_mark: | :construction: |
-| Scala 2.12 | :heavy_check_mark: | :construction: |
-| Scala 2.11 |         N/A        |       N/A      |
-| Scala 2.10 |         N/A        |       N/A      |
+|            |   ScalaJS 0.6.28+  |   ScalaJS 1.x      |
+| ---------- | :------------------| :----------------: |
+| Scala 2.13 | :heavy_check_mark: | :heavy_check_mark: |
+| Scala 2.12 | :heavy_check_mark: | :heavy_check_mark: |
+| Scala 2.11 |         N/A        |       N/A          |
+| Scala 2.10 |         N/A        |       N/A          |
 
 -   :heavy_check_mark: Supported
 -   :construction: Not supported but planned
@@ -27,7 +27,7 @@ Add dependency in `build.sbt`.
 
 ```sbt
 // For Node.js v12
-libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.5.0"
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.6.0"
 ```
 
 Import and code.
