@@ -15,6 +15,7 @@ trait APIGatewayEventRequestContext extends js.Object {
   var domainPrefix: js.UndefOr[String] = js.native
   var eventType: js.UndefOr[String] = js.native
   var extendedRequestId: js.UndefOr[String] = js.native
+  var protocol: String = js.native
   var httpMethod: String = js.native
   var identity: APIGatewayEventRequestContext.Identity = js.native
   var messageDirection: js.UndefOr[String] = js.native
@@ -33,6 +34,7 @@ object APIGatewayEventRequestContext {
   def apply(
       accountId: String,
       apiId: String,
+      protocol: String,
       httpMethod: String,
       identity: APIGatewayEventRequestContext.Identity,
       path: String,
@@ -56,6 +58,7 @@ object APIGatewayEventRequestContext {
     val _obj$ = js.Dynamic.literal(
       "accountId" -> accountId.asInstanceOf[js.Any],
       "apiId" -> apiId.asInstanceOf[js.Any],
+      "protocol" -> protocol.asInstanceOf[js.Any],
       "httpMethod" -> httpMethod.asInstanceOf[js.Any],
       "identity" -> identity.asInstanceOf[js.Any],
       "path" -> path.asInstanceOf[js.Any],
