@@ -25,9 +25,11 @@ package object aws_lambda {
   type AsyncCloudWatchLogsHandler = AsyncHandler[CloudWatchLogsEvent, Unit]
 
   // apigateway-authorizer
-  type AuthResponse = CustomAuthorizerResult
+  type AuthResponse = APIGatewayAuthorizerResult
+  @deprecated("Use APIGatewayAuthorizerHandler or a subtype", "0.7.0")
   type CustomAuthorizerHandler =
-    Handler[CustomAuthorizerEvent, CustomAuthorizerResult]
+    Handler[CustomAuthorizerEvent, APIGatewayAuthorizerResult]
+  @deprecated("Use AsumcAPIGatewayAuthorizerHandler or a subtype", "0.7.0")
   type AsyncCustomAuthorizerHandler =
     AsyncHandler[CustomAuthorizerEvent, CustomAuthorizerResult]
   type Condition = js.Dictionary[String | js.Array[String]]
@@ -39,6 +41,39 @@ package object aws_lambda {
   type StatementResource = MaybeStatementPrincipal
   type PrincipalValue =
     js.Dictionary[String | js.Array[String]] | String | js.Array[String]
+  type CustomAuthorizerResult = APIGatewayAuthorizerResult
+  type APIGatewayTokenAuthorizerHandler =
+    Handler[APIGatewayTokenAuthorizerEvent, APIGatewayAuthorizerResult]
+  type AsyncAPIGatewayTokenAuthorizerHandler =
+    AsyncHandler[APIGatewayTokenAuthorizerEvent, APIGatewayAuthorizerResult]
+  type APIGatewayTokenAuthorizerWithContextHandler[
+      TAuthorizerContext <: APIGatewayAuthorizerResultContext
+  ] = Handler[
+    APIGatewayTokenAuthorizerEvent,
+    APIGatewayAuthorizerWithContextResult[TAuthorizerContext]
+  ]
+  type AsyncAPIGatewayTokenAuthorizerWithContextHandler[
+      TAuthorizerContext <: APIGatewayAuthorizerResultContext
+  ] = AsyncHandler[
+    APIGatewayTokenAuthorizerEvent,
+    APIGatewayAuthorizerWithContextResult[TAuthorizerContext]
+  ]
+  type APIGatewayRequestAuthorizerHandler =
+    Handler[APIGatewayRequestAuthorizerEvent, APIGatewayAuthorizerResult]
+  type AsyncAPIGatewayRequestAuthorizerHandler =
+    AsyncHandler[APIGatewayRequestAuthorizerEvent, APIGatewayAuthorizerResult]
+  type APIGatewayRequestAuthorizerWithContextHandler[
+      TAuthorizerContext <: APIGatewayAuthorizerResultContext
+  ] = Handler[
+    APIGatewayRequestAuthorizerEvent,
+    APIGatewayAuthorizerWithContextResult[TAuthorizerContext]
+  ]
+  type AsyncAPIGatewayRequestAuthorizerWithContextHandler[
+      TAuthorizerContext <: APIGatewayAuthorizerResultContext
+  ] = AsyncHandler[
+    APIGatewayRequestAuthorizerEvent,
+    APIGatewayAuthorizerWithContextResult[TAuthorizerContext]
+  ]
 
   // authorizer-proxy
   @deprecated("Old name. Use APIGatewayProxyHandler", "0.5.0")
