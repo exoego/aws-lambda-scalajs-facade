@@ -3,6 +3,45 @@ package net.exoego.facade.aws_lambda
 import scala.scalajs.js
 import scala.scalajs.js.|
 
+trait APIGatewayTokenAuthorizerEvent extends js.Object {
+  var `type`: String
+  var methodArn: String
+  var authorizationToken: String
+}
+
+trait APIGatewayRequestAuthorizerEvent extends js.Object {
+  var `type`: String
+  var resource: String
+  var path: String
+  var httpMethod: String
+  var headers: js.Dictionary[String] | Null
+  var multiValueHeaders: js.Dictionary[js.Array[String]] | Null
+  var pathParameters: js.Dictionary[String] | Null
+  var queryStringParameters: js.Dictionary[String] | Null
+  var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null
+  var stageVariables: js.Dictionary[String] | Null
+  var requestContext: APIGatewayEventRequestContextWithAuthorizer[Unit]
+  var domainName: String
+  var apiId: String
+}
+
+trait APIGatewayAuthorizerResult extends js.Object {
+  var principalId: String
+  var policyDocument: PolicyDocument
+  var context: js.UndefOr[APIGatewayAuthorizerResultContext | Null]
+  var usageIdentifierKey: js.UndefOr[String | Null]
+}
+
+trait APIGatewayAuthorizerWithContextResult[
+    TAuthorizerContext <: APIGatewayAuthorizerResultContext
+] extends js.Object {
+  var principalId: String
+  var policyDocument: PolicyDocument
+  var context: TAuthorizerContext
+  var usageIdentifierKey: js.UndefOr[String | Null]
+}
+
+@deprecated("Use APIGatewayAuthorizerEvent or a subtype", "0.7.0")
 @js.native
 trait CustomAuthorizerEvent extends js.Object {
   var `type`: String = js.native
@@ -21,12 +60,15 @@ trait CustomAuthorizerEvent extends js.Object {
       : js.UndefOr[js.Dictionary[js.Array[String]] | Null] = js.native
   var stageVariables: js.UndefOr[CustomAuthorizerEvent.StageVariables] =
     js.native
-  var requestContext: js.UndefOr[APIGatewayEventRequestContext] = js.native
+  var requestContext: js.UndefOr[APIGatewayEventRequestContextWithAuthorizer[
+    APIGatewayEventDefaultAuthorizerContext
+  ]] = js.native
   var domainName: js.UndefOr[String] = js.native
   var apiId: js.UndefOr[String] = js.native
 }
 
 object CustomAuthorizerEvent {
+  @deprecated("Use APIGatewayAuthorizerEvent or a subtype", "0.7.0")
   def apply(
       `type`: String,
       methodArn: String,
@@ -100,15 +142,8 @@ object CustomAuthorizerEvent {
   type MultiValueQueryStringParameters = js.Dictionary[js.Array[String]]
 }
 
-@js.native
-trait CustomAuthorizerResult extends js.Object {
-  var principalId: String = js.native
-  var policyDocument: PolicyDocument = js.native
-  var context: js.UndefOr[AuthResponseContext] = js.native
-  var usageIdentifierKey: js.UndefOr[String] = js.native
-}
-
 object CustomAuthorizerResult {
+  @deprecated("Use APIGatewayAuthorizerResult", "0.7.0")
   def apply(
       principalId: String,
       policyDocument: PolicyDocument,

@@ -5,38 +5,56 @@ import scala.scalajs.js.annotation.{JSBracketAccess, JSName}
 import scala.scalajs.js.|
 
 @js.native
-trait APIGatewayEventRequestContext extends js.Object {
-  var accountId: String = js.native
-  var apiId: String = js.native
-  var authorizer: js.UndefOr[AuthResponseContext | Null] = js.native
-  var connectedAt: js.UndefOr[Double] = js.native
-  var connectionId: js.UndefOr[String] = js.native
-  var domainName: js.UndefOr[String] = js.native
-  var domainPrefix: js.UndefOr[String] = js.native
-  var eventType: js.UndefOr[String] = js.native
-  var extendedRequestId: js.UndefOr[String] = js.native
-  var protocol: String = js.native
-  var httpMethod: String = js.native
-  var identity: APIGatewayEventRequestContext.Identity = js.native
-  var messageDirection: js.UndefOr[String] = js.native
-  var messageId: js.UndefOr[String | Null] = js.native
-  var path: String = js.native
-  var stage: String = js.native
-  var requestId: String = js.native
-  var requestTime: js.UndefOr[String] = js.native
-  var requestTimeEpoch: Double = js.native
-  var resourceId: String = js.native
-  var resourcePath: String = js.native
-  var routeKey: js.UndefOr[String] = js.native
+trait APIGatewayAuthorizerResultContext extends js.Object {
+  @JSBracketAccess
+  def apply(key: String): js.UndefOr[String | Double | Boolean] = js.native
 }
 
+@js.native
+trait APIGatewayEventDefaultAuthorizerContext extends js.Object {
+  @JSBracketAccess
+  def apply(key: String): js.UndefOr[js.Any] = js.native
+}
+
+trait APIGatewayEventRequestContextWithAuthorizer[TAuthorizerContext]
+    extends js.Object {
+  var accountId: String
+  var apiId: String
+  var authorizer: TAuthorizerContext
+  var connectedAt: js.UndefOr[Double]
+  var connectionId: js.UndefOr[String]
+  var domainName: js.UndefOr[String]
+  var domainPrefix: js.UndefOr[String]
+  var eventType: js.UndefOr[String]
+  var extendedRequestId: js.UndefOr[String]
+  var protocol: String
+  var httpMethod: String
+  var identity: APIGatewayEventIdentity
+  var messageDirection: js.UndefOr[String]
+  var messageId: js.UndefOr[String | Null]
+  var path: String
+  var stage: String
+  var requestId: String
+  var requestTime: js.UndefOr[String]
+  var requestTimeEpoch: Double
+  var resourceId: String
+  var resourcePath: String
+  var routeKey: js.UndefOr[String]
+}
+
+trait APIGatewayEventRequestContext
+    extends APIGatewayEventRequestContextWithAuthorizer[
+      js.UndefOr[AuthResponseContext | Null]
+    ]
+
 object APIGatewayEventRequestContext {
+  @deprecated("Use new APIGatewayEventRequestContext{}", "0.7.0")
   def apply(
       accountId: String,
       apiId: String,
       protocol: String,
       httpMethod: String,
-      identity: APIGatewayEventRequestContext.Identity,
+      identity: APIGatewayEventIdentity,
       path: String,
       stage: String,
       requestId: String,
@@ -104,24 +122,10 @@ object APIGatewayEventRequestContext {
     _obj$.asInstanceOf[APIGatewayEventRequestContext]
   }
 
-  @js.native
-  trait Identity extends js.Object {
-    var accessKey: String | Null = js.native
-    var accountId: String | Null = js.native
-    var apiKey: String | Null = js.native
-    var apiKeyId: String | Null = js.native
-    var caller: String | Null = js.native
-    var cognitoAuthenticationProvider: String | Null = js.native
-    var cognitoAuthenticationType: String | Null = js.native
-    var cognitoIdentityId: String | Null = js.native
-    var cognitoIdentityPoolId: String | Null = js.native
-    var principalOrgId: String | Null = js.native
-    var sourceIp: String = js.native
-    var user: String | Null = js.native
-    var userAgent: String | Null = js.native
-    var userArn: String | Null = js.native
-  }
+  @deprecated("Use APIGatewayEventIdentity instead.", "0.7.0")
+  type Identity = APIGatewayEventIdentity
 
+  @deprecated("Use APIGatewayEventIdentity instead.", "0.7.0")
   object Identity {
     def apply(
         sourceIp: String,
@@ -162,13 +166,27 @@ object APIGatewayEventRequestContext {
   }
 }
 
+trait APIGatewayEventIdentity extends js.Object {
+  var accessKey: String | Null
+  var accountId: String | Null
+  var apiKey: String | Null
+  var apiKeyId: String | Null
+  var caller: String | Null
+  var cognitoAuthenticationProvider: String | Null
+  var cognitoAuthenticationType: String | Null
+  var cognitoIdentityId: String | Null
+  var cognitoIdentityPoolId: String | Null
+  var principalOrgId: String | Null
+  var sourceIp: String
+  var user: String | Null
+  var userAgent: String | Null
+  var userArn: String | Null
+}
+
 @js.native
-trait AuthResponseContext extends js.Object {
+trait AuthResponseContext extends APIGatewayEventDefaultAuthorizerContext {
   var claims: js.UndefOr[AuthResponseContext.CognitoUserPoolAuthorizerEvent] =
     js.native
-
-  @JSBracketAccess
-  def apply(key: String): js.UndefOr[js.Any] = js.native
 }
 
 object AuthResponseContext {
