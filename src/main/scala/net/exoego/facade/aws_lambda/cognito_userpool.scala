@@ -74,6 +74,7 @@ object CognitoUserPoolTriggerEvent {
         : js.UndefOr[Request.PrivateChallengeParameters] = js.native
     var challengeAnswer: js.UndefOr[String] = js.native
     var password: js.UndefOr[String] = js.native
+    var clientMetadata: js.UndefOr[Request.ClientMetadata] = js.native
   }
 
   object Request {
@@ -90,7 +91,8 @@ object CognitoUserPoolTriggerEvent {
           Request.PrivateChallengeParameters
         ] = js.undefined,
         challengeAnswer: js.UndefOr[String] = js.undefined,
-        password: js.UndefOr[String] = js.undefined
+        password: js.UndefOr[String] = js.undefined,
+        clientMetadata: js.UndefOr[Request.ClientMetadata] = js.undefined
     ): Request = {
       val _obj$ = js.Dynamic.literal(
         "userAttributes" -> userAttributes.asInstanceOf[js.Any]
@@ -127,11 +129,15 @@ object CognitoUserPoolTriggerEvent {
       password.foreach(_v =>
         _obj$.updateDynamic("password")(_v.asInstanceOf[js.Any])
       )
+      clientMetadata.foreach(_v =>
+        _obj$.updateDynamic("clientMetadata")(_v.asInstanceOf[js.Any])
+      )
       _obj$.asInstanceOf[Request]
     }
     type UserAttributes = js.Dictionary[String]
     type ValidationData = js.Dictionary[String]
     type PrivateChallengeParameters = js.Dictionary[String]
+    type ClientMetadata = js.Dictionary[String]
   }
 
   @js.native
