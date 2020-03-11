@@ -64,6 +64,7 @@ trait SQSRecordAttributes extends js.Object {
   var SentTimestamp: String = js.native
   var SenderId: String = js.native
   var ApproximateFirstReceiveTimestamp: String = js.native
+  var AWSTraceHeader: js.UndefOr[String] = js.native
 }
 
 object SQSRecordAttributes {
@@ -71,7 +72,8 @@ object SQSRecordAttributes {
       ApproximateReceiveCount: String,
       SentTimestamp: String,
       SenderId: String,
-      ApproximateFirstReceiveTimestamp: String
+      ApproximateFirstReceiveTimestamp: String,
+      AWSTraceHeader: js.UndefOr[String] = js.undefined
   ): SQSRecordAttributes = {
     val _obj$ = js.Dynamic.literal(
       "ApproximateReceiveCount" -> ApproximateReceiveCount.asInstanceOf[js.Any],
@@ -79,6 +81,9 @@ object SQSRecordAttributes {
       "SenderId" -> SenderId.asInstanceOf[js.Any],
       "ApproximateFirstReceiveTimestamp" -> ApproximateFirstReceiveTimestamp
         .asInstanceOf[js.Any]
+    )
+    AWSTraceHeader.foreach(_v =>
+      _obj$.updateDynamic("AWSTraceHeader")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[SQSRecordAttributes]
   }
