@@ -11,6 +11,7 @@ trait APIGatewayTokenAuthorizerEvent extends js.Object {
 
 trait APIGatewayRequestAuthorizerEvent extends js.Object {
   var `type`: String
+  var methodArn: String
   var resource: String
   var path: String
   var httpMethod: String
@@ -21,8 +22,6 @@ trait APIGatewayRequestAuthorizerEvent extends js.Object {
   var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null
   var stageVariables: js.Dictionary[String] | Null
   var requestContext: APIGatewayEventRequestContextWithAuthorizer[Unit]
-  var domainName: String
-  var apiId: String
 }
 
 trait APIGatewayAuthorizerResult extends js.Object {
@@ -63,8 +62,6 @@ trait CustomAuthorizerEvent extends js.Object {
   var requestContext: js.UndefOr[APIGatewayEventRequestContextWithAuthorizer[
     APIGatewayEventDefaultAuthorizerContext
   ]] = js.native
-  var domainName: js.UndefOr[String] = js.native
-  var apiId: js.UndefOr[String] = js.native
 }
 
 object CustomAuthorizerEvent {
@@ -87,9 +84,7 @@ object CustomAuthorizerEvent {
       ] = js.undefined,
       stageVariables: js.UndefOr[CustomAuthorizerEvent.StageVariables] =
         js.undefined,
-      requestContext: js.UndefOr[APIGatewayEventRequestContext] = js.undefined,
-      domainName: js.UndefOr[String] = js.undefined,
-      apiId: js.UndefOr[String] = js.undefined
+      requestContext: js.UndefOr[APIGatewayEventRequestContext] = js.undefined
   ): CustomAuthorizerEvent = {
     val _obj$ = js.Dynamic.literal(
       "type" -> `type`.asInstanceOf[js.Any],
@@ -128,10 +123,6 @@ object CustomAuthorizerEvent {
     requestContext.foreach(_v =>
       _obj$.updateDynamic("requestContext")(_v.asInstanceOf[js.Any])
     )
-    domainName.foreach(_v =>
-      _obj$.updateDynamic("domainName")(_v.asInstanceOf[js.Any])
-    )
-    apiId.foreach(_v => _obj$.updateDynamic("apiId")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[CustomAuthorizerEvent]
   }
   type Headers = js.Dictionary[String]
