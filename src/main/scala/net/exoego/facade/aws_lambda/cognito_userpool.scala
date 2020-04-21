@@ -75,6 +75,7 @@ object CognitoUserPoolTriggerEvent {
     var challengeAnswer: js.UndefOr[String] = js.native
     var password: js.UndefOr[String] = js.native
     var clientMetadata: js.UndefOr[Request.ClientMetadata] = js.native
+    var userNotFound: js.UndefOr[Boolean] = js.native
   }
 
   object Request {
@@ -92,7 +93,8 @@ object CognitoUserPoolTriggerEvent {
         ] = js.undefined,
         challengeAnswer: js.UndefOr[String] = js.undefined,
         password: js.UndefOr[String] = js.undefined,
-        clientMetadata: js.UndefOr[Request.ClientMetadata] = js.undefined
+        clientMetadata: js.UndefOr[Request.ClientMetadata] = js.undefined,
+        userNotFound: js.UndefOr[Boolean] = js.undefined
     ): Request = {
       val _obj$ = js.Dynamic.literal(
         "userAttributes" -> userAttributes.asInstanceOf[js.Any]
@@ -131,6 +133,9 @@ object CognitoUserPoolTriggerEvent {
       )
       clientMetadata.foreach(_v =>
         _obj$.updateDynamic("clientMetadata")(_v.asInstanceOf[js.Any])
+      )
+      userNotFound.foreach(_v =>
+        _obj$.updateDynamic("userNotFound")(_v.asInstanceOf[js.Any])
       )
       _obj$.asInstanceOf[Request]
     }
