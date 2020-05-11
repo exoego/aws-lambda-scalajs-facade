@@ -200,4 +200,10 @@ package object aws_lambda {
   type AsyncSQSHandler = AsyncHandler[SQSEvent, Unit]
   type SQSMessageAttributeDataType = String
   type SQSMessageAttributes = js.Dictionary[SQSMessageAttribute]
+
+  // eventbridge
+  type EventBridgeHandler[TDetailType <: String, TDetail, TResult] =
+    Handler[EventBridgeEvent[TDetailType, TDetail], TResult]
+  type AsyncEventBridgeHandler[TDetailType <: String, TDetail, TResult] =
+    AsyncHandler[EventBridgeEvent[TDetailType, TDetail], TResult]
 }
