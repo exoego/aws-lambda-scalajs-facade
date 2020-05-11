@@ -199,7 +199,7 @@ object CognitoUserPoolTriggerEvent {
           js.undefined
     ): Response = {
       val _obj$ = js.Dynamic.literal(
-        )
+      )
       autoConfirmUser.foreach(_v =>
         _obj$.updateDynamic("autoConfirmUser")(_v.asInstanceOf[js.Any])
       )
@@ -284,7 +284,7 @@ object CognitoUserPoolTriggerEvent {
           groupOverrideDetails: js.UndefOr[Null | js.Any] = js.undefined
       ): ClaimsOverrideDetails = {
         val _obj$ = js.Dynamic.literal(
-          )
+        )
         claimsToAddOrOverride.foreach(_v =>
           _obj$.updateDynamic("claimsToAddOrOverride")(_v.asInstanceOf[js.Any])
         )

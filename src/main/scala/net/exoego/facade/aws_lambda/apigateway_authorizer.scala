@@ -213,7 +213,7 @@ object MaybeStatementPrincipal {
       NotPrincipal: js.UndefOr[PrincipalValue] = js.undefined
   ): MaybeStatementPrincipal = {
     val _obj$ = js.Dynamic.literal(
-      )
+    )
     Principal.foreach(_v =>
       _obj$.updateDynamic("Principal")(_v.asInstanceOf[js.Any])
     )
@@ -236,7 +236,7 @@ object MaybeStatementResource {
       NotResource: js.UndefOr[String | js.Array[String]] = js.undefined
   ): MaybeStatementResource = {
     val _obj$ = js.Dynamic.literal(
-      )
+    )
     Resource.foreach(_v =>
       _obj$.updateDynamic("Resource")(_v.asInstanceOf[js.Any])
     )
