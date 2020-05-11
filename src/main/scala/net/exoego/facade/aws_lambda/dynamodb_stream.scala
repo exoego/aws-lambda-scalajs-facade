@@ -24,7 +24,7 @@ object StreamRecord {
       StreamViewType: js.UndefOr[String] = js.undefined
   ): StreamRecord = {
     val _obj$ = js.Dynamic.literal(
-      )
+    )
     ApproximateCreationDateTime.foreach(_v =>
       _obj$.updateDynamic("ApproximateCreationDateTime")(
         _v.asInstanceOf[js.Any]
@@ -77,7 +77,7 @@ object DynamoDBRecord {
       userIdentity: js.UndefOr[js.Any] = js.undefined
   ): DynamoDBRecord = {
     val _obj$ = js.Dynamic.literal(
-      )
+    )
     awsRegion.foreach(_v =>
       _obj$.updateDynamic("awsRegion")(_v.asInstanceOf[js.Any])
     )
