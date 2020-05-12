@@ -3,13 +3,14 @@ package net.exoego.facade.aws_lambda
 import scala.scalajs.js
 
 @js.native
-trait ScheduledEvent extends EventBridgeEvent["Scheduled Event", js.Any]
+trait ScheduledEvent
+    extends EventBridgeEvent["Scheduled Event", ScheduledEventDetail]
 
 object ScheduledEvent {
   def apply(
       account: String,
       region: String,
-      detail: js.Any,
+      detail: ScheduledEventDetail,
       source: String,
       time: String,
       id: String,
