@@ -17,8 +17,8 @@ package object aws_lambda {
   type AsyncALBHandler = AsyncHandler[ALBEvent, ALBResult]
 
   // cloudwatch-events
-  type ScheduledHandler = Handler[ScheduledEvent, Unit]
-  type AsyncScheduledHandler = AsyncHandler[ScheduledEvent, Unit]
+  type ScheduledHandler[T] = Handler[ScheduledEvent[T], Unit]
+  type AsyncScheduledHandler[T] = AsyncHandler[ScheduledEvent[T], Unit]
 
   // cloudwatch-logs
   type CloudWatchLogsHandler = Handler[CloudWatchLogsEvent, Unit]
