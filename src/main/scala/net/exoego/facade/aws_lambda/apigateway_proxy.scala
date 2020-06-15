@@ -107,48 +107,59 @@ object APIGatewayProxyResult {
   * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
+
 @js.native
 trait APIGatewayProxyEventV2 extends js.Object {
+  var version: String = js.native
   var routeKey: String = js.native
   var rawPath: String = js.native
   var rawQueryString: String = js.native
-  var cookies: js.Array[String] = js.native
+  var cookies: js.UndefOr[js.Array[String]] = js.native
   var headers: Headers = js.native
-  var queryStringParameters: Headers =
-    js.native
+  var queryStringParameters: js.UndefOr[Headers] = js.native
   var requestContext: APIGatewayProxyEventV2.RequestContext = js.native
-  var body: String = js.native
-  var pathParameters: Headers = js.native
+  var body: js.UndefOr[String] = js.native
+  var pathParameters: js.UndefOr[Headers] = js.native
   var isBase64Encoded: Boolean = js.native
-  var stageVariables: Headers = js.native
+  var stageVariables: js.UndefOr[Headers] = js.native
 }
 
 object APIGatewayProxyEventV2 {
   def apply(
+      version: String,
       routeKey: String,
       rawPath: String,
       rawQueryString: String,
-      cookies: js.Array[String],
       headers: Headers,
-      queryStringParameters: Headers,
       requestContext: APIGatewayProxyEventV2.RequestContext,
-      body: String,
-      pathParameters: Headers,
       isBase64Encoded: Boolean,
-      stageVariables: Headers
+      cookies: js.UndefOr[js.Array[String]] = js.undefined,
+      queryStringParameters: js.UndefOr[Headers] = js.undefined,
+      body: js.UndefOr[String] = js.undefined,
+      pathParameters: js.UndefOr[Headers] = js.undefined,
+      stageVariables: js.UndefOr[Headers] = js.undefined
   ): APIGatewayProxyEventV2 = {
     val _obj$ = js.Dynamic.literal(
+      "version" -> version.asInstanceOf[js.Any],
       "routeKey" -> routeKey.asInstanceOf[js.Any],
       "rawPath" -> rawPath.asInstanceOf[js.Any],
       "rawQueryString" -> rawQueryString.asInstanceOf[js.Any],
-      "cookies" -> cookies.asInstanceOf[js.Any],
       "headers" -> headers.asInstanceOf[js.Any],
-      "queryStringParameters" -> queryStringParameters.asInstanceOf[js.Any],
       "requestContext" -> requestContext.asInstanceOf[js.Any],
-      "body" -> body.asInstanceOf[js.Any],
-      "pathParameters" -> pathParameters.asInstanceOf[js.Any],
-      "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any],
-      "stageVariables" -> stageVariables.asInstanceOf[js.Any]
+      "isBase64Encoded" -> isBase64Encoded.asInstanceOf[js.Any]
+    )
+    cookies.foreach(_v =>
+      _obj$.updateDynamic("cookies")(_v.asInstanceOf[js.Any])
+    )
+    queryStringParameters.foreach(_v =>
+      _obj$.updateDynamic("queryStringParameters")(_v.asInstanceOf[js.Any])
+    )
+    body.foreach(_v => _obj$.updateDynamic("body")(_v.asInstanceOf[js.Any]))
+    pathParameters.foreach(_v =>
+      _obj$.updateDynamic("pathParameters")(_v.asInstanceOf[js.Any])
+    )
+    stageVariables.foreach(_v =>
+      _obj$.updateDynamic("stageVariables")(_v.asInstanceOf[js.Any])
     )
     _obj$.asInstanceOf[APIGatewayProxyEventV2]
   }
@@ -157,7 +168,7 @@ object APIGatewayProxyEventV2 {
   trait RequestContext extends js.Object {
     var accountId: String = js.native
     var apiId: String = js.native
-    var authorizer: RequestContext.Authorizer = js.native
+    var authorizer: js.UndefOr[RequestContext.Authorizer] = js.native
     var domainName: String = js.native
     var domainPrefix: String = js.native
     var http: RequestContext.Http = js.native
@@ -172,7 +183,6 @@ object APIGatewayProxyEventV2 {
     def apply(
         accountId: String,
         apiId: String,
-        authorizer: RequestContext.Authorizer,
         domainName: String,
         domainPrefix: String,
         http: RequestContext.Http,
@@ -180,12 +190,12 @@ object APIGatewayProxyEventV2 {
         routeKey: String,
         stage: String,
         time: String,
-        timeEpoch: Double
+        timeEpoch: Double,
+        authorizer: js.UndefOr[RequestContext.Authorizer] = js.undefined
     ): RequestContext = {
       val _obj$ = js.Dynamic.literal(
         "accountId" -> accountId.asInstanceOf[js.Any],
         "apiId" -> apiId.asInstanceOf[js.Any],
-        "authorizer" -> authorizer.asInstanceOf[js.Any],
         "domainName" -> domainName.asInstanceOf[js.Any],
         "domainPrefix" -> domainPrefix.asInstanceOf[js.Any],
         "http" -> http.asInstanceOf[js.Any],
@@ -194,6 +204,9 @@ object APIGatewayProxyEventV2 {
         "stage" -> stage.asInstanceOf[js.Any],
         "time" -> time.asInstanceOf[js.Any],
         "timeEpoch" -> timeEpoch.asInstanceOf[js.Any]
+      )
+      authorizer.foreach(_v =>
+        _obj$.updateDynamic("authorizer")(_v.asInstanceOf[js.Any])
       )
       _obj$.asInstanceOf[RequestContext]
     }
@@ -215,13 +228,13 @@ object APIGatewayProxyEventV2 {
 
       @js.native
       trait Jwt extends js.Object {
-        var claims: Jwt.Claims = js.native
+        var claims: Headers = js.native
         var scopes: js.Array[String] = js.native
       }
 
       object Jwt {
         def apply(
-            claims: Jwt.Claims,
+            claims: Headers,
             scopes: js.Array[String]
         ): Jwt = {
           val _obj$ = js.Dynamic.literal(
@@ -230,8 +243,6 @@ object APIGatewayProxyEventV2 {
           )
           _obj$.asInstanceOf[Jwt]
         }
-
-        type Claims = Headers
       }
     }
 
@@ -270,22 +281,22 @@ object APIGatewayProxyEventV2 {
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @js.native
-trait APIGatewayProxyResultV2 extends js.Object {
+trait APIGatewayProxyStructuredResultV2 extends js.Object {
   var statusCode: js.UndefOr[Double] = js.native
   var headers: js.UndefOr[HeadersBDS] = js.native
-  var body: js.UndefOr[String | js.Object] = js.native
+  var body: js.UndefOr[String] = js.native
   var isBase64Encoded: js.UndefOr[Boolean] = js.native
   var cookies: js.UndefOr[js.Array[String]] = js.native
 }
 
-object APIGatewayProxyResultV2 {
+object APIGatewayProxyStructuredResultV2 {
   def apply(
       statusCode: js.UndefOr[Double] = js.undefined,
       headers: js.UndefOr[HeadersBDS] = js.undefined,
-      body: js.UndefOr[String | js.Object] = js.undefined,
+      body: js.UndefOr[String] = js.undefined,
       isBase64Encoded: js.UndefOr[Boolean] = js.undefined,
       cookies: js.UndefOr[js.Array[String]] = js.undefined
-  ): APIGatewayProxyResultV2 = {
+  ): APIGatewayProxyStructuredResultV2 = {
     val _obj$ = js.Dynamic.literal(
     )
     statusCode.foreach(_v =>
@@ -301,6 +312,6 @@ object APIGatewayProxyResultV2 {
     cookies.foreach(_v =>
       _obj$.updateDynamic("cookies")(_v.asInstanceOf[js.Any])
     )
-    _obj$.asInstanceOf[APIGatewayProxyResultV2]
+    _obj$.asInstanceOf[APIGatewayProxyStructuredResultV2]
   }
 }

@@ -101,15 +101,18 @@ package object aws_lambda {
     * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
     * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
-  type APIGatewayProxyHandlerV2 =
-    Handler[APIGatewayProxyEventV2, APIGatewayProxyResultV2]
+  type APIGatewayProxyHandlerV2[T <: js.Object] =
+    Handler[APIGatewayProxyEventV2, APIGatewayProxyResultV2[T]]
+
+  type APIGatewayProxyResultV2[T <: js.Object] =
+    APIGatewayProxyStructuredResultV2 | String | T
 
   /**
     * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
     * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
-  type AsyncAPIGatewayProxyHandlerV2 =
-    AsyncHandler[APIGatewayProxyEventV2, APIGatewayProxyResultV2]
+  type AsyncAPIGatewayProxyHandlerV2[T <: js.Object] =
+    AsyncHandler[APIGatewayProxyEventV2, APIGatewayProxyResultV2[T]]
 
   // dynamodb-stream
   type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
