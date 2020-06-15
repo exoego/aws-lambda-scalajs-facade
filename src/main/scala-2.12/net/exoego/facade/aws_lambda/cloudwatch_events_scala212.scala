@@ -3,18 +3,18 @@ package net.exoego.facade.aws_lambda
 import scala.scalajs.js
 
 @js.native
-trait ScheduledEvent extends EventBridgeEvent[String, ScheduledEventDetail]
+trait ScheduledEvent[T] extends EventBridgeEvent[String, T]
 
 object ScheduledEvent {
-  def apply(
+  def apply[T](
       account: String,
       region: String,
-      detail: ScheduledEventDetail,
+      detail: T,
       source: String,
       time: String,
       id: String,
       resources: js.Array[String]
-  ): ScheduledEvent = {
+  ): ScheduledEvent[T] = {
     val _obj$ = js.Dynamic.literal(
       "account" -> account.asInstanceOf[js.Any],
       "region" -> region.asInstanceOf[js.Any],
@@ -25,6 +25,6 @@ object ScheduledEvent {
       "id" -> id.asInstanceOf[js.Any],
       "resources" -> resources.asInstanceOf[js.Any]
     )
-    _obj$.asInstanceOf[ScheduledEvent]
+    _obj$.asInstanceOf[ScheduledEvent[T]]
   }
 }
