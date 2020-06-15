@@ -82,10 +82,34 @@ package object aws_lambda {
   type ProxyResult = APIGatewayProxyResult
   @deprecated("Old name. Use APIGatewayProxyEvent", "0.5.0")
   type APIGatewayEvent = APIGatewayProxyEvent
+
+  /**
+    * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
+    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    */
   type APIGatewayProxyHandler =
     Handler[APIGatewayProxyEvent, APIGatewayProxyResult]
+
+  /**
+    * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
+    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    */
   type AsyncAPIGatewayProxyHandler =
     AsyncHandler[APIGatewayProxyEvent, APIGatewayProxyResult]
+
+  /**
+    * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
+    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    */
+  type APIGatewayProxyHandlerV2 =
+    Handler[APIGatewayProxyEventV2, APIGatewayProxyResultV2]
+
+  /**
+    * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
+    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    */
+  type AsyncAPIGatewayProxyHandlerV2 =
+    AsyncHandler[APIGatewayProxyEventV2, APIGatewayProxyResultV2]
 
   // dynamodb-stream
   type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
