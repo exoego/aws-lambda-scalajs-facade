@@ -59,7 +59,7 @@ object FirehoseTransformationEventRecord {
 trait FirehoseRecordMetadata extends js.Object {
   var shardId: String = js.native
   var partitionKey: String = js.native
-  var approximateArrivalTimestamp: String = js.native
+  var approximateArrivalTimestamp: Double = js.native
   var sequenceNumber: String = js.native
   var subsequenceNumber: String = js.native
 }
@@ -68,7 +68,7 @@ object FirehoseRecordMetadata {
   def apply(
       shardId: String,
       partitionKey: String,
-      approximateArrivalTimestamp: String,
+      approximateArrivalTimestamp: Double,
       sequenceNumber: String,
       subsequenceNumber: String
   ): FirehoseRecordMetadata = {
