@@ -7,6 +7,7 @@ package object aws_lambda {
   // common
   type Headers = js.Dictionary[String]
   type HeadersBDS = js.Dictionary[Boolean | Double | String]
+  type HeadersBDSA = js.Dictionary[Boolean | Double | String | js.Array[String]]
   type MultiValueHeaders = js.Dictionary[js.Array[String]]
   type MultiValueHeadersBDS = js.Dictionary[js.Array[Boolean | Double | String]]
   type Callback[TResult] =
