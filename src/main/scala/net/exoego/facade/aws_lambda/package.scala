@@ -26,12 +26,6 @@ package object aws_lambda {
 
   // apigateway-authorizer
   type AuthResponse = APIGatewayAuthorizerResult
-  @deprecated("Use APIGatewayAuthorizerHandler or a subtype", "0.7.0")
-  type CustomAuthorizerHandler =
-    Handler[CustomAuthorizerEvent, APIGatewayAuthorizerResult]
-  @deprecated("Use AsumcAPIGatewayAuthorizerHandler or a subtype", "0.7.0")
-  type AsyncCustomAuthorizerHandler =
-    AsyncHandler[CustomAuthorizerEvent, CustomAuthorizerResult]
   type Condition = js.Dictionary[String | js.Array[String]]
   type ConditionBlock = js.Dictionary[Condition | js.Array[Condition]]
   type Statement =
@@ -74,14 +68,6 @@ package object aws_lambda {
     APIGatewayRequestAuthorizerEvent,
     APIGatewayAuthorizerWithContextResult[TAuthorizerContext]
   ]
-
-  // authorizer-proxy
-  @deprecated("Old name. Use APIGatewayProxyHandler", "0.5.0")
-  type ProxyHandler = APIGatewayProxyHandler
-  @deprecated("Old name. Use APIGatewayProxyResult", "0.5.0")
-  type ProxyResult = APIGatewayProxyResult
-  @deprecated("Old name. Use APIGatewayProxyEvent", "0.5.0")
-  type APIGatewayEvent = APIGatewayProxyEvent
 
   /**
     * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
@@ -207,8 +193,6 @@ package object aws_lambda {
   type AsyncLexHandler = AsyncHandler[LexEvent, LexResult]
 
   // s3
-  @deprecated("Old name. Use s3.S3Event.", "0.5.0")
-  type S3CreateEvent = S3Event
   type S3Handler = Handler[S3Event, Unit]
   type AsyncS3Handler = AsyncHandler[S3Event, Unit]
 
