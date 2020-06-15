@@ -228,13 +228,13 @@ object APIGatewayProxyEventV2 {
 
       @js.native
       trait Jwt extends js.Object {
-        var claims: Headers = js.native
+        var claims: HeadersBDSA = js.native
         var scopes: js.Array[String] = js.native
       }
 
       object Jwt {
         def apply(
-            claims: Headers,
+            claims: HeadersBDSA,
             scopes: js.Array[String]
         ): Jwt = {
           val _obj$ = js.Dynamic.literal(
