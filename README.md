@@ -51,25 +51,36 @@ Below is available list of pre-defined handler traits:
 
 * ALBHandler
 * APIGatewayProxyHandler
+* APIGatewayProxyHandlerV2
+* APIGatewayRequestAuthorizerHandler
+* APIGatewayRequestAuthorizerWithContextHandler
+* APIGatewayTokenAuthorizerHandler
+* APIGatewayTokenAuthorizerWithContextHandler
 * CloudFormationCustomResourceHandler
 * CloudFrontRequestHandler
 * CloudFrontResponseHandler
+* CloudWatchLogsHandler
 * CodePipelineCloudWatchActionHandler
 * CodePipelineCloudWatchHandler
 * CodePipelineCloudWatchPipelineHandler
+* CodePipelineCloudWatchStageHandler
 * CodePipelineHandler
 * CognitoUserPoolTriggerHandler
 * CustomAuthorizerHandler
 * DynamoDBStreamHandler
+* EventBridgeHandler
 * FirehoseTransformationHandler
 * KinesisStreamHandler
 * LexHandler
 * ProxyHandler (alias of APIGatewayProxyHandler)
 * S3BatchHandler
 * S3Handler
-* ScheduledHandler
 * SNSHandler
 * SQSHandler
+* ScheduledHandler
+
+Each has `Async~` variant that returns `js.Promise` instead of accepting callback.
+
 
 ## License
 
