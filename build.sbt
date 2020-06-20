@@ -5,8 +5,10 @@ organization := "net.exoego"
 scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
   Option(System.getenv("SCALAJS_VERSION")).exists(_.startsWith("0.6."))
 }
-// false positive on js.native
 scalacOptions --= Seq(
+  // Do not fail on macro warning
+  "-Xfatal-warnings",
+  // false positive on js.native
   "-Wdead-code",
   "-Wunused:params",
   "-Ywarn-dead-code",

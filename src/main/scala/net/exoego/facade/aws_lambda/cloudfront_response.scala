@@ -1,7 +1,10 @@
 package net.exoego.facade.aws_lambda
 
+import net.exoego.scalajs.types.util.Factory
+
 import scala.scalajs.js
 
+@Factory
 @js.native
 trait CloudFrontResponseEventRecordItem extends js.Object {
   var config: CloudFrontEvent.Config = js.native
@@ -9,33 +12,8 @@ trait CloudFrontResponseEventRecordItem extends js.Object {
   var response: CloudFrontResponse = js.native
 }
 
-object CloudFrontResponseEventRecordItem {
-  def apply(
-      config: CloudFrontEvent.Config,
-      request: CloudFrontRequest,
-      response: CloudFrontResponse
-  ): CloudFrontResponseEventRecordItem = {
-    val _obj$ = js.Dynamic.literal(
-      "config" -> config.asInstanceOf[js.Any],
-      "request" -> request.asInstanceOf[js.Any],
-      "response" -> response.asInstanceOf[js.Any]
-    )
-    _obj$.asInstanceOf[CloudFrontResponseEventRecordItem]
-  }
-}
-
+@Factory
 @js.native
 trait CloudFrontResponseEvent extends js.Object {
   var Records: js.Array[CloudFrontResponseEventRecordItem] = js.native
-}
-
-object CloudFrontResponseEvent {
-  def apply(
-      Records: js.Array[js.Any]
-  ): CloudFrontResponseEvent = {
-    val _obj$ = js.Dynamic.literal(
-      "Records" -> Records.asInstanceOf[js.Any]
-    )
-    _obj$.asInstanceOf[CloudFrontResponseEvent]
-  }
 }
