@@ -1,7 +1,9 @@
 package net.exoego.facade.aws_lambda
 
+import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
+@Factory
 @js.native
 trait SQSRecord extends js.Object {
   var messageId: String = js.native
@@ -15,49 +17,13 @@ trait SQSRecord extends js.Object {
   var awsRegion: String = js.native
 }
 
-object SQSRecord {
-  def apply(
-      messageId: String,
-      receiptHandle: String,
-      body: String,
-      attributes: SQSRecordAttributes,
-      messageAttributes: SQSMessageAttributes,
-      md5OfBody: String,
-      eventSource: String,
-      eventSourceARN: String,
-      awsRegion: String
-  ): SQSRecord = {
-    val _obj$ = js.Dynamic.literal(
-      "messageId" -> messageId.asInstanceOf[js.Any],
-      "receiptHandle" -> receiptHandle.asInstanceOf[js.Any],
-      "body" -> body.asInstanceOf[js.Any],
-      "attributes" -> attributes.asInstanceOf[js.Any],
-      "messageAttributes" -> messageAttributes.asInstanceOf[js.Any],
-      "md5OfBody" -> md5OfBody.asInstanceOf[js.Any],
-      "eventSource" -> eventSource.asInstanceOf[js.Any],
-      "eventSourceARN" -> eventSourceARN.asInstanceOf[js.Any],
-      "awsRegion" -> awsRegion.asInstanceOf[js.Any]
-    )
-    _obj$.asInstanceOf[SQSRecord]
-  }
-}
-
+@Factory
 @js.native
 trait SQSEvent extends js.Object {
   var Records: js.Array[SQSRecord] = js.native
 }
 
-object SQSEvent {
-  def apply(
-      Records: js.Array[SQSRecord]
-  ): SQSEvent = {
-    val _obj$ = js.Dynamic.literal(
-      "Records" -> Records.asInstanceOf[js.Any]
-    )
-    _obj$.asInstanceOf[SQSEvent]
-  }
-}
-
+@Factory
 @js.native
 trait SQSRecordAttributes extends js.Object {
   var ApproximateReceiveCount: String = js.native
@@ -67,28 +33,7 @@ trait SQSRecordAttributes extends js.Object {
   var AWSTraceHeader: js.UndefOr[String] = js.native
 }
 
-object SQSRecordAttributes {
-  def apply(
-      ApproximateReceiveCount: String,
-      SentTimestamp: String,
-      SenderId: String,
-      ApproximateFirstReceiveTimestamp: String,
-      AWSTraceHeader: js.UndefOr[String] = js.undefined
-  ): SQSRecordAttributes = {
-    val _obj$ = js.Dynamic.literal(
-      "ApproximateReceiveCount" -> ApproximateReceiveCount.asInstanceOf[js.Any],
-      "SentTimestamp" -> SentTimestamp.asInstanceOf[js.Any],
-      "SenderId" -> SenderId.asInstanceOf[js.Any],
-      "ApproximateFirstReceiveTimestamp" -> ApproximateFirstReceiveTimestamp
-        .asInstanceOf[js.Any]
-    )
-    AWSTraceHeader.foreach(_v =>
-      _obj$.updateDynamic("AWSTraceHeader")(_v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[SQSRecordAttributes]
-  }
-}
-
+@Factory
 @js.native
 trait SQSMessageAttribute extends js.Object {
   var stringValue: js.UndefOr[String] = js.native
@@ -96,27 +41,4 @@ trait SQSMessageAttribute extends js.Object {
   var stringListValues: js.Array[Nothing] = js.native
   var binaryListValues: js.Array[Nothing] = js.native
   var dataType: SQSMessageAttributeDataType = js.native
-}
-
-object SQSMessageAttribute {
-  def apply(
-      stringListValues: js.Array[Nothing],
-      binaryListValues: js.Array[Nothing],
-      dataType: SQSMessageAttributeDataType,
-      stringValue: js.UndefOr[String] = js.undefined,
-      binaryValue: js.UndefOr[String] = js.undefined
-  ): SQSMessageAttribute = {
-    val _obj$ = js.Dynamic.literal(
-      "stringListValues" -> stringListValues.asInstanceOf[js.Any],
-      "binaryListValues" -> binaryListValues.asInstanceOf[js.Any],
-      "dataType" -> dataType.asInstanceOf[js.Any]
-    )
-    stringValue.foreach(_v =>
-      _obj$.updateDynamic("stringValue")(_v.asInstanceOf[js.Any])
-    )
-    binaryValue.foreach(_v =>
-      _obj$.updateDynamic("binaryValue")(_v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[SQSMessageAttribute]
-  }
 }

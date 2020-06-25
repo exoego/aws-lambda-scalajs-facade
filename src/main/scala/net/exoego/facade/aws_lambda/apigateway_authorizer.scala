@@ -1,14 +1,18 @@
 package net.exoego.facade.aws_lambda
 
+import net.exoego.scalajs.types.util.Factory
+
 import scala.scalajs.js
 import scala.scalajs.js.|
 
+@Factory
 trait APIGatewayTokenAuthorizerEvent extends js.Object {
   var `type`: String
   var methodArn: String
   var authorizationToken: String
 }
 
+@Factory
 trait APIGatewayRequestAuthorizerEvent extends js.Object {
   var `type`: String
   var methodArn: String
@@ -24,6 +28,7 @@ trait APIGatewayRequestAuthorizerEvent extends js.Object {
   var requestContext: APIGatewayEventRequestContextWithAuthorizer[Unit]
 }
 
+@Factory
 trait APIGatewayAuthorizerResult extends js.Object {
   var principalId: String
   var policyDocument: PolicyDocument
@@ -31,6 +36,7 @@ trait APIGatewayAuthorizerResult extends js.Object {
   var usageIdentifierKey: js.UndefOr[String | Null]
 }
 
+@Factory
 trait APIGatewayAuthorizerWithContextResult[
     TAuthorizerContext <: APIGatewayAuthorizerResultContext
 ] extends js.Object {
@@ -40,6 +46,7 @@ trait APIGatewayAuthorizerWithContextResult[
   var usageIdentifierKey: js.UndefOr[String | Null]
 }
 
+@Factory
 @js.native
 trait PolicyDocument extends js.Object {
   var Version: String = js.native
@@ -47,21 +54,7 @@ trait PolicyDocument extends js.Object {
   var Statement: js.Array[Statement] = js.native
 }
 
-object PolicyDocument {
-  def apply(
-      Version: String,
-      Statement: js.Array[Statement],
-      Id: js.UndefOr[String] = js.undefined
-  ): PolicyDocument = {
-    val _obj$ = js.Dynamic.literal(
-      "Version" -> Version.asInstanceOf[js.Any],
-      "Statement" -> Statement.asInstanceOf[js.Any]
-    )
-    Id.foreach(_v => _obj$.updateDynamic("Id")(_v.asInstanceOf[js.Any]))
-    _obj$.asInstanceOf[PolicyDocument]
-  }
-}
-
+@Factory
 @js.native
 trait BaseStatement extends js.Object {
   var Effect: String = js.native
@@ -69,65 +62,16 @@ trait BaseStatement extends js.Object {
   var Condition: js.UndefOr[ConditionBlock] = js.native
 }
 
-object BaseStatement {
-  def apply(
-      Effect: String,
-      Sid: js.UndefOr[String] = js.undefined,
-      Condition: js.UndefOr[ConditionBlock] = js.undefined
-  ): BaseStatement = {
-    val _obj$ = js.Dynamic.literal(
-      "Effect" -> Effect.asInstanceOf[js.Any]
-    )
-    Sid.foreach(_v => _obj$.updateDynamic("Sid")(_v.asInstanceOf[js.Any]))
-    Condition.foreach(_v =>
-      _obj$.updateDynamic("Condition")(_v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[BaseStatement]
-  }
-}
-
+@Factory
 @js.native
 trait MaybeStatementPrincipal extends js.Object {
   var Principal: js.UndefOr[PrincipalValue] = js.native
   var NotPrincipal: js.UndefOr[PrincipalValue] = js.native
 }
 
-object MaybeStatementPrincipal {
-  def apply(
-      Principal: js.UndefOr[PrincipalValue] = js.undefined,
-      NotPrincipal: js.UndefOr[PrincipalValue] = js.undefined
-  ): MaybeStatementPrincipal = {
-    val _obj$ = js.Dynamic.literal(
-    )
-    Principal.foreach(_v =>
-      _obj$.updateDynamic("Principal")(_v.asInstanceOf[js.Any])
-    )
-    NotPrincipal.foreach(_v =>
-      _obj$.updateDynamic("NotPrincipal")(_v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[MaybeStatementPrincipal]
-  }
-}
-
+@Factory
 @js.native
 trait MaybeStatementResource extends js.Object {
   var Resource: js.UndefOr[String | js.Array[String]] = js.native
   var NotResource: js.UndefOr[String | js.Array[String]] = js.native
-}
-
-object MaybeStatementResource {
-  def apply(
-      Resource: js.UndefOr[String | js.Array[String]] = js.undefined,
-      NotResource: js.UndefOr[String | js.Array[String]] = js.undefined
-  ): MaybeStatementResource = {
-    val _obj$ = js.Dynamic.literal(
-    )
-    Resource.foreach(_v =>
-      _obj$.updateDynamic("Resource")(_v.asInstanceOf[js.Any])
-    )
-    NotResource.foreach(_v =>
-      _obj$.updateDynamic("NotResource")(_v.asInstanceOf[js.Any])
-    )
-    _obj$.asInstanceOf[MaybeStatementResource]
-  }
 }
