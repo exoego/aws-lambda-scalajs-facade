@@ -7,8 +7,6 @@ scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
 }
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
 scalacOptions --= Seq(
-  // Do not fail on macro warning
-  "-Xfatal-warnings",
   // false positive on js.native
   "-Wdead-code",
   "-Wunused:params",
@@ -18,7 +16,7 @@ scalacOptions --= Seq(
 
 val awsSdkScalajsFacadeVersion = "[0.29.0-v2.624.0,1.0)"
 libraryDependencies ++= Seq(
-  "net.exoego" %%% "scalajs-types-util" % "0.2.1",
+  "net.exoego" %%% "scalajs-types-util" % "0.2.2",
   "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb" % awsSdkScalajsFacadeVersion
 )
 
