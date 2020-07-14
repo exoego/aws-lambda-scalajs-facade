@@ -46,11 +46,11 @@ object ALBEvent {
 @js.native
 trait ALBResult extends js.Object {
   var statusCode: Double = js.native
-  var statusDescription: String = js.native
+  var statusDescription: js.UndefOr[String] = js.native
   var headers: js.UndefOr[ALBResult.Headers] = js.native
   var multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.native
   var body: js.UndefOr[String] = js.native
-  var isBase64Encoded: Boolean = js.native
+  var isBase64Encoded: js.UndefOr[Boolean] = js.native
 }
 
 object ALBResult {
