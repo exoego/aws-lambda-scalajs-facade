@@ -37,8 +37,7 @@ object CognitoUserPoolTriggerEvent {
     var newDeviceUsed: js.UndefOr[Boolean] = js.native
     var session: js.UndefOr[js.Array[js.Any]] = js.native
     var challengeName: js.UndefOr[String] = js.native
-    var privateChallengeParameters
-        : js.UndefOr[Request.PrivateChallengeParameters] = js.native
+    var privateChallengeParameters: js.UndefOr[Request.PrivateChallengeParameters] = js.native
     var challengeAnswer: js.UndefOr[String] = js.native
     var password: js.UndefOr[String] = js.native
     var clientMetadata: js.UndefOr[Request.ClientMetadata] = js.native
@@ -64,10 +63,8 @@ object CognitoUserPoolTriggerEvent {
     var challengeName: js.UndefOr[String] = js.native
     var issueTokens: js.UndefOr[Boolean] = js.native
     var failAuthentication: js.UndefOr[Boolean] = js.native
-    var publicChallengeParameters
-        : js.UndefOr[Response.PublicChallengeParameters] = js.native
-    var privateChallengeParameters
-        : js.UndefOr[Response.PrivateChallengeParameters] = js.native
+    var publicChallengeParameters: js.UndefOr[Response.PublicChallengeParameters] = js.native
+    var privateChallengeParameters: js.UndefOr[Response.PrivateChallengeParameters] = js.native
     var challengeMetadata: js.UndefOr[String] = js.native
     var answerCorrect: js.UndefOr[Boolean] = js.native
     var userAttributes: js.UndefOr[Response.UserAttributes] = js.native
@@ -87,8 +84,7 @@ object CognitoUserPoolTriggerEvent {
     @Factory(false)
     @js.native
     trait ClaimsOverrideDetails extends js.Object {
-      var claimsToAddOrOverride
-          : js.UndefOr[ClaimsOverrideDetails.ClaimsToAddOrOverride] = js.native
+      var claimsToAddOrOverride: js.UndefOr[ClaimsOverrideDetails.ClaimsToAddOrOverride] = js.native
       var claimsToSuppress: js.UndefOr[js.Array[String]] = js.native
       var groupOverrideDetails: js.UndefOr[Null | js.Any] = js.native
     }

@@ -28,8 +28,7 @@ trait ALBEvent extends js.Object {
   var queryStringParameters: js.UndefOr[ALBEvent.QueryStringParameters] =
     js.native
   var headers: js.UndefOr[ALBEvent.Headers] = js.native
-  var multiValueQueryStringParameters
-      : js.UndefOr[ALBEvent.MultiValueQueryStringParameters] = js.native
+  var multiValueQueryStringParameters: js.UndefOr[ALBEvent.MultiValueQueryStringParameters] = js.native
   var multiValueHeaders: js.UndefOr[ALBEvent.MultiValueHeaders] = js.native
   var body: String | Null = js.native
   var isBase64Encoded: Boolean = js.native

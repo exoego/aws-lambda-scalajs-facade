@@ -13,8 +13,7 @@ trait CloudFormationCustomResourceEventCommon extends js.Object {
   var RequestId: String = js.native
   var LogicalResourceId: String = js.native
   var ResourceType: String = js.native
-  var ResourceProperties
-      : CloudFormationCustomResourceEventCommon.ResourceProperties = js.native
+  var ResourceProperties: CloudFormationCustomResourceEventCommon.ResourceProperties = js.native
 }
 
 object CloudFormationCustomResourceEventCommon {
@@ -23,21 +22,16 @@ object CloudFormationCustomResourceEventCommon {
 
 @Factory
 @js.native
-trait CloudFormationCustomResourceCreateEvent
-    extends js.Object
-    with CloudFormationCustomResourceEventCommon {
+trait CloudFormationCustomResourceCreateEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
 }
 
 @Factory
 @js.native
-trait CloudFormationCustomResourceUpdateEvent
-    extends js.Object
-    with CloudFormationCustomResourceEventCommon {
+trait CloudFormationCustomResourceUpdateEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
   var PhysicalResourceId: String = js.native
-  var OldResourceProperties
-      : CloudFormationCustomResourceUpdateEvent.OldResourceProperties =
+  var OldResourceProperties: CloudFormationCustomResourceUpdateEvent.OldResourceProperties =
     js.native
 }
 
@@ -47,9 +41,7 @@ object CloudFormationCustomResourceUpdateEvent {
 
 @Factory
 @js.native
-trait CloudFormationCustomResourceDeleteEvent
-    extends js.Object
-    with CloudFormationCustomResourceEventCommon {
+trait CloudFormationCustomResourceDeleteEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
   var PhysicalResourceId: String = js.native
 }
@@ -71,18 +63,14 @@ object CloudFormationCustomResourceResponseCommon {
 
 @Factory
 @js.native
-trait CloudFormationCustomResourceSuccessResponse
-    extends js.Object
-    with CloudFormationCustomResourceResponseCommon {
+trait CloudFormationCustomResourceSuccessResponse extends js.Object with CloudFormationCustomResourceResponseCommon {
   var Status: String = js.native
   var Reason: js.UndefOr[String] = js.native
 }
 
 @Factory
 @js.native
-trait CloudFormationCustomResourceFailedResponse
-    extends js.Object
-    with CloudFormationCustomResourceResponseCommon {
+trait CloudFormationCustomResourceFailedResponse extends js.Object with CloudFormationCustomResourceResponseCommon {
   var Status: String = js.native
   var Reason: String = js.native
 }
