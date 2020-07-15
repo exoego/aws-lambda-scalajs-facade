@@ -42,9 +42,7 @@ trait APIGatewayEventRequestContextWithAuthorizer[TAuthorizerContext] extends js
 }
 
 trait APIGatewayEventRequestContext
-    extends APIGatewayEventRequestContextWithAuthorizer[
-      js.UndefOr[AuthResponseContext | Null]
-    ]
+    extends APIGatewayEventRequestContextWithAuthorizer[js.UndefOr[AuthResponseContext | Null]]
 
 trait APIGatewayEventIdentity extends js.Object {
   var accessKey: String | Null
@@ -65,8 +63,7 @@ trait APIGatewayEventIdentity extends js.Object {
 
 @js.native
 trait AuthResponseContext extends APIGatewayEventDefaultAuthorizerContext {
-  var claims: js.UndefOr[AuthResponseContext.CognitoUserPoolAuthorizerEvent] =
-    js.native
+  var claims: js.UndefOr[AuthResponseContext.CognitoUserPoolAuthorizerEvent] = js.native
 }
 
 object AuthResponseContext {

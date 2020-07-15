@@ -20,8 +20,7 @@ trait APIGatewayProxyEvent extends js.Object {
   var path: String = js.native
   var pathParameters: js.Dictionary[String] | Null = js.native
   var queryStringParameters: js.Dictionary[String] | Null = js.native
-  var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null =
-    js.native
+  var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null = js.native
   var stageVariables: js.Dictionary[String] | Null = js.native
   var requestContext: APIGatewayEventRequestContext = js.native
   var resource: String = js.native
@@ -41,8 +40,7 @@ object APIGatewayProxyEvent {
 trait APIGatewayProxyResult extends js.Object {
   var statusCode: Double = js.native
   var headers: js.UndefOr[APIGatewayProxyResult.Headers] = js.native
-  var multiValueHeaders: js.UndefOr[APIGatewayProxyResult.MultiValueHeaders] =
-    js.native
+  var multiValueHeaders: js.UndefOr[APIGatewayProxyResult.MultiValueHeaders] = js.native
   var body: String = js.native
   var isBase64Encoded: js.UndefOr[Boolean] = js.native
 }

@@ -33,8 +33,7 @@ trait CloudWatchLogsLogEvent extends js.Object {
   var id: String = js.native
   var timestamp: Double = js.native
   var message: String = js.native
-  var extractedFields: js.UndefOr[CloudWatchLogsLogEvent.ExtractedFields] =
-    js.native
+  var extractedFields: js.UndefOr[CloudWatchLogsLogEvent.ExtractedFields] = js.native
 }
 
 object CloudWatchLogsLogEvent {
