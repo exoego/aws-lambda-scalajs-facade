@@ -10,6 +10,7 @@ scalacOptions --= Seq(
   // false positive on js.native
   "-Wdead-code",
   "-Wunused:params",
+  "-Wunused:explicits",
   "-Ywarn-dead-code",
   "-Ywarn-unused:params"
 )

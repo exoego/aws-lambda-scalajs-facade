@@ -2,7 +2,6 @@ package net.exoego.facade.aws_lambda
 
 import net.exoego.scalajs.types.util.Factory
 
-import scala.annotation.nowarn
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
 import scala.scalajs.js.|
@@ -30,7 +29,6 @@ trait AsyncHandler[TEvent, TResult] extends js.Object {
   def apply(event: TEvent, context: Context): js.Promise[TResult]
 }
 
-@nowarn
 @js.native
 trait Context extends js.Object {
   var callbackWaitsForEmptyEventLoop: Boolean = js.native
