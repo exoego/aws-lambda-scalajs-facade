@@ -11,6 +11,7 @@ object ScheduledEvent {
       region: String,
       detail: T,
       source: String,
+      version: String,
       time: String,
       id: String,
       resources: js.Array[String]
@@ -20,6 +21,7 @@ object ScheduledEvent {
       "region" -> region.asInstanceOf[js.Any],
       "detail" -> detail.asInstanceOf[js.Any],
       "detail-type" -> "Scheduled Event",
+      "version" -> version.asInstanceOf[js.Any],
       "source" -> source.asInstanceOf[js.Any],
       "time" -> time.asInstanceOf[js.Any],
       "id" -> id.asInstanceOf[js.Any],
