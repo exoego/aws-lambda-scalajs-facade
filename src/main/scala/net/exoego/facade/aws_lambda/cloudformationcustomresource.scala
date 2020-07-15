@@ -31,8 +31,7 @@ trait CloudFormationCustomResourceCreateEvent extends js.Object with CloudFormat
 trait CloudFormationCustomResourceUpdateEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
   var PhysicalResourceId: String = js.native
-  var OldResourceProperties: CloudFormationCustomResourceUpdateEvent.OldResourceProperties =
-    js.native
+  var OldResourceProperties: CloudFormationCustomResourceUpdateEvent.OldResourceProperties = js.native
 }
 
 object CloudFormationCustomResourceUpdateEvent {
@@ -53,8 +52,7 @@ trait CloudFormationCustomResourceResponseCommon extends js.Object {
   var StackId: String = js.native
   var RequestId: String = js.native
   var LogicalResourceId: String = js.native
-  var Data: js.UndefOr[CloudFormationCustomResourceResponseCommon.Data] =
-    js.native
+  var Data: js.UndefOr[CloudFormationCustomResourceResponseCommon.Data] = js.native
 }
 
 object CloudFormationCustomResourceResponseCommon {

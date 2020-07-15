@@ -25,8 +25,7 @@ trait ALBEvent extends js.Object {
   var requestContext: ALBEventRequestContext = js.native
   var httpMethod: String = js.native
   var path: String = js.native
-  var queryStringParameters: js.UndefOr[ALBEvent.QueryStringParameters] =
-    js.native
+  var queryStringParameters: js.UndefOr[ALBEvent.QueryStringParameters] = js.native
   var headers: js.UndefOr[ALBEvent.Headers] = js.native
   var multiValueQueryStringParameters: js.UndefOr[ALBEvent.MultiValueQueryStringParameters] = js.native
   var multiValueHeaders: js.UndefOr[ALBEvent.MultiValueHeaders] = js.native

@@ -37,9 +37,7 @@ trait APIGatewayAuthorizerResult extends js.Object {
 }
 
 @Factory
-trait APIGatewayAuthorizerWithContextResult[
-    TAuthorizerContext <: APIGatewayAuthorizerResultContext
-] extends js.Object {
+trait APIGatewayAuthorizerWithContextResult[TAuthorizerContext <: APIGatewayAuthorizerResultContext] extends js.Object {
   var principalId: String
   var policyDocument: PolicyDocument
   var context: TAuthorizerContext

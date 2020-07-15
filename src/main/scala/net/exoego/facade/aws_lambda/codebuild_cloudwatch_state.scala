@@ -161,9 +161,7 @@ object CodeBuildStateEventDetail {
     trait Environment extends js.Object {
       var image: String
       var `privileged-mode`: Boolean
-      var `image-pull-credentials-type`: js.UndefOr[
-        CodeBuildEnvironmentPullCredentialsType
-      ]
+      var `image-pull-credentials-type`: js.UndefOr[CodeBuildEnvironmentPullCredentialsType]
       var `compute-type`: CodeBuildEnvironmentComputeType
       var `type`: CodeBuildEnvironmentType
       var `environment-variables`: js.Array[js.Any]

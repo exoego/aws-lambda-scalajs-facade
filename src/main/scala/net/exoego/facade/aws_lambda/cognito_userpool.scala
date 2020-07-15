@@ -72,8 +72,7 @@ object CognitoUserPoolTriggerEvent {
     var messageAction: js.UndefOr[String] = js.native
     var desiredDeliveryMediums: js.UndefOr[js.Array[String]] = js.native
     var forceAliasCreation: js.UndefOr[Boolean] = js.native
-    var claimsOverrideDetails: js.UndefOr[Response.ClaimsOverrideDetails] =
-      js.native
+    var claimsOverrideDetails: js.UndefOr[Response.ClaimsOverrideDetails] = js.native
   }
 
   object Response {
