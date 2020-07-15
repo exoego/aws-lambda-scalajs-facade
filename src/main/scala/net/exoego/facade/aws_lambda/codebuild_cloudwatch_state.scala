@@ -137,6 +137,7 @@ object CodeBuildEnvironmentVariableType {
 }
 
 @Factory
+@js.native
 trait CodeBuildStateEventDetail extends js.Object {
   var `build-status`: CodeBuildStateType
   var `project-name`: String
@@ -149,6 +150,7 @@ trait CodeBuildStateEventDetail extends js.Object {
 
 object CodeBuildStateEventDetail {
   @Factory(false)
+  @js.native
   trait `Additional-information` extends js.Object {
     var cache: `Additional-information`.Cache
     var `build-number`: Double
@@ -168,11 +170,13 @@ object CodeBuildStateEventDetail {
 
   object `Additional-information` {
     @Factory(false)
+    @js.native
     trait Cache extends js.Object {
       var `type`: CodeBuildCacheType
     }
 
     @Factory(false)
+    @js.native
     trait Source extends js.Object {
       var buildspec: String
       var location: String
@@ -180,11 +184,13 @@ object CodeBuildStateEventDetail {
     }
 
     @Factory(false)
+    @js.native
     trait Artifact extends js.Object {
       var location: String
     }
 
     @Factory(false)
+    @js.native
     trait Environment extends js.Object {
       var image: String
       var `privileged-mode`: Boolean
@@ -197,6 +203,7 @@ object CodeBuildStateEventDetail {
     }
 
     @Factory(false)
+    @js.native
     trait Logs extends js.Object {
       var `group-name`: String
       var `stream-name`: String
