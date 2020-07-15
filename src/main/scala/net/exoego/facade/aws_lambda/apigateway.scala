@@ -16,8 +16,7 @@ trait APIGatewayEventDefaultAuthorizerContext extends js.Object {
   def apply(key: String): js.UndefOr[js.Any] = js.native
 }
 
-trait APIGatewayEventRequestContextWithAuthorizer[TAuthorizerContext]
-    extends js.Object {
+trait APIGatewayEventRequestContextWithAuthorizer[TAuthorizerContext] extends js.Object {
   var accountId: String
   var apiId: String
   var authorizer: TAuthorizerContext

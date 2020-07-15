@@ -3,8 +3,7 @@ package net.exoego.facade.aws_lambda
 import scala.scalajs.js
 
 @js.native
-trait CodeBuildCloudWatchStateEvent
-    extends EventBridgeEvent[String, CodeBuildStateEventDetail]
+trait CodeBuildCloudWatchStateEvent extends EventBridgeEvent[String, CodeBuildStateEventDetail]
 
 object CodeBuildCloudWatchStateEvent {
   def apply(

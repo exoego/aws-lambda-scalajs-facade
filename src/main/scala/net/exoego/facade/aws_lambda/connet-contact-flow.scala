@@ -74,26 +74,19 @@ object ConnectContactFlowEvent {
 sealed trait ConnectContactFlowChannel extends js.Any {}
 
 object ConnectContactFlowChannel {
-  @inline val VOICE: ConnectContactFlowChannel =
-    "VOICE".asInstanceOf[ConnectContactFlowChannel]
-  @inline val CHAT: ConnectContactFlowChannel =
-    "CHAT".asInstanceOf[ConnectContactFlowChannel]
+  @inline val VOICE: ConnectContactFlowChannel = "VOICE".asInstanceOf[ConnectContactFlowChannel]
+  @inline val CHAT: ConnectContactFlowChannel = "CHAT".asInstanceOf[ConnectContactFlowChannel]
 }
 
 @js.native
 sealed trait ConnectContactFlowInitiationMethod extends js.Any {}
 
 object ConnectContactFlowInitiationMethod {
-  @inline val INBOUND: ConnectContactFlowInitiationMethod =
-    "INBOUND".asInstanceOf[ConnectContactFlowInitiationMethod]
-  @inline val OUTBOUND: ConnectContactFlowInitiationMethod =
-    "OUTBOUND".asInstanceOf[ConnectContactFlowInitiationMethod]
-  @inline val TRANSFER: ConnectContactFlowInitiationMethod =
-    "TRANSFER".asInstanceOf[ConnectContactFlowInitiationMethod]
-  @inline val CALLBACK: ConnectContactFlowInitiationMethod =
-    "CALLBACK".asInstanceOf[ConnectContactFlowInitiationMethod]
-  @inline val API: ConnectContactFlowInitiationMethod =
-    "API".asInstanceOf[ConnectContactFlowInitiationMethod]
+  @inline val INBOUND: ConnectContactFlowInitiationMethod = "INBOUND".asInstanceOf[ConnectContactFlowInitiationMethod]
+  @inline val OUTBOUND: ConnectContactFlowInitiationMethod = "OUTBOUND".asInstanceOf[ConnectContactFlowInitiationMethod]
+  @inline val TRANSFER: ConnectContactFlowInitiationMethod = "TRANSFER".asInstanceOf[ConnectContactFlowInitiationMethod]
+  @inline val CALLBACK: ConnectContactFlowInitiationMethod = "CALLBACK".asInstanceOf[ConnectContactFlowInitiationMethod]
+  @inline val API: ConnectContactFlowInitiationMethod = "API".asInstanceOf[ConnectContactFlowInitiationMethod]
 }
 
 @Factory
