@@ -218,4 +218,10 @@ package object aws_lambda {
     Handler[EventBridgeEvent[TDetailType, TDetail], TResult]
   type AsyncEventBridgeHandler[TDetailType <: String, TDetail, TResult] =
     AsyncHandler[EventBridgeEvent[TDetailType, TDetail], TResult]
+
+  // CodeBuild
+  type CodeBuildCloudWatchStateHandler =
+    Handler[CodeBuildCloudWatchStateEvent, Unit]
+  type AsyncCodeBuildCloudWatchStateHandler =
+    AsyncHandler[CodeBuildCloudWatchStateEvent, Unit]
 }

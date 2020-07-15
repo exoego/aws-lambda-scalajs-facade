@@ -60,6 +60,7 @@ Below is available list of pre-defined handler traits:
 * CloudFrontRequestHandler
 * CloudFrontResponseHandler
 * CloudWatchLogsHandler
+* CodeBuildCloudWatchStateHandler
 * CodePipelineCloudWatchActionHandler
 * CodePipelineCloudWatchHandler
 * CodePipelineCloudWatchPipelineHandler
