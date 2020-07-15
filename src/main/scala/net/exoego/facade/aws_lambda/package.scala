@@ -224,4 +224,10 @@ package object aws_lambda {
     Handler[CodeBuildCloudWatchStateEvent, Unit]
   type AsyncCodeBuildCloudWatchStateHandler =
     AsyncHandler[CodeBuildCloudWatchStateEvent, Unit]
+
+  // Amazon Connect Contact Flow
+  type ConnectContactFlowHandler =
+    Handler[ConnectContactFlowEvent, ConnectContactFlowResult]
+  type AsyncConnectContactFlowHandler =
+    AsyncHandler[ConnectContactFlowEvent, ConnectContactFlowResult]
 }
