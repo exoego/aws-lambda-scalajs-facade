@@ -1,17 +1,20 @@
 package net.exoego.facade.aws_lambda
 
+import scala.annotation.nowarn
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSBracketAccess, JSName}
 import scala.scalajs.js.|
 
 @js.native
 trait APIGatewayAuthorizerResultContext extends js.Object {
+  @nowarn
   @JSBracketAccess
   def apply(key: String): js.UndefOr[String | Double | Boolean] = js.native
 }
 
 @js.native
 trait APIGatewayEventDefaultAuthorizerContext extends js.Object {
+  @nowarn
   @JSBracketAccess
   def apply(key: String): js.UndefOr[js.Any] = js.native
 }
