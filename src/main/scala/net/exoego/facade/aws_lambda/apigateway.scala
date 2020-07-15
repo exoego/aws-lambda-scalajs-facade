@@ -7,13 +7,13 @@ import scala.scalajs.js.|
 @js.native
 trait APIGatewayAuthorizerResultContext extends js.Object {
   @JSBracketAccess
-  def apply(key: String): js.UndefOr[String | Double | Boolean] = js.native
+  def apply(key: String): js.UndefOr[String | Double | Boolean]
 }
 
 @js.native
 trait APIGatewayEventDefaultAuthorizerContext extends js.Object {
   @JSBracketAccess
-  def apply(key: String): js.UndefOr[js.Any] = js.native
+  def apply(key: String): js.UndefOr[js.Any]
 }
 
 trait APIGatewayEventRequestContextWithAuthorizer[TAuthorizerContext]
@@ -71,25 +71,24 @@ trait AuthResponseContext extends APIGatewayEventDefaultAuthorizerContext {
 }
 
 object AuthResponseContext {
-  @js.native
   trait CognitoUserPoolAuthorizerEvent extends js.Object {
     @JSName("cognito:username")
-    val cognitoUsername: String = js.native
+    val cognitoUsername: String
 
     @JSName("preferred_username")
-    val preferredUsername: String = js.native
-    val name: String = js.native
-    val email: String = js.native
+    val preferredUsername: String
+    val name: String
+    val email: String
 
     @JSName("auth_time")
-    val authTime: Double = js.native
-    val sub: String = js.native
-    val aud: String = js.native
+    val authTime: Double
+    val sub: String
+    val aud: String
 
     @JSName("token_use")
-    val tokenUse: String = js.native
-    val iss: String = js.native
-    val exp: String = js.native
-    val iat: String = js.native
+    val tokenUse: String
+    val iss: String
+    val exp: String
+    val iat: String
   }
 }

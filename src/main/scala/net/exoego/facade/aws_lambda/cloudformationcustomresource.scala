@@ -5,16 +5,14 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceEventCommon extends js.Object {
-  var ServiceToken: String = js.native
-  var ResponseURL: String = js.native
-  var StackId: String = js.native
-  var RequestId: String = js.native
-  var LogicalResourceId: String = js.native
-  var ResourceType: String = js.native
-  var ResourceProperties
-      : CloudFormationCustomResourceEventCommon.ResourceProperties = js.native
+  var ServiceToken: String
+  var ResponseURL: String
+  var StackId: String
+  var RequestId: String
+  var LogicalResourceId: String
+  var ResourceType: String
+  var ResourceProperties: CloudFormationCustomResourceEventCommon.ResourceProperties
 }
 
 object CloudFormationCustomResourceEventCommon {
@@ -22,23 +20,19 @@ object CloudFormationCustomResourceEventCommon {
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceCreateEvent
     extends js.Object
     with CloudFormationCustomResourceEventCommon {
-  var RequestType: String = js.native
+  var RequestType: String
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceUpdateEvent
     extends js.Object
     with CloudFormationCustomResourceEventCommon {
-  var RequestType: String = js.native
-  var PhysicalResourceId: String = js.native
-  var OldResourceProperties
-      : CloudFormationCustomResourceUpdateEvent.OldResourceProperties =
-    js.native
+  var RequestType: String
+  var PhysicalResourceId: String
+  var OldResourceProperties: CloudFormationCustomResourceUpdateEvent.OldResourceProperties
 }
 
 object CloudFormationCustomResourceUpdateEvent {
@@ -46,23 +40,21 @@ object CloudFormationCustomResourceUpdateEvent {
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceDeleteEvent
     extends js.Object
     with CloudFormationCustomResourceEventCommon {
-  var RequestType: String = js.native
-  var PhysicalResourceId: String = js.native
+  var RequestType: String
+  var PhysicalResourceId: String
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceResponseCommon extends js.Object {
-  var PhysicalResourceId: String = js.native
-  var StackId: String = js.native
-  var RequestId: String = js.native
-  var LogicalResourceId: String = js.native
+  var PhysicalResourceId: String
+  var StackId: String
+  var RequestId: String
+  var LogicalResourceId: String
   var Data: js.UndefOr[CloudFormationCustomResourceResponseCommon.Data] =
-    js.native
+    js.undefined
 }
 
 object CloudFormationCustomResourceResponseCommon {
@@ -70,19 +62,17 @@ object CloudFormationCustomResourceResponseCommon {
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceSuccessResponse
     extends js.Object
     with CloudFormationCustomResourceResponseCommon {
-  var Status: String = js.native
-  var Reason: js.UndefOr[String] = js.native
+  var Status: String
+  var Reason: js.UndefOr[String]
 }
 
 @Factory
-@js.native
 trait CloudFormationCustomResourceFailedResponse
     extends js.Object
     with CloudFormationCustomResourceResponseCommon {
-  var Status: String = js.native
-  var Reason: String = js.native
+  var Status: String
+  var Reason: String
 }

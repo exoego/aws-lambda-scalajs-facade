@@ -6,82 +6,72 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 @Factory
-@js.native
 trait S3ArtifactLocation extends js.Object {
-  var bucketName: String = js.native
-  var objectKey: String = js.native
+  var bucketName: String
+  var objectKey: String
 }
 
 @Factory
-@js.native
 trait S3ArtifactStore extends js.Object {
-  var `type`: String = js.native
-  var s3Location: S3ArtifactLocation = js.native
+  var `type`: String
+  var s3Location: S3ArtifactLocation
 }
 
 @Factory
-@js.native
 trait Artifact extends js.Object {
-  var name: String = js.native
-  var revision: String | Null = js.native
-  var location: ArtifactLocation = js.native
+  var name: String
+  var revision: String | Null
+  var location: ArtifactLocation
 }
 
 @Factory
-@js.native
 trait Credentials extends js.Object {
-  var accessKeyId: String = js.native
-  var secretAccessKey: String = js.native
-  var sessionToken: js.UndefOr[String] = js.native
+  var accessKeyId: String
+  var secretAccessKey: String
+  var sessionToken: js.UndefOr[String]
 }
 
 @Factory
-@js.native
 trait EncryptionKey extends js.Object {
-  var `type`: String = js.native
-  var id: String = js.native
+  var `type`: String
+  var id: String
 }
 
 @Factory(false)
-@js.native
 trait CodePipelineEvent extends js.Object {
-  var `CodePipeline.job`: CodePipelineEvent.`CodePipeline.job` = js.native
+  var `CodePipeline.job`: CodePipelineEvent.`CodePipeline.job`
 }
 
 object CodePipelineEvent {
   @Factory(false)
-  @js.native
   trait `CodePipeline.job` extends js.Object {
-    var id: String = js.native
-    var accountId: String = js.native
-    var data: `CodePipeline.job`.Data = js.native
+    var id: String
+    var accountId: String
+    var data: `CodePipeline.job`.Data
   }
 
   object `CodePipeline.job` {
     @Factory(false)
-    @js.native
     trait Data extends js.Object {
-      var actionConfiguration: Data.ActionConfiguration = js.native
-      var inputArtifacts: js.Array[Artifact] = js.native
-      var outputArtifacts: js.Array[Artifact] = js.native
-      var artifactCredentials: Credentials = js.native
-      var encryptionKey: js.UndefOr[EncryptionKey] = js.native
-      var continuationToken: js.UndefOr[String] = js.native
+      var actionConfiguration: Data.ActionConfiguration
+      var inputArtifacts: js.Array[Artifact]
+      var outputArtifacts: js.Array[Artifact]
+      var artifactCredentials: Credentials
+      var encryptionKey: js.UndefOr[EncryptionKey]
+      var continuationToken: js.UndefOr[String]
     }
 
     object Data {
       @Factory(false)
-      @js.native
       trait ActionConfiguration extends js.Object {
-        var configuration: ActionConfiguration.Configuration = js.native
+        var configuration: ActionConfiguration.Configuration
       }
 
       object ActionConfiguration {
         @Factory(false)
-        @js.native
         trait Configuration extends js.Object {
-          var FunctionName: String = js.native
-          var UserParameters: String = js.native
+          var FunctionName: String
+          var UserParameters: String
         }
       }
     }

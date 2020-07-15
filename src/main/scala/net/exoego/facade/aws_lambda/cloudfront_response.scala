@@ -7,13 +7,12 @@ import scala.scalajs.js
 @Factory
 @js.native
 trait CloudFrontResponseEventRecordItem extends js.Object {
-  var config: CloudFrontEvent.Config = js.native
-  def request: CloudFrontRequest = js.native
-  var response: CloudFrontResponse = js.native
+  var config: CloudFrontEvent.Config
+  def request: CloudFrontRequest
+  var response: CloudFrontResponse
 }
 
 @Factory
-@js.native
 trait CloudFrontResponseEvent extends js.Object {
-  var Records: js.Array[CloudFrontResponseEventRecordItem] = js.native
+  var Records: js.Array[CloudFrontResponseEventRecordItem]
 }

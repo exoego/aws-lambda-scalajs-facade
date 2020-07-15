@@ -6,33 +6,30 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 @Factory
-@js.native
 trait ALBEventRequestContext extends js.Object {
-  var elb: ALBEventRequestContext.Elb = js.native
+  var elb: ALBEventRequestContext.Elb
 }
 
 object ALBEventRequestContext {
   @Factory(false)
-  @js.native
   trait Elb extends js.Object {
-    var targetGroupArn: String = js.native
+    var targetGroupArn: String
   }
 }
 
 @Factory
-@js.native
 trait ALBEvent extends js.Object {
-  var requestContext: ALBEventRequestContext = js.native
-  var httpMethod: String = js.native
-  var path: String = js.native
+  var requestContext: ALBEventRequestContext
+  var httpMethod: String
+  var path: String
   var queryStringParameters: js.UndefOr[ALBEvent.QueryStringParameters] =
-    js.native
-  var headers: js.UndefOr[ALBEvent.Headers] = js.native
+    js.undefined
+  var headers: js.UndefOr[ALBEvent.Headers] = js.undefined
   var multiValueQueryStringParameters
-      : js.UndefOr[ALBEvent.MultiValueQueryStringParameters] = js.native
-  var multiValueHeaders: js.UndefOr[ALBEvent.MultiValueHeaders] = js.native
-  var body: String | Null = js.native
-  var isBase64Encoded: Boolean = js.native
+      : js.UndefOr[ALBEvent.MultiValueQueryStringParameters] = js.undefined
+  var multiValueHeaders: js.UndefOr[ALBEvent.MultiValueHeaders] = js.undefined
+  var body: String | Null
+  var isBase64Encoded: Boolean
 }
 
 object ALBEvent {
@@ -43,14 +40,13 @@ object ALBEvent {
 }
 
 @Factory
-@js.native
 trait ALBResult extends js.Object {
-  var statusCode: Double = js.native
-  var statusDescription: js.UndefOr[String] = js.native
-  var headers: js.UndefOr[ALBResult.Headers] = js.native
-  var multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders] = js.native
-  var body: js.UndefOr[String] = js.native
-  var isBase64Encoded: js.UndefOr[Boolean] = js.native
+  var statusCode: Double
+  var statusDescription: js.UndefOr[String]
+  var headers: js.UndefOr[ALBResult.Headers]
+  var multiValueHeaders: js.UndefOr[ALBResult.MultiValueHeaders]
+  var body: js.UndefOr[String]
+  var isBase64Encoded: js.UndefOr[Boolean]
 }
 
 object ALBResult {

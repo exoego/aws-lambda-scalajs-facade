@@ -5,30 +5,27 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
 @Factory
-@js.native
 trait KinesisStreamRecordPayload extends js.Object {
-  var approximateArrivalTimestamp: Double = js.native
-  var data: String = js.native
-  var kinesisSchemaVersion: String = js.native
-  var partitionKey: String = js.native
-  var sequenceNumber: String = js.native
+  var approximateArrivalTimestamp: Double
+  var data: String
+  var kinesisSchemaVersion: String
+  var partitionKey: String
+  var sequenceNumber: String
 }
 
 @Factory
-@js.native
 trait KinesisStreamRecord extends js.Object {
-  var awsRegion: String = js.native
-  var eventID: String = js.native
-  var eventName: String = js.native
-  var eventSource: String = js.native
-  var eventSourceARN: String = js.native
-  var eventVersion: String = js.native
-  var invokeIdentityArn: String = js.native
-  var kinesis: KinesisStreamRecordPayload = js.native
+  var awsRegion: String
+  var eventID: String
+  var eventName: String
+  var eventSource: String
+  var eventSourceARN: String
+  var eventVersion: String
+  var invokeIdentityArn: String
+  var kinesis: KinesisStreamRecordPayload
 }
 
 @Factory
-@js.native
 trait KinesisStreamEvent extends js.Object {
-  var Records: js.Array[KinesisStreamRecord] = js.native
+  var Records: js.Array[KinesisStreamRecord]
 }

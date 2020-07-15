@@ -2,7 +2,6 @@ package net.exoego.facade.aws_lambda
 
 import scala.scalajs.js
 
-@js.native
 trait ScheduledEvent[T] extends EventBridgeEvent[String, T]
 
 object ScheduledEvent {

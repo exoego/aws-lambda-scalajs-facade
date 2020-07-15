@@ -6,43 +6,40 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 @Factory
-@js.native
 trait CognitoUserPoolTriggerEvent extends js.Object {
-  var version: Double = js.native
-  var triggerSource: String = js.native
-  var region: String = js.native
-  var userPoolId: String = js.native
-  var userName: js.UndefOr[String] = js.native
-  var callerContext: CognitoUserPoolTriggerEvent.CallerContext = js.native
-  var request: CognitoUserPoolTriggerEvent.Request = js.native
-  var response: CognitoUserPoolTriggerEvent.Response = js.native
+  var version: Double
+  var triggerSource: String
+  var region: String
+  var userPoolId: String
+  var userName: js.UndefOr[String] = js.undefined
+  var callerContext: CognitoUserPoolTriggerEvent.CallerContext
+  var request: CognitoUserPoolTriggerEvent.Request
+  var response: CognitoUserPoolTriggerEvent.Response
 }
 
 object CognitoUserPoolTriggerEvent {
   @Factory(false)
-  @js.native
   trait CallerContext extends js.Object {
-    var awsSdkVersion: String = js.native
-    var clientId: String = js.native
+    var awsSdkVersion: String
+    var clientId: String
   }
 
   @Factory(false)
-  @js.native
   trait Request extends js.Object {
-    var userAttributes: Request.UserAttributes = js.native
-    var validationData: js.UndefOr[Request.ValidationData] = js.native
-    var codeParameter: js.UndefOr[String] = js.native
-    var linkParameter: js.UndefOr[String] = js.native
-    var usernameParameter: js.UndefOr[String] = js.native
-    var newDeviceUsed: js.UndefOr[Boolean] = js.native
-    var session: js.UndefOr[js.Array[js.Any]] = js.native
-    var challengeName: js.UndefOr[String] = js.native
+    var userAttributes: Request.UserAttributes
+    var validationData: js.UndefOr[Request.ValidationData] = js.undefined
+    var codeParameter: js.UndefOr[String] = js.undefined
+    var linkParameter: js.UndefOr[String] = js.undefined
+    var usernameParameter: js.UndefOr[String] = js.undefined
+    var newDeviceUsed: js.UndefOr[Boolean] = js.undefined
+    var session: js.UndefOr[js.Array[js.Any]] = js.undefined
+    var challengeName: js.UndefOr[String] = js.undefined
     var privateChallengeParameters
-        : js.UndefOr[Request.PrivateChallengeParameters] = js.native
-    var challengeAnswer: js.UndefOr[String] = js.native
-    var password: js.UndefOr[String] = js.native
-    var clientMetadata: js.UndefOr[Request.ClientMetadata] = js.native
-    var userNotFound: js.UndefOr[Boolean] = js.native
+        : js.UndefOr[Request.PrivateChallengeParameters] = js.undefined
+    var challengeAnswer: js.UndefOr[String] = js.undefined
+    var password: js.UndefOr[String] = js.undefined
+    var clientMetadata: js.UndefOr[Request.ClientMetadata] = js.undefined
+    var userNotFound: js.UndefOr[Boolean] = js.undefined
   }
 
   object Request {
@@ -53,30 +50,29 @@ object CognitoUserPoolTriggerEvent {
   }
 
   @Factory(false)
-  @js.native
   trait Response extends js.Object {
-    var autoConfirmUser: js.UndefOr[Boolean] = js.native
-    var autoVerifyPhone: js.UndefOr[Boolean] = js.native
-    var autoVerifyEmail: js.UndefOr[Boolean] = js.native
-    var smsMessage: js.UndefOr[String] = js.native
-    var emailMessage: js.UndefOr[String] = js.native
-    var emailSubject: js.UndefOr[String] = js.native
-    var challengeName: js.UndefOr[String] = js.native
-    var issueTokens: js.UndefOr[Boolean] = js.native
-    var failAuthentication: js.UndefOr[Boolean] = js.native
+    var autoConfirmUser: js.UndefOr[Boolean] = js.undefined
+    var autoVerifyPhone: js.UndefOr[Boolean] = js.undefined
+    var autoVerifyEmail: js.UndefOr[Boolean] = js.undefined
+    var smsMessage: js.UndefOr[String] = js.undefined
+    var emailMessage: js.UndefOr[String] = js.undefined
+    var emailSubject: js.UndefOr[String] = js.undefined
+    var challengeName: js.UndefOr[String] = js.undefined
+    var issueTokens: js.UndefOr[Boolean] = js.undefined
+    var failAuthentication: js.UndefOr[Boolean] = js.undefined
     var publicChallengeParameters
-        : js.UndefOr[Response.PublicChallengeParameters] = js.native
+        : js.UndefOr[Response.PublicChallengeParameters] = js.undefined
     var privateChallengeParameters
-        : js.UndefOr[Response.PrivateChallengeParameters] = js.native
-    var challengeMetadata: js.UndefOr[String] = js.native
-    var answerCorrect: js.UndefOr[Boolean] = js.native
-    var userAttributes: js.UndefOr[Response.UserAttributes] = js.native
-    var finalUserStatus: js.UndefOr[String] = js.native
-    var messageAction: js.UndefOr[String] = js.native
-    var desiredDeliveryMediums: js.UndefOr[js.Array[String]] = js.native
-    var forceAliasCreation: js.UndefOr[Boolean] = js.native
+        : js.UndefOr[Response.PrivateChallengeParameters] = js.undefined
+    var challengeMetadata: js.UndefOr[String] = js.undefined
+    var answerCorrect: js.UndefOr[Boolean] = js.undefined
+    var userAttributes: js.UndefOr[Response.UserAttributes] = js.undefined
+    var finalUserStatus: js.UndefOr[String] = js.undefined
+    var messageAction: js.UndefOr[String] = js.undefined
+    var desiredDeliveryMediums: js.UndefOr[js.Array[String]] = js.undefined
+    var forceAliasCreation: js.UndefOr[Boolean] = js.undefined
     var claimsOverrideDetails: js.UndefOr[Response.ClaimsOverrideDetails] =
-      js.native
+      js.undefined
   }
 
   object Response {
@@ -85,12 +81,12 @@ object CognitoUserPoolTriggerEvent {
     type UserAttributes = js.Dictionary[String]
 
     @Factory(false)
-    @js.native
     trait ClaimsOverrideDetails extends js.Object {
       var claimsToAddOrOverride
-          : js.UndefOr[ClaimsOverrideDetails.ClaimsToAddOrOverride] = js.native
-      var claimsToSuppress: js.UndefOr[js.Array[String]] = js.native
-      var groupOverrideDetails: js.UndefOr[Null | js.Any] = js.native
+          : js.UndefOr[ClaimsOverrideDetails.ClaimsToAddOrOverride] =
+        js.undefined
+      var claimsToSuppress: js.UndefOr[js.Array[String]] = js.undefined
+      var groupOverrideDetails: js.UndefOr[Null | js.Any] = js.undefined
     }
 
     object ClaimsOverrideDetails {

@@ -5,15 +5,14 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
 @Factory
-@js.native
 trait StreamRecord extends js.Object {
-  var ApproximateCreationDateTime: js.UndefOr[Double] = js.native
-  var Keys: js.UndefOr[StreamRecord.Keys] = js.native
-  var NewImage: js.UndefOr[StreamRecord.NewImage] = js.native
-  var OldImage: js.UndefOr[StreamRecord.OldImage] = js.native
-  var SequenceNumber: js.UndefOr[String] = js.native
-  var SizeBytes: js.UndefOr[Double] = js.native
-  var StreamViewType: js.UndefOr[String] = js.native
+  var ApproximateCreationDateTime: js.UndefOr[Double] = js.undefined
+  var Keys: js.UndefOr[StreamRecord.Keys] = js.undefined
+  var NewImage: js.UndefOr[StreamRecord.NewImage] = js.undefined
+  var OldImage: js.UndefOr[StreamRecord.OldImage] = js.undefined
+  var SequenceNumber: js.UndefOr[String] = js.undefined
+  var SizeBytes: js.UndefOr[Double] = js.undefined
+  var StreamViewType: js.UndefOr[String] = js.undefined
 }
 
 object StreamRecord {
@@ -23,20 +22,18 @@ object StreamRecord {
 }
 
 @Factory
-@js.native
 trait DynamoDBRecord extends js.Object {
-  var awsRegion: js.UndefOr[String] = js.native
-  var dynamodb: js.UndefOr[StreamRecord] = js.native
-  var eventID: js.UndefOr[String] = js.native
-  var eventName: js.UndefOr[String] = js.native
-  var eventSource: js.UndefOr[String] = js.native
-  var eventSourceARN: js.UndefOr[String] = js.native
-  var eventVersion: js.UndefOr[String] = js.native
-  var userIdentity: js.UndefOr[js.Any] = js.native
+  var awsRegion: js.UndefOr[String] = js.undefined
+  var dynamodb: js.UndefOr[StreamRecord] = js.undefined
+  var eventID: js.UndefOr[String] = js.undefined
+  var eventName: js.UndefOr[String] = js.undefined
+  var eventSource: js.UndefOr[String] = js.undefined
+  var eventSourceARN: js.UndefOr[String] = js.undefined
+  var eventVersion: js.UndefOr[String] = js.undefined
+  var userIdentity: js.UndefOr[js.Any] = js.undefined
 }
 
 @Factory
-@js.native
 trait DynamoDBStreamEvent extends js.Object {
-  var Records: js.Array[DynamoDBRecord] = js.native
+  var Records: js.Array[DynamoDBRecord]
 }

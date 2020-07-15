@@ -10,21 +10,19 @@ import scala.scalajs.js.|
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
-@js.native
 trait APIGatewayProxyEvent extends js.Object {
-  var body: String | Null = js.native
-  var headers: APIGatewayProxyEvent.Headers = js.native
-  var multiValueHeaders: APIGatewayProxyEvent.MultiValueHeaders = js.native
-  var httpMethod: String = js.native
-  var isBase64Encoded: Boolean = js.native
-  var path: String = js.native
-  var pathParameters: js.Dictionary[String] | Null = js.native
-  var queryStringParameters: js.Dictionary[String] | Null = js.native
-  var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null =
-    js.native
-  var stageVariables: js.Dictionary[String] | Null = js.native
-  var requestContext: APIGatewayEventRequestContext = js.native
-  var resource: String = js.native
+  var body: String | Null
+  var headers: APIGatewayProxyEvent.Headers
+  var multiValueHeaders: APIGatewayProxyEvent.MultiValueHeaders
+  var httpMethod: String
+  var isBase64Encoded: Boolean
+  var path: String
+  var pathParameters: js.Dictionary[String] | Null
+  var queryStringParameters: js.Dictionary[String] | Null
+  var multiValueQueryStringParameters: js.Dictionary[js.Array[String]] | Null
+  var stageVariables: js.Dictionary[String] | Null
+  var requestContext: APIGatewayEventRequestContext
+  var resource: String
 }
 
 object APIGatewayProxyEvent {
@@ -37,14 +35,13 @@ object APIGatewayProxyEvent {
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
-@js.native
 trait APIGatewayProxyResult extends js.Object {
-  var statusCode: Double = js.native
-  var headers: js.UndefOr[APIGatewayProxyResult.Headers] = js.native
+  var statusCode: Double
+  var headers: js.UndefOr[APIGatewayProxyResult.Headers] = js.undefined
   var multiValueHeaders: js.UndefOr[APIGatewayProxyResult.MultiValueHeaders] =
-    js.native
-  var body: String = js.native
-  var isBase64Encoded: js.UndefOr[Boolean] = js.native
+    js.undefined
+  var body: String
+  var isBase64Encoded: js.UndefOr[Boolean] = js.undefined
 }
 
 object APIGatewayProxyResult {
@@ -57,63 +54,58 @@ object APIGatewayProxyResult {
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
-@js.native
 trait APIGatewayProxyEventV2 extends js.Object {
-  var version: String = js.native
-  var routeKey: String = js.native
-  var rawPath: String = js.native
-  var rawQueryString: String = js.native
-  var cookies: js.UndefOr[js.Array[String]] = js.native
-  var headers: Headers = js.native
-  var queryStringParameters: js.UndefOr[Headers] = js.native
-  var requestContext: APIGatewayProxyEventV2.RequestContext = js.native
-  var body: js.UndefOr[String] = js.native
-  var pathParameters: js.UndefOr[Headers] = js.native
-  var isBase64Encoded: Boolean = js.native
-  var stageVariables: js.UndefOr[Headers] = js.native
+  var version: String
+  var routeKey: String
+  var rawPath: String
+  var rawQueryString: String
+  var cookies: js.UndefOr[js.Array[String]] = js.undefined
+  var headers: Headers
+  var queryStringParameters: js.UndefOr[Headers] = js.undefined
+  var requestContext: APIGatewayProxyEventV2.RequestContext
+  var body: js.UndefOr[String] = js.undefined
+  var pathParameters: js.UndefOr[Headers] = js.undefined
+  var isBase64Encoded: Boolean
+  var stageVariables: js.UndefOr[Headers] = js.undefined
 }
 
 object APIGatewayProxyEventV2 {
   @Factory(false)
-  @js.native
   trait RequestContext extends js.Object {
-    var accountId: String = js.native
-    var apiId: String = js.native
-    var authorizer: js.UndefOr[RequestContext.Authorizer] = js.native
-    var domainName: String = js.native
-    var domainPrefix: String = js.native
-    var http: RequestContext.Http = js.native
-    var requestId: String = js.native
-    var routeKey: String = js.native
-    var stage: String = js.native
-    var time: String = js.native
-    var timeEpoch: Double = js.native
+    var accountId: String
+    var apiId: String
+    var authorizer: js.UndefOr[RequestContext.Authorizer] = js.undefined
+    var domainName: String
+    var domainPrefix: String
+    var http: RequestContext.Http
+    var requestId: String
+    var routeKey: String
+    var stage: String
+    var time: String
+    var timeEpoch: Double
   }
 
   object RequestContext {
     @Factory(false)
-    @js.native
     trait Authorizer extends js.Object {
-      var jwt: Authorizer.Jwt = js.native
+      var jwt: Authorizer.Jwt
     }
 
     object Authorizer {
       @Factory(false)
-      @js.native
       trait Jwt extends js.Object {
-        var claims: HeadersBDSA = js.native
-        var scopes: js.Array[String] = js.native
+        var claims: HeadersBDSA
+        var scopes: js.Array[String]
       }
     }
 
     @Factory(false)
-    @js.native
     trait Http extends js.Object {
-      var method: String = js.native
-      var path: String = js.native
-      var protocol: String = js.native
-      var sourceIp: String = js.native
-      var userAgent: String = js.native
+      var method: String
+      var path: String
+      var protocol: String
+      var sourceIp: String
+      var userAgent: String
     }
   }
 }
@@ -123,11 +115,10 @@ object APIGatewayProxyEventV2 {
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
-@js.native
 trait APIGatewayProxyStructuredResultV2 extends js.Object {
-  var statusCode: js.UndefOr[Double] = js.native
-  var headers: js.UndefOr[HeadersBDS] = js.native
-  var body: js.UndefOr[String] = js.native
-  var isBase64Encoded: js.UndefOr[Boolean] = js.native
-  var cookies: js.UndefOr[js.Array[String]] = js.native
+  var statusCode: js.UndefOr[Double] = js.undefined
+  var headers: js.UndefOr[HeadersBDS] = js.undefined
+  var body: js.UndefOr[String] = js.undefined
+  var isBase64Encoded: js.UndefOr[Boolean] = js.undefined
+  var cookies: js.UndefOr[js.Array[String]] = js.undefined
 }

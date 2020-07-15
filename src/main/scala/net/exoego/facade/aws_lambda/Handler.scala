@@ -31,54 +31,50 @@ trait AsyncHandler[TEvent, TResult] extends js.Object {
 
 @js.native
 trait Context extends js.Object {
-  var callbackWaitsForEmptyEventLoop: Boolean = js.native
-  var functionName: String = js.native
-  var functionVersion: String = js.native
-  var invokedFunctionArn: String = js.native
-  var memoryLimitInMB: String = js.native
-  var awsRequestId: String = js.native
-  var logGroupName: String = js.native
-  var logStreamName: String = js.native
-  var identity: js.UndefOr[CognitoIdentity] = js.native
-  var clientContext: js.UndefOr[ClientContext] = js.native
-  def getRemainingTimeInMillis(): Double = js.native
-  def done(error: js.Error = ???, result: js.Any = ???): Unit = js.native
-  def fail(error: js.Error | String): Unit = js.native
-  def succeed(messageOrObject: js.Any): Unit = js.native
-  def succeed(message: String, `object`: js.Any): Unit = js.native
+  var callbackWaitsForEmptyEventLoop: Boolean
+  var functionName: String
+  var functionVersion: String
+  var invokedFunctionArn: String
+  var memoryLimitInMB: String
+  var awsRequestId: String
+  var logGroupName: String
+  var logStreamName: String
+  var identity: js.UndefOr[CognitoIdentity]
+  var clientContext: js.UndefOr[ClientContext]
+  def getRemainingTimeInMillis(): Double
+  def done(error: js.Error = ???, result: js.Any = ???): Unit
+  def fail(error: js.Error | String): Unit
+  def succeed(messageOrObject: js.Any): Unit
+  def succeed(message: String, `object`: js.Any): Unit
 }
 
 @Factory
-@js.native
 trait CognitoIdentity extends js.Object {
-  var cognitoIdentityId: String = js.native
-  var cognitoIdentityPoolId: String = js.native
+  var cognitoIdentityId: String
+  var cognitoIdentityPoolId: String
 }
 
 @Factory
-@js.native
 trait ClientContext extends js.Object {
-  var client: ClientContextClient = js.native
-  var Custom: js.UndefOr[js.Any] = js.native
-  var env: ClientContextEnv = js.native
+  var client: ClientContextClient
+  var Custom: js.UndefOr[js.Any]
+  var env: ClientContextEnv
 }
 
 @Factory
-@js.native
 trait ClientContextClient extends js.Object {
-  var installationId: String = js.native
-  var appTitle: String = js.native
-  var appVersionName: String = js.native
-  var appVersionCode: String = js.native
-  var appPackageName: String = js.native
+  var installationId: String
+  var appTitle: String
+  var appVersionName: String
+  var appVersionCode: String
+  var appPackageName: String
 }
 
 @Factory
-@js.native
 trait ClientContextEnv extends js.Object {
-  var platformVersion: String = js.native
-  var platform: String = js.native
-  var make: String = js.native
-  var model: String = js.native
-  var locale: String = js.native
+  var platformVersion: String
+  var platform: String
+  var make: String
+  var model: String
+  var locale: String
 }

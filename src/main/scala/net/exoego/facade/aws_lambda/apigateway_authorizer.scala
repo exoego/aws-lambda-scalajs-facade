@@ -47,31 +47,27 @@ trait APIGatewayAuthorizerWithContextResult[
 }
 
 @Factory
-@js.native
 trait PolicyDocument extends js.Object {
-  var Version: String = js.native
-  var Id: js.UndefOr[String] = js.native
-  var Statement: js.Array[Statement] = js.native
+  var Version: String
+  var Id: js.UndefOr[String] = js.undefined
+  var Statement: js.Array[Statement]
 }
 
 @Factory
-@js.native
 trait BaseStatement extends js.Object {
-  var Effect: String = js.native
-  var Sid: js.UndefOr[String] = js.native
-  var Condition: js.UndefOr[ConditionBlock] = js.native
+  var Effect: String
+  var Sid: js.UndefOr[String] = js.undefined
+  var Condition: js.UndefOr[ConditionBlock] = js.undefined
 }
 
 @Factory
-@js.native
 trait MaybeStatementPrincipal extends js.Object {
-  var Principal: js.UndefOr[PrincipalValue] = js.native
-  var NotPrincipal: js.UndefOr[PrincipalValue] = js.native
+  var Principal: js.UndefOr[PrincipalValue]
+  var NotPrincipal: js.UndefOr[PrincipalValue]
 }
 
 @Factory
-@js.native
 trait MaybeStatementResource extends js.Object {
-  var Resource: js.UndefOr[String | js.Array[String]] = js.native
-  var NotResource: js.UndefOr[String | js.Array[String]] = js.native
+  var Resource: js.UndefOr[String | js.Array[String]] = js.undefined
+  var NotResource: js.UndefOr[String | js.Array[String]] = js.undefined
 }

@@ -4,39 +4,35 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
 @Factory
-@js.native
 trait SNSMessageAttribute extends js.Object {
-  var Type: String = js.native
-  var Value: String = js.native
+  var Type: String
+  var Value: String
 }
 
 @Factory
-@js.native
 trait SNSMessage extends js.Object {
-  var SignatureVersion: String = js.native
-  var Timestamp: String = js.native
-  var Signature: String = js.native
-  var SigningCertUrl: String = js.native
-  var MessageId: String = js.native
-  var Message: String = js.native
-  var MessageAttributes: SNSMessageAttributes = js.native
-  var Type: String = js.native
-  var UnsubscribeUrl: String = js.native
-  var TopicArn: String = js.native
-  var Subject: String = js.native
+  var SignatureVersion: String
+  var Timestamp: String
+  var Signature: String
+  var SigningCertUrl: String
+  var MessageId: String
+  var Message: String
+  var MessageAttributes: SNSMessageAttributes
+  var Type: String
+  var UnsubscribeUrl: String
+  var TopicArn: String
+  var Subject: String
 }
 
 @Factory
-@js.native
 trait SNSEventRecord extends js.Object {
-  var EventVersion: String = js.native
-  var EventSubscriptionArn: String = js.native
-  var EventSource: String = js.native
-  var Sns: SNSMessage = js.native
+  var EventVersion: String
+  var EventSubscriptionArn: String
+  var EventSource: String
+  var Sns: SNSMessage
 }
 
 @Factory
-@js.native
 trait SNSEvent extends js.Object {
-  var Records: js.Array[SNSEventRecord] = js.native
+  var Records: js.Array[SNSEventRecord]
 }
