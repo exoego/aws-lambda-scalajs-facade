@@ -2,9 +2,6 @@ enablePlugins(ScalaJSPlugin)
 
 name := "aws-lambda-scalajs-facade"
 organization := "net.exoego"
-scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
-  Option(System.getenv("SCALAJS_VERSION")).exists(_.startsWith("0.6."))
-}
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
 scalacOptions --= Seq(
   // false positive on js.native
