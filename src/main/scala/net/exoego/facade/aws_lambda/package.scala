@@ -128,9 +128,34 @@ package object aws_lambda {
   type AsyncCodePipelineCloudWatchStageHandler = AsyncHandler[CodePipelineCloudWatchStageEvent, Unit]
 
   // cognitouserpool
+  @deprecated("Use specific event type instead", "v0.10.0")
   type CognitoUserPoolEvent = CognitoUserPoolTriggerEvent
+  @deprecated("Use specific event type instead", "v0.10.0")
   type CognitoUserPoolTriggerHandler = Handler[CognitoUserPoolTriggerEvent, js.Any]
+  @deprecated("Use specific event type instead", "v0.10.0")
   type AsyncCognitoUserPoolTriggerHandler = AsyncHandler[CognitoUserPoolTriggerEvent, js.Any]
+
+  type CreateAuthChallengeTriggerHandler = Handler[CreateAuthChallengeTriggerEvent, js.Any]
+  type CustomMessageTriggerHandler = Handler[CustomMessageTriggerEvent[String], js.Any]
+  type DefineAuthChallengeTriggerHandler = Handler[DefineAuthChallengeTriggerEvent, js.Any]
+  type PostAuthenticationTriggerHandler = Handler[PostAuthenticationTriggerEvent, js.Any]
+  type PostConfirmationTriggerHandler = Handler[PostConfirmationTriggerEvent[String], js.Any]
+  type PreAuthenticationTriggerHandler = Handler[PreAuthenticationTriggerEvent, js.Any]
+  type PreSignUpTriggerHandler = Handler[PreSignUpTriggerEvent[String], js.Any]
+  type PreTokenGenerationTriggerHandler = Handler[PreTokenGenerationTriggerEvent[String], js.Any]
+  type UserMigrationTriggerHandler = Handler[UserMigrationTriggerEvent[String], js.Any]
+  type VerifyAuthChallengeResponseTriggerHandler = Handler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
+
+  type AsyncCreateAuthChallengeTriggerHandler = AsyncHandler[CreateAuthChallengeTriggerEvent, js.Any]
+  type AsyncCustomMessageTriggerHandler = AsyncHandler[CustomMessageTriggerEvent[String], js.Any]
+  type AsyncDefineAuthChallengeTriggerHandler = AsyncHandler[DefineAuthChallengeTriggerEvent, js.Any]
+  type AsyncPostAuthenticationTriggerHandler = AsyncHandler[PostAuthenticationTriggerEvent, js.Any]
+  type AsyncPostConfirmationTriggerHandler = AsyncHandler[PostConfirmationTriggerEvent[String], js.Any]
+  type AsyncPreAuthenticationTriggerHandler = AsyncHandler[PreAuthenticationTriggerEvent, js.Any]
+  type AsyncPreSignUpTriggerHandler = AsyncHandler[PreSignUpTriggerEvent[String], js.Any]
+  type AsyncPreTokenGenerationTriggerHandler = AsyncHandler[PreTokenGenerationTriggerEvent[String], js.Any]
+  type AsyncUserMigrationTriggerHandler = AsyncHandler[UserMigrationTriggerEvent[String], js.Any]
+  type AsyncVerifyAuthChallengeResponseTriggerHandler = AsyncHandler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
 
   // kinesis-firehose-transformation
   type FirehoseTransformationHandler = Handler[FirehoseTransformationEvent, FirehoseTransformationResult]

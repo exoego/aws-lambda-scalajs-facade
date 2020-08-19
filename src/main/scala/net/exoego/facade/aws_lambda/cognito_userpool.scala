@@ -5,27 +5,61 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 import scala.scalajs.js.|
 
+@js.native
+sealed trait ChallengeName extends js.Any
+object ChallengeName {
+  final val PASSWORD_VERIFIER: ChallengeName = "PASSWORD_VERIFIER".asInstanceOf[ChallengeName]
+  final val SMS_MFA: ChallengeName = "SMS_MFA".asInstanceOf[ChallengeName]
+  final val DEVICE_SRP_AUTH: ChallengeName = "DEVICE_SRP_AUTH".asInstanceOf[ChallengeName]
+  final val DEVICE_PASSWORD_VERIFIER: ChallengeName = "DEVICE_PASSWORD_VERIFIER".asInstanceOf[ChallengeName]
+  final val ADMIN_NO_SRP_AUTH: ChallengeName = "ADMIN_NO_SRP_AUTH".asInstanceOf[ChallengeName]
+  final val SRP_A: ChallengeName = "SRP_A".asInstanceOf[ChallengeName]
+}
+
 @Factory
 @js.native
-trait CognitoUserPoolTriggerEvent extends js.Object {
-  var version: Double = js.native
-  var triggerSource: String = js.native
-  var region: String = js.native
-  var userPoolId: String = js.native
-  var userName: js.UndefOr[String] = js.native
-  var callerContext: CognitoUserPoolTriggerEvent.CallerContext = js.native
+trait ChallengeResult extends js.Object {
+  var challengeName: ChallengeName
+  var challengeResult: Boolean
+  var challengeMetadata: js.UndefOr[Unit]
+}
+
+@Factory
+@js.native
+trait CustomChallengeResult extends js.Object {
+  var challengeName: String
+  var challengeResult: Boolean
+  var challengeMetadata: js.UndefOr[String]
+}
+
+@Factory
+@js.native
+trait BaseTriggerEvent[T <: String] extends js.Object {
+  var version: String
+  var region: String
+  var userPoolId: String
+  var triggerSource: T
+  var userName: String
+  var callerContext: CognitoUserpoolCallerContext = js.native
+}
+
+@Factory
+@js.native
+trait CognitoUserpoolCallerContext extends js.Object {
+  var awsSdkVersion: String
+  var clientId: String
+}
+
+@deprecated("Use specific event types instead", "v0.10.0")
+@Factory
+@js.native
+trait CognitoUserPoolTriggerEvent extends js.Object with BaseTriggerEvent[String] {
   var request: CognitoUserPoolTriggerEvent.Request = js.native
   var response: CognitoUserPoolTriggerEvent.Response = js.native
 }
 
 object CognitoUserPoolTriggerEvent {
-  @Factory(false)
-  @js.native
-  trait CallerContext extends js.Object {
-    var awsSdkVersion: String = js.native
-    var clientId: String = js.native
-  }
-
+  @deprecated("Use specific event types instead", "v0.10.0")
   @Factory(false)
   @js.native
   trait Request extends js.Object {
@@ -45,12 +79,17 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Request {
+    @deprecated("Use specific event types instead", "v0.10.0")
     type UserAttributes = js.Dictionary[String]
+    @deprecated("Use specific event types instead", "v0.10.0")
     type ValidationData = js.Dictionary[String]
+    @deprecated("Use specific event types instead", "v0.10.0")
     type PrivateChallengeParameters = js.Dictionary[String]
+    @deprecated("Use specific event types instead", "v0.10.0")
     type ClientMetadata = js.Dictionary[String]
   }
 
+  @deprecated("Use specific event types instead", "v0.10.0")
   @Factory(false)
   @js.native
   trait Response extends js.Object {
@@ -76,10 +115,14 @@ object CognitoUserPoolTriggerEvent {
   }
 
   object Response {
+    @deprecated("Use specific event types instead", "v0.10.0")
     type PublicChallengeParameters = js.Dictionary[String]
+    @deprecated("Use specific event types instead", "v0.10.0")
     type PrivateChallengeParameters = js.Dictionary[String]
+    @deprecated("Use specific event types instead", "v0.10.0")
     type UserAttributes = js.Dictionary[String]
 
+    @deprecated("Use specific event types instead", "v0.10.0")
     @Factory(false)
     @js.native
     trait ClaimsOverrideDetails extends js.Object {
@@ -89,7 +132,226 @@ object CognitoUserPoolTriggerEvent {
     }
 
     object ClaimsOverrideDetails {
+      @deprecated("Use specific event types instead", "v0.10.0")
       type ClaimsToAddOrOverride = js.Dictionary[String]
     }
   }
+}
+
+@Factory
+@js.native
+trait CreateAuthChallengeTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var challengeName: String
+  var session: js.Array[ChallengeResult | CustomChallengeResult]
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+  var userNotFound: js.UndefOr[Boolean]
+}
+
+@Factory
+@js.native
+trait CreateAuthChallengeTriggerEventResponse extends js.Object {
+  var publicChallengeParameters: js.Dictionary[String]
+  var privateChallengeParameters: js.Dictionary[String]
+  var challengeMetadata: String
+}
+
+/**
+  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+  */
+@Factory
+@js.native
+trait CustomMessageTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
+  var request: CustomMessageTriggerEventRequest = js.native
+  var response: CustomMessageTriggerEventResponse = js.native
+}
+
+@Factory
+@js.native
+trait CustomMessageTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var codeParameter: String
+  var usernameParameter: String
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+@Factory
+@js.native
+trait CustomMessageTriggerEventResponse extends js.Object {
+  var smsMessage: String
+  var emailMessage: String
+  var emailSubject: String
+}
+
+@Factory
+@js.native
+trait DefineAuthChallengeTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var session: js.Array[ChallengeResult | CustomChallengeResult]
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+  var userNotFound: js.UndefOr[Boolean]
+}
+
+@Factory
+@js.native
+trait DefineAuthChallengeTriggerEventResponse extends js.Object {
+  var challengeName: String
+  var failAuthentication: Boolean
+  var issueTokens: Boolean
+}
+
+@Factory
+@js.native
+trait PostAuthenticationTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var newDeviceUsed: Boolean
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+/**
+  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
+  */
+@Factory
+@js.native
+trait PostConfirmationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
+  var request: PostConfirmationTriggerEventRequest = js.native
+}
+
+@Factory
+@js.native
+trait PostConfirmationTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+@Factory
+@js.native
+trait PreAuthenticationTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var userNotFound: js.UndefOr[Boolean]
+  var validationData: js.UndefOr[js.Dictionary[String]]
+}
+
+/**
+  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
+  */
+@Factory
+@js.native
+trait PreSignUpTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
+  var request: PreSignUpTriggerEventRequest = js.native
+  var response: PreSignUpTriggerEventResponse = js.native
+}
+
+@Factory
+@js.native
+trait PreSignUpTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var validationData: js.UndefOr[js.Dictionary[String]]
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+@Factory
+@js.native
+trait PreSignUpTriggerEventResponse extends js.Object {
+  var autoConfirmUser: Boolean
+  var autoVerifyEmail: Boolean
+  var autoVerifyPhone: Boolean
+}
+
+@Factory
+@js.native
+trait GroupOverrideDetails extends js.Object {
+  var groupsToOverride: js.UndefOr[js.Array[String]]
+  var iamRolesToOverride: js.UndefOr[js.Array[String]]
+  var preferredRole: js.UndefOr[String]
+}
+
+/**
+  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
+  */
+@Factory
+@js.native
+trait PreTokenGenerationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
+  var request: PreTokenGenerationTriggerEventRequest = js.native
+  var response: PreTokenGenerationTriggerEventResponse = js.native
+}
+
+@Factory
+@js.native
+trait PreTokenGenerationTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var groupConfiguration: GroupOverrideDetails
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+@Factory
+@js.native
+trait PreTokenGenerationTriggerEventResponse extends js.Object {
+  var claimsOverrideDetails: PreTokenGenerationTriggerEventResponse.ClaimsOverrideDetails = js.native
+}
+
+object PreTokenGenerationTriggerEventResponse {
+  @Factory(false)
+  @js.native
+  trait ClaimsOverrideDetails extends js.Object {
+    var claimsToAddOrOverride: js.UndefOr[js.Dictionary[String]]
+    var claimsToSuppress: js.UndefOr[js.Array[String]]
+    var groupOverrideDetails: js.UndefOr[GroupOverrideDetails]
+  }
+}
+
+@js.native
+sealed trait UserStatus extends js.Any
+object UserStatus {
+  final val UNCONFIRMED: UserStatus = "UNCONFIRMED".asInstanceOf[UserStatus]
+  final val CONFIRMED: UserStatus = "CONFIRMED".asInstanceOf[UserStatus]
+  final val ARCHIVED: UserStatus = "ARCHIVED".asInstanceOf[UserStatus]
+  final val COMPROMISED: UserStatus = "COMPROMISED".asInstanceOf[UserStatus]
+  final val UNKNOWN: UserStatus = "UNKNOWN".asInstanceOf[UserStatus]
+  final val RESET_REQUIRED: UserStatus = "RESET_REQUIRED".asInstanceOf[UserStatus]
+  final val FORCE_CHANGE_PASSWORD: UserStatus = "FORCE_CHANGE_PASSWORD".asInstanceOf[UserStatus]
+}
+
+/**
+  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
+  */
+@Factory
+@js.native
+trait UserMigrationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
+  var request: UserMigrationTriggerEventRequest = js.native
+  var response: UserMigrationTriggerEventResponse = js.native
+}
+
+@Factory
+@js.native
+trait UserMigrationTriggerEventRequest extends js.Object {
+  var password: String
+  var validationData: js.UndefOr[js.Dictionary[String]]
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+}
+
+@Factory
+@js.native
+trait UserMigrationTriggerEventResponse extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var finalUserStatus: js.UndefOr[UserStatus]
+  var messageAction: js.UndefOr[String]
+  var desiredDeliveryMediums: js.Array[String]
+  var forceAliasCreation: js.UndefOr[Boolean]
+}
+
+@Factory
+@js.native
+trait VerifyAuthChallengeResponseTriggerEventRequest extends js.Object {
+  var userAttributes: js.Dictionary[String]
+  var privateChallengeParameters: js.Dictionary[String]
+  var challengeAnswer: String
+  var clientMetadata: js.UndefOr[js.Dictionary[String]]
+  var userNotFound: js.UndefOr[Boolean]
+}
+
+@Factory
+@js.native
+trait VerifyAuthChallengeResponseTriggerEventResponse extends js.Object {
+  var answerCorrect: Boolean
 }
