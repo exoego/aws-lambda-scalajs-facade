@@ -10,7 +10,6 @@ scala:
 
 env:
   matrix:
-    - SCALAJS_VERSION="0.6.33"
     - SCALAJS_VERSION=""
 
 script:
