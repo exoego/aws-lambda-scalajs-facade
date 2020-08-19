@@ -31,6 +31,9 @@ trait SQSRecordAttributes extends js.Object {
   var SenderId: String = js.native
   var ApproximateFirstReceiveTimestamp: String = js.native
   var AWSTraceHeader: js.UndefOr[String] = js.native
+  var SequenceNumber: js.UndefOr[String] = js.native
+  var MessageGroupId: js.UndefOr[String] = js.native
+  var MessageDeduplicationId: js.UndefOr[String] = js.native
 }
 
 @Factory
