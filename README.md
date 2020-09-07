@@ -101,6 +101,8 @@ Below is the available list of the pre-defined handler traits:
 * S3
     * S3BatchHandler
     * S3Handler
+* SES
+    * SESHandler
 * SNS
     * SNSHandler
 * SQS
