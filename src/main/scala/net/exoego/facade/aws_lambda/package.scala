@@ -181,6 +181,10 @@ package object aws_lambda {
   type AsyncS3BatchHandler = AsyncHandler[S3BatchEvent, S3BatchResult]
   type S3BatchResultResultCode = String
 
+  // ses
+  type SESHandler = Handler[SESEvent, Unit]
+  type AsyncSESHandler = AsyncHandler[SESEvent, Unit]
+
   // sns
   type SNSHandler = Handler[SNSEvent, Unit]
   type AsyncSNSHandler = AsyncHandler[SNSEvent, Unit]
