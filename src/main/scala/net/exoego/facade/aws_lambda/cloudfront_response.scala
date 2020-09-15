@@ -6,10 +6,16 @@ import scala.scalajs.js
 
 @Factory
 @js.native
-trait CloudFrontResponseEventRecordItem extends js.Object {
+trait CloudFrontResponseEventCf extends js.Object {
   var config: CloudFrontEvent.Config = js.native
   def request: CloudFrontRequest = js.native
   var response: CloudFrontResponse = js.native
+}
+
+@Factory
+@js.native
+trait CloudFrontResponseEventRecordItem extends js.Object {
+  var cf: CloudFrontResponseEventCf = js.native
 }
 
 @Factory
