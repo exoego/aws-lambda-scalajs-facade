@@ -205,4 +205,8 @@ package object aws_lambda {
   // Amazon Connect Contact Flow
   type ConnectContactFlowHandler = Handler[ConnectContactFlowEvent, ConnectContactFlowResult]
   type AsyncConnectContactFlowHandler = AsyncHandler[ConnectContactFlowEvent, ConnectContactFlowResult]
+
+  // MSK (Amazon Managed Streaming for Apache Kafka)
+  type MSKHandler = Handler[MSKEvent, Unit];
+  type AsyncMSKHandler = AsyncHandler[MSKEvent, Unit];
 }
