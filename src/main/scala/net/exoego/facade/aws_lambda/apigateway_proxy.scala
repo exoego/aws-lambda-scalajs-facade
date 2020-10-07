@@ -5,8 +5,7 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-/**
-  * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
+/** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
@@ -31,8 +30,7 @@ object APIGatewayProxyEvent {
   type MultiValueHeaders = js.Dictionary[js.Array[String]]
 }
 
-/**
-  * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
+/** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
@@ -50,8 +48,7 @@ object APIGatewayProxyResult {
   type MultiValueHeaders = MultiValueHeadersBDS
 }
 
-/**
-  * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
+/** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory
@@ -116,8 +113,7 @@ object APIGatewayProxyEventV2 {
   }
 }
 
-/**
-  * Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
+/** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
   * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
 @Factory

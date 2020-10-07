@@ -156,8 +156,7 @@ trait CreateAuthChallengeTriggerEventResponse extends js.Object {
   var challengeMetadata: String
 }
 
-/**
-  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
   */
 @Factory
 @js.native
@@ -208,8 +207,7 @@ trait PostAuthenticationTriggerEventRequest extends js.Object {
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-/**
-  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
+/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
   */
 @Factory
 @js.native
@@ -232,8 +230,7 @@ trait PreAuthenticationTriggerEventRequest extends js.Object {
   var validationData: js.UndefOr[js.Dictionary[String]]
 }
 
-/**
-  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
+/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
   */
 @Factory
 @js.native
@@ -266,8 +263,7 @@ trait GroupOverrideDetails extends js.Object {
   var preferredRole: js.UndefOr[String]
 }
 
-/**
-  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
+/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
   */
 @Factory
 @js.native
@@ -312,8 +308,7 @@ object UserStatus {
   final val FORCE_CHANGE_PASSWORD: UserStatus = "FORCE_CHANGE_PASSWORD".asInstanceOf[UserStatus]
 }
 
-/**
-  * @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
+/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
   */
 @Factory
 @js.native
