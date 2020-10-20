@@ -59,6 +59,8 @@ Below is the available list of the pre-defined handler traits:
     * APIGatewayTokenAuthorizerWithContextHandler
     * CustomAuthorizerHandler
     * ProxyHandler (alias of APIGatewayProxyHandler)
+* AppSync
+    * AppSyncResolverHandler
 * CloudFormation
     * CloudFormationCustomResourceHandler
 * CloudFront
