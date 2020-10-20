@@ -209,4 +209,9 @@ package object aws_lambda {
   // MSK (Amazon Managed Streaming for Apache Kafka)
   type MSKHandler = Handler[MSKEvent, Unit];
   type AsyncMSKHandler = AsyncHandler[MSKEvent, Unit];
+
+  // AppSync Resolver
+  // Those can also return single value, but limit to js.Array for better type inference
+  type AppSyncResolverHandler[T, V] = Handler[AppSyncResolverEvent[T], js.Array[V]]
+  type AsyncAppSyncResolverHandler[T, V] = AsyncHandler[AppSyncResolverEvent[T], js.Array[V]]
 }
