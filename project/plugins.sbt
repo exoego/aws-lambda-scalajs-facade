@@ -1,5 +1,5 @@
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.2")
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.3.0")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.3.1")
 addSbtPlugin("com.dwijnand" % "sbt-travisci" % "1.2.0")
 addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.15")
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.5")
