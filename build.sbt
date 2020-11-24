@@ -1,5 +1,6 @@
 enablePlugins(ScalaJSPlugin)
 
+crossScalaVersions in ThisBuild := Seq("2.13.3", "2.12.12")
 name := "aws-lambda-scalajs-facade"
 organization := "net.exoego"
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
