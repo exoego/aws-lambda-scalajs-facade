@@ -3,7 +3,6 @@ pull_request_rules:
     conditions:
       - "author=scala-steward"
       - "check-success~=CI"
-      - "check-success=format"
     actions:
       merge:
         method: merge
