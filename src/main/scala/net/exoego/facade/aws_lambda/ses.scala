@@ -1,7 +1,9 @@
 package net.exoego.facade.aws_lambda
 
 import net.exoego.scalajs.types.util.Factory
+
 import scala.scalajs.js
+import scala.scalajs.js.|
 
 @Factory
 trait SESMailHeader extends js.Object {
@@ -12,11 +14,15 @@ trait SESMailHeader extends js.Object {
 @Factory
 trait SESMailCommonHeaders extends js.Object {
   var returnPath: String
-  var from: js.Array[String]
+  var from: js.UndefOr[js.Array[String]]
   var date: String
-  var to: js.Array[String]
+  var to: js.UndefOr[js.Array[String]]
+  var cc: js.UndefOr[js.Array[String]]
+  var bcc: js.UndefOr[js.Array[String]]
+  var sender: js.UndefOr[js.Array[String]]
+  var `reply-to`: js.UndefOr[js.Array[String]]
   var messageId: String
-  var subject: String
+  var subject: js.UndefOr[String]
 }
 
 @Factory
@@ -36,10 +42,48 @@ trait SESReceiptStatus extends js.Object {
 }
 
 @Factory
-trait SESReceiptAction extends js.Object {
+trait SESReceiptS3Action extends js.Object {
   var `type`: String
+  var topicArn: js.UndefOr[String]
+  var bucketName: String
+  var objectKey: String
+}
+
+@Factory
+trait SESReceiptSnsAction extends js.Object {
+  var `type`: String
+  var topicArn: String
+}
+
+@Factory
+trait SESReceiptBounceAction extends js.Object {
+  var `type`: String
+  var topicArn: js.UndefOr[String]
+  var smtpReplyCode: String
+  var statusCode: String
+  var message: String
+  var sender: String
+}
+
+@Factory
+trait SESReceiptLambdaAction extends js.Object {
+  var `type`: String
+  var topicArn: js.UndefOr[String]
   var functionArn: String
   var invocationType: String
+}
+
+@Factory
+trait SESReceiptStopAction extends js.Object {
+  var `type`: String
+  var topicArn: js.UndefOr[String]
+}
+
+@Factory
+trait SESReceiptWorkMailAction extends js.Object {
+  var `type`: String
+  var topicArn: js.UndefOr[String]
+  var organizationArn: String
 }
 
 @Factory
@@ -52,7 +96,7 @@ trait SESReceipt extends js.Object {
   var spfVerdict: SESReceiptStatus
   var dkimVerdict: SESReceiptStatus
   var dmarcVerdict: SESReceiptStatus
-  var action: SESReceiptAction
+  var action: SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction
 }
 
 @Factory
