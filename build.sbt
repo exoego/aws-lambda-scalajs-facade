@@ -1,6 +1,9 @@
 enablePlugins(ScalaJSPlugin)
 
-crossScalaVersions in ThisBuild := Seq("2.13.3", "2.12.12")
+lazy val scala213 = "2.13.4"
+lazy val scala212 = "2.12.2"
+crossScalaVersions in ThisBuild := Seq(scala213, scala212)
+scalaVersion in ThisBuild := scala213
 name := "aws-lambda-scalajs-facade"
 organization := "net.exoego"
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
