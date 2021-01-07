@@ -41,10 +41,13 @@ object LexEvent {
     var version: String = js.native
   }
 
+  type OneToFive[T] = js.Tuple5[T, js.UndefOr[T], js.UndefOr[T], js.UndefOr[T], js.UndefOr[T]]
+
   @Factory(false)
   @js.native
   trait LexSlotDetailsItem extends js.Object {
-    var resolutions: js.Array[LexSlotResolution] = js.native
+    // "at least 1 but no more than 5 items"
+    var resolutions: OneToFive[LexSlotResolution] = js.native
     var originalValue: String = js.native
   }
 
