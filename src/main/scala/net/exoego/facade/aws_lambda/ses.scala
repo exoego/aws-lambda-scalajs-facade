@@ -20,7 +20,7 @@ trait SESMailCommonHeaders extends js.Object {
   var cc: js.UndefOr[js.Array[String]]
   var bcc: js.UndefOr[js.Array[String]]
   var sender: js.UndefOr[js.Array[String]]
-  var `reply-to`: js.UndefOr[js.Array[String]]
+  var replyTo: js.UndefOr[js.Array[String]]
   var messageId: String
   var subject: js.UndefOr[String]
 }
