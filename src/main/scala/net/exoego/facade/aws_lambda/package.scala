@@ -214,4 +214,8 @@ package object aws_lambda {
   // Those can also return single value, but limit to js.Array for better type inference
   type AppSyncResolverHandler[T, V] = Handler[AppSyncResolverEvent[T], js.Array[V]]
   type AsyncAppSyncResolverHandler[T, V] = AsyncHandler[AppSyncResolverEvent[T], js.Array[V]]
+
+  // IoT
+  type IoTPreProvisioningHookHandler = Handler[IoTPreProvisioningHookEvent, IoTPreProvisioningHookResult]
+  type AsyncIoTPreProvisioningHookHandler = AsyncHandler[IoTPreProvisioningHookEvent, IoTPreProvisioningHookResult]
 }
