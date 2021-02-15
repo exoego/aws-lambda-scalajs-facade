@@ -35,13 +35,20 @@ object ConnectContactFlowEvent {
       var InitiationMethod: ConnectContactFlowInitiationMethod = js.native
       var InstanceARN: String = js.native
       var PreviousContactId: String = js.native
-      var Queue: String | Null = js.native
+      var Queue: ContactData.ConnectContactFlowQueue | Null = js.native
       var SystemEndpoint: ConnectContactFlowEndpoint | Null = js.native
       var MediaStreams: ContactData.MediaStreams = js.native
     }
 
     object ContactData {
       type Attributes = js.Dictionary[String]
+
+      @Factory(false)
+      @js.native
+      trait ConnectContactFlowQueue extends js.Object {
+        var ARN: String = js.native
+        var Name: String = js.native
+      }
 
       @Factory(false)
       @js.native
