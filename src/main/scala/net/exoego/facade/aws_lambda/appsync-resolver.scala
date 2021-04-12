@@ -10,12 +10,16 @@ import scala.scalajs.js.|
 trait AppSyncResolverEvent[T] extends js.Object {
   var arguments: T = js.native
   var identity: js.UndefOr[AppSyncIdentityIAM | AppSyncIdentityCognito] = js.native
-  var source: js.UndefOr[AppSyncResolverEvent.Source] = js.native
+  var source: AppSyncResolverEvent.Source | Null = js.native
   var request: AppSyncResolverEventRequest = js.native
   var info: AppSyncResolverEventInfo = js.native
+  var prev: AppSyncResolverEvent.Prev | Null = js.native
+  var stash: AppSyncResolverEvent.Stash = js.native
 }
 object AppSyncResolverEvent {
   type Source = js.Dictionary[js.Any]
+  type Prev = js.Dictionary[js.Any]
+  type Stash = js.Dictionary[js.Any]
 }
 
 @Factory
@@ -62,4 +66,5 @@ trait AppSyncIdentityCognito extends js.Object {
   var claims: js.Any = js.native
   var sourceIp: js.Array[String] = js.native
   var defaultAuthStrategy: String = js.native
+  var groups: js.Array[String] | Null = js.native
 }
