@@ -1,7 +1,17 @@
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Automatic merge on approval if Scala Steward
     conditions:
       - "author=scala-steward"
+      - "#check-success>=3"
+    actions:
+      merge:
+        method: merge
+      label:
+        add: ["chore"]
+
+  - name: Automatic merge on approval if dependabot
+    conditions:
+      - "author~=^dependabot"
       - "#check-success>=3"
     actions:
       merge:
