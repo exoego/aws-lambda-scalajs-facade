@@ -49,24 +49,28 @@ package object aws_lambda {
     AsyncHandler[APIGatewayRequestAuthorizerEvent, APIGatewayAuthorizerWithContextResult[TAuthorizerContext]]
 
   /** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
-    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    * @see
+    *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
   type APIGatewayProxyHandler = Handler[APIGatewayProxyEvent, APIGatewayProxyResult]
 
   /** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 1.0
-    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    * @see
+    *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
   type AsyncAPIGatewayProxyHandler = AsyncHandler[APIGatewayProxyEvent, APIGatewayProxyResult]
 
   /** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
-    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    * @see
+    *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
   type APIGatewayProxyHandlerV2[T <: js.Object] = Handler[APIGatewayProxyEventV2, APIGatewayProxyResultV2[T]]
 
   type APIGatewayProxyResultV2[T <: js.Object] = APIGatewayProxyStructuredResultV2 | String | T
 
   /** Works with Lambda Proxy Integration for Rest API or HTTP API integration Payload Format version 2.0
-    * @see - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    * @see
+    *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
   type AsyncAPIGatewayProxyHandlerV2[T <: js.Object] = AsyncHandler[APIGatewayProxyEventV2, APIGatewayProxyResultV2[T]]
 
