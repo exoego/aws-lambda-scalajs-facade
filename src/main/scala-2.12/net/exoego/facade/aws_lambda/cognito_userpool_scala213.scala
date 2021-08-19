@@ -4,7 +4,8 @@ import net.exoego.scalajs.types.util.Factory
 
 import scala.scalajs.js
 
-/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html
+/** @see
+  *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html
   */
 @Factory
 @js.native
@@ -13,7 +14,8 @@ trait CreateAuthChallengeTriggerEvent extends BaseTriggerEvent[String] {
   var response: CreateAuthChallengeTriggerEventResponse = js.native
 }
 
-/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html
+/** @see
+  *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html
   */
 @Factory
 @js.native
@@ -21,7 +23,8 @@ trait PreAuthenticationTriggerEvent extends BaseTriggerEvent[String] {
   var request: PreAuthenticationTriggerEventRequest = js.native
 }
 
-/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
+/** @see
+  *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
   */
 @Factory
 @js.native
@@ -30,7 +33,8 @@ trait DefineAuthChallengeTriggerEvent extends BaseTriggerEvent[String] {
   var response: DefineAuthChallengeTriggerEventResponse = js.native
 }
 
-/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html
+/** @see
+  *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html
   */
 @Factory
 @js.native
@@ -38,7 +42,8 @@ trait PostAuthenticationTriggerEvent extends BaseTriggerEvent[String] {
   var request: PostAuthenticationTriggerEventRequest = js.native
 }
 
-/** @see https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html
+/** @see
+  *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html
   */
 @Factory
 @js.native

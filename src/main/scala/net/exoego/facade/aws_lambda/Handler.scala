@@ -16,8 +16,7 @@ trait Handler[TEvent, TResult] extends js.Object {
   def apply(event: TEvent, context: Context, callback: Callback[TResult]): Unit
 }
 
-/** Asynchronous-style handler that returns js.Promise.
-  * This can be used Node.js 8 runtime or more
+/** Asynchronous-style handler that returns js.Promise. This can be used Node.js 8 runtime or more
   *
   * @tparam TEvent
   * @tparam TResult
