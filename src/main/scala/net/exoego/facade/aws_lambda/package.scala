@@ -214,8 +214,8 @@ package object aws_lambda {
   type SNSMessageAttributes = js.Dictionary[SNSMessageAttribute]
 
   // sqs
-  type SQSHandler = Handler[SQSEvent, Unit]
-  type AsyncSQSHandler = AsyncHandler[SQSEvent, Unit]
+  type SQSHandler = Handler[SQSEvent, js.UndefOr[SQSBatchResponse]]
+  type AsyncSQSHandler = AsyncHandler[SQSEvent, js.UndefOr[SQSBatchResponse]]
   type SQSMessageAttributeDataType = String
   type SQSMessageAttributes = js.Dictionary[SQSMessageAttribute]
 
