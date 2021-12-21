@@ -245,6 +245,7 @@ trait SESReceipt extends js.Object {
   var spfVerdict: SESReceiptStatus
   var dkimVerdict: SESReceiptStatus
   var dmarcVerdict: SESReceiptStatus
+  var dmarcPolicy: js.UndefOr[literal.SESDmarcPolicy]
   var action: SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction
 }
 object SESReceipt {
@@ -258,7 +259,7 @@ object SESReceipt {
       dkimVerdict: SESReceiptStatus,
       dmarcVerdict: SESReceiptStatus,
       action: SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction,
-      dmarcPolicy: js.UndefOr[String] = js.undefined
+      dmarcPolicy: js.UndefOr[literal.SESDmarcPolicy] = js.undefined
   ): SESReceipt = {
     val _obj$ = js.Dynamic.literal(
       "timestamp" -> timestamp.asInstanceOf[js.Any],
