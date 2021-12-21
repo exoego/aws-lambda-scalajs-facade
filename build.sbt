@@ -1,7 +1,8 @@
 enablePlugins(ScalaJSPlugin)
 
 lazy val scala213 = "2.13.7"
-crossScalaVersions in ThisBuild := Seq(scala213)
+lazy val scala3 = "3.1.0"
+crossScalaVersions in ThisBuild := Seq(scala213, scala3)
 scalaVersion in ThisBuild := scala213
 name := "aws-lambda-scalajs-facade"
 organization := "net.exoego"
@@ -17,22 +18,5 @@ scalacOptions --= Seq(
 
 val awsSdkScalajsFacadeVersion = "0.33.0-v2.892.0"
 libraryDependencies ++= Seq(
-  "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb" % awsSdkScalajsFacadeVersion
+  "net.exoego" %%% "aws-sdk-scalajs-facade-dynamodb" % awsSdkScalajsFacadeVersion cross CrossVersion.for3Use2_13
 )
-
-Compile / scalacOptions ++= {
-  CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((2, n)) if n >= 13 => "-Ymacro-annotations" :: Nil
-    case _                       => Nil
-  }
-}
-
-libraryDependencies ++= {
-  CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((2, n)) if n >= 13 => Nil
-    case _ =>
-      compilerPlugin(
-        "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
-      ) :: Nil
-  }
-}
