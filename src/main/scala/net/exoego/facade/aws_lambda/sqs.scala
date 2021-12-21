@@ -119,3 +119,33 @@ object SQSMessageAttribute {
     _obj$.asInstanceOf[SQSMessageAttribute]
   }
 }
+
+@js.native
+trait SQSBatchResponse extends js.Object {
+  var batchItemFailures: js.Array[SQSBatchItemFailure] = js.native
+}
+object SQSBatchResponse {
+  def apply(
+      batchItemFailures: js.Array[SQSBatchItemFailure]
+  ): SQSBatchResponse = {
+    val _obj$ = js.Dynamic.literal(
+      "batchItemFailures" -> batchItemFailures.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[SQSBatchResponse]
+  }
+}
+
+@js.native
+trait SQSBatchItemFailure extends js.Object {
+  var itemIdentifier: String = js.native
+}
+object SQSBatchItemFailure {
+  def apply(
+      itemIdentifier: String
+  ): SQSBatchItemFailure = {
+    val _obj$ = js.Dynamic.literal(
+      "itemIdentifier" -> itemIdentifier.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[SQSBatchItemFailure]
+  }
+}
