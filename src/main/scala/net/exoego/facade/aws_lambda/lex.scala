@@ -9,24 +9,62 @@ trait LexEvent extends js.Object {
   var bot: LexEvent.Bot = js.native
   var userId: String = js.native
   var inputTranscript: String = js.native
-  var invocationSource: String = js.native
-  var outputDialogMode: String = js.native
+  var invocationSource: literal.LexEventInvocationSource = js.native
+  var outputDialogMode: literal.LexEventOutputDialogMode = js.native
   var messageVersion: String = js.native
   var sessionAttributes: LexEvent.SessionAttributes = js.native
-  var requestAttributes: js.Dictionary[String] | Null = js.native
+  var requestAttributes: LexEvent.RequestAttributes | Null = js.native
 }
 
 object LexEvent {
+  def apply(
+      currentIntent: LexEvent.CurrentIntent,
+      bot: LexEvent.Bot,
+      userId: String,
+      inputTranscript: String,
+      invocationSource: literal.LexEventInvocationSource,
+      outputDialogMode: literal.LexEventOutputDialogMode,
+      messageVersion: String,
+      sessionAttributes: LexEvent.SessionAttributes,
+      requestAttributes: LexEvent.RequestAttributes | Null = null
+  ): LexEvent = {
+    val _obj$ = js.Dynamic.literal(
+      "currentIntent" -> currentIntent.asInstanceOf[js.Any],
+      "bot" -> bot.asInstanceOf[js.Any],
+      "userId" -> userId.asInstanceOf[js.Any],
+      "inputTranscript" -> inputTranscript.asInstanceOf[js.Any],
+      "invocationSource" -> invocationSource.asInstanceOf[js.Any],
+      "outputDialogMode" -> outputDialogMode.asInstanceOf[js.Any],
+      "messageVersion" -> messageVersion.asInstanceOf[js.Any],
+      "sessionAttributes" -> sessionAttributes.asInstanceOf[js.Any],
+      "requestAttributes" -> requestAttributes.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexEvent]
+  }
+
   @js.native
   trait CurrentIntent extends js.Object {
     var name: String = js.native
-    var slots: CurrentIntent.Slots = js.native
+    var slots: LexEvent.Slots = js.native
     var slotDetails: LexSlotDetails = js.native
-    var confirmationStatus: String = js.native
+    var confirmationStatus: literal.LexEventCurrentIntentConfirmationStatus = js.native
   }
 
   object CurrentIntent {
-    type Slots = js.Dictionary[String]
+    def apply(
+        name: String,
+        slots: LexEvent.Slots,
+        slotDetails: LexSlotDetails,
+        confirmationStatus: literal.LexEventCurrentIntentConfirmationStatus
+    ): CurrentIntent = {
+      val _obj$ = js.Dynamic.literal(
+        "name" -> name.asInstanceOf[js.Any],
+        "slots" -> slots.asInstanceOf[js.Any],
+        "slotDetails" -> slotDetails.asInstanceOf[js.Any],
+        "confirmationStatus" -> confirmationStatus.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[CurrentIntent]
+    }
   }
 
   @js.native
@@ -36,7 +74,20 @@ object LexEvent {
     var version: String = js.native
   }
 
-  type OneToFive[T] = js.Tuple5[T, js.UndefOr[T], js.UndefOr[T], js.UndefOr[T], js.UndefOr[T]]
+  object Bot {
+    def apply(
+        name: String,
+        alias: String,
+        version: String
+    ): Bot = {
+      val _obj$ = js.Dynamic.literal(
+        "name" -> name.asInstanceOf[js.Any],
+        "alias" -> alias.asInstanceOf[js.Any],
+        "version" -> version.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[Bot]
+    }
+  }
 
   @js.native
   trait LexSlotDetailsItem extends js.Object {
@@ -45,6 +96,9 @@ object LexEvent {
     var originalValue: String = js.native
   }
 
+  type Slots = js.Dictionary[String]
+  type OneToFive[T] = js.Tuple5[T, js.UndefOr[T], js.UndefOr[T], js.UndefOr[T], js.UndefOr[T]]
+  type RequestAttributes = js.Dictionary[String]
   type SessionAttributes = js.Dictionary[String]
   type LexSlotDetails = js.Dictionary[LexSlotDetailsItem]
 }
@@ -69,11 +123,28 @@ object LexGenericAttachment {
     var text: String = js.native
     var value: String = js.native
   }
+
+  def apply(
+      title: String,
+      subTitle: String,
+      imageUrl: String,
+      attachmentLinkUrl: String,
+      buttons: js.Array[LexGenericAttachment.ButtonsItem]
+  ): LexGenericAttachment = {
+    val _obj$ = js.Dynamic.literal(
+      "title" -> title.asInstanceOf[js.Any],
+      "subTitle" -> subTitle.asInstanceOf[js.Any],
+      "imageUrl" -> imageUrl.asInstanceOf[js.Any],
+      "attachmentLinkUrl" -> attachmentLinkUrl.asInstanceOf[js.Any],
+      "buttons" -> buttons.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexGenericAttachment]
+  }
 }
 
 @js.native
-trait LexDialogActionBase extends js.Object {
-  var `type`: String = js.native
+trait LexDialogActionBase[T <: literal.LexDialogActionType] extends js.Object {
+  var `type`: T = js.native
   var message: js.UndefOr[LexDialogActionBase.Message] = js.native
   var responseCard: js.UndefOr[LexDialogActionBase.ResponseCard] = js.native
 }
@@ -81,7 +152,7 @@ trait LexDialogActionBase extends js.Object {
 object LexDialogActionBase {
   @js.native
   trait Message extends js.Object {
-    var contentType: String = js.native
+    var contentType: literal.LexDialogActionMessageContentType = js.native
     var content: String = js.native
   }
 
@@ -94,15 +165,39 @@ object LexDialogActionBase {
 }
 
 @js.native
-trait LexDialogActionClose extends js.Object with LexDialogActionBase {
-  var fulfillmentState: String = js.native
+trait LexDialogActionClose extends LexDialogActionBase["Close"] {
+  var fulfillmentState: literal.LexDialogActionCloseFulfillmentState = js.native
+}
+
+object LexDialogActionClose {
+  def apply(
+      `type`: "Close",
+      fulfillmentState: literal.LexDialogActionCloseFulfillmentState
+  ): LexDialogActionClose = {
+    val _obj$ = js.Dynamic.literal(
+      "type" -> `type`.asInstanceOf[js.Any],
+      "fulfillmentState" -> fulfillmentState.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexDialogActionClose]
+  }
 }
 
 @js.native
-trait LexDialogActionElicitIntent extends js.Object with LexDialogActionBase {}
+trait LexDialogActionElicitIntent extends LexDialogActionBase["ElicitIntent"] {}
+
+object LexDialogActionElicitIntent {
+  def apply(
+      `type`: "ElicitIntent"
+  ): LexDialogActionElicitIntent = {
+    val _obj$ = js.Dynamic.literal(
+      "type" -> `type`.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexDialogActionElicitIntent]
+  }
+}
 
 @js.native
-trait LexDialogActionElicitSlot extends js.Object with LexDialogActionBase {
+trait LexDialogActionElicitSlot extends LexDialogActionBase["ElicitSlot"] {
   var intentName: String = js.native
   var slots: LexDialogActionElicitSlot.Slots = js.native
   var slotToElicit: String = js.native
@@ -110,16 +205,44 @@ trait LexDialogActionElicitSlot extends js.Object with LexDialogActionBase {
 
 object LexDialogActionElicitSlot {
   type Slots = js.Dictionary[String]
+
+  def apply(
+      `type`: "ElicitSlot",
+      intentName: String,
+      slots: LexDialogActionElicitSlot.Slots,
+      slotToElicit: String
+  ): LexDialogActionElicitSlot = {
+    val _obj$ = js.Dynamic.literal(
+      "type" -> `type`.asInstanceOf[js.Any],
+      "intentName" -> intentName.asInstanceOf[js.Any],
+      "slots" -> slots.asInstanceOf[js.Any],
+      "slotToElicit" -> slotToElicit.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexDialogActionElicitSlot]
+  }
 }
 
 @js.native
-trait LexDialogActionConfirmIntent extends js.Object with LexDialogActionBase {
+trait LexDialogActionConfirmIntent extends LexDialogActionBase["ConfirmIntent"] {
   var intentName: String = js.native
   var slots: LexDialogActionConfirmIntent.Slots = js.native
 }
 
 object LexDialogActionConfirmIntent {
   type Slots = js.Dictionary[String]
+
+  def apply(
+      `type`: "ConfirmIntent",
+      intentName: String,
+      slots: LexDialogActionConfirmIntent.Slots
+  ): LexDialogActionConfirmIntent = {
+    val _obj$ = js.Dynamic.literal(
+      "type" -> `type`.asInstanceOf[js.Any],
+      "intentName" -> intentName.asInstanceOf[js.Any],
+      "slots" -> slots.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexDialogActionConfirmIntent]
+  }
 }
 
 @js.native
@@ -130,6 +253,17 @@ trait LexDialogActionDelegate extends js.Object {
 
 object LexDialogActionDelegate {
   type Slots = js.Dictionary[String]
+
+  def apply(
+      `type`: String,
+      slots: LexDialogActionDelegate.Slots
+  ): LexDialogActionDelegate = {
+    val _obj$ = js.Dynamic.literal(
+      "type" -> `type`.asInstanceOf[js.Any],
+      "slots" -> slots.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[LexDialogActionDelegate]
+  }
 }
 
 @js.native
@@ -140,4 +274,15 @@ trait LexResult extends js.Object {
 
 object LexResult {
   type SessionAttributes = js.Dictionary[String]
+
+  def apply(
+      dialogAction: LexDialogAction,
+      sessionAttributes: js.UndefOr[js.Dictionary[String]] = js.undefined
+  ): LexResult = {
+    val _obj$ = js.Dynamic.literal(
+      "dialogAction" -> dialogAction.asInstanceOf[js.Any]
+    )
+    sessionAttributes.foreach(_v => _obj$.updateDynamic("sessionAttributes")(_v.asInstanceOf[js.Any]))
+    _obj$.asInstanceOf[LexResult]
+  }
 }
