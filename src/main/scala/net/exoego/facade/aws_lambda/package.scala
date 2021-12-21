@@ -127,14 +127,6 @@ package object aws_lambda {
   type CodePipelineCloudWatchStageHandler = Handler[CodePipelineCloudWatchStageEvent, Unit]
   type AsyncCodePipelineCloudWatchStageHandler = AsyncHandler[CodePipelineCloudWatchStageEvent, Unit]
 
-  // cognitouserpool
-  @deprecated("Use specific event type instead", "v0.10.0")
-  type CognitoUserPoolEvent = CognitoUserPoolTriggerEvent
-  @deprecated("Use specific event type instead", "v0.10.0")
-  type CognitoUserPoolTriggerHandler = Handler[CognitoUserPoolTriggerEvent, js.Any]
-  @deprecated("Use specific event type instead", "v0.10.0")
-  type AsyncCognitoUserPoolTriggerHandler = AsyncHandler[CognitoUserPoolTriggerEvent, js.Any]
-
   type CreateAuthChallengeTriggerHandler = Handler[CreateAuthChallengeTriggerEvent, js.Any]
   type CustomMessageTriggerHandler = Handler[CustomMessageTriggerEvent[String], js.Any]
   type DefineAuthChallengeTriggerHandler = Handler[DefineAuthChallengeTriggerEvent, js.Any]
