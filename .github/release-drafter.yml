@@ -17,6 +17,7 @@ categories:
     labels:
       - 'chore'
       - 'internal'
+      - 'dependencies'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 sort-by: 'title'
 template: |
