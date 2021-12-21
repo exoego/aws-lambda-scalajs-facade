@@ -24,6 +24,14 @@ package object aws_lambda {
   type CloudWatchLogsHandler = Handler[CloudWatchLogsEvent, Unit]
   type AsyncCloudWatchLogsHandler = AsyncHandler[CloudWatchLogsEvent, Unit]
 
+  // apigateway-proxy
+  type APIGatewayProxyEventHeaders = js.Dictionary[String]
+  type APIGatewayProxyEventMultiValueHeaders = js.Dictionary[js.Array[String]]
+  type APIGatewayProxyEventPathParameters = js.Dictionary[String]
+  type APIGatewayProxyEventQueryStringParameters = js.Dictionary[String]
+  type APIGatewayProxyEventMultiValueQueryStringParameters = js.Dictionary[js.Array[String]]
+  type APIGatewayProxyEventStageVariables = js.Dictionary[String]
+
   // apigateway-authorizer
   type APIGatewayEventDefaultAuthorizerContext = js.UndefOr[js.Dictionary[js.Any]] | Null
   type APIGatewayEventRequestContext =
