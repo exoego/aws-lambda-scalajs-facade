@@ -25,6 +25,26 @@ package object aws_lambda {
   type AsyncCloudWatchLogsHandler = AsyncHandler[CloudWatchLogsEvent, Unit]
 
   // apigateway-authorizer
+  type APIGatewayEventDefaultAuthorizerContext = js.UndefOr[js.Dictionary[js.Any]] | Null
+  type APIGatewayEventRequestContext =
+    APIGatewayEventRequestContextWithAuthorizer[APIGatewayEventDefaultAuthorizerContext]
+  type APIGatewayProxyEvent = APIGatewayProxyEventBase[APIGatewayEventDefaultAuthorizerContext]
+  type APIGatewayProxyWithLambdaAuthorizerEvent[T <: js.Object] =
+    APIGatewayProxyEventBase[APIGatewayEventLambdaAuthorizerContext[T]]
+  type APIGatewayProxyWithCognitoAuthorizerEvent = APIGatewayProxyEventBase[APIGatewayProxyCognitoAuthorizer]
+  type APIGatewayProxyWithLambdaAuthorizerEventRequestContext[T <: js.Object] =
+    APIGatewayEventRequestContextWithAuthorizer[APIGatewayEventLambdaAuthorizerContext[T]]
+
+  type APIGatewayProxyWithLambdaAuthorizerHandler[T <: js.Object] =
+    Handler[APIGatewayProxyWithLambdaAuthorizerEvent[T], APIGatewayProxyResult]
+  type AsyncAPIGatewayProxyWithLambdaAuthorizerHandler[T <: js.Object] =
+    AsyncHandler[APIGatewayProxyWithLambdaAuthorizerEvent[T], APIGatewayProxyResult]
+
+  type APIGatewayProxyWithCognitoAuthorizerHandler =
+    Handler[APIGatewayProxyWithCognitoAuthorizerEvent, APIGatewayProxyResult]
+  type AsyncAPIGatewayProxyWithCognitoAuthorizerHandler =
+    AsyncHandler[APIGatewayProxyWithCognitoAuthorizerEvent, APIGatewayProxyResult]
+
   type AuthResponse = APIGatewayAuthorizerResult
   type Condition = js.Dictionary[String | js.Array[String]]
   type ConditionBlock = js.Dictionary[Condition | js.Array[Condition]]
@@ -73,6 +93,9 @@ package object aws_lambda {
     *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
     */
   type AsyncAPIGatewayProxyHandlerV2[T <: js.Object] = AsyncHandler[APIGatewayProxyEventV2, APIGatewayProxyResultV2[T]]
+
+  @deprecated("Use APIGatewayProxyEventBase instead", "0.12.0")
+  @inline val APIGatewayProxyEvent = APIGatewayProxyEventBase
 
   // dynamodb-stream
   type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
