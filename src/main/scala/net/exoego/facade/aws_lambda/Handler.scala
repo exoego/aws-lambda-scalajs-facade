@@ -48,12 +48,35 @@ trait CognitoIdentity extends js.Object {
   var cognitoIdentityId: String = js.native
   var cognitoIdentityPoolId: String = js.native
 }
+object CognitoIdentity {
+  def apply(cognitoIdentityId: String, cognitoIdentityPoolId: String): CognitoIdentity = {
+    val _obj$ = js.Dynamic.literal(
+      "cognitoIdentityId" -> cognitoIdentityId.asInstanceOf[js.Any],
+      "cognitoIdentityPoolId" -> cognitoIdentityPoolId.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CognitoIdentity]
+  }
+}
 
 @js.native
 trait ClientContext extends js.Object {
   var client: ClientContextClient = js.native
   var Custom: js.UndefOr[js.Any] = js.native
   var env: ClientContextEnv = js.native
+}
+object ClientContext {
+  def apply(
+      client: ClientContextClient,
+      env: ClientContextEnv,
+      Custom: js.UndefOr[js.Any] = js.undefined
+  ): ClientContext = {
+    val _obj$ = js.Dynamic.literal(
+      "client" -> client.asInstanceOf[js.Any],
+      "env" -> env.asInstanceOf[js.Any]
+    )
+    Custom.foreach(_v => _obj$.updateDynamic("Custom")(_v))
+    _obj$.asInstanceOf[ClientContext]
+  }
 }
 
 @js.native
@@ -64,6 +87,24 @@ trait ClientContextClient extends js.Object {
   var appVersionCode: String = js.native
   var appPackageName: String = js.native
 }
+object ClientContextClient {
+  def apply(
+      installationId: String,
+      appTitle: String,
+      appVersionName: String,
+      appVersionCode: String,
+      appPackageName: String
+  ): ClientContextClient = {
+    val _obj$ = js.Dynamic.literal(
+      "installationId" -> installationId.asInstanceOf[js.Any],
+      "appTitle" -> appTitle.asInstanceOf[js.Any],
+      "appVersionName" -> appVersionName.asInstanceOf[js.Any],
+      "appVersionCode" -> appVersionCode.asInstanceOf[js.Any],
+      "appPackageName" -> appPackageName.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[ClientContextClient]
+  }
+}
 
 @js.native
 trait ClientContextEnv extends js.Object {
@@ -72,4 +113,22 @@ trait ClientContextEnv extends js.Object {
   var make: String = js.native
   var model: String = js.native
   var locale: String = js.native
+}
+object ClientContextEnv {
+  def apply(
+      platformVersion: String,
+      platform: String,
+      make: String,
+      model: String,
+      locale: String
+  ): ClientContextEnv = {
+    val _obj$ = js.Dynamic.literal(
+      "platformVersion" -> platformVersion.asInstanceOf[js.Any],
+      "platform" -> platform.asInstanceOf[js.Any],
+      "make" -> make.asInstanceOf[js.Any],
+      "model" -> model.asInstanceOf[js.Any],
+      "locale" -> locale.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[ClientContextEnv]
+  }
 }
