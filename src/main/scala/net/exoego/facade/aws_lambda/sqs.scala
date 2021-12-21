@@ -1,9 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait SQSRecord extends js.Object {
   var messageId: String = js.native
@@ -17,13 +15,11 @@ trait SQSRecord extends js.Object {
   var awsRegion: String = js.native
 }
 
-@Factory
 @js.native
 trait SQSEvent extends js.Object {
   var Records: js.Array[SQSRecord] = js.native
 }
 
-@Factory
 @js.native
 trait SQSRecordAttributes extends js.Object {
   var ApproximateReceiveCount: String = js.native
@@ -36,7 +32,6 @@ trait SQSRecordAttributes extends js.Object {
   var MessageDeduplicationId: js.UndefOr[String] = js.native
 }
 
-@Factory
 @js.native
 trait SQSMessageAttribute extends js.Object {
   var stringValue: js.UndefOr[String] = js.native

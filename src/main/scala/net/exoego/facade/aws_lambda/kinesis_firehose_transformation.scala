@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait FirehoseTransformationEvent extends js.Object {
   var invocationId: String = js.native
@@ -13,7 +10,6 @@ trait FirehoseTransformationEvent extends js.Object {
   var records: js.Array[FirehoseTransformationEventRecord] = js.native
 }
 
-@Factory
 @js.native
 trait FirehoseTransformationEventRecord extends js.Object {
   var recordId: String = js.native
@@ -22,7 +18,6 @@ trait FirehoseTransformationEventRecord extends js.Object {
   var kinesisRecordMetadata: js.UndefOr[FirehoseRecordMetadata] = js.native
 }
 
-@Factory
 @js.native
 trait FirehoseRecordMetadata extends js.Object {
   var shardId: String = js.native
@@ -32,7 +27,6 @@ trait FirehoseRecordMetadata extends js.Object {
   var subsequenceNumber: String = js.native
 }
 
-@Factory
 @js.native
 trait FirehoseTransformationResultRecord extends js.Object {
   var recordId: String = js.native
@@ -40,7 +34,6 @@ trait FirehoseTransformationResultRecord extends js.Object {
   var data: String = js.native
 }
 
-@Factory
 @js.native
 trait FirehoseTransformationResult extends js.Object {
   var records: js.Array[FirehoseTransformationResultRecord] = js.native

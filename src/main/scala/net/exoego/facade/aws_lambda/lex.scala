@@ -1,11 +1,8 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-@Factory
 @js.native
 trait LexEvent extends js.Object {
   var currentIntent: LexEvent.CurrentIntent = js.native
@@ -20,7 +17,6 @@ trait LexEvent extends js.Object {
 }
 
 object LexEvent {
-  @Factory(false)
   @js.native
   trait CurrentIntent extends js.Object {
     var name: String = js.native
@@ -33,7 +29,6 @@ object LexEvent {
     type Slots = js.Dictionary[String]
   }
 
-  @Factory(false)
   @js.native
   trait Bot extends js.Object {
     var name: String = js.native
@@ -43,7 +38,6 @@ object LexEvent {
 
   type OneToFive[T] = js.Tuple5[T, js.UndefOr[T], js.UndefOr[T], js.UndefOr[T], js.UndefOr[T]]
 
-  @Factory(false)
   @js.native
   trait LexSlotDetailsItem extends js.Object {
     // "at least 1 but no more than 5 items"
@@ -55,13 +49,11 @@ object LexEvent {
   type LexSlotDetails = js.Dictionary[LexSlotDetailsItem]
 }
 
-@Factory
 @js.native
 trait LexSlotResolution extends js.Object {
   var value: String = js.native
 }
 
-@Factory
 @js.native
 trait LexGenericAttachment extends js.Object {
   var title: String = js.native
@@ -72,7 +64,6 @@ trait LexGenericAttachment extends js.Object {
 }
 
 object LexGenericAttachment {
-  @Factory(false)
   @js.native
   trait ButtonsItem extends js.Object {
     var text: String = js.native
@@ -80,7 +71,6 @@ object LexGenericAttachment {
   }
 }
 
-@Factory
 @js.native
 trait LexDialogActionBase extends js.Object {
   var `type`: String = js.native
@@ -89,14 +79,12 @@ trait LexDialogActionBase extends js.Object {
 }
 
 object LexDialogActionBase {
-  @Factory(false)
   @js.native
   trait Message extends js.Object {
     var contentType: String = js.native
     var content: String = js.native
   }
 
-  @Factory(false)
   @js.native
   trait ResponseCard extends js.Object {
     var version: Double = js.native
@@ -105,17 +93,14 @@ object LexDialogActionBase {
   }
 }
 
-@Factory
 @js.native
 trait LexDialogActionClose extends js.Object with LexDialogActionBase {
   var fulfillmentState: String = js.native
 }
 
-@Factory
 @js.native
 trait LexDialogActionElicitIntent extends js.Object with LexDialogActionBase {}
 
-@Factory
 @js.native
 trait LexDialogActionElicitSlot extends js.Object with LexDialogActionBase {
   var intentName: String = js.native
@@ -127,7 +112,6 @@ object LexDialogActionElicitSlot {
   type Slots = js.Dictionary[String]
 }
 
-@Factory
 @js.native
 trait LexDialogActionConfirmIntent extends js.Object with LexDialogActionBase {
   var intentName: String = js.native
@@ -138,7 +122,6 @@ object LexDialogActionConfirmIntent {
   type Slots = js.Dictionary[String]
 }
 
-@Factory
 @js.native
 trait LexDialogActionDelegate extends js.Object {
   var `type`: String = js.native
@@ -149,7 +132,6 @@ object LexDialogActionDelegate {
   type Slots = js.Dictionary[String]
 }
 
-@Factory
 @js.native
 trait LexResult extends js.Object {
   var sessionAttributes: js.UndefOr[LexResult.SessionAttributes] = js.native

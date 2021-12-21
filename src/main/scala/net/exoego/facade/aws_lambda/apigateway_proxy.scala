@@ -1,7 +1,5 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.|
 
@@ -9,7 +7,6 @@ import scala.scalajs.js.|
   * @see
   *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
-@Factory
 @js.native
 trait APIGatewayProxyEvent extends js.Object {
   var body: String | Null = js.native
@@ -35,7 +32,6 @@ object APIGatewayProxyEvent {
   * @see
   *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
-@Factory
 @js.native
 trait APIGatewayProxyResult extends js.Object {
   var statusCode: Double = js.native
@@ -54,7 +50,6 @@ object APIGatewayProxyResult {
   * @see
   *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
-@Factory
 @js.native
 trait APIGatewayProxyEventV2 extends js.Object {
   var version: String = js.native
@@ -72,7 +67,6 @@ trait APIGatewayProxyEventV2 extends js.Object {
 }
 
 object APIGatewayProxyEventV2 {
-  @Factory(false)
   @js.native
   trait RequestContext extends js.Object {
     var accountId: String = js.native
@@ -89,14 +83,12 @@ object APIGatewayProxyEventV2 {
   }
 
   object RequestContext {
-    @Factory(false)
     @js.native
     trait Authorizer extends js.Object {
       var jwt: Authorizer.Jwt = js.native
     }
 
     object Authorizer {
-      @Factory(false)
       @js.native
       trait Jwt extends js.Object {
         var claims: HeadersBDSA = js.native
@@ -104,7 +96,6 @@ object APIGatewayProxyEventV2 {
       }
     }
 
-    @Factory(false)
     @js.native
     trait Http extends js.Object {
       var method: String = js.native
@@ -120,7 +111,6 @@ object APIGatewayProxyEventV2 {
   * @see
   *   - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
   */
-@Factory
 @js.native
 trait APIGatewayProxyStructuredResultV2 extends js.Object {
   var statusCode: js.UndefOr[Double] = js.native

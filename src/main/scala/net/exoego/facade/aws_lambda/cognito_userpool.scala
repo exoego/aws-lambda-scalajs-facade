@@ -1,7 +1,5 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.|
 
@@ -16,7 +14,6 @@ object ChallengeName {
   final val SRP_A: ChallengeName = "SRP_A".asInstanceOf[ChallengeName]
 }
 
-@Factory
 @js.native
 trait ChallengeResult extends js.Object {
   var challengeName: ChallengeName
@@ -24,7 +21,6 @@ trait ChallengeResult extends js.Object {
   var challengeMetadata: js.UndefOr[Unit]
 }
 
-@Factory
 @js.native
 trait CustomChallengeResult extends js.Object {
   var challengeName: String
@@ -32,7 +28,6 @@ trait CustomChallengeResult extends js.Object {
   var challengeMetadata: js.UndefOr[String]
 }
 
-@Factory
 @js.native
 trait BaseTriggerEvent[T <: String] extends js.Object {
   var version: String
@@ -43,7 +38,6 @@ trait BaseTriggerEvent[T <: String] extends js.Object {
   var callerContext: CognitoUserpoolCallerContext = js.native
 }
 
-@Factory
 @js.native
 trait CognitoUserpoolCallerContext extends js.Object {
   var awsSdkVersion: String
@@ -51,7 +45,6 @@ trait CognitoUserpoolCallerContext extends js.Object {
 }
 
 @deprecated("Use specific event types instead", "v0.10.0")
-@Factory
 @js.native
 trait CognitoUserPoolTriggerEvent extends js.Object with BaseTriggerEvent[String] {
   var request: CognitoUserPoolTriggerEvent.Request = js.native
@@ -60,7 +53,6 @@ trait CognitoUserPoolTriggerEvent extends js.Object with BaseTriggerEvent[String
 
 object CognitoUserPoolTriggerEvent {
   @deprecated("Use specific event types instead", "v0.10.0")
-  @Factory(false)
   @js.native
   trait Request extends js.Object {
     var userAttributes: Request.UserAttributes = js.native
@@ -90,7 +82,6 @@ object CognitoUserPoolTriggerEvent {
   }
 
   @deprecated("Use specific event types instead", "v0.10.0")
-  @Factory(false)
   @js.native
   trait Response extends js.Object {
     var autoConfirmUser: js.UndefOr[Boolean] = js.native
@@ -123,7 +114,6 @@ object CognitoUserPoolTriggerEvent {
     type UserAttributes = js.Dictionary[String]
 
     @deprecated("Use specific event types instead", "v0.10.0")
-    @Factory(false)
     @js.native
     trait ClaimsOverrideDetails extends js.Object {
       var claimsToAddOrOverride: js.UndefOr[ClaimsOverrideDetails.ClaimsToAddOrOverride] = js.native
@@ -138,7 +128,6 @@ object CognitoUserPoolTriggerEvent {
   }
 }
 
-@Factory
 @js.native
 trait CreateAuthChallengeTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -148,7 +137,6 @@ trait CreateAuthChallengeTriggerEventRequest extends js.Object {
   var userNotFound: js.UndefOr[Boolean]
 }
 
-@Factory
 @js.native
 trait CreateAuthChallengeTriggerEventResponse extends js.Object {
   var publicChallengeParameters: js.Dictionary[String]
@@ -159,14 +147,12 @@ trait CreateAuthChallengeTriggerEventResponse extends js.Object {
 /** @see
   *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
   */
-@Factory
 @js.native
 trait CustomMessageTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
   var request: CustomMessageTriggerEventRequest = js.native
   var response: CustomMessageTriggerEventResponse = js.native
 }
 
-@Factory
 @js.native
 trait CustomMessageTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -175,7 +161,6 @@ trait CustomMessageTriggerEventRequest extends js.Object {
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-@Factory
 @js.native
 trait CustomMessageTriggerEventResponse extends js.Object {
   var smsMessage: String
@@ -183,7 +168,6 @@ trait CustomMessageTriggerEventResponse extends js.Object {
   var emailSubject: String
 }
 
-@Factory
 @js.native
 trait DefineAuthChallengeTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -192,7 +176,6 @@ trait DefineAuthChallengeTriggerEventRequest extends js.Object {
   var userNotFound: js.UndefOr[Boolean]
 }
 
-@Factory
 @js.native
 trait DefineAuthChallengeTriggerEventResponse extends js.Object {
   var challengeName: String
@@ -200,7 +183,6 @@ trait DefineAuthChallengeTriggerEventResponse extends js.Object {
   var issueTokens: Boolean
 }
 
-@Factory
 @js.native
 trait PostAuthenticationTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -211,20 +193,17 @@ trait PostAuthenticationTriggerEventRequest extends js.Object {
 /** @see
   *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
   */
-@Factory
 @js.native
 trait PostConfirmationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
   var request: PostConfirmationTriggerEventRequest = js.native
 }
 
-@Factory
 @js.native
 trait PostConfirmationTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-@Factory
 @js.native
 trait PreAuthenticationTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -235,14 +214,12 @@ trait PreAuthenticationTriggerEventRequest extends js.Object {
 /** @see
   *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
   */
-@Factory
 @js.native
 trait PreSignUpTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
   var request: PreSignUpTriggerEventRequest = js.native
   var response: PreSignUpTriggerEventResponse = js.native
 }
 
-@Factory
 @js.native
 trait PreSignUpTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -250,7 +227,6 @@ trait PreSignUpTriggerEventRequest extends js.Object {
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-@Factory
 @js.native
 trait PreSignUpTriggerEventResponse extends js.Object {
   var autoConfirmUser: Boolean
@@ -258,7 +234,6 @@ trait PreSignUpTriggerEventResponse extends js.Object {
   var autoVerifyPhone: Boolean
 }
 
-@Factory
 @js.native
 trait GroupOverrideDetails extends js.Object {
   var groupsToOverride: js.UndefOr[js.Array[String]]
@@ -269,14 +244,12 @@ trait GroupOverrideDetails extends js.Object {
 /** @see
   *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
   */
-@Factory
 @js.native
 trait PreTokenGenerationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
   var request: PreTokenGenerationTriggerEventRequest = js.native
   var response: PreTokenGenerationTriggerEventResponse = js.native
 }
 
-@Factory
 @js.native
 trait PreTokenGenerationTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -284,14 +257,12 @@ trait PreTokenGenerationTriggerEventRequest extends js.Object {
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-@Factory
 @js.native
 trait PreTokenGenerationTriggerEventResponse extends js.Object {
   var claimsOverrideDetails: PreTokenGenerationTriggerEventResponse.ClaimsOverrideDetails = js.native
 }
 
 object PreTokenGenerationTriggerEventResponse {
-  @Factory(false)
   @js.native
   trait ClaimsOverrideDetails extends js.Object {
     var claimsToAddOrOverride: js.UndefOr[js.Dictionary[String]]
@@ -315,14 +286,12 @@ object UserStatus {
 /** @see
   *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
   */
-@Factory
 @js.native
 trait UserMigrationTriggerEvent[T <: String] extends BaseTriggerEvent[T] {
   var request: UserMigrationTriggerEventRequest = js.native
   var response: UserMigrationTriggerEventResponse = js.native
 }
 
-@Factory
 @js.native
 trait UserMigrationTriggerEventRequest extends js.Object {
   var password: String
@@ -330,7 +299,6 @@ trait UserMigrationTriggerEventRequest extends js.Object {
   var clientMetadata: js.UndefOr[js.Dictionary[String]]
 }
 
-@Factory
 @js.native
 trait UserMigrationTriggerEventResponse extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -340,7 +308,6 @@ trait UserMigrationTriggerEventResponse extends js.Object {
   var forceAliasCreation: js.UndefOr[Boolean]
 }
 
-@Factory
 @js.native
 trait VerifyAuthChallengeResponseTriggerEventRequest extends js.Object {
   var userAttributes: js.Dictionary[String]
@@ -350,7 +317,6 @@ trait VerifyAuthChallengeResponseTriggerEventRequest extends js.Object {
   var userNotFound: js.UndefOr[Boolean]
 }
 
-@Factory
 @js.native
 trait VerifyAuthChallengeResponseTriggerEventResponse extends js.Object {
   var answerCorrect: Boolean

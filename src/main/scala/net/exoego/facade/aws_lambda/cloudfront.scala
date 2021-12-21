@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait CloudFrontHeadersItem extends js.Object {
   var key: js.UndefOr[String] = js.native
@@ -37,7 +34,6 @@ object CloudFrontOrigin {
   }
 }
 
-@Factory
 @js.native
 trait CloudFrontCustomOrigin extends js.Object {
   var customHeaders: CloudFrontHeaders = js.native
@@ -50,7 +46,6 @@ trait CloudFrontCustomOrigin extends js.Object {
   var sslProtocols: js.Array[String] = js.native
 }
 
-@Factory
 @js.native
 trait CloudFrontS3Origin extends js.Object {
   var authMethod: String = js.native
@@ -60,7 +55,6 @@ trait CloudFrontS3Origin extends js.Object {
   var region: String = js.native
 }
 
-@Factory
 @js.native
 trait CloudFrontResponse extends js.Object {
   var status: String = js.native
@@ -68,7 +62,6 @@ trait CloudFrontResponse extends js.Object {
   var headers: CloudFrontHeaders = js.native
 }
 
-@Factory(false)
 @js.native
 trait CloudFrontRequest extends js.Object {
   var body: js.UndefOr[CloudFrontRequest.Body] = js.native
@@ -81,7 +74,6 @@ trait CloudFrontRequest extends js.Object {
 }
 
 object CloudFrontRequest {
-  @Factory(false)
   @js.native
   trait Body extends js.Object {
     var action: String = js.native
@@ -91,14 +83,12 @@ object CloudFrontRequest {
   }
 }
 
-@Factory
 @js.native
 trait CloudFrontEvent extends js.Object {
   var config: CloudFrontEvent.Config = js.native
 }
 
 object CloudFrontEvent {
-  @Factory(false)
   @js.native
   trait Config extends js.Object {
     var distributionDomainName: String = js.native
@@ -108,7 +98,6 @@ object CloudFrontEvent {
   }
 }
 
-@Factory
 @js.native
 trait CloudFrontResultResponse extends js.Object {
   var status: String = js.native

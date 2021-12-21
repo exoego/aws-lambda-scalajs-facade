@@ -111,10 +111,6 @@ Below is the available list of the pre-defined handler traits:
 
 Each has `Async~` variant that returns `js.Promise` instead of accepting callback.
 
-## Note
-
-This facade leverages [`@Factory` macro](https://github.com/exoego/scalajs-types-util#factory-macro) to create highly-optimized factory method without boilerplate.
-
 ## License
 
 * Apache License version 2.0
