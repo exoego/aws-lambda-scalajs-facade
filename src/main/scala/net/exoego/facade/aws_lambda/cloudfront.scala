@@ -15,11 +15,6 @@ trait CloudFrontOrigin extends js.Object {
 }
 
 object CloudFrontOrigin {
-  @deprecated("Use CloudFrontOrigin.ofS3 instead", "0.10.0")
-  def apply(s3: CloudFrontS3Origin): CloudFrontOrigin = ofS3(s3)
-  @deprecated("Use CloudFrontOrigin.ofCustom instead", "0.10.0")
-  def apply(custom: CloudFrontCustomOrigin): CloudFrontOrigin = ofCustom(custom)
-
   def ofS3(s3: CloudFrontS3Origin): CloudFrontOrigin = {
     val _obj$ = js.Dynamic.literal(
       "s3" -> s3
