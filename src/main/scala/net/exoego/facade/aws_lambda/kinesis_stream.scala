@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait KinesisStreamRecordPayload extends js.Object {
   var approximateArrivalTimestamp: Double = js.native
@@ -14,7 +11,6 @@ trait KinesisStreamRecordPayload extends js.Object {
   var sequenceNumber: String = js.native
 }
 
-@Factory
 @js.native
 trait KinesisStreamRecord extends js.Object {
   var awsRegion: String = js.native
@@ -27,7 +23,6 @@ trait KinesisStreamRecord extends js.Object {
   var kinesis: KinesisStreamRecordPayload = js.native
 }
 
-@Factory
 @js.native
 trait KinesisStreamEvent extends js.Object {
   var Records: js.Array[KinesisStreamRecord] = js.native

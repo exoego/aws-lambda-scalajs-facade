@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait MSKRecord extends js.Object {
   var topic: String = js.native
@@ -16,7 +13,6 @@ trait MSKRecord extends js.Object {
   var value: String = js.native
 }
 
-@Factory
 @js.native
 trait MSKEvent extends js.Object {
   var eventSource: String = js.native

@@ -1,25 +1,20 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-@Factory
 @js.native
 trait ALBEventRequestContext extends js.Object {
   var elb: ALBEventRequestContext.Elb = js.native
 }
 
 object ALBEventRequestContext {
-  @Factory(false)
   @js.native
   trait Elb extends js.Object {
     var targetGroupArn: String = js.native
   }
 }
 
-@Factory
 @js.native
 trait ALBEvent extends js.Object {
   var requestContext: ALBEventRequestContext = js.native
@@ -40,7 +35,6 @@ object ALBEvent {
   type MultiValueHeaders = js.Dictionary[js.Array[String]]
 }
 
-@Factory
 @js.native
 trait ALBResult extends js.Object {
   var statusCode: Double = js.native

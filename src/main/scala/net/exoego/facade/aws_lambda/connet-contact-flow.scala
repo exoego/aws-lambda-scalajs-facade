@@ -1,12 +1,9 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSBracketAccess
 import scala.scalajs.js.|
 
-@Factory
 @js.native
 trait ConnectContactFlowEvent extends js.Object {
   var Details: ConnectContactFlowEvent.Details = js.native
@@ -14,7 +11,6 @@ trait ConnectContactFlowEvent extends js.Object {
 }
 
 object ConnectContactFlowEvent {
-  @Factory(false)
   @js.native
   trait Details extends js.Object {
     var ContactData: Details.ContactData = js.native
@@ -24,7 +20,6 @@ object ConnectContactFlowEvent {
   object Details {
     type Parameters = js.Dictionary[String]
 
-    @Factory(false)
     @js.native
     trait ContactData extends js.Object {
       var Attributes: ContactData.Attributes = js.native
@@ -43,28 +38,24 @@ object ConnectContactFlowEvent {
     object ContactData {
       type Attributes = js.Dictionary[String]
 
-      @Factory(false)
       @js.native
       trait ConnectContactFlowQueue extends js.Object {
         var ARN: String = js.native
         var Name: String = js.native
       }
 
-      @Factory(false)
       @js.native
       trait MediaStreams extends js.Object {
         var Customer: MediaStreams.Customer = js.native
       }
 
       object MediaStreams {
-        @Factory(false)
         @js.native
         trait Customer extends js.Object {
           var Audio: Customer.Audio = js.native
         }
 
         object Customer {
-          @Factory(false)
           @js.native
           trait Audio extends js.Object {
             var StartFragmentNumber: js.UndefOr[String] = js.native
@@ -96,7 +87,6 @@ object ConnectContactFlowInitiationMethod {
   val API: ConnectContactFlowInitiationMethod = "API".asInstanceOf[ConnectContactFlowInitiationMethod]
 }
 
-@Factory
 @js.native
 trait ConnectContactFlowEndpoint extends js.Object {
   var Address: String = js.native

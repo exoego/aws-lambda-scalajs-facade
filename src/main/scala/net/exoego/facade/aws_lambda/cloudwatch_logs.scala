@@ -1,22 +1,17 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait CloudWatchLogsEvent extends js.Object {
   var awslogs: CloudWatchLogsEventData = js.native
 }
 
-@Factory
 @js.native
 trait CloudWatchLogsEventData extends js.Object {
   var data: String = js.native
 }
 
-@Factory
 @js.native
 trait CloudWatchLogsDecodedData extends js.Object {
   var owner: String = js.native
@@ -27,7 +22,6 @@ trait CloudWatchLogsDecodedData extends js.Object {
   var logEvents: js.Array[CloudWatchLogsLogEvent] = js.native
 }
 
-@Factory
 @js.native
 trait CloudWatchLogsLogEvent extends js.Object {
   var id: String = js.native

@@ -1,17 +1,13 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.|
 
-@Factory
 trait SESMailHeader extends js.Object {
   var name: String
   var value: String
 }
 
-@Factory
 trait SESMailCommonHeaders extends js.Object {
   var returnPath: String
   var from: js.UndefOr[js.Array[String]]
@@ -25,7 +21,6 @@ trait SESMailCommonHeaders extends js.Object {
   var subject: js.UndefOr[String]
 }
 
-@Factory
 trait SESMail extends js.Object {
   var timestamp: String
   var source: String
@@ -36,12 +31,10 @@ trait SESMail extends js.Object {
   var commonHeaders: SESMailCommonHeaders
 }
 
-@Factory
 trait SESReceiptStatus extends js.Object {
   var status: String
 }
 
-@Factory
 trait SESReceiptS3Action extends js.Object {
   var `type`: String
   var topicArn: js.UndefOr[String]
@@ -49,13 +42,11 @@ trait SESReceiptS3Action extends js.Object {
   var objectKey: String
 }
 
-@Factory
 trait SESReceiptSnsAction extends js.Object {
   var `type`: String
   var topicArn: String
 }
 
-@Factory
 trait SESReceiptBounceAction extends js.Object {
   var `type`: String
   var topicArn: js.UndefOr[String]
@@ -65,7 +56,6 @@ trait SESReceiptBounceAction extends js.Object {
   var sender: String
 }
 
-@Factory
 trait SESReceiptLambdaAction extends js.Object {
   var `type`: String
   var topicArn: js.UndefOr[String]
@@ -73,20 +63,17 @@ trait SESReceiptLambdaAction extends js.Object {
   var invocationType: String
 }
 
-@Factory
 trait SESReceiptStopAction extends js.Object {
   var `type`: String
   var topicArn: js.UndefOr[String]
 }
 
-@Factory
 trait SESReceiptWorkMailAction extends js.Object {
   var `type`: String
   var topicArn: js.UndefOr[String]
   var organizationArn: String
 }
 
-@Factory
 trait SESReceipt extends js.Object {
   var timestamp: String
   var processingTimeMillis: Double
@@ -99,20 +86,17 @@ trait SESReceipt extends js.Object {
   var action: SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction
 }
 
-@Factory
 trait SESMessage extends js.Object {
   var mail: SESMail
   var receipt: SESReceipt
 }
 
-@Factory
 trait SESEventRecord extends js.Object {
   var eventSource: String
   var eventVersion: String
   var ses: SESMessage
 }
 
-@Factory
 trait SESEvent extends js.Object {
   var Records: js.Array[SESEventRecord]
 }

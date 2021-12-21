@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait StreamRecord extends js.Object {
   var ApproximateCreationDateTime: js.UndefOr[Double] = js.native
@@ -22,7 +19,6 @@ object StreamRecord {
   type OldImage = js.Dictionary[AttributeValue]
 }
 
-@Factory
 @js.native
 trait DynamoDBRecord extends js.Object {
   var awsRegion: js.UndefOr[String] = js.native
@@ -35,7 +31,6 @@ trait DynamoDBRecord extends js.Object {
   var userIdentity: js.UndefOr[js.Any] = js.native
 }
 
-@Factory
 @js.native
 trait DynamoDBStreamEvent extends js.Object {
   var Records: js.Array[DynamoDBRecord] = js.native

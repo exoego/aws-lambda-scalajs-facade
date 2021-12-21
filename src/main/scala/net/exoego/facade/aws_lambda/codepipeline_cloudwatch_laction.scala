@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait CodePipelineCloudWatchActionEvent extends js.Object {
   var version: String = js.native
@@ -19,7 +16,6 @@ trait CodePipelineCloudWatchActionEvent extends js.Object {
 }
 
 object CodePipelineCloudWatchActionEvent {
-  @Factory(false)
   @js.native
   trait Detail extends js.Object {
     var pipeline: String = js.native
@@ -32,7 +28,6 @@ object CodePipelineCloudWatchActionEvent {
   }
 
   object Detail {
-    @Factory(false)
     @js.native
     trait Type extends js.Object {
       var owner: String = js.native

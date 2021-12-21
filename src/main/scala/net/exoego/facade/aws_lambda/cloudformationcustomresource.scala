@@ -1,10 +1,7 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceEventCommon extends js.Object {
   var ServiceToken: String = js.native
@@ -20,13 +17,11 @@ object CloudFormationCustomResourceEventCommon {
   type ResourceProperties = js.Dictionary[js.Any]
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceCreateEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceUpdateEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
@@ -38,14 +33,12 @@ object CloudFormationCustomResourceUpdateEvent {
   type OldResourceProperties = js.Dictionary[js.Any]
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceDeleteEvent extends js.Object with CloudFormationCustomResourceEventCommon {
   var RequestType: String = js.native
   var PhysicalResourceId: String = js.native
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceResponseCommon extends js.Object {
   var PhysicalResourceId: String = js.native
@@ -59,14 +52,12 @@ object CloudFormationCustomResourceResponseCommon {
   type Data = js.Dictionary[js.Any]
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceSuccessResponse extends js.Object with CloudFormationCustomResourceResponseCommon {
   var Status: String = js.native
   var Reason: js.UndefOr[String] = js.native
 }
 
-@Factory
 @js.native
 trait CloudFormationCustomResourceFailedResponse extends js.Object with CloudFormationCustomResourceResponseCommon {
   var Status: String = js.native

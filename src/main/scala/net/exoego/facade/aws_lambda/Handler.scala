@@ -1,7 +1,5 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
 import scala.scalajs.js.|
@@ -45,14 +43,12 @@ trait Context extends js.Object {
   def succeed(message: String, `object`: js.Any): Unit = js.native
 }
 
-@Factory
 @js.native
 trait CognitoIdentity extends js.Object {
   var cognitoIdentityId: String = js.native
   var cognitoIdentityPoolId: String = js.native
 }
 
-@Factory
 @js.native
 trait ClientContext extends js.Object {
   var client: ClientContextClient = js.native
@@ -60,7 +56,6 @@ trait ClientContext extends js.Object {
   var env: ClientContextEnv = js.native
 }
 
-@Factory
 @js.native
 trait ClientContextClient extends js.Object {
   var installationId: String = js.native
@@ -70,7 +65,6 @@ trait ClientContextClient extends js.Object {
   var appPackageName: String = js.native
 }
 
-@Factory
 @js.native
 trait ClientContextEnv extends js.Object {
   var platformVersion: String = js.native

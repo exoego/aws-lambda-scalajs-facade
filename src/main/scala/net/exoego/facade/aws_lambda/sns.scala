@@ -1,16 +1,13 @@
 package net.exoego.facade.aws_lambda
 
-import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 
-@Factory
 @js.native
 trait SNSMessageAttribute extends js.Object {
   var Type: String = js.native
   var Value: String = js.native
 }
 
-@Factory
 @js.native
 trait SNSMessage extends js.Object {
   var SignatureVersion: String = js.native
@@ -26,7 +23,6 @@ trait SNSMessage extends js.Object {
   var Subject: String = js.native
 }
 
-@Factory
 @js.native
 trait SNSEventRecord extends js.Object {
   var EventVersion: String = js.native
@@ -35,7 +31,6 @@ trait SNSEventRecord extends js.Object {
   var Sns: SNSMessage = js.native
 }
 
-@Factory
 @js.native
 trait SNSEvent extends js.Object {
   var Records: js.Array[SNSEventRecord] = js.native
