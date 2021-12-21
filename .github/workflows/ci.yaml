@@ -21,6 +21,5 @@ jobs:
         with:
           java-version: adopt@1.11
       - uses: coursier/cache-action@v6
-      - run: npm install
       - name: Run Tests
         run: sbt ++${{ matrix.scala }} scalafmtCheckAll scalafmtSbtCheck fullOptJS
