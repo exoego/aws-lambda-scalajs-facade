@@ -6,6 +6,7 @@ import scala.scalajs.js
 trait FirehoseTransformationEvent extends js.Object {
   var invocationId: String = js.native
   var deliveryStreamArn: String = js.native
+  var sourceKinesisStreamArn: js.UndefOr[String] = js.native
   var region: String = js.native
   var records: js.Array[FirehoseTransformationEventRecord] = js.native
 }
@@ -15,7 +16,8 @@ object FirehoseTransformationEvent {
       invocationId: String,
       deliveryStreamArn: String,
       region: String,
-      records: js.Array[FirehoseTransformationEventRecord]
+      records: js.Array[FirehoseTransformationEventRecord],
+      sourceKinesisStreamArn: js.UndefOr[String] = js.undefined
   ): FirehoseTransformationEvent = {
     val _obj$ = js.Dynamic.literal(
       "invocationId" -> invocationId.asInstanceOf[js.Any],
@@ -23,6 +25,7 @@ object FirehoseTransformationEvent {
       "region" -> region.asInstanceOf[js.Any],
       "records" -> records.asInstanceOf[js.Any]
     )
+    sourceKinesisStreamArn.foreach(_v => _obj$.updateDynamic("sourceKinesisStreamArn")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[FirehoseTransformationEvent]
   }
 }
@@ -81,23 +84,44 @@ object FirehoseRecordMetadata {
 }
 
 @js.native
+trait FirehoseTransformationMetadata extends js.Object {
+  var partitionKeys: FirehoseTransformationMetadata.PartitionKeys = js.native
+}
+
+object FirehoseTransformationMetadata {
+  type PartitionKeys = js.Dictionary[String]
+
+  def apply(
+      partitionKeys: FirehoseTransformationMetadata.PartitionKeys
+  ): FirehoseTransformationMetadata = {
+    val _obj$ = js.Dynamic.literal(
+      "partitionKeys" -> partitionKeys.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[FirehoseTransformationMetadata]
+  }
+}
+
+@js.native
 trait FirehoseTransformationResultRecord extends js.Object {
   var recordId: String = js.native
   var result: literal.FirehoseRecordTransformationStatus = js.native
   var data: String = js.native
+  var metadata: js.UndefOr[FirehoseTransformationMetadata] = js.native
 }
 
 object FirehoseTransformationResultRecord {
   def apply(
       recordId: String,
       result: literal.FirehoseRecordTransformationStatus,
-      data: String
+      data: String,
+      metadata: js.UndefOr[FirehoseTransformationMetadata] = js.undefined
   ): FirehoseTransformationResultRecord = {
     val _obj$ = js.Dynamic.literal(
       "recordId" -> recordId.asInstanceOf[js.Any],
       "result" -> result.asInstanceOf[js.Any],
       "data" -> data.asInstanceOf[js.Any]
     )
+    metadata.foreach(_v => _obj$.updateDynamic("metadata")(_v.asInstanceOf[js.Any]))
     _obj$.asInstanceOf[FirehoseTransformationResultRecord]
   }
 }
