@@ -3,158 +3,175 @@ package net.exoego.facade.aws_lambda
 import scala.scalajs.js
 
 @js.native
-sealed trait CodeBuildStateType extends js.Any {}
-object CodeBuildStateType {
-  val IN_PROGRESS: CodeBuildStateType = "IN_PROGRESS".asInstanceOf[CodeBuildStateType]
-  val SUCCEEDED: CodeBuildStateType = "SUCCEEDED".asInstanceOf[CodeBuildStateType]
-  val FAILED: CodeBuildStateType = "FAILED".asInstanceOf[CodeBuildStateType]
-  val STOPPED: CodeBuildStateType = "STOPPED".asInstanceOf[CodeBuildStateType]
-}
-
-@js.native
-sealed trait CodeBuildPhaseType extends js.Any {}
-object CodeBuildPhaseType {
-  val COMPLETED: CodeBuildPhaseType = "COMPLETED".asInstanceOf[CodeBuildPhaseType]
-  val FINALIZING: CodeBuildPhaseType = "FINALIZING".asInstanceOf[CodeBuildPhaseType]
-  val UPLOAD_ARTIFACTS: CodeBuildPhaseType = "UPLOAD_ARTIFACTS".asInstanceOf[CodeBuildPhaseType]
-  val POST_BUILD: CodeBuildPhaseType = "POST_BUILD".asInstanceOf[CodeBuildPhaseType]
-  val BUILD: CodeBuildPhaseType = "BUILD".asInstanceOf[CodeBuildPhaseType]
-  val PRE_BUILD: CodeBuildPhaseType = "PRE_BUILD".asInstanceOf[CodeBuildPhaseType]
-  val INSTALL: CodeBuildPhaseType = "INSTALL".asInstanceOf[CodeBuildPhaseType]
-  val QUEUED: CodeBuildPhaseType = "QUEUED".asInstanceOf[CodeBuildPhaseType]
-  val DOWNLOAD_SOURCE: CodeBuildPhaseType = "DOWNLOAD_SOURCE".asInstanceOf[CodeBuildPhaseType]
-  val PROVISIONING: CodeBuildPhaseType = "PROVISIONING".asInstanceOf[CodeBuildPhaseType]
-  val SUBMITTED: CodeBuildPhaseType = "SUBMITTED".asInstanceOf[CodeBuildPhaseType]
-}
-
-@js.native
-sealed trait CodeBuildPhaseStatusType extends js.Any {}
-object CodeBuildPhaseStatusType {
-  val TIMED_OUT: CodeBuildPhaseStatusType = "TIMED_OUT".asInstanceOf[CodeBuildPhaseStatusType]
-  val STOPPED: CodeBuildPhaseStatusType = "STOPPED".asInstanceOf[CodeBuildPhaseStatusType]
-  val FAILED: CodeBuildPhaseStatusType = "FAILED".asInstanceOf[CodeBuildPhaseStatusType]
-  val SUCCEEDED: CodeBuildPhaseStatusType = "SUCCEEDED".asInstanceOf[CodeBuildPhaseStatusType]
-  val FAULT: CodeBuildPhaseStatusType = "FAULT".asInstanceOf[CodeBuildPhaseStatusType]
-  val CLIENT_ERROR: CodeBuildPhaseStatusType = "CLIENT_ERROR".asInstanceOf[CodeBuildPhaseStatusType]
-}
-
-@js.native
-sealed trait CodeBuildCacheType extends js.Any {}
-object CodeBuildCacheType {
-  val NO_CACHE: CodeBuildCacheType = "NO_CACHE".asInstanceOf[CodeBuildCacheType]
-  val LOCAL: CodeBuildCacheType = "LOCAL".asInstanceOf[CodeBuildCacheType]
-  val S3: CodeBuildCacheType = "S3".asInstanceOf[CodeBuildCacheType]
-}
-
-@js.native
-sealed trait CodeBuildSourceLocationType extends js.Any {}
-object CodeBuildSourceLocationType {
-  val CODECOMMIT: CodeBuildSourceLocationType = "CODECOMMIT".asInstanceOf[CodeBuildSourceLocationType]
-  val CODEPIPELINE: CodeBuildSourceLocationType = "CODEPIPELINE".asInstanceOf[CodeBuildSourceLocationType]
-  val GITHUB: CodeBuildSourceLocationType = "GITHUB".asInstanceOf[CodeBuildSourceLocationType]
-  val GITHUB_ENTERPRISE: CodeBuildSourceLocationType = "GITHUB_ENTERPRISE".asInstanceOf[CodeBuildSourceLocationType]
-  val BITBUCKET: CodeBuildSourceLocationType = "BITBUCKET".asInstanceOf[CodeBuildSourceLocationType]
-  val S3: CodeBuildSourceLocationType = "S3".asInstanceOf[CodeBuildSourceLocationType]
-  val NO_SOURCE: CodeBuildSourceLocationType = "NO_SOURCE".asInstanceOf[CodeBuildSourceLocationType]
-}
-
-@js.native
-sealed trait CodeBuildEnvironmentType extends js.Any {}
-object CodeBuildEnvironmentType {
-  val LINUX_CONTAINER: CodeBuildEnvironmentType = "LINUX_CONTAINER".asInstanceOf[CodeBuildEnvironmentType]
-  val LINUX_GPU_CONTAINER: CodeBuildEnvironmentType = "LINUX_GPU_CONTAINER".asInstanceOf[CodeBuildEnvironmentType]
-  val WINDOWS_CONTAINER: CodeBuildEnvironmentType = "WINDOWS_CONTAINER".asInstanceOf[CodeBuildEnvironmentType]
-  val ARM_CONTAINER: CodeBuildEnvironmentType = "ARM_CONTAINER".asInstanceOf[CodeBuildEnvironmentType]
-}
-
-@js.native
-sealed trait CodeBuildEnvironmentPullCredentialsType extends js.Any {}
-object CodeBuildEnvironmentPullCredentialsType {
-  val CODEBUILD: CodeBuildEnvironmentPullCredentialsType =
-    "CODEBUILD".asInstanceOf[CodeBuildEnvironmentPullCredentialsType]
-  val SERVICE_ROLE: CodeBuildEnvironmentPullCredentialsType =
-    "SERVICE_ROLE".asInstanceOf[CodeBuildEnvironmentPullCredentialsType]
-}
-
-@js.native
-sealed trait CodeBuildEnvironmentComputeType extends js.Any {}
-object CodeBuildEnvironmentComputeType {
-  val BUILD_GENERAL1_SMALL: CodeBuildEnvironmentComputeType =
-    "BUILD_GENERAL1_SMALL".asInstanceOf[CodeBuildEnvironmentComputeType]
-  val BUILD_GENERAL1_MEDIUM: CodeBuildEnvironmentComputeType =
-    "BUILD_GENERAL1_MEDIUM".asInstanceOf[CodeBuildEnvironmentComputeType]
-  val BUILD_GENERAL1_LARGE: CodeBuildEnvironmentComputeType =
-    "BUILD_GENERAL1_LARGE".asInstanceOf[CodeBuildEnvironmentComputeType]
-  val BUILD_GENERAL1_2XLARGE: CodeBuildEnvironmentComputeType =
-    "BUILD_GENERAL1_2XLARGE".asInstanceOf[CodeBuildEnvironmentComputeType]
-}
-
-@js.native
-sealed trait CodeBuildEnvironmentVariableType extends js.Any {}
-object CodeBuildEnvironmentVariableType {
-  val PARAMETER_STORE: CodeBuildEnvironmentVariableType =
-    "PARAMETER_STORE".asInstanceOf[CodeBuildEnvironmentVariableType]
-  val PLAINTEXT: CodeBuildEnvironmentVariableType = "PLAINTEXT".asInstanceOf[CodeBuildEnvironmentVariableType]
-  val SECRETS_MANAGER: CodeBuildEnvironmentVariableType =
-    "SECRETS_MANAGER".asInstanceOf[CodeBuildEnvironmentVariableType]
-}
-
-@js.native
 trait CodeBuildStateEventDetail extends js.Object {
-  var `build-status`: CodeBuildStateType
+  var `build-status`: literal.CodeBuildStateType
   var `project-name`: String
   var `build-id`: String
-  var `current-phase`: CodeBuildPhaseType
+  var `current-phase`: literal.CodeBuildPhaseType
   var `current-phase-context`: String
   var version: String
   var `additional-information`: CodeBuildStateEventDetail.`Additional-information`
 }
 
 object CodeBuildStateEventDetail {
+  def apply(
+      `build-status`: literal.CodeBuildStateType,
+      `project-name`: String,
+      `build-id`: String,
+      `current-phase`: literal.CodeBuildPhaseType,
+      `current-phase-context`: String,
+      version: String,
+      `additional-information`: CodeBuildStateEventDetail.`Additional-information`
+  ): CodeBuildStateEventDetail = {
+    val _obj$ = js.Dynamic.literal(
+      "build-status" -> `build-status`.asInstanceOf[js.Any],
+      "project-name" -> `project-name`.asInstanceOf[js.Any],
+      "build-id" -> `build-id`.asInstanceOf[js.Any],
+      "current-phase" -> `current-phase`.asInstanceOf[js.Any],
+      "current-phase-context" -> `current-phase-context`.asInstanceOf[js.Any],
+      "version" -> version.asInstanceOf[js.Any],
+      "additional-information" -> `additional-information`.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CodeBuildStateEventDetail]
+  }
+
   @js.native
   trait `Additional-information` extends js.Object {
-    var cache: `Additional-information`.Cache
-    var `build-number`: Double
-    var `timeout-in-minutes`: Double
-    var `build-complete`: Boolean
-    var initiator: String
-    var `build-start-time`: String
-    var source: `Additional-information`.Source
-    var `source-version`: String
-    var artifact: `Additional-information`.Artifact
-    var environment: `Additional-information`.Environment
-    var `project-file-system-locations`: js.Array[Nothing]
-    var logs: `Additional-information`.Logs
-    var phases: js.Array[js.Any]
-    var `queued-timeout-in-minutes`: Double
+    var cache: `Additional-information`.Cache = js.native
+    var `build-number`: Double = js.native
+    var `timeout-in-minutes`: Double = js.native
+    var `build-complete`: Boolean = js.native
+    var initiator: String = js.native
+    var `build-start-time`: String = js.native
+    var source: `Additional-information`.Source = js.native
+    var `source-version`: String = js.native
+    var artifact: `Additional-information`.Artifact = js.native
+    var environment: `Additional-information`.Environment = js.native
+    var `project-file-system-locations`: js.Array[Nothing] = js.native
+    var logs: `Additional-information`.Logs = js.native
+    var phases: js.Array[js.Any] = js.native
+    var `queued-timeout-in-minutes`: Double = js.native
   }
 
   object `Additional-information` {
+    def apply(
+        cache: `Additional-information`.Cache,
+        `build-number`: Double,
+        `timeout-in-minutes`: Double,
+        `build-complete`: Boolean,
+        initiator: String,
+        `build-start-time`: String,
+        source: `Additional-information`.Source,
+        `source-version`: String,
+        artifact: `Additional-information`.Artifact,
+        environment: `Additional-information`.Environment,
+        `project-file-system-locations`: js.Array[Nothing],
+        logs: `Additional-information`.Logs,
+        phases: js.Array[js.Any],
+        `queued-timeout-in-minutes`: Double
+    ): `Additional-information` = {
+      val _obj$ = js.Dynamic.literal(
+        "cache" -> cache.asInstanceOf[js.Any],
+        "build-number" -> `build-number`.asInstanceOf[js.Any],
+        "timeout-in-minutes" -> `timeout-in-minutes`.asInstanceOf[js.Any],
+        "build-complete" -> `build-complete`.asInstanceOf[js.Any],
+        "initiator" -> initiator.asInstanceOf[js.Any],
+        "build-start-time" -> `build-start-time`.asInstanceOf[js.Any],
+        "source" -> source.asInstanceOf[js.Any],
+        "source-version" -> `source-version`.asInstanceOf[js.Any],
+        "artifact" -> artifact.asInstanceOf[js.Any],
+        "environment" -> environment.asInstanceOf[js.Any],
+        "project-file-system-locations" -> `project-file-system-locations`.asInstanceOf[js.Any],
+        "logs" -> logs.asInstanceOf[js.Any],
+        "phases" -> phases.asInstanceOf[js.Any],
+        "queued-timeout-in-minutes" -> `queued-timeout-in-minutes`.asInstanceOf[js.Any]
+      )
+      _obj$.asInstanceOf[`Additional-information`]
+    }
+
     @js.native
     trait Cache extends js.Object {
-      var `type`: CodeBuildCacheType
+      var `type`: literal.CodeBuildCacheType
+    }
+    object Cache {
+      def apply(
+          `type`: literal.CodeBuildCacheType
+      ): Cache = {
+        val _obj$ = js.Dynamic.literal(
+          "type" -> `type`.asInstanceOf[js.Any]
+        )
+        _obj$.asInstanceOf[Cache]
+      }
     }
 
     @js.native
     trait Source extends js.Object {
       var buildspec: String
       var location: String
-      var `type`: CodeBuildSourceLocationType
+      var `type`: literal.CodeBuildSourceLocationType
+    }
+
+    object Source {
+      def apply(
+          buildspec: String,
+          location: String,
+          `type`: literal.CodeBuildSourceLocationType
+      ): Source = {
+        val _obj$ = js.Dynamic.literal(
+          "buildspec" -> buildspec.asInstanceOf[js.Any],
+          "location" -> location.asInstanceOf[js.Any],
+          "type" -> `type`.asInstanceOf[js.Any]
+        )
+        _obj$.asInstanceOf[Source]
+      }
     }
 
     @js.native
     trait Artifact extends js.Object {
       var location: String
     }
+    object Artifact {
+      def apply(
+          location: String
+      ): Artifact = {
+        val _obj$ = js.Dynamic.literal(
+          "location" -> location.asInstanceOf[js.Any]
+        )
+        _obj$.asInstanceOf[Artifact]
+      }
+    }
 
     @js.native
     trait Environment extends js.Object {
-      var image: String
-      var `privileged-mode`: Boolean
-      var `image-pull-credentials-type`: js.UndefOr[CodeBuildEnvironmentPullCredentialsType]
-      var `compute-type`: CodeBuildEnvironmentComputeType
-      var `type`: CodeBuildEnvironmentType
-      var `environment-variables`: js.Array[js.Any]
+      var image: String = js.native
+      var `privileged-mode`: Boolean = js.native
+      var `image-pull-credentials-type`: js.UndefOr[literal.CodeBuildEnvironmentPullCredentialsType] = js.native
+      var `compute-type`: literal.CodeBuildEnvironmentComputeType = js.native
+      var `type`: literal.CodeBuildEnvironmentType = js.native
+      var `environment-variables`: js.Array[js.Any] = js.native
+    }
+
+    object Environment {
+      def apply(
+          image: String,
+          `privileged-mode`: Boolean,
+          `compute-type`: literal.CodeBuildEnvironmentComputeType,
+          `type`: literal.CodeBuildEnvironmentType,
+          `environment-variables`: js.Array[js.Any],
+          `image-pull-credentials-type`: js.UndefOr[literal.CodeBuildEnvironmentPullCredentialsType] = js.undefined
+      ): Environment = {
+        val _obj$ = js.Dynamic.literal(
+          "image" -> image.asInstanceOf[js.Any],
+          "privileged-mode" -> `privileged-mode`.asInstanceOf[js.Any],
+          "compute-type" -> `compute-type`.asInstanceOf[js.Any],
+          "type" -> `type`.asInstanceOf[js.Any],
+          "environment-variables" -> `environment-variables`.asInstanceOf[js.Any]
+        )
+        `image-pull-credentials-type`.foreach(_v =>
+          _obj$.updateDynamic("image-pull-credentials-type")(_v.asInstanceOf[js.Any])
+        )
+        _obj$.asInstanceOf[Environment]
+      }
     }
 
     @js.native
@@ -163,5 +180,48 @@ object CodeBuildStateEventDetail {
       var `stream-name`: String
       var `deep-link`: String
     }
+
+    object Logs {
+      def apply(
+          `group-name`: String,
+          `stream-name`: String,
+          `deep-link`: String
+      ): Logs = {
+        val _obj$ = js.Dynamic.literal(
+          "group-name" -> `group-name`.asInstanceOf[js.Any],
+          "stream-name" -> `stream-name`.asInstanceOf[js.Any],
+          "deep-link" -> `deep-link`.asInstanceOf[js.Any]
+        )
+        _obj$.asInstanceOf[Logs]
+      }
+    }
+  }
+}
+
+@js.native
+trait CodeBuildCloudWatchStateEvent extends EventBridgeEvent["CodeBuild Build State Change", CodeBuildStateEventDetail]
+
+object CodeBuildCloudWatchStateEvent {
+  def apply(
+      account: String,
+      region: String,
+      detail: CodeBuildStateEventDetail,
+      time: String,
+      id: String,
+      version: String,
+      resources: js.Array[String]
+  ): CodeBuildCloudWatchStateEvent = {
+    val _obj$ = js.Dynamic.literal(
+      "account" -> account.asInstanceOf[js.Any],
+      "region" -> region.asInstanceOf[js.Any],
+      "version" -> version.asInstanceOf[js.Any],
+      "detail" -> detail.asInstanceOf[js.Any],
+      "detail-type" -> "CodeBuild Build State Change",
+      "source" -> "ws.codebuild",
+      "time" -> time.asInstanceOf[js.Any],
+      "id" -> id.asInstanceOf[js.Any],
+      "resources" -> resources.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CodeBuildCloudWatchStateEvent]
   }
 }

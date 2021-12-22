@@ -4,20 +4,23 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 @js.native
-trait APIGatewayTokenAuthorizerEvent extends js.Object {
-  var `type`: String = js.native
+trait BaseAPIGatewayAuthorizerEvent[T <: String] extends js.Object {
+  var `type`: T = js.native
   var methodArn: String = js.native
+}
+
+@js.native
+trait APIGatewayTokenAuthorizerEvent extends BaseAPIGatewayAuthorizerEvent["TOKEN"] {
   var authorizationToken: String = js.native
 }
 
 object APIGatewayTokenAuthorizerEvent {
   def apply(
-      `type`: String,
       methodArn: String,
       authorizationToken: String
   ): APIGatewayTokenAuthorizerEvent = {
     val _obj$ = js.Dynamic.literal(
-      "type" -> `type`.asInstanceOf[js.Any],
+      "type" -> "TOKEN",
       "methodArn" -> methodArn.asInstanceOf[js.Any],
       "authorizationToken" -> authorizationToken.asInstanceOf[js.Any]
     )
@@ -26,9 +29,7 @@ object APIGatewayTokenAuthorizerEvent {
 }
 
 @js.native
-trait APIGatewayRequestAuthorizerEvent extends js.Object {
-  var `type`: String = js.native
-  var methodArn: String = js.native
+trait APIGatewayRequestAuthorizerEvent extends BaseAPIGatewayAuthorizerEvent["REQUEST"] {
   var resource: String = js.native
   var path: String = js.native
   var httpMethod: String = js.native
@@ -43,7 +44,6 @@ trait APIGatewayRequestAuthorizerEvent extends js.Object {
 
 object APIGatewayRequestAuthorizerEvent {
   def apply(
-      `type`: String,
       methodArn: String,
       resource: String,
       path: String,
@@ -57,7 +57,7 @@ object APIGatewayRequestAuthorizerEvent {
       stageVariables: js.Dictionary[String] | Null = null
   ): APIGatewayRequestAuthorizerEvent = {
     val _obj$ = js.Dynamic.literal(
-      "type" -> `type`.asInstanceOf[js.Any],
+      "type" -> "REQUEST",
       "methodArn" -> methodArn.asInstanceOf[js.Any],
       "resource" -> resource.asInstanceOf[js.Any],
       "path" -> path.asInstanceOf[js.Any],

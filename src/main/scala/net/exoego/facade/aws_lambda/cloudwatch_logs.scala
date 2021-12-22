@@ -7,9 +7,31 @@ trait CloudWatchLogsEvent extends js.Object {
   var awslogs: CloudWatchLogsEventData = js.native
 }
 
+object CloudWatchLogsEvent {
+  def apply(
+      awslogs: CloudWatchLogsEventData
+  ): CloudWatchLogsEvent = {
+    val _obj$ = js.Dynamic.literal(
+      "awslogs" -> awslogs.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CloudWatchLogsEvent]
+  }
+}
+
 @js.native
 trait CloudWatchLogsEventData extends js.Object {
   var data: String = js.native
+}
+
+object CloudWatchLogsEventData {
+  def apply(
+      data: String
+  ): CloudWatchLogsEventData = {
+    val _obj$ = js.Dynamic.literal(
+      "data" -> data.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CloudWatchLogsEventData]
+  }
 }
 
 @js.native
@@ -22,6 +44,27 @@ trait CloudWatchLogsDecodedData extends js.Object {
   var logEvents: js.Array[CloudWatchLogsLogEvent] = js.native
 }
 
+object CloudWatchLogsDecodedData {
+  def apply(
+      owner: String,
+      logGroup: String,
+      logStream: String,
+      subscriptionFilters: js.Array[String],
+      messageType: String,
+      logEvents: js.Array[CloudWatchLogsLogEvent]
+  ): CloudWatchLogsDecodedData = {
+    val _obj$ = js.Dynamic.literal(
+      "owner" -> owner.asInstanceOf[js.Any],
+      "logGroup" -> logGroup.asInstanceOf[js.Any],
+      "logStream" -> logStream.asInstanceOf[js.Any],
+      "subscriptionFilters" -> subscriptionFilters.asInstanceOf[js.Any],
+      "messageType" -> messageType.asInstanceOf[js.Any],
+      "logEvents" -> logEvents.asInstanceOf[js.Any]
+    )
+    _obj$.asInstanceOf[CloudWatchLogsDecodedData]
+  }
+}
+
 @js.native
 trait CloudWatchLogsLogEvent extends js.Object {
   var id: String = js.native
@@ -32,4 +75,19 @@ trait CloudWatchLogsLogEvent extends js.Object {
 
 object CloudWatchLogsLogEvent {
   type ExtractedFields = js.Dictionary[String]
+
+  def apply(
+      id: String,
+      timestamp: Double,
+      message: String,
+      extractedFields: js.UndefOr[CloudWatchLogsLogEvent.ExtractedFields] = js.undefined
+  ): CloudWatchLogsLogEvent = {
+    val _obj$ = js.Dynamic.literal(
+      "id" -> id.asInstanceOf[js.Any],
+      "timestamp" -> timestamp.asInstanceOf[js.Any],
+      "message" -> message.asInstanceOf[js.Any]
+    )
+    extractedFields.foreach(_v => _obj$.updateDynamic("extractedFields")(_v.asInstanceOf[js.Any]))
+    _obj$.asInstanceOf[CloudWatchLogsLogEvent]
+  }
 }
