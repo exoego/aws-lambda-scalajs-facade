@@ -183,7 +183,8 @@ package object aws_lambda {
   // kinesis-firehose-transformation
   type FirehoseTransformationHandler = Handler[FirehoseTransformationEvent, FirehoseTransformationResult]
   type AsyncFirehoseTransformationHandler = AsyncHandler[FirehoseTransformationEvent, FirehoseTransformationResult]
-  type FirehoseRecordTransformationStatus = String
+  @deprecated("Use net.exoego.facade.aws_lambda.FirehoseRecordTransformationStatus", "0.12.0")
+  type FirehoseRecordTransformationStatus = literal.FirehoseRecordTransformationStatus
 
   // kinesis-stream
   type KinesisStreamHandler = Handler[KinesisStreamEvent, Unit]
@@ -202,7 +203,8 @@ package object aws_lambda {
   // s3-batch
   type S3BatchHandler = Handler[S3BatchEvent, S3BatchResult]
   type AsyncS3BatchHandler = AsyncHandler[S3BatchEvent, S3BatchResult]
-  type S3BatchResultResultCode = String
+  @deprecated("Use net.exoego.facade.aws_lambda.literal.S3BatchResultResultCode instead", "0.12.0")
+  type S3BatchResultResultCode = literal.S3BatchResultResultCode
 
   // ses
   type SESHandler = Handler[SESEvent, Unit]
