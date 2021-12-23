@@ -33,6 +33,15 @@ package object aws_lambda {
   type APIGatewayProxyEventStageVariables = js.Dictionary[String]
 
   // apigateway-authorizer
+  type APIGatewayAuthorizerEvent = APIGatewayTokenAuthorizerEvent | APIGatewayRequestAuthorizerEvent
+
+  type APIGatewayAuthorizerHandler = Handler[APIGatewayAuthorizerEvent, APIGatewayAuthorizerResult]
+  type APIGatewayAuthorizerWithContextHandler[TAuthorizerContext <: APIGatewayAuthorizerResultContext] =
+    Handler[APIGatewayAuthorizerEvent, APIGatewayAuthorizerWithContextResult[TAuthorizerContext]]
+  type AsyncAPIGatewayAuthorizerHandler = AsyncHandler[APIGatewayAuthorizerEvent, APIGatewayAuthorizerResult]
+  type AsyncAPIGatewayAuthorizerWithContextHandler[TAuthorizerContext <: APIGatewayAuthorizerResultContext] =
+    AsyncHandler[APIGatewayAuthorizerEvent, APIGatewayAuthorizerWithContextResult[TAuthorizerContext]]
+
   type APIGatewayEventDefaultAuthorizerContext = js.UndefOr[js.Dictionary[js.Any]] | Null
   type APIGatewayEventRequestContext =
     APIGatewayEventRequestContextWithAuthorizer[APIGatewayEventDefaultAuthorizerContext]
@@ -145,8 +154,6 @@ package object aws_lambda {
   // codepipeline-cloudwatch-action
   type CodePipelineCloudWatchActionHandler = Handler[CodePipelineCloudWatchActionEvent, Unit]
   type AsyncCodePipelineCloudWatchActionHandler = AsyncHandler[CodePipelineCloudWatchActionEvent, Unit]
-  type CodePipelineActionCategory = String
-  type CodePipelineActionState = String
 
   // codepipeline-cloudwatch-pipeline
   type CodePipelineState = String
@@ -158,26 +165,55 @@ package object aws_lambda {
   type CodePipelineCloudWatchStageHandler = Handler[CodePipelineCloudWatchStageEvent, Unit]
   type AsyncCodePipelineCloudWatchStageHandler = AsyncHandler[CodePipelineCloudWatchStageEvent, Unit]
 
+  // cognito-userpool
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
+    */
+  type UserMigrationTriggerEvent = UserMigrationAuthenticationTriggerEvent | UserMigrationForgotPasswordTriggerEvent
+
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
+    */
+  type PreTokenGenerationTriggerEvent =
+    PreTokenGenerationHostedAuthTriggerEvent | PreTokenGenerationAuthenticationTriggerEvent | PreTokenGenerationNewPasswordChallengeTriggerEvent | PreTokenGenerationAuthenticateDeviceTriggerEvent | PreTokenGenerationRefreshTokensTriggerEvent
+
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
+    */
+  type PreSignUpTriggerEvent =
+    PreSignUpEmailTriggerEvent | PreSignUpExternalProviderTriggerEvent | PreSignUpAdminCreateUserTriggerEvent
+
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
+    */
+  type PostConfirmationTriggerEvent = PostConfirmationConfirmSignUpTriggerEvent | PostConfirmationConfirmForgotPassword
+
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+    */
+  type CustomMessageTriggerEvent =
+    CustomMessageSignUpTriggerEvent | CustomMessageAdminCreateUserTriggerEvent | CustomMessageResendCodeTriggerEvent | CustomMessageForgotPasswordTriggerEvent | CustomMessageUpdateUserAttributeTriggerEvent | CustomMessageVerifyUserAttributeTriggerEvent | CustomMessageAuthenticationTriggerEvent
+
   type CreateAuthChallengeTriggerHandler = Handler[CreateAuthChallengeTriggerEvent, js.Any]
-  type CustomMessageTriggerHandler = Handler[CustomMessageTriggerEvent[String], js.Any]
+  type CustomMessageTriggerHandler = Handler[CustomMessageTriggerEvent, js.Any]
   type DefineAuthChallengeTriggerHandler = Handler[DefineAuthChallengeTriggerEvent, js.Any]
   type PostAuthenticationTriggerHandler = Handler[PostAuthenticationTriggerEvent, js.Any]
-  type PostConfirmationTriggerHandler = Handler[PostConfirmationTriggerEvent[String], js.Any]
+  type PostConfirmationTriggerHandler = Handler[PostConfirmationTriggerEvent, js.Any]
   type PreAuthenticationTriggerHandler = Handler[PreAuthenticationTriggerEvent, js.Any]
-  type PreSignUpTriggerHandler = Handler[PreSignUpTriggerEvent[String], js.Any]
-  type PreTokenGenerationTriggerHandler = Handler[PreTokenGenerationTriggerEvent[String], js.Any]
-  type UserMigrationTriggerHandler = Handler[UserMigrationTriggerEvent[String], js.Any]
+  type PreSignUpTriggerHandler = Handler[PreSignUpTriggerEvent, js.Any]
+  type PreTokenGenerationTriggerHandler = Handler[PreTokenGenerationTriggerEvent, js.Any]
+  type UserMigrationTriggerHandler = Handler[UserMigrationTriggerEvent, js.Any]
   type VerifyAuthChallengeResponseTriggerHandler = Handler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
 
   type AsyncCreateAuthChallengeTriggerHandler = AsyncHandler[CreateAuthChallengeTriggerEvent, js.Any]
-  type AsyncCustomMessageTriggerHandler = AsyncHandler[CustomMessageTriggerEvent[String], js.Any]
+  type AsyncCustomMessageTriggerHandler = AsyncHandler[CustomMessageTriggerEvent, js.Any]
   type AsyncDefineAuthChallengeTriggerHandler = AsyncHandler[DefineAuthChallengeTriggerEvent, js.Any]
   type AsyncPostAuthenticationTriggerHandler = AsyncHandler[PostAuthenticationTriggerEvent, js.Any]
-  type AsyncPostConfirmationTriggerHandler = AsyncHandler[PostConfirmationTriggerEvent[String], js.Any]
+  type AsyncPostConfirmationTriggerHandler = AsyncHandler[PostConfirmationTriggerEvent, js.Any]
   type AsyncPreAuthenticationTriggerHandler = AsyncHandler[PreAuthenticationTriggerEvent, js.Any]
-  type AsyncPreSignUpTriggerHandler = AsyncHandler[PreSignUpTriggerEvent[String], js.Any]
-  type AsyncPreTokenGenerationTriggerHandler = AsyncHandler[PreTokenGenerationTriggerEvent[String], js.Any]
-  type AsyncUserMigrationTriggerHandler = AsyncHandler[UserMigrationTriggerEvent[String], js.Any]
+  type AsyncPreSignUpTriggerHandler = AsyncHandler[PreSignUpTriggerEvent, js.Any]
+  type AsyncPreTokenGenerationTriggerHandler = AsyncHandler[PreTokenGenerationTriggerEvent, js.Any]
+  type AsyncUserMigrationTriggerHandler = AsyncHandler[UserMigrationTriggerEvent, js.Any]
   type AsyncVerifyAuthChallengeResponseTriggerHandler = AsyncHandler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
 
   // kinesis-firehose-transformation
@@ -235,12 +271,18 @@ package object aws_lambda {
   type ConnectContactFlowHandler = Handler[ConnectContactFlowEvent, ConnectContactFlowResult]
   type AsyncConnectContactFlowHandler = AsyncHandler[ConnectContactFlowEvent, ConnectContactFlowResult]
 
+  type CustomerAudio =
+    Null | // If Media Streaming has never been started.
+      StartedCustomerAudio | // If Media Streaming has been started, but not stopped.
+      StartedStoppedCustomerAudio // If Media Streaming has been started and stopped.
+
   // MSK (Amazon Managed Streaming for Apache Kafka)
   type MSKHandler = Handler[MSKEvent, Unit];
   type AsyncMSKHandler = AsyncHandler[MSKEvent, Unit];
 
   // AppSync Resolver
   // Those can also return single value, but limit to js.Array for better type inference
+  type AppSyncIdentity = AppSyncIdentityIAM | AppSyncIdentityCognito
   type AppSyncResolverHandler[T, V] = Handler[AppSyncResolverEvent[T], js.Array[V]]
   type AsyncAppSyncResolverHandler[T, V] = AsyncHandler[AppSyncResolverEvent[T], js.Array[V]]
 
