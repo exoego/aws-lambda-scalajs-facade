@@ -194,6 +194,12 @@ package object aws_lambda {
   type CustomMessageTriggerEvent =
     CustomMessageSignUpTriggerEvent | CustomMessageAdminCreateUserTriggerEvent | CustomMessageResendCodeTriggerEvent | CustomMessageForgotPasswordTriggerEvent | CustomMessageUpdateUserAttributeTriggerEvent | CustomMessageVerifyUserAttributeTriggerEvent | CustomMessageAuthenticationTriggerEvent
 
+  /** @see
+    *   https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-email-sender.html
+    */
+  type CustomEmailSenderTriggerEvent =
+    CustomEmailSenderSignUpTriggerEvent | CustomEmailSenderResendCodeTriggerEvent | CustomEmailSenderForgotPasswordTriggerEvent | CustomEmailSenderUpdateUserAttributeTriggerEvent | CustomEmailSenderVerifyUserAttributeTriggerEvent | CustomEmailSenderAdminCreateUserTriggerEvent | CustomEmailSenderAccountTakeOverNotificationTriggerEvent
+
   type CreateAuthChallengeTriggerHandler = Handler[CreateAuthChallengeTriggerEvent, js.Any]
   type CustomMessageTriggerHandler = Handler[CustomMessageTriggerEvent, js.Any]
   type DefineAuthChallengeTriggerHandler = Handler[DefineAuthChallengeTriggerEvent, js.Any]
@@ -204,6 +210,7 @@ package object aws_lambda {
   type PreTokenGenerationTriggerHandler = Handler[PreTokenGenerationTriggerEvent, js.Any]
   type UserMigrationTriggerHandler = Handler[UserMigrationTriggerEvent, js.Any]
   type VerifyAuthChallengeResponseTriggerHandler = Handler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
+  type CustomEmailSenderTriggerHandler = Handler[CustomEmailSenderTriggerEvent, js.Any]
 
   type AsyncCreateAuthChallengeTriggerHandler = AsyncHandler[CreateAuthChallengeTriggerEvent, js.Any]
   type AsyncCustomMessageTriggerHandler = AsyncHandler[CustomMessageTriggerEvent, js.Any]
@@ -215,6 +222,7 @@ package object aws_lambda {
   type AsyncPreTokenGenerationTriggerHandler = AsyncHandler[PreTokenGenerationTriggerEvent, js.Any]
   type AsyncUserMigrationTriggerHandler = AsyncHandler[UserMigrationTriggerEvent, js.Any]
   type AsyncVerifyAuthChallengeResponseTriggerHandler = AsyncHandler[VerifyAuthChallengeResponseTriggerEvent, js.Any]
+  type AsyncCustomEmailSenderTriggerHandler = AsyncHandler[CustomEmailSenderTriggerEvent, js.Any]
 
   // kinesis-firehose-transformation
   type FirehoseTransformationHandler = Handler[FirehoseTransformationEvent, FirehoseTransformationResult]

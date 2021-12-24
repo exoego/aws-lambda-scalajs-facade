@@ -54,4 +54,6 @@ package object literal {
   type CodePipelineStageState = String
   type CodePipelineCloudWatchStageDetailType = "CodePipeline Stage Execution State Change"
   type CodePipelineCloudWatchStageSource = "aws.codepipeline"
+
+  type AccountTakeOverActionType = String
 }
