@@ -61,4 +61,6 @@ package object literal {
   type CodePipelineCloudWatchStageSource = "aws.codepipeline"
 
   type AccountTakeOverActionType = "BLOCK" | "NO_ACTION" | "MFA" | "MFA_IF_CONFIGURED" | "MFA_REQUIRED"
+
+  type CloudFrontFunctionsContextEventType = "viewer-request" | "viewer-response"
 }

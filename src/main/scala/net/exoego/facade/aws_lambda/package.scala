@@ -130,6 +130,25 @@ package object aws_lambda {
   // cloudfront-common
   type CloudFrontHeaders = js.Dictionary[js.Array[CloudFrontHeadersItem]]
 
+  /** @see
+    *   https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html#functions-event-structure-query-header-cookie
+    */
+  type CloudFrontFunctionsQuerystring = js.Dictionary[CloudFrontFunctionsMultiValueItem]
+
+  /** @see
+    *   https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html#functions-event-structure-query-header-cookie
+    */
+  type CloudFrontFunctionsHeaders = js.Dictionary[CloudFrontFunctionsMultiValueItem]
+
+  /** @see
+    *   https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html#functions-event-structure-query-header-cookie
+    */
+  type CloudFrontFunctionsCookies = js.Dictionary[CloudFrontFunctionsCookieItem]
+
+  // cloudfront-functions
+  type CloudFrontFunctionsHandler = Handler[CloudFrontFunctionsEvent, CloudFrontFunctionsEvent.Response]
+  type AsyncCloudFrontFunctionsHandler = AsyncHandler[CloudFrontFunctionsEvent, CloudFrontFunctionsEvent.Response]
+
   // cloudfront-request
   type CloudFrontRequestHandler = Handler[CloudFrontRequestEvent, CloudFrontRequestResult]
   type AsyncCloudFrontRequestHandler = AsyncHandler[CloudFrontRequestEvent, CloudFrontRequestResult]
