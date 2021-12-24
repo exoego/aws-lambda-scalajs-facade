@@ -32,82 +32,39 @@ libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.11.0"
 Import and code.
 
 ```scala
+import scala.concurrent.{ExecutionContext, Future}
 import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
+import scala.scalajs.js.annotation._
 import net.exoego.facade.aws_lambda._
 
-object MyFirstLambda extends APIGatewayProxyHandler {
-  @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayProxyEvent, context: Context, callback: Callback[APIGatewayProxyResult]): Unit = ???
-}
+object Main {
+  @JSExportTopLevel("handler")
+  val handler: AsyncAPIGatewayProxyHandler = (event, context) => {
+    val json = js.JSON.stringify(event)
+    js.Dynamic.global.console.log(json)
 
-object MyFirstAsyncLambda extends AsyncAPIGatewayProxyHandler {
-  @js.annotation.JSName("apply")
-  override def apply(event: APIGatewayProxyEvent, context: Context): js.Promise[APIGatewayProxyResult]  = ???
+    implicit val ec = ExecutionContext.global
+    handle(event).toJSPromise
+  }
+
+  private def handle(event: APIGatewayProxyEvent)(implicit ec: ExecutionContext): Future[APIGatewayProxyResult] = Future {
+    APIGatewayProxyResult(
+      statusCode = 200,
+      body = "hello " + event.body,
+      headers = js.defined(js.Dictionary("Content-Type" -> "text/plain"))
+    )
+  }
 }
 ```
 
-Below is the available list of the pre-defined handler traits:
+Some of pre-defined handler traits:
 
-* ALB
-    * ALBHandler
-* API Gateway
-    * APIGatewayProxyHandler
-    * APIGatewayProxyHandlerV2
-    * APIGatewayRequestAuthorizerHandler
-    * APIGatewayRequestAuthorizerWithContextHandler
-    * APIGatewayTokenAuthorizerHandler
-    * APIGatewayTokenAuthorizerWithContextHandler
-    * CustomAuthorizerHandler
-    * ProxyHandler (alias of APIGatewayProxyHandler)
-* AppSync
-    * AppSyncResolverHandler
-* CloudFormation
-    * CloudFormationCustomResourceHandler
-* CloudFront
-    * CloudFrontRequestHandler
-    * CloudFrontResponseHandler
-* CloudWatch
-    * CloudWatchLogsHandler
-    * ScheduledHandler
-* CodeBuild
-    * CodeBuildCloudWatchStateHandler
-* CodePipeline
-    * CodePipelineCloudWatchActionHandler
-    * CodePipelineCloudWatchHandler
-    * CodePipelineCloudWatchPipelineHandler
-    * CodePipelineCloudWatchStageHandler
-    * CodePipelineHandler
-* Cognito
-    * CognitoUserPoolTriggerHandler
-    * CreateAuthChallengeTriggerHandler
-    * CustomMessageTriggerHandler
-    * DefineAuthChallengeTriggerHandler
-    * PostAuthenticationTriggerHandler
-    * PostConfirmationTriggerHandler
-    * PreAuthenticationTriggerHandler
-    * PreSignUpTriggerHandler
-    * PreTokenGenerationTriggerHandler
-    * UserMigrationTriggerHandler
-    * VerifyAuthChallengeResponseTriggerHandler
-* DynamoDB
-    * DynamoDBStreamHandler
-* EventBridge
-    * EventBridgeHandler
-* Firehose
-    * FirehoseTransformationHandler
-* Kinesis
-    * KinesisStreamHandler
-* Lex
-    * LexHandler
-* S3
-    * S3BatchHandler
-    * S3Handler
-* SES
-    * SESHandler
-* SNS
-    * SNSHandler
-* SQS
-    * SQSHandler
+* APIGatewayProxyHandlerV2
+* AppSyncResolverHandler
+* DynamoDBStreamHandler
+* S3Handler
+* SNSHandler
 
 Each has `Async~` variant that returns `js.Promise` instead of accepting callback.
 
