@@ -309,9 +309,21 @@ package object aws_lambda {
 
   // AppSync Resolver
   // Those can also return single value, but limit to js.Array for better type inference
-  type AppSyncIdentity = AppSyncIdentityIAM | AppSyncIdentityCognito
-  type AppSyncResolverHandler[T, V] = Handler[AppSyncResolverEvent[T], js.Array[V]]
-  type AsyncAppSyncResolverHandler[T, V] = AsyncHandler[AppSyncResolverEvent[T], js.Array[V]]
+  type AppSyncIdentity = AppSyncIdentityIAM | AppSyncIdentityCognito | AppSyncIdentityOIDC | AppSyncIdentityLambda
+  type AppSyncResolverHandler[T <: js.Any, V <: js.Any] = Handler[AppSyncResolverEvent[T], js.Array[V]]
+  type AsyncAppSyncResolverHandler[T <: js.Any, V <: js.Any] = AsyncHandler[AppSyncResolverEvent[T], js.Array[V]]
+
+  // https:docs.aws.amazon.com/appsync/latest/devguide/tutorial-lambda-resolvers.html#advanced-use-case-batching
+  type AppSyncBatchResolverHandler[TArguments <: js.Any, TResult] =
+    Handler[Array[AppSyncResolverEvent[TArguments]], js.Array[TResult]]
+  type AsyncAppSyncBatchResolverHandler[TArguments <: js.Any, TResult] =
+    AsyncHandler[Array[AppSyncResolverEvent[TArguments]], js.Array[TResult]]
+
+  // See https://docs.aws.amazon.com/appsync/latest/devguide/security-authz.html#aws-lambda-authorization
+  type AppSyncAuthorizerHander[TResolverContext <: js.Any] =
+    Handler[AppSyncAuthorizerEvent, AppSyncAuthorizerResult[TResolverContext]]
+  type AsyncAppSyncAuthorizerHander[TResolverContext <: js.Any] =
+    AsyncHandler[AppSyncAuthorizerEvent, AppSyncAuthorizerResult[TResolverContext]]
 
   // IoT
   type IoTPreProvisioningHookHandler = Handler[IoTPreProvisioningHookEvent, IoTPreProvisioningHookResult]
