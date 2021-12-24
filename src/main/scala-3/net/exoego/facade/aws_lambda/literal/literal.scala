@@ -60,4 +60,5 @@ package object literal {
   type CodePipelineCloudWatchStageDetailType = "CodePipeline Stage Execution State Change"
   type CodePipelineCloudWatchStageSource = "aws.codepipeline"
 
+  type AccountTakeOverActionType = "BLOCK" | "NO_ACTION" | "MFA" | "MFA_IF_CONFIGURED" | "MFA_REQUIRED"
 }
