@@ -56,4 +56,6 @@ package object literal {
   type CodePipelineCloudWatchStageSource = "aws.codepipeline"
 
   type AccountTakeOverActionType = String
+
+  type CloudFrontFunctionsContextEventType = String
 }
