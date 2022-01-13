@@ -1,6 +1,6 @@
 enablePlugins(ScalaJSPlugin)
 
-lazy val scala213 = "2.13.7"
+lazy val scala213 = "2.13.8"
 lazy val scala3 = "3.1.0"
 crossScalaVersions in ThisBuild := Seq(scala213, scala3)
 scalaVersion in ThisBuild := scala213
