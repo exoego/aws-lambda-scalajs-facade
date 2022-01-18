@@ -1,8 +1,6 @@
 import sbt._
 import Keys._
 import org.scalajs.sbtplugin.ScalaJSPlugin._
-import sbtrelease.ReleasePlugin.autoImport._
-import sbtrelease.ReleaseStateTransformations._
 import autoImport._
 
 licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
@@ -21,33 +19,9 @@ developers := List(
     url = url("https://www.exoego.net")
   )
 )
-publishTo in ThisBuild := Some(
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
-    Opts.resolver.sonatypeStaging
-)
-publishMavenStyle := true
-publishArtifact in Test := false
-publishArtifact in (Compile, packageDoc) := true
-publishArtifact in (Compile, packageSrc) := true
+Test / publishArtifact := false
+Compile / packageDoc / publishArtifact  := true
+Compile / packageSrc / publishArtifact  := true
 pomIncludeRepository := { _ =>
   false
 }
-publishConfiguration := publishConfiguration.value.withOverwrite(true)
-publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
-releaseCrossBuild := true
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
-releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,
-  inquireVersions,
-  runClean,
-  runTest,
-  setReleaseVersion,
-  commitReleaseVersion,
-  releaseStepCommandAndRemaining("+publishSigned"),
-  releaseStepCommand("sonatypeReleaseAll"),
-  tagRelease,
-  setNextVersion,
-  commitNextVersion
-)
