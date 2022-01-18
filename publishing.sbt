@@ -20,8 +20,8 @@ developers := List(
   )
 )
 Test / publishArtifact := false
-Compile / packageDoc / publishArtifact  := true
-Compile / packageSrc / publishArtifact  := true
+Compile / packageDoc / publishArtifact := true
+Compile / packageSrc / publishArtifact := true
 pomIncludeRepository := { _ =>
   false
 }
