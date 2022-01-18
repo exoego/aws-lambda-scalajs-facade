@@ -115,7 +115,7 @@ package object aws_lambda {
   @inline val APIGatewayProxyEvent = APIGatewayProxyEventBase
 
   // dynamodb-stream
-  type AttributeValue = facade.amazonaws.services.dynamodb.AttributeValue
+  type AttributeValue = facade.amazonaws.services.dynamodb.shared.AttributeValue
   type DynamoDBStreamHandler = Handler[DynamoDBStreamEvent, Unit]
   type AsyncDynamoDBStreamHandler = AsyncHandler[DynamoDBStreamEvent, Unit]
 
