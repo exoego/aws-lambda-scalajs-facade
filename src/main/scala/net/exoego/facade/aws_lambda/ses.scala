@@ -246,7 +246,8 @@ trait SESReceipt extends js.Object {
   var dkimVerdict: SESReceiptStatus
   var dmarcVerdict: SESReceiptStatus
   var dmarcPolicy: js.UndefOr[literal.SESDmarcPolicy]
-  var action: SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction
+  var action
+      : SESReceiptS3Action | SESReceiptSnsAction | SESReceiptBounceAction | SESReceiptLambdaAction | SESReceiptStopAction | SESReceiptWorkMailAction
 }
 object SESReceipt {
   def apply(
