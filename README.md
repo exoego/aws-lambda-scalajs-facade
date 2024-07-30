@@ -1,3 +1,9 @@
+# DEPRECATED
+============
+
+Use [ScalablyTyped](https://scalablytyped.org/docs/readme.html) instead 🙇
+
+
 # aws-lambda-scalajs-facade
 
 A set of type definition and utility to implement AWS Lambda functions.
